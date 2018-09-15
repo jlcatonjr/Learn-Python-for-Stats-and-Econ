@@ -1,12 +1,12 @@
 #escapeSequences.py
-singleQuotes = 'We may use \'single quotes\' in single quotes.'
-doubleQuotes = "Or we may use \"double quotes\" in double quotes."
-readBackslash = "We may use two backslashes to print a single backslash: \\"
+single_quotes = 'We may use \'single quotes\' in single quotes.'
+double_quotes = "Or we may use \"double quotes\" in double quotes."
+read_backslash = "We may use two backslashes to print a single backslash: \\"
 lines = "Every\nword\nis\na\nnew\nline"
-newLineAndTab = "We may start a new line \n\tand use tab for a hanging indent"
+new_line_and_tab = "We may start a new line \n\tand use tab for a hanging indent"
 
-print(singleQuotes)
-print(doubleQuotes)
-print(readBackslash)
+print(single_quotes)
+print(double_quotes)
+print(read_backslash)
 print(lines)
-print(newLineAndTab)
+print(new_line_and_tab)

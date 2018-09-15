@@ -2,11 +2,11 @@
 spaces = "    Look at all the spaces in the text!    "
 print("no spaces removed:\n", spaces)
 
-removeLeftSpaces = spaces.lstrip()
-removeRightSpaces = spaces.rstrip()
-removeLeftAndRightSpaces = spaces.strip()
+remove_left_spaces = spaces.lstrip()
+remove_right_spaces = spaces.rstrip()
+remove_left_and_right_spaces = spaces.strip()
 
-print("Remove left spaces:\n" + removeLeftSpaces)
-print("Remove right spaces:\n" + removeRightSpaces)
-print("Remove left and right spaces:\n" + removeLeftAndRightSpaces)
+print("Remove left spaces:\n" + remove_left_spaces)
+print("Remove right spaces:\n" + remove_right_spaces)
+print("Remove left and right spaces:\n" + remove_left_and_right_spaces)
 
