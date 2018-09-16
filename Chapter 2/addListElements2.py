@@ -10,6 +10,5 @@ list3 = []
 j = len(list1)
 for i in range(j):
     list3.insert(0,list1[i] + list2[i])
-
 print("list3:", list3)
 
