@@ -1,3 +1,4 @@
+#quandlFinancePandas.py
 # import pandas library
 import pandas as pd
 
@@ -54,8 +55,10 @@ for stock in stocks:
         
         #plot data and save as "fig"; indicate linewidth, appearance of legend,
         #   and logging of the yaxis
-        fig = data[names].plot.line(linewidth = 1, legend = True, logy = True).get_figure()
-        
+        fig = data[names].plot.line(linewidth = 1, legend = True, logy = True).get_figure()        
+       
+        # Add stock symbol as title
+        plt.title(stock)
         #makes sure format is correct
         plt.tight_layout()
         #save figure in pdf
@@ -63,5 +66,5 @@ for stock in stocks:
         
     stockData[stock] = data
 
-#close PDf so that it can be accessed by user
+#close PDF so that it can be accessed by user
 pp.close()
