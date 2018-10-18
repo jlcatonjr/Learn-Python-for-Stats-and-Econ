@@ -1,0 +1,26 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:         Effective Base   R-squared:                       0.083
+Model:                            OLS   Adj. R-squared:                  0.029
+Method:                 Least Squares   F-statistic:                     1.531
+Date:                Wed, 17 Oct 2018   Prob (F-statistic):              0.231
+Time:                        19:06:43   Log-Likelihood:                 122.85
+No. Observations:                  37   AIC:                            -239.7
+Df Residuals:                      34   BIC:                            -234.9
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+================================================================================
+                   coef    std err          t      P>|t|      [0.025      0.975]
+--------------------------------------------------------------------------------
+const            0.0120      0.003      3.489      0.001       0.005       0.019
+Real GDP         0.4334      0.398      1.089      0.284      -0.376       1.242
+GDP Deflator     0.7413      0.679      1.092      0.282      -0.638       2.120
+==============================================================================
+Omnibus:                        2.647   Durbin-Watson:                   2.111
+Prob(Omnibus):                  0.266   Jarque-Bera (JB):                2.447
+Skew:                           0.584   Prob(JB):                        0.294
+Kurtosis:                       2.529   Cond. No.                         458.
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
