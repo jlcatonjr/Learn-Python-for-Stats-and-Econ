@@ -11,4 +11,8 @@ j = len(list1)
 for i in range(j):
     list3.append(list1[i])
 
+k = len(list2)
+for i in range(k):
+    list3.append(list2[i])
+
 print("list3 elements:", list3)
