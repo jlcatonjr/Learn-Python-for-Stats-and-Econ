@@ -1,3 +1,3 @@
 #fullSlice.py
-someList = [3, 1, 5, 6, 1]
-print(someList[:])
+some_list = [3, 1, 5, 6, 1]
+print(some_list[:])

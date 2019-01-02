@@ -59,7 +59,27 @@ for key in dfDict["QData"]:
     # create logged data by np.log(dataframe)
     dfDict["Logged Data"][key] = np.log(dfDict["QData"][key])
     # create first difference data by dataframe.diff()
-    dfDict["Logged First Difference Data"][key] = dfDict["Logged Data"][key].diff()
+    dfDict["Logged First Difference Data"][key] = dfDict["Logged Data"][key].diff().dropna()
+
+
+sumStatsDict = {}
+sumStatsCats = ["Mean", "Median", "Variance"]
+
+for key1 in dfDict:
+    sumStatsDict[key1] = {}
+    for key2 in dfDict["QData"]:
+        df = dfDict[key1][key2]
+        sumStatsDict[key1][key2]={}
+        for j in range(len(sumStatsCats)):
+            key3 = sumStatsCats[j]
+    
+            if key3 == "Mean":
+                sumStatsDict[key1][key2][key3] = np.mean(df) 
+            if key3 == "Median":
+                sumStatsDict[key1][key2][key3] = np.median(df)
+            if key3 == "Variance":
+                sumStatsDict[key1][key2][key3] = np.var(df)
+
 
 # adjust text size in plots
 plt.rcParams.update({'font.size': 24})

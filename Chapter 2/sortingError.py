@@ -9,8 +9,14 @@ print("list3:", list3)
 
 sortedList1 = sorted(list1)
 sortedList2 = sorted(list2)
-sortedList3 = sorted(list3)
 
 print("sortedList1:", sortedList1)
 print("sortedList2:", sortedList2)
-print("sortedList3:", sortedList3)
+try:
+    sortedList3 = sorted(list3)
+    print("sortedList3:", sortedList3)
+except:
+    ("TypeError: unorderable types: str() < int()"
+     "Ignoring error")
+
+print("Execution complete!")

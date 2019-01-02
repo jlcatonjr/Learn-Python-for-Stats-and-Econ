@@ -14,6 +14,8 @@ list2.remove(list2_res)
 print()
 print("lists after deletion: ")
 for i in range(len(list1)):
-    print(list1[i], "\t",list2[i])     
-    
-print(list1_res, list2_res)
+    print(list1[i], "\t",list2[i])
+     
+print()
+print("Res1", "\tRes2")
+print(list1_res, "\t" + (list2_res))

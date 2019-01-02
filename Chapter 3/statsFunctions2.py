@@ -1,12 +1,14 @@
 #statsFunctions2.py
 def total(list_obj):
     total = 0
-    for i in range(len(list_obj)):
+    n = len(list_obj)
+    for i in range(n):
         total += list_obj[i]
     return total
 
 def mean(list_obj):
-    mean = total(list_obj) / len(list_obj)
+    n = len(list_obj)
+    mean = total(list_obj) / n
     return mean
 
 list1 = [3, 6, 9, 12, 15]

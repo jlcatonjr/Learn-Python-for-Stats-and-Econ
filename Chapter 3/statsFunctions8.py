@@ -1,12 +1,14 @@
 #statsFunctions8.py
 def total(list_obj):
     total = 0
-    for i in range(len(list_obj)):
+    n = len(list_obj)
+    for i in range(n):
         total += list_obj[i]
     return total
 
 def mean(list_obj):
-    mean = total(list_obj) / len(list_obj)
+    n = len(list_obj)
+    mean = total(list_obj) / n
     return mean
 
 def median(list_obj):
@@ -27,12 +29,12 @@ def mode(list_obj):
         counter_dict[value] = 0
     for value in list_obj:
         counter_dict[value] +=1
-    count_list = [counter_dict[value] for value in counter_dict]
+    count_list = list(counter_dict.values())
     max_count = max(count_list)
-    ix = [i for i, j in enumerate(count_list) if j == max_count]
+    keys = [key for key in counter_dict if counter_dict[key] == max_count]
     mode = []
-    for i in ix:
-        mode.append(list_obj[i])
+    for key in keys:
+        mode.append(key)
     return mode
 
 def variance(list_obj, sample = False):

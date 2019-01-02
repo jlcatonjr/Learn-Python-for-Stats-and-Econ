@@ -1,6 +1,6 @@
 #minMaxFunctions.py
 
 list1 = [20,30, 40, 50]
-maxListValue = max(list1)
-minListValue = min(list1)
-print("max:", maxListValue, "min:", minListValue)
+max_list_value = max(list1)
+min_list_value = min(list1)
+print("maximum:", max_list_value, "min:", min_list_value)
