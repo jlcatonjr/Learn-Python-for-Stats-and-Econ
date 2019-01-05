@@ -4,7 +4,6 @@
 
 #1. Create a list of numbers at least 100 elements in length that counts by
 # 3s - i.e., [3,6,9,12,...]
- 
 
 #2. Using the list from question 1, create a second list whose elements are
 # the same values converted to strings. hint: use str()
@@ -22,3 +21,14 @@
 # question 3 while maintaining the order of these elements
 # Hint: this can be done be using a for loop whose values are descending
 
+# Graduate Student Questions
+# 1. Use a generator to create a list of the first 1000 prime numbers. Include
+# a paragraph explaining how a generator works
+
+#2. Using a for loop and the pop function, create a list of the values from the 
+# list of prime numbers whose values are descending from highest to lowest
+
+#3. Using either of prime numbers, create another list that includes the same 
+# numbers but is randomly ordered. Do this without shuffling the initial list
+# hint: you will need to import random and import copy. Explain in a paragraph
+# the process that you followed to accomplish the task
