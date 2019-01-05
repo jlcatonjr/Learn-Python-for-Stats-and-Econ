@@ -17,9 +17,12 @@
 #5 Using a slice and len(), create a list that includes only the second half
 # of the list from question 1
 
-#6 Create a string that includes only every odd element from the string in 
-# question 3 while maintaining the order of these elements
+#6 Create a string that includes only every other element, starting from the 0th element,
+# from the string in question 3 while maintaining the order of these elements
 # Hint: this can be done be using a for loop whose values are descending
+
+#7. Explain the difference between a dynamic list in Python (usually referred
+# to as a list) and an array.
 
 # Graduate Student Questions
 # 1. Use a generator to create a list of the first 1000 prime numbers. Include

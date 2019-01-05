@@ -23,4 +23,10 @@
 # the function may look something like "def plot_data(df,names, etc...). Each
 # plot should include a legend and title.
 
+#8 Create a bar graph plot using the data you have imported.
+
+#9 On any of the graphs you have created, change the font size, axis labels, 
+# tick labels, color, linewidth, and so forth. Make it look very nice This 
+# will be graded for asthetic appeal.
+
 # No Graduate Student Questions

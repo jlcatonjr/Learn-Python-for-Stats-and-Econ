@@ -25,4 +25,9 @@
 
 #7. Call at least 5 of the results from string.__dict__.
 
+#8. Concatenate 3 distinct strings
+
+#9. In a single line, create a print function that prints a string across 3 
+# lines. hint: you will use an escape sequences
+
 # No Graduate Student Questions 

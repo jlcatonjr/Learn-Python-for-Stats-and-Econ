@@ -25,6 +25,10 @@
 #6. In a single line, pass a list with at least 4 different types to the function 
 # from question 5 and pass the result to the funciton measuring length. 
 
+#7. Create a class that houses each of the functions (now methods) that you have created. 
+# Create an instance of that class and use each of the methods from the class.
+
+
 # Graduate Student Questions
 #1. Visit OOP II: Building Classes lesson from Sargent and Stachurski and 
 # duplicate "Example: A Consumer Class". Following this, pass different values

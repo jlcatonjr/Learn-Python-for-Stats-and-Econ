@@ -22,6 +22,9 @@
 # in question 1 to each of these to determine the min and max values in that 
 # list.
 
+#6. Explain why it might be advantageous to create a function instead of 
+# building all commands from scratch as you create a script.
+
 #Graduate Student Questions
 #1. Visit the Python Essentials lesson from Sargent and Stachurski. Complete 
 # exercise 3. Pass 3 other sentences to the function that you create. 
