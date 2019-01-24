@@ -1,9 +1,13 @@
 #createMinMaxFunction.py
 
 def minimum_value(lst):
+    #check if any ints or floats are in the list
     type_list = check_list_types(lst)
+    #if not, return error
     if float not in type_list and int not in type_list:
         return "error"
+    # if not create check every value in list against the value assigned to minimum
+    # default value for minimum is inf
     minimum = float('inf')
     for val in lst:
         try:
@@ -14,9 +18,13 @@ def minimum_value(lst):
     return minimum
 
 def maximum_value(lst):
+    #check if any ints or floats are in the list
     type_list = check_list_types(lst)
+    #if not, return error
     if float not in type_list and int not in type_list:
         return "error"
+    # if not create check every value in list against the value assigned to minimum
+    # default value for minimum is inf
     maximum = float('-inf')
     for val in lst:
         try:
@@ -31,7 +39,10 @@ def return_operator_error(val):
     print("object is type:", type(val), "Cannot apply operator")
     
 def check_list_types(lst):
+    # create a list called type_list that records type every element in lst
     type_list = [type(val) for val in lst]
+    #reduce this list with set() to record each type only once
+    #convert set() to list()
     types = list(set(type_list))
     return types
 
@@ -45,9 +56,10 @@ min_string = minimum_value(string_list)
 max_string = maximum_value(string_list)
 min_mixed = minimum_value(mixed_list)
 max_mixed = maximum_value(mixed_list)
-print(min_list1)
-print(max_list1)
-print(min_string)
-print(max_string)
-print(min_mixed)
-print(max_mixed)
+
+print("Minimum value from list1:", min_list1)
+print("Maximum value from list1:", max_list1)
+print("Minimum value from string_list:", min_string)
+print("Maximum value from string_list:", max_string)
+print("Minimum value from mixed_list:", min_mixed)
+print("Maximum value from mixed_list:", max_mixed)
