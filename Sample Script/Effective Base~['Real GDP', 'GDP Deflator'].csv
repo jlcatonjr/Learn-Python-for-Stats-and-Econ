@@ -1,25 +1,25 @@
                             OLS Regression Results                            
 ==============================================================================
-Dep. Variable:         Effective Base   R-squared:                       0.083
-Model:                            OLS   Adj. R-squared:                  0.029
-Method:                 Least Squares   F-statistic:                     1.531
-Date:                Mon, 22 Oct 2018   Prob (F-statistic):              0.231
-Time:                        13:59:02   Log-Likelihood:                 122.85
-No. Observations:                  37   AIC:                            -239.7
-Df Residuals:                      34   BIC:                            -234.9
+Dep. Variable:         Effective Base   R-squared:                       0.081
+Model:                            OLS   Adj. R-squared:                  0.028
+Method:                 Least Squares   F-statistic:                     1.542
+Date:                Sat, 19 Jan 2019   Prob (F-statistic):              0.228
+Time:                        20:53:31   Log-Likelihood:                 126.62
+No. Observations:                  38   AIC:                            -247.2
+Df Residuals:                      35   BIC:                            -242.3
 Df Model:                           2                                         
 Covariance Type:            nonrobust                                         
 ================================================================================
                    coef    std err          t      P>|t|      [0.025      0.975]
 --------------------------------------------------------------------------------
-const            0.0120      0.003      3.489      0.001       0.005       0.019
-Real GDP         0.4334      0.398      1.089      0.284      -0.376       1.242
-GDP Deflator     0.7413      0.679      1.092      0.282      -0.638       2.120
+const            0.0119      0.003      3.527      0.001       0.005       0.019
+Real GDP         0.4174      0.390      1.071      0.291      -0.374       1.209
+GDP Deflator     0.7517      0.669      1.124      0.269      -0.607       2.110
 ==============================================================================
-Omnibus:                        2.647   Durbin-Watson:                   2.111
-Prob(Omnibus):                  0.266   Jarque-Bera (JB):                2.447
-Skew:                           0.584   Prob(JB):                        0.294
-Kurtosis:                       2.529   Cond. No.                         458.
+Omnibus:                        2.913   Durbin-Watson:                   2.114
+Prob(Omnibus):                  0.233   Jarque-Bera (JB):                2.679
+Skew:                           0.621   Prob(JB):                        0.262
+Kurtosis:                       2.610   Cond. No.                         463.
 ==============================================================================
 
 Warnings:

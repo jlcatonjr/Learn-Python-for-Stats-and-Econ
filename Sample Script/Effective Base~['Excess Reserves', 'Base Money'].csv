@@ -1,25 +1,25 @@
                             OLS Regression Results                            
 ==============================================================================
 Dep. Variable:         Effective Base   R-squared:                       0.440
-Model:                            OLS   Adj. R-squared:                  0.407
-Method:                 Least Squares   F-statistic:                     13.36
-Date:                Mon, 22 Oct 2018   Prob (F-statistic):           5.22e-05
-Time:                        13:59:02   Log-Likelihood:                 131.98
-No. Observations:                  37   AIC:                            -258.0
-Df Residuals:                      34   BIC:                            -253.1
+Model:                            OLS   Adj. R-squared:                  0.408
+Method:                 Least Squares   F-statistic:                     13.74
+Date:                Sat, 19 Jan 2019   Prob (F-statistic):           3.94e-05
+Time:                        20:53:31   Log-Likelihood:                 136.03
+No. Observations:                  38   AIC:                            -266.1
+Df Residuals:                      35   BIC:                            -261.1
 Df Model:                           2                                         
 Covariance Type:            nonrobust                                         
 ===================================================================================
                       coef    std err          t      P>|t|      [0.025      0.975]
 -----------------------------------------------------------------------------------
-const               0.0104      0.002      5.838      0.000       0.007       0.014
-Excess Reserves    -0.4391      0.096     -4.585      0.000      -0.634      -0.244
-Base Money          0.8467      0.175      4.852      0.000       0.492       1.201
+const               0.0104      0.002      5.921      0.000       0.007       0.014
+Excess Reserves    -0.4374      0.094     -4.642      0.000      -0.629      -0.246
+Base Money          0.8445      0.172      4.912      0.000       0.496       1.194
 ==============================================================================
-Omnibus:                        0.294   Durbin-Watson:                   2.304
-Prob(Omnibus):                  0.863   Jarque-Bera (JB):                0.411
-Skew:                          -0.186   Prob(JB):                        0.814
-Kurtosis:                       2.642   Cond. No.                         170.
+Omnibus:                        0.229   Durbin-Watson:                   2.297
+Prob(Omnibus):                  0.892   Jarque-Bera (JB):                0.320
+Skew:                          -0.167   Prob(JB):                        0.852
+Kurtosis:                       2.699   Cond. No.                         172.
 ==============================================================================
 
 Warnings:
