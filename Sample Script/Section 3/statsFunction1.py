@@ -60,7 +60,7 @@ def SD(list_obj, sample = False):
     
     return list_SD
 
-def covariance(list1, list2):
+def covariance(list1, list2, sample = False):
     """ 
     1. Check lengths of lists are the same
     2. Calculate the means
@@ -78,10 +78,24 @@ def covariance(list1, list2):
             diff_list1 = list1[i] - mean_list1
             diff_list2 = list2[i] - mean_list2
             sum_of_diff_prods += diff_list1 * diff_list2
-        cov = sum_of_diff_prods / len_list1
+        if sample == False:    
+            cov = sum_of_diff_prods / len_list1
+        if sample:
+            cov = sum_of_diff_prods / (len_list1 - 1)
         return cov
+    
+    print("List lengths not equal")
+    print("List1 observations:", len_list1)
+    print("List2 observations:", len_list2)
+
     return None
-            
+    
+def correlation(list1, list2):
+    cov = covariance(list1, list2)
+    SD1 = SD(list1)
+    SD2 = SD(list2)
+    corr = cov / (SD1 * SD2)
+    return corr
             
     
 list1 = [3, 6, 9, 12, 15]
@@ -116,3 +130,10 @@ sample_SD_list1 = SD(list1, sample = True)
 sample_SD_list2 = SD(list2, sample = True)
 print("Standard Deviation of list1 as sample:", sample_SD_list1)
 print("Standard Deviation of list2 as sample:", sample_SD_list2)
+list1.insert(0,3)
+cov_pop_list1_list2 = covariance(list1, list2, sample = False)
+cov_sample_list1_list2 = covariance(list1, list2, sample = True)
+print("Covariance of population:", cov_pop_list1_list2)
+print("Covariance of sample:", cov_sample_list1_list2)
+corr_list1_list2 = correlation(list1, list2)
+print("Correlation of list1 and list2:", corr_list1_list2)
