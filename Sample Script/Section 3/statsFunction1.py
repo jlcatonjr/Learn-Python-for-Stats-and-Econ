@@ -97,7 +97,31 @@ def correlation(list1, list2):
     corr = cov / (SD1 * SD2)
     return corr
             
-    
+def skewness(list_obj, sample = False):  
+    mean_ = mean(list_obj)  
+    skew = 0  
+    n = len(list_obj)  
+    for x in list_obj:  
+        skew += (x - mean_) ** 3  
+  
+        skew = skew / n if not sample else  n * skew / ((n - 1) * (n - 2))
+        SD_ = SD(list_obj, sample)   
+        skew = skew / (SD_ ** 3)  
+    return skew  
+
+def kurtosis(list_obj, sample = False):  
+    mean_ = mean(list_obj)  
+    kurt = 0  
+    n = len(list_obj)  
+    for x in list_obj:  
+        kurt += (x - mean_) ** 4  
+    SD_ = SD(list_obj, sample)  
+    kurt = kurt / n if not sample else \
+    n * (n+1) kurt / ((n - 1)(n – 2)) – (3(n – 1) ** 2) / ((n – 2) * (n – 3))
+    kurt = kurt / (SD_ ** 4)  
+    return kurt  
+
+
 list1 = [3, 6, 9, 12, 15]
 total_list1 = total(list1)
 print("Total of list1:", total_list1)
@@ -137,3 +161,13 @@ print("Covariance of population:", cov_pop_list1_list2)
 print("Covariance of sample:", cov_sample_list1_list2)
 corr_list1_list2 = correlation(list1, list2)
 print("Correlation of list1 and list2:", corr_list1_list2)
+
+skew_list1 = skewness(list1)  
+skew_list2 = skewness(list2)  
+print("Skewness of list1:", skew_list1)  
+print("Skewness of list2:", skew_list2)  
+  
+skew_list1_sample = skewness(list1, True)
+skew_list2_sample = skewness(list2, True)  
+print("Skewness of list1 as sample:", skew_list1_sample)  
+print("Skewness of list2 as sample:", skew_list2_sample)  
