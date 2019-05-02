@@ -5,158 +5,7 @@ import numpy as np
 from scipy.stats import t
 import matplotlib.pyplot as plt
 import statsmodels.api as sm
-
-def plot_scatter_with_estimator(data, x_vars, y, figsize = (12,8), 
-                                fontsize = 19, s = 10, y_label1 = "Estimate",
-                                y_label2 = "Observation", estimate_color = "r",
-                                legend_loc = "upper left", bbox = (0, 1.17)):
-    # set default font size
-    plt.rcParams.update({'font.size': fontsize})
-    # use a for loop to call each exogenous variable
-    for x in x_vars:
-        # prepare a figure that will plot predictor. 
-        #We will use ax to specify that the plots are in the same figure
-        fig, ax = plt.subplots(figsize = figsize)
-        # labels will be in a legend
-#        y_label1 = "Estimate"
-#        y_label2 = "Observation"
-        # plot the estimated value
-        data.plot.scatter(x = x, y = y + " estimator", ax = ax, 
-                          c = estimate_color, s = s, label = y_label1, 
-                          legend = False)
-        # erase the y-axis label to sho that "estimator is not present
-        # the y-label will reappear when the observations are plotted
-        plt.ylabel("")
-        data.plot.scatter(x = x, y = y, ax = ax, s = s, label = y_label2,
-                         legend = False)
-        # call the legend, place atop the image on the left
-        # bbox_to_anchor used to specify exact placement of label
-        plt.legend(loc = legend_loc, labels = [y_label1, y_label2],
-                   bbox_to_anchor = bbox)
-        # remove lines marking units on the axis
-        ax.xaxis.set_ticks_position('none')
-        ax.yaxis.set_ticks_position('none')
-        plt.show()
-        plt.close()
-
-
-class Stats():
-    def __init__(self):
-        pass
-            
-    def total(self, list_obj):
-        total = 0 
-        n = len(list_obj)
-        for i in range(n):
-            total += list_obj[i]
-        return total
-    
-    def mean(self, list_obj):
-        n = len(list_obj)
-        mean = self.total(list_obj) / n
-        return mean
-    
-    def median(self, list_obj):
-        n = len(list_obj)
-        # lists of even length divided by 2 have remainder of 0
-        if n % 2 != 0:
-            #list is odd
-            middle_num = int((n - 1) / 2)
-            median = list_obj[middle_num]
-        else:
-            middle_num2 = int(n/2)
-            middle_num1 = middle_num2 - 1
-            # pass slice with two middle values to mean()
-            median = self.mean(list_obj[middle_num1:middle_num2 + 1])
-        
-        return median
-    
-    def mode(self, list_obj):
-        max_count = 0
-        counter_dict = {}
-        for value in list_obj:
-            counter_dict[value] = 0
-        for value in list_obj:
-            counter_dict[value] += 1
-        count_list = list(counter_dict.values())
-        max_count = max(count_list)
-        mode = [key for key in counter_dict if counter_dict[key] == max_count]
-        
-        return mode 
-    
-    def variance(self, list_obj, sample = False):
-        """ Step 1 """
-        list_mean = self.mean(list_obj)
-        n = len(list_obj)
-        """ Step 2 """
-        sum_sq_diff = 0
-        for val in list_obj:
-            sum_sq_diff += (val - list_mean) ** 2
-        if sample == False:
-            list_variance = sum_sq_diff / n
-        if sample == True:
-            list_variance = sum_sq_diff / (n - 1)
-        return list_variance
-    
-    def SD(self, list_obj, sample = False):
-        list_variance = self.variance(list_obj, sample)
-        list_SD = list_variance ** (1/2)
-        
-        return list_SD
-    
-    def covariance(self, list1, list2, sample = False):
-
-        len_list1 = len(list1)
-        len_list2 = len(list2)
-        if len_list1 == len_list2:
-            mean_list1 = self.mean(list1)
-            mean_list2 = self.mean(list2)
-            sum_of_diff_prods = 0
-            for i in range(len_list1):
-                diff_list1 = list1[i] - mean_list1
-                diff_list2 = list2[i] - mean_list2
-                sum_of_diff_prods += diff_list1 * diff_list2
-            if sample == False:    
-                cov = sum_of_diff_prods / len_list1
-            if sample:
-                cov = sum_of_diff_prods / (len_list1 - 1)
-            return cov
-        
-        print("List lengths not equal")
-        print("List1 observations:", len_list1)
-        print("List2 observations:", len_list2)
-    
-        return None
-        
-    def correlation(self, list1, list2):
-        cov = self.covariance(list1, list2)
-        SD1 = self.SD(list1)
-        SD2 = self.SD(list2)
-        corr = cov / (SD1 * SD2)
-        return corr
-
-    def skewness(self, list_obj, sample = False):
-        mean_ = self.mean(list_obj)
-        skew = 0
-        n = len(list_obj)
-        for x in list_obj:
-            skew += (x - mean_) ** 3
-        skew = skew / n if not sample else n * skew / ((n - 1) * (n - 2))
-        SD_ = self.SD(list_obj, sample)
-        skew = skew / (SD_ ** 3)           
-        return skew
-    
-    def kurtosis(self, list_obj, sample = False):
-        mean_ = self.mean(list_obj)
-        kurt = 0
-        n = len(list_obj)
-        for x in list_obj:
-            kurt += (x - mean_) ** 4
-        SD_ = self.SD(list_obj, sample)
-        kurt = kurt / n if not sample else n * (n + 1) * kurt / ((n - 1) * \
-            (n - 2)) - (3 * (n - 1) ** 2) / ((n - 2) * (n - 3))
-        kurt = kurt / SD_ ** 4
-        return kurt
+from stats import Stats
 
 class Regression:
     def __init__(self):
@@ -319,6 +168,40 @@ class Regression:
         self.stats_DF = self.stats_DF.rename(index={0:"Estimation Statistics"})
         self.stats_DF = self.stats_DF.T        
                 
+    def plot_scatter_with_estimator(self, data, x_vars, y, figsize = (12,8), 
+                                    fontsize = 19, s = 10, y_label1 = "Estimate",
+                                    y_label2 = "Observation", estimate_color = "r",
+                                    legend_loc = "upper left", bbox = (0, 1.17)):
+        # set default font size
+        plt.rcParams.update({'font.size': fontsize})
+        # use a for loop to call each exogenous variable
+        for x in x_vars:
+            # prepare a figure that will plot predictor. 
+            #We will use ax to specify that the plots are in the same figure
+            fig, ax = plt.subplots(figsize = figsize)
+            # labels will be in a legend
+    #        y_label1 = "Estimate"
+    #        y_label2 = "Observation"
+            # plot the estimated value
+            data.plot.scatter(x = x, y = y + " estimator", ax = ax, 
+                              c = estimate_color, s = s, label = y_label1, 
+                              legend = False)
+            # erase the y-axis label to sho that "estimator is not present
+            # the y-label will reappear when the observations are plotted
+            plt.ylabel("")
+            data.plot.scatter(x = x, y = y, ax = ax, s = s, label = y_label2,
+                             legend = False)
+            # call the legend, place atop the image on the left
+            # bbox_to_anchor used to specify exact placement of label
+            plt.legend(loc = legend_loc, labels = [y_label1, y_label2],
+                       bbox_to_anchor = bbox)
+            # remove lines marking units on the axis
+            ax.xaxis.set_ticks_position('none')
+            ax.yaxis.set_ticks_position('none')
+            plt.show()
+            plt.close()
+
+
                     
                     
 data = pd.read_csv("cleanedEconFreedomData.csv")
@@ -329,7 +212,7 @@ x_vars = ["Gov't Expenditure % of GDP ", "2017 Score",
           "Population (Millions)", "Property Rights", "Business Freedom"]
 
 reg.regress("Economic Freedom and GDP", data, y_var, x_vars)
-plot_scatter_with_estimator(reg.data, x_vars, y_var, s =15, 
+reg.plot_scatter_with_estimator(reg.data, x_vars, y_var, s =15, 
                             estimate_color ="C6", legend_loc = "best" , bbox = None)
 
 y = data[y_var]

@@ -103,6 +103,15 @@ y ="Government Consumption"
 c = "Quartile"
 s = "RGDP Per Capita"
 
-for year in years:
-    four_dim_scatter(data, year, x, y, c, s,smin, smax, index_name = "Year", discrete_color=True, pp=pp)
+#for year in years:
+#    four_dim_scatter(data, year, x, y, c, s,smin, smax, index_name = "Year", discrete_color=True, pp=pp)
 pp.close()
+    
+data_year = data[(data.index.get_level_values("Year") == "2000")][plot_vars]
+# remove any row with nan value
+data_year = data_year.dropna( thresh =len(data_year.columns))
+
+fig, ax = plt.subplots(figsize=(15,10))
+
+plt.scatter(x = data_year[x], y = data_year[y], s = data_year[s])
+plt.show()
