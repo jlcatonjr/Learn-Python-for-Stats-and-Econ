@@ -9,6 +9,13 @@ print("""
 concatenate those objects and save the result in a new variable. 
 Print the result:""")
 
+# create objects with variable names identifying their meaning
+first_name = "James"
+middle_name = "Lee"
+last_name = "Caton"
+
+# concatenate the tree variables
+full_name = first_name + " "  + middle_name + " " + last_name
 
 print("""
 SCRIPT:
@@ -21,14 +28,6 @@ last_name = "Caton"
 full_name = first_name + " "  + middle_name + " " + last_name
 
 RESULT:""")
-
-# create objects with variable names identifying their meaning
-first_name = "James"
-middle_name = "Lee"
-last_name = "Caton"
-
-# concatenate the tree variables
-full_name = first_name + " "  + middle_name + " " + last_name
 
 print("Full Name:", full_name)
 
