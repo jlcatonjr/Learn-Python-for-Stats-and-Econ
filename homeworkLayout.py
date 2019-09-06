@@ -1,6 +1,3 @@
-import numpy as np
-import decimal
-import string
 #homeworkLayout.py
 print("""
 James Caton
