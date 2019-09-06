@@ -20,7 +20,7 @@ RESULT:
 
     
 print("""
-Explanation:
+EXPLANATION:
 
 """)    
 
@@ -44,7 +44,7 @@ RESULT:
 """)
 
 print("""
-Explanation:
+EXPLANATION:
 
 """)    
     
@@ -77,7 +77,7 @@ print(tab_word, new_line, escape_quote, backslash, sep="\n")
     
     
 print("""
-Explanation:
+EXPLANATION:
 I created four different objects using different escape sequences. Getting the
 result to print correctly under SCRIPT was something of a challenge as I had to 
 backslashes in front of every backslash. This might have been easier if I had
@@ -105,6 +105,10 @@ RESULT:
 
 
     
+print("""
+EXPLANATION:
+
+""")    
     
     
     
@@ -115,14 +119,6 @@ print("""
 5. Add 2 ** 1024 + 1.5. What is the outcome? Why? hint: Try adding .5, 1, and  
 1.1 instead of 1.5.
 """)
-val = 2 ** 1024
-# 2 ** 1024 + 1.0 is to large of a value to fit in the float datatype
-#new_val0 = 2**1024 + 1.0 
-#similar error as above
-new_val1 = decimal.Decimal(val) + decimal.Decimal(.5)
-new_val2 = val + 1
-#same float error
-#new_val3 = val + 1.1
 
 print("""
 SCRIPT:
@@ -131,10 +127,11 @@ SCRIPT:
     
 RESULT:
 """)
-print(val)
-print(new_val1)
+
+    
 print("""
-EXPLANATION: 
+EXPLANATION:
+    
 """)
     
     
