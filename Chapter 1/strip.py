@@ -9,4 +9,3 @@ remove_left_and_right_spaces = spaces.strip()
 print("Remove left spaces:\n" + remove_left_spaces)
 print("Remove right spaces:\n" + remove_right_spaces)
 print("Remove left and right spaces:\n" + remove_left_and_right_spaces)
-

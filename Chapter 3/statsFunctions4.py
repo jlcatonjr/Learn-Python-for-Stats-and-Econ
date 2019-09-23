@@ -12,14 +12,15 @@ def mean(list_obj):
     return mean
 
 def median(list_obj):
-    median = 0
-    if len(list_obj) % 2 != 0:
-        index = int((len(list_obj)) / 2)
-        median = float(list_obj[index])
+    n = len(list_obj)
+    if n % 2 != 0:
+        middle_num = int((n - 1) / 2)
+        median = list_obj[middle_num]
     else:
-        index1 = int((len(list_obj)) / 2)
-        index2 = index1 - 1
-        median = (list_obj[index1] + list_obj[index2]) / 2
+        upper_middle_num = int(n / 2) 
+        lower_middle_num = upper_middle_num - 1
+        median = mean(list_obj[lower_middle_num:upper_middle_num + 1])
+    
     return median
 
 def mode(list_obj):
@@ -31,10 +32,8 @@ def mode(list_obj):
         counter_dict[value] +=1
     count_list = list(counter_dict.values())
     max_count = max(count_list)
-    keys = [key for key in counter_dict if counter_dict[key] == max_count]
-    mode = []
-    for key in keys:
-        mode.append(key)
+    mode = [key for key in counter_dict if counter_dict[key] == max_count]
+
     return mode
 
 list1 = [3, 6, 9, 12, 15]

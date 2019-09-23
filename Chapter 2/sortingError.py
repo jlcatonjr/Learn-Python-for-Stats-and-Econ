@@ -16,7 +16,7 @@ try:
     sortedList3 = sorted(list3)
     print("sortedList3:", sortedList3)
 except:
-    ("TypeError: unorderable types: str() < int()"
+    print("TypeError: unorderable types: str() < int()"
      "Ignoring error")
 
 print("Execution complete!")
