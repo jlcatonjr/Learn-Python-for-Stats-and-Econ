@@ -28,8 +28,9 @@ for i in range(base):
         #produce equivalent list in base10
         base10_val = i * base + j
         base10_count_list.append(base10_val)
-
+print("\ncount in base", base)
 print(count_list)
+print("\ncount in base 10:")
 print(base10_count_list)
 
 #Example 2b
@@ -48,7 +49,9 @@ for i in range(base):
             base10_val = i * base ** 2 + j * base + k
             base10_count_list.append(base10_val)
 
+print("\ncount in base", base)
 print(count_list)
+print("\ncount in base 10:")
 print(base10_count_list)
 
 #Example 3
