@@ -10,3 +10,6 @@ index_array = even_nums % 2 == 0
 print(index_array)
 even_nums = even_nums[index_array]
 print(even_nums)
+
+even_nums_types = [type(val) for val in even_nums]
+print(even_nums_types)

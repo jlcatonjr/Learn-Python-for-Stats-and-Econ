@@ -86,30 +86,30 @@ scatter_cats = ["World Rank", "2017 Score", "Property Rights", "Judical Effectiv
 scatter_data = data_for_stats[scatter_cats]
 
 # create scatterplots that use color to vizualize a third dimension
-for key1 in scatter_data:
-    for key2 in scatter_data:
-        # do not create visualization if key1 == key2
-        if key1 != key2:
-            for key3 in scatter_data:
-                # do not create visualization if key1 == key3,
-                # or if key2 == key3
-                if key1 != key3 and key2 != key3:
-                    # Choose figure size and save ax as object
-                    fig, ax = plt.subplots(figsize = (20,20))
-                    # each point represents a an observation with 
-                    # 3 different values: key1 on the horiz ax, 
-                    # key2 on the vert ax, and key3 as color
-                    scatter_data.plot.scatter(x = key1, y = key2, c = key3,
-                                  s = 50, alpha = .7, colormap = "viridis",
-                                  ax=ax).get_figure()
-                    # Make values on x-axis vertical
-                    plt.xticks(rotation = 90)
-                    # Remove tick lines
-                    plt.setp(ax.get_xticklines(), visible=False)
-                    plt.setp(ax.get_yticklines(), visible=False) 
-#                    plt.show()
-                    pp.savefig(fig, bbox_inches = "tight")
-                    plt.close()
+#for key1 in scatter_data:
+#    for key2 in scatter_data:
+#        # do not create visualization if key1 == key2
+#        if key1 != key2:
+#            for key3 in scatter_data:
+#                # do not create visualization if key1 == key3,
+#                # or if key2 == key3
+#                if key1 != key3 and key2 != key3:
+#                    # Choose figure size and save ax as object
+#                    fig, ax = plt.subplots(figsize = (20,20))
+#                    # each point represents a an observation with 
+#                    # 3 different values: key1 on the horiz ax, 
+#                    # key2 on the vert ax, and key3 as color
+#                    scatter_data.plot.scatter(x = key1, y = key2, c = key3,
+#                                  s = 50, alpha = .7, colormap = "viridis",
+#                                  ax=ax).get_figure()
+#                    # Make values on x-axis vertical
+#                    plt.xticks(rotation = 90)
+#                    # Remove tick lines
+#                    plt.setp(ax.get_xticklines(), visible=False)
+#                    plt.setp(ax.get_yticklines(), visible=False) 
+##                    plt.show()
+#                    pp.savefig(fig, bbox_inches = "tight")
+#                    plt.close()
             
 # Create a figure to visualize a corr table
 fig, ax = plt.subplots(figsize=(20,20))
@@ -146,19 +146,19 @@ plt.show()
 pp.savefig(fig, bbox_inches="tight")
 plt.close()
 
-
 # Create a figure showing scatterplots given in scatter_cats
 fig_len = 50
+fig, ax = plt.subplots(figsize=(fig_len,fig_len))
 # Use fig_len to dictate fig_size, adjust size of font, size of dots, etc...
 plt.rcParams.update({'font.size': int(.7 * fig_len)})
 axes = pd.plotting.scatter_matrix(scatter_data,alpha = .5, 
-                                  figsize = (fig_len, fig_len),
-                                  s = fig_len ** 1.5, ax=ax)
+                                  ax = ax,
+                                  s = fig_len ** 1.5)
 
 # tight layout improves layout of text and plots in the figure
 plt.tight_layout()
 plt.show()
-pp.savefig(fig)#, bbox_inches = "tight")
+pp.savefig(fig, bbox_inches = "tight")
 pp.close()
 plt.savefig(r"scatterPlots.png")
 plt.close()
