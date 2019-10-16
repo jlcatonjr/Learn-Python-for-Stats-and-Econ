@@ -63,7 +63,8 @@ def corr_matrix_heatmap(data, pp):
     title_font = {"fontname":"Times New Roman"}
     plt.title("Correlation", fontsize = 50, **title_font)
     #Call scale to show value of colors
-    fig.colorbar(im)
+    cbar = fig.colorbar(im)
+    cbar.set_clim(-1,1)
     plt.show()
     pp.savefig(fig, bbox_inches="tight")
     plt.close()
@@ -90,7 +91,7 @@ pp = PdfPages("Economic Freedom Plots.pdf")
 # Set size of font used unless otherwise specified
 plt.rcParams.update({"font.size": 26})
 # select subste of variables to visualize in scatter plot
-scatter_cats = ["World Rank", "2017 Score", "Property Rights",
+scatter_cats = ["World Rank",# "2017 Score", "Property Rights",
                 "Judical Effectiveness", "5 Year GDP Growth Rate (%)", 
                 "GDP per Capita (PPP)"]
 select_data = data[scatter_cats]
