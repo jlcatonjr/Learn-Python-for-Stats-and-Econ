@@ -84,6 +84,7 @@ def formatted_scatter_matrix(data, pp):
     pp.savefig(fig, bbox_inches = "tight")
     plt.close()
     
+    
 data = pd.read_csv("cleanedEconFreedomData.csv", index_col = ["Country Name"])
 corr_data = pd.read_csv("econFreedomCorrMatrix.csv", index_col = [0])
 # Save plots in a pdf using PdfPages
@@ -96,7 +97,7 @@ scatter_cats = ["World Rank",# "2017 Score", "Property Rights",
                 "GDP per Capita (PPP)"]
 select_data = data[scatter_cats]
 select_corr_data = corr_data.loc[scatter_cats][scatter_cats]
-#color_dim_scatter(select_data, pp)
+color_dim_scatter(select_data, pp)
 corr_matrix_heatmap(select_corr_data, pp)
 formatted_scatter_matrix(select_data, pp)
 pp.close()
