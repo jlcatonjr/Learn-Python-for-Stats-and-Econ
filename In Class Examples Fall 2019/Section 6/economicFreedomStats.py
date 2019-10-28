@@ -20,6 +20,10 @@ for key1 in data_index:
         dropped_countries.append(key1)
 print(dropped_countries)
 
+#short_list = ["2017 Score", "Property Rights", "Trade Freedom", 
+#              "Tariff Rate (%)"]
+#data_for_stats = data_for_stats[short_list]
+
 # Next, we create dictionaries that will hold statistics for each variable
 # or pair of variables in the case of cov and corr
 
@@ -49,6 +53,7 @@ for key1 in data_for_stats:
 stats_DF = pd.DataFrame(stats_dict)
 cov_DF = pd.DataFrame(cov_dict).sort_index(axis=1)
 corr_DF = pd.DataFrame(corr_dict).sort_index(axis=1)
-print(stats_DF)
-print(cov_DF)
-print(corr_DF)
+stats_DF.to_csv("econFreedomStatsByCategory.csv")
+cov_DF.to_csv("econFreedomCovMatrix.csv")
+corr_DF.to_csv("econFreedomCorrMatrix.csv")
+data_for_stats.to_csv("cleanedEconFreedomData.csv")

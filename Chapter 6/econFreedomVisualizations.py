@@ -6,14 +6,15 @@ from matplotlib.backends.backend_pdf import PdfPages
 
 def color_dim_scatter(data, pp):
 # function uses color as dimension in scatter plot
+    track_dict = {key1:{key2:True for key2 in data} for key1 in data}
     for key1 in data:
         for key2 in data:
             # do not use same variable for x and y dimension
-            if key1 != key2:
+            if key1 != key2 and track_dict[key1][key2] and track_dict[key2][key1]:
                 for key3 in data:
                     # do not create visualization if key1 or key2
                     # equals key3
-                    if key1 != key3 and key2 != key3:
+                    if key1 != key3 and key2 != key3 :
                         # Choose figure size and save ax as object
                         fig, ax = plt.subplots(figsize = (20, 20))
                         # each point represents an observation with 3 different
@@ -27,9 +28,11 @@ def color_dim_scatter(data, pp):
                         # Remove tick lines
                         plt.setp(ax.get_xticklines(), visible = False)
                         plt.setp(ax.get_yticklines(), visible = False)
-                        plt.show()
+#                        plt.show()
                         pp.savefig(fig, bbox_inches = "tight")
                         plt.close()
+                track_dict[key1][key2] = False
+                track_dict[key2][key1] = False
 
 def corr_matrix_heatmap(data, pp):
     #Create a figure to visualize a corr matrix
@@ -92,12 +95,11 @@ pp = PdfPages("Economic Freedom Plots.pdf")
 # Set size of font used unless otherwise specified
 plt.rcParams.update({"font.size": 26})
 # select subste of variables to visualize in scatter plot
-scatter_cats = ["World Rank",# "2017 Score", "Property Rights",
-                "Judical Effectiveness", "5 Year GDP Growth Rate (%)", 
+scatter_cats = ["Judical Effectiveness", "5 Year GDP Growth Rate (%)", 
                 "GDP per Capita (PPP)"]
 select_data = data[scatter_cats]
 select_corr_data = corr_data.loc[scatter_cats][scatter_cats]
 color_dim_scatter(select_data, pp)
-corr_matrix_heatmap(select_corr_data, pp)
+corr_matrix_heatmap(data.drop("World Rank", "Region Rank"), pp)
 formatted_scatter_matrix(select_data, pp)
 pp.close()
