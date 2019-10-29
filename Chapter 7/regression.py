@@ -2,7 +2,7 @@
 import pandas as pd
 from stats import *
 import numpy as np
-from scipy.stats import t
+from scipy.stats import t, f
 
 class Regression:
     def __init__(self):
@@ -178,37 +178,53 @@ class Regression:
         # identify data for each regression
         reg1 = self.reg_history[reg1_name]
         reg2 = self.reg_history[reg2_name]
-        # identify beta estimates for each regression
+        # identify beta estimates for each regression to draw variables
         reg1_estimates = reg1["Estimates"]        
         reg2_estimates = reg2["Estimates"]
+        # name of y_var is saved as estimates index name
         reg1_y_name = reg1_estimates.index.name
         reg2_y_name = reg2_estimates.index.name
         num_obs1 = reg1["Reg Stats"].loc["Obs."][0]
         num_obs2 = reg2["Reg Stats"].loc["Obs."][0]
-#        print(num_obs1[0])
+        # check that the f-stat is measuring restriction, not diff data sets   (add measure for different data sets later...)
         if num_obs1 != num_obs2: 
-            join_f_error()
+            self.joint_f_error()
         if reg1_y_name == reg2_y_name:        
             restr_reg = reg1 if len(reg1_estimates.index) < len(reg2_estimates.index) else reg2
             unrestr_reg = reg2 if restr_reg is reg1 else reg1
-            restr_reg_stats = restr_reg["Reg Stats"]
-            unrestr_reg_stats = unrestr_reg["Reg Stats"]
             restr_var_names = restr_reg["Estimates"].index
             unrestr_var_names = unrestr_reg["Estimates"].index
         # identify statistics for each regression
         restr_reg = restr_reg if False not in [key in unrestr_var_names for key in restr_var_names] else None
         if restr_reg == None:
-            joint_f_error()
+            self.joint_f_error()
         else:
-            sser = restr_reg["Reg Stats"].loc["SSE"]
-            sseu = unrestr_reg["Reg Stats"].loc["SSE"]
-            dofr = restr_reg["Reg Stats"].loc["DOF"]          
-            dofu = unrestr_reg["Reg Stats"].loc["DOF"]
-            num_obs = num_obs1
-            f_stat = ((sser - sseu) / (dofu - dofr)) / (sseu / (num_obs1 - dofu))
-            return f_stat
+            sser = restr_reg["Reg Stats"].loc["SSE"][0]
+            sseu = unrestr_reg["Reg Stats"].loc["SSE"][0]
+            dofr = restr_reg["Reg Stats"].loc["DOF"][0]     
+            dofu = unrestr_reg["Reg Stats"].loc["DOF"][0]
+            dfn = dofr - dofu
+            dfd = dofu - 1
+            f_stat = ((sser - sseu) / (dfn)) / (sseu / (dfd))
+            f_crit_val = 1 - f.cdf(f_stat,dfn = dfn, dfd = dfd)
+            #make dictionary?
+            f_test_label = ""
+            for key in unrestr_var_names:
+                if key not in restr_var_names:
+                    f_test_label = f_test_label + str(key) + " = "
+            f_test_label = f_test_label + "0"
+            res_dict = {"f-stat":[f_stat],
+                        "p-value":[f_crit_val],
+                        "dfn":[dfn],
+                        "dfd":[dfd]}
+            res_DF = pd.DataFrame(res_dict)
+            res_DF = res_DF.rename(index={0:""})
+            res_DF = res_DF.T
+            res_DF.index.name = f_test_label
+            
+            return res_DF
             
     def joint_f_error(self):
-            print("Regressions not compareable for joint F-test")
+            print("Regressions not comparable for joint F-test")
             return None
             
