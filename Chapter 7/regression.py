@@ -186,16 +186,18 @@ class Regression:
         reg2_y_name = reg2_estimates.index.name
         num_obs1 = reg1["Reg Stats"].loc["Obs."][0]
         num_obs2 = reg2["Reg Stats"].loc["Obs."][0]
-        # check that the f-stat is measuring restriction, not diff data sets   (add measure for different data sets later...)
+        # check that the f-stat is measuring restriction,not for diff data sets  
         if num_obs1 != num_obs2: 
             self.joint_f_error()
         if reg1_y_name == reg2_y_name:        
-            restr_reg = reg1 if len(reg1_estimates.index) < len(reg2_estimates.index) else reg2
+            restr_reg = reg1 if \
+                len(reg1_estimates.index) < len(reg2_estimates.index) else reg2
             unrestr_reg = reg2 if restr_reg is reg1 else reg1
             restr_var_names = restr_reg["Estimates"].index
             unrestr_var_names = unrestr_reg["Estimates"].index
         # identify statistics for each regression
-        restr_reg = restr_reg if False not in [key in unrestr_var_names for key in restr_var_names] else None
+        restr_reg = restr_reg if False not in \
+                [key in unrestr_var_names for key in restr_var_names] else None
         if restr_reg == None:
             self.joint_f_error()
         else:
