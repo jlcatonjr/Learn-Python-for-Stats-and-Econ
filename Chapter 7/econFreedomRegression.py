@@ -17,4 +17,4 @@ reg.OLS("GDP Per Capita Unrestricted", data, y_var, x_vars_unrestricted)
 joint_f_test = reg.joint_f_test("GDP Per Capita Unrestricted", 
                                 "GDP Per Capita Restricted")
 joint_f_test.to_csv("Joint F_test; y = " + reg.y_name[0] + "; " +\
-                    joint_f_test.index.name + ".csv")  
+                    joint_f_test.index.name + ".csv")

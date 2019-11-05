@@ -91,13 +91,13 @@ pp = PdfPages("Economic Freedom Plots.pdf")
 plt.rcParams.update({"font.size": 26})
 # select subset of variables to visualize in scatter plot
 scatter_cats = ["World Rank", "2017 Score", "Property Rights",
-                "Judical Effectiveness", "5 Year GDP Growth Rate (%)"]
+                "Judical Effectiveness"]#, "5 Year GDP Growth Rate (%)"]
 #                "GDP per Capita (PPP)", "Unemployment (%)", "Inflation (%)"]
 select_data = data[scatter_cats]
 # .loc calls index instead of column
 select_corr_data = corr_data.loc[scatter_cats][scatter_cats]
 print(select_corr_data)
-#color_dim_scatter(select_data, pp)
+color_dim_scatter(select_data, pp)
 corr_matrix_heatmap(select_corr_data, pp)
 formatted_scatter_matrix(select_data, pp)
 
