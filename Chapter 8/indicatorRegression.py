@@ -23,11 +23,15 @@ for key in data:
     if "GDP" in key:
         data["Log " + key] = np.log(data[key])
 
-# place dataframe in dictionary
-# this will increase efficiency of managing differenced data
+# We do not want to difference the index values, only the Real GDP values
+# so initialize the diff data as the dataframe but only include index values
+#from a differenced matrix
+# .groupby(level=0).diff(-1) will difference data by data rather than
+# by numerical index
+diff_index = data.groupby(level=0).diff(-1).dropna().index
 data_dict = {}
 data_dict["Data"] = data
-data_dict["Diff Data"] = data.copy().loc[data.groupby(level=0).diff(-1).dropna().index]
+data_dict["Diff Data"] = data.copy().loc[diff_index]
 for key in data:
     if "GDP" in key:
         data_dict["Diff Data"][key] = data[key].groupby(level=0).diff(-1)
