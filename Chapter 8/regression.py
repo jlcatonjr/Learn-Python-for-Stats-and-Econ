@@ -1,41 +1,34 @@
-#econFreedomRegression.py
+#regression.py
 import pandas as pd
-import copy
+from stats import *
 import numpy as np
-from scipy.stats import t
-import matplotlib.pyplot as plt
-from stats import Stats
-import sys
+import copy
+from scipy.stats import t, f
 
 class Regression:
     def __init__(self):
         self.stats = Stats()
-        self.all_regressions = {}
-        self.indicator_names = []
+        self.reg_history = {}
         
-    def regress(self, reg_name, data, y_name, X_names, min_val = 0,
+    def OLS(self, reg_name, data, y_name, beta_names, min_val = 0,
                 max_val = None, constant = True):
-        self.reg_name = reg_name
-        self.all_regressions[self.reg_name] = {}
         self.min_val = min_val
         if max_val != None:
             self.max_val = max_val
         else:
             self.max_val = len(data)
-                    
-        # self.data is a copy of data, avoid changing original dataframe
+        self.reg_name = reg_name
         self.y_name = y_name
-        self.X_names = copy.copy(X_names)
-        self.data = copy.copy(data)
+        self.beta_names = copy.copy(beta_names)
+        self.data = data.copy()
         if constant:
             self.add_constant()
         self.build_matrices()
         self.estimate_betas_and_yhat()
         self.calculate_regression_stats()
-        self.X_names = self.X_names        
-        self.save_reg_stats()
-        
-    def panel_regression(self, reg_name, data, y_name, X_names, min_val = 0,
+        self.save_output()
+    
+    def panel_regression(self, reg_name, data, y_name, beta_names, min_val = 0,
                          max_val = None, entity = False, time = False, 
                          constant = True, ):
         if (entity and time) or (not entity and not time): 
@@ -60,13 +53,14 @@ class Regression:
         for indicator in self.indicator_names:
             self.create_indicator_variable(data, indicator, index_name,
                                            [indicator])
-        X_and_indicator_names = X_names + self.indicator_names
+        X_and_indicator_names = beta_names + self.indicator_names
                         
-        self.regress(reg_name = reg_name, data = data, y_name = y_name, 
-                X_names = X_and_indicator_names, min_val = min_val, 
+        self.OLS(reg_name = reg_name, data = data, y_name = y_name, 
+                beta_names = X_and_indicator_names, min_val = min_val, 
                 max_val = max_val, constant = constant)
-        self.data = self.data[self.X_names]
-        self.estimates = self.estimates.ix[self.X_names]
+        self.data = self.data[beta_names]
+        self.estimates = self.estimates.ix[beta_names]
+        self.save_output()
             
     def create_indicator_variable(self, data, indicator_name, index_name, 
                                   target_index_list):
@@ -77,230 +71,206 @@ class Regression:
         for index in target_index_list:
             data[indicator_name].loc[(data.index.get_level_values(\
                 index_name)== index)] = 1
-
+        
     def add_constant(self):
         self.data["Constant"] = 1
-        self.X_names.append("Constant")
-    
+        self.beta_names.append("Constant")
+        
     def build_matrices(self):
         # Transform dataframes to matrices
-        self.y = np.matrix(self.data[self.y_name]\
-                           [self.min_val:self.max_val])
-        # create a k x n nested list containg vectors for each xi
-        self.X = self.data[self.X_names].values
-        # create X Array
-        self.X = np.matrix(self.X)
-        self.X_transpose = np.matrix(self.X.getT())
-        
-        # (X'X)^-1
+        self.y = np.matrix(self.data[self.y_name][self.min_val:self.max_val])
+        # create a k X n nested list containg vectors for each exogenous var
+        self.X = np.matrix(self.data[self.beta_names])
+        self.X_transpose = np.matrix(self.X).getT()
+        # (X'X)**-1
         X_transp_X = np.matmul(self.X_transpose, self.X)
         self.X_transp_X_inv = X_transp_X.getI()
-        #X'y
+        # X'y
         self.X_transp_y = np.matmul(self.X_transpose, self.y)
     
     def estimate_betas_and_yhat(self):
-        # betas = (X'X)^-1 * X'y
+        # betas = (X'X)**-1 * X'y
         self.betas = np.matmul(self.X_transp_X_inv, self.X_transp_y)
         # y-hat = X * betas
         self.y_hat = np.matmul(self.X, self.betas)
-        # Create a column that holds y_hat values
-        self.data[self.y_name[0] + " estimator"] = [i.item(0) for i in self.y_hat]
+        # Create a column that holds y-hat values
+        self.data[self.y_name[0] + " estimator"] = \
+            [i.item(0) for i in self.y_hat]
         # create a table that holds the estimated coefficient
-        # this will aslo be used to store SEs, t-stats, and p-values
-        self.estimates = pd.DataFrame(self.betas, index = self.X_names,
-                         columns = ["Coefficient"])
+        # this will also be used to store SEs, t-stats,and p-values
+        self.estimates = pd.DataFrame(self.betas, index = self.beta_names,
+                                      columns = ["Coefficient"])
         # identify y variable in index
-        self.estimates.index.name ="y = " + self.y_name[0]
-
-    def remove_indicator_names(self):
-        #save X_names without indicator variables in case of panel regression
-        for name in self.indicator_names:
-            try:
-                self.X_names.remove(name)
-            except:
-                print(name, "not in list")
-
-    
+        self.estimates.index.name = "y = " + self.y_name[0]
+        
     def calculate_regression_stats(self):
         self.sum_square_stats()
         self.calculate_degrees_of_freedom()
         self.calculate_estimator_variance()
         self.calculate_covariance_matrix()
-        # done using indicator variables
-        self.remove_indicator_names()
         self.calculate_t_p_error_stats()
         self.calculate_MSE()
         self.calculate_rsquared()
-        self.caculate_adjusted_rsquared()
         self.calculate_fstat()
         self.build_stats_DF()
-        self.save_reg_stats()
+    
     def sum_square_stats(self):
         ssr_list = []
         sse_list = []
         sst_list = []
         mean_y = self.stats.mean(self.y).item(0)
         for i in range(len(self.y)):
+            # ssr is sum of squared distances between the estimated y values
+            # (y-hat) and the average of y values (y-bar)
             yhat_i = self.y_hat[i]
-            y_i =self.y[i]
+            y_i = self.y[i]
             ssr_list.append((yhat_i - mean_y) ** 2)
             sse_list.append((y_i - yhat_i) ** 2)
             sst_list.append((y_i - mean_y) ** 2)
-        self.ssr = self.stats.total(ssr_list).item(0)
-        self.sst = self.stats.total(sst_list).item(0)
-        self.sse = self.stats.total(sse_list).item(0)
-        
+            # call item - call value instead of matrix
+            self.ssr = self.stats.total(ssr_list).item(0)
+            self.sst = self.stats.total(sst_list).item(0)
+            self.sse = self.stats.total(sse_list).item(0)
+
     def calculate_degrees_of_freedom(self):
-        # Degrees of freedom compares the number of observations to the number
-        # of variables ued to form prediction
+        # Degrees of freedom compares the numer of observations to the number 
+        # of exogenous variables used to form the prediction
         self.lost_degrees_of_freedom = len(self.estimates)
-        # DoF = num_obs - num_X_variables
-        self.degrees_of_freedom = (self.max_val + 1 - self.min_val) \
-                            - self.lost_degrees_of_freedom
-    
+        self.num_obs = self.max_val + 1 - self.min_val
+        self.degrees_of_freedom =  self.num_obs - self.lost_degrees_of_freedom
+        
     def calculate_estimator_variance(self):
         # estimator variance is the sse normalized by the degrees of freedom
-        # thus, there is a tradeoff between estimator variance and degrees of
-        # freedom
+        # thus, estimator variance increases as the number of exogenous 
+        # variables used in estimation increases (i.e., as degrees of freedom
+        # fall)
         self.estimator_variance = self.sse / self.degrees_of_freedom
-    
+        
     def calculate_covariance_matrix(self):
-        # Covariance matrix will be used to estimate standard errors for each 
-        # coefficient
-        # est_var * (X'X)^-1 is the covariance matrix
-        self.cov_matrix = copy.copy(self.X_transp_X_inv)
-        if self.estimator_variance != None:
-            self.cov_matrix = float(self.estimator_variance) * self.cov_matrix
-        self.cov_matrix = pd.DataFrame(self.cov_matrix,
-                                       columns = self.X_names,
-                                       index = self.X_names)
+        # Covariance matrix will be used to estimate standard errors for
+        # each coefficient.
+        # estimator variance * (X'X)**-1 is the covariance matrix
+        self.cov_matrix = float(self.estimator_variance) * self.X_transp_X_inv
+        self.cov_matrix = pd.DataFrame(self.cov_matrix, 
+                                       columns = self.beta_names,
+                                       index = self.beta_names)
     
     def calculate_t_p_error_stats(self):
-        est = ["SE", "t-stats", "p-value", "p-rating"]
-        rating_dict = {.001: "***",
-                       .01: "**",
-                       .05: "*"}
+        self.rating_dict = {.05:"*",
+                       .01:"**",
+                       .001: "***"}
         results = self.estimates
-        for name in est:
-            results[name] = np.nan
-            for var in self.X_names:
-                if name == "SE":
-                    # SE of coefficient is found in the diagonal of cov_matrix
-                    results.ix[var][name] = \
-                    self.cov_matrix[var][var] ** (1/2)
-                if name == "t-stats":
-                    # tstat = Coef / SE
-                    results.ix[var][name] = \
-                    results["Coefficient"][var] / results["SE"][var]
-                if name == "p-value":
-                    # p-values is estimatd from location within a 
-                    # distribution implied by the t-stat
-                    results.ix[var][name] = round(t.sf(\
-                              np.abs(results.ix[var]["t-stats"]),
-                                     self.degrees_of_freedom + 1) * 2, 5)
-                if name == "p-rating":
-                    for val in rating_dict:
-                        if results.ix[var]["p-value"] < val:
-                            results[name][var] = rating_dict[val]
-                            break 
-                        results[name][var]= ""
-                        
+        stat_sig_names = ["SE", "t-stat", "p-value"]
+        for stat_name in stat_sig_names: 
+            results[stat_name] = np.nan
+        # generate statistic for each variable
+        for var in self.beta_names:
+            # SE of coefficient is found in the diagonal of cov_matrix
+            results.loc[var]["SE"] = self.cov_matrix[var][var] ** (1/2)
+            # tstat = Coef / SE
+            results.loc[var]["t-stat"] = \
+                results["Coefficient"][var] / results["SE"][var]
+            # p-value is estimated using a  table that transforms t-value in 
+            # light of degrees of freedom
+            results.loc[var]["p-value"] = np.round(t.sf(np.abs(results.\
+                       loc[var]["t-stat"]),self.degrees_of_freedom + 1) * 2, 5)
+        # values for signifiances will be blank unless p-value < .05
+        # pandas does not allow np.nan values or default blank strings to 
+        # be replaced ex post...
+        significance = ["" for i in range(len(self.beta_names))]   
+        for i in range(len(self.beta_names)):
+            var = self.beta_names[i]
+            for val in self.rating_dict:
+                if results.loc[var]["p-value"] < val:
+                    significance[i] = self.rating_dict[val]
+        results["significance"] = significance
+        
     def calculate_MSE(self):
         self.mse = self.estimator_variance ** (1/2)
     
-    def calculate_rsquared (self):
+    def calculate_rsquared(self):
         self.r_sq = self.ssr / self.sst
-    
-    def caculate_adjusted_rsquared(self):
-        n = len(self.y_hat)
-        k = len(self.X_names) if "Constant" not in self.X_names \
-            else len(self.X_names) - 1
-        self.adjusted_r_sq = (self.ssr/(n - k)) / (self.sst / (n - 1))
+        self.adj_r_sq = 1 - self.sse / self.degrees_of_freedom / (self.sst\
+                             / (self.num_obs - 1))
     
     def calculate_fstat(self):
-        self.f_stat = ((self.sst - self.sse) / (self.lost_degrees_of_freedom \
-                       -1)) / self.estimator_variance
-
-    def calculate_generalized_fstat(self, restricted_reg_name, 
-                                    unrestricted_reg_name):
-        r_reg = self.all_regressions[restricted_reg_name]
-        r_sse = r_reg["SSE"]
-        r_k = len(r_reg["X_names"]) 
-        u_reg = self.all_regressions[unrestricted_reg_name]
-        u_sse = u_reg["SSE"]
-        u_k = len(u_reg["X_names"]) 
-        if (len(r_reg["data"]) == len(u_reg["data"])): n = len(r_reg["data"]) 
-        lost_dof = (u_k - r_k)
-        fstat = ((r_sse - u_sse) / lost_dof) / (u_sse / n - u_k)
-        return fstat
-                        
+        self.f_stat = (self.sst - self.sse) / (self.lost_degrees_of_freedom\
+                       - 1) / self.estimator_variance
+    
     def build_stats_DF(self):
-        self.stats_dict = {"r**2":[self.r_sq],
-                           "adjusted r**2":[self.adjusted_r_sq],
-                           "f-stat":[self.f_stat],
-                           "Est Var":[self.estimator_variance],
-                           "MSE":[self.mse],
-                           "SSE":[self.sse],
-                           "SSR":[self.ssr],
-                           "SST":[self.sst]
-                           }
-        self.stats_DF = pd.DataFrame(self.stats_dict)
+        stats_dict = {"r**2": [self.r_sq],
+                      "Adj. r**2": [self.adj_r_sq],
+                      "f-stat": [self.f_stat],
+                      "EST Var": [self.estimator_variance],
+                      "MSE": [self.mse],
+                      "SSE": [self.sse],
+                      "SSR": [self.ssr],
+                      "SST": [self.sst],
+                      "Obs.": [self.num_obs],
+                      "DOF":[self.degrees_of_freedom]}
+        self.stats_DF = pd.DataFrame(stats_dict)
         self.stats_DF = self.stats_DF.rename(index={0:"Estimation Statistics"})
-        self.stats_DF = self.stats_DF.T        
-           
-    def save_reg_stats(self):
-        reg_name = copy.copy(self.reg_name)
-        self.all_regressions[reg_name] = \
-                        {key:self.stats_dict[key][0] for key in self.stats_dict}
-        self.all_regressions[reg_name]["estimates"] = \
-                                    copy.copy(self.estimates.ix[self.X_names])
-        self.all_regressions[reg_name]["cov_matrix"] = \
-                                    copy.copy(self.cov_matrix)
-        self.all_regressions[reg_name]["degrees_of_freedom"] = \
-                                    copy.copy(self.degrees_of_freedom)
-        self.all_regressions[reg_name]["lost_degrees_of_freedom"]=\
-                                    copy.copy(self.lost_degrees_of_freedom)
-        self.all_regressions[reg_name]["estimator_variance"] =\
-                                    copy.copy(self.estimator_variance)
-        self.all_regressions[reg_name]["MSE"] = copy.copy(self.mse)
-        self.all_regressions[reg_name]["data"] = \
-                                    copy.copy(self.data[self.X_names])
-        self.all_regressions[reg_name]["y_name"] = copy.copy(self.y_name)
-        self.all_regressions[reg_name]["X_names"] = \
-                                    copy.copy(self.X_names)
-        self.all_regressions[reg_name]["data"]\
-                                    [self.y_name[0] + " estimator"] = self.y_hat
+        self.stats_DF = self.stats_DF.T
+
+    def save_output(self):
+        self.reg_history[self.reg_name] = {}
+        self.reg_history[self.reg_name]["Reg Stats"] = self.stats_DF.copy()
+        self.reg_history[self.reg_name]["Estimates"]= self.estimates.copy()
+        self.reg_history[self.reg_name]["Cov Matrix"] = self.cov_matrix.copy()
         
-        
-    def plot_scatter_with_estimator(self, data, x_vars, y, figsize = (12,8), 
-                                    fontsize = 19, s = 10, y_label1 = "Estimate",
-                                    y_label2 = "Observation", estimate_color = "r",
-                                    legend_loc = "upper left", bbox = (0, 1.17)):
-        # set default font size
-        plt.rcParams.update({'font.size': fontsize})
-        # use a for loop to call each exogenous variable
-        for x in x_vars:
-            # prepare a figure that will plot predictor. 
-            #We will use ax to specify that the plots are in the same figure
-            fig, ax = plt.subplots(figsize = figsize)
-            # labels will be in a legend
-    #        y_label1 = "Estimate"
-    #        y_label2 = "Observation"
-            # plot the estimated value
-            data.plot.scatter(x = x, y = y[0] + " estimator", ax = ax, 
-                              c = estimate_color, s = s, label = y_label1, 
-                              legend = False)
-            # erase the y-axis label to sho that "estimator is not present
-            # the y-label will reappear when the observations are plotted
-            plt.ylabel("")
-            data.plot.scatter(x = x, y = y, ax = ax, s = s, label = y_label2,
-                             legend = False)
-            # call the legend, place atop the image on the left
-            # bbox_to_anchor used to specify exact placement of label
-            plt.legend(loc = legend_loc, labels = [y_label1, y_label2],
-                       bbox_to_anchor = bbox)
-            # remove lines marking units on the axis
-            ax.xaxis.set_ticks_position('none')
-            ax.yaxis.set_ticks_position('none')
-            plt.show()
-            plt.close()
+    def joint_f_test(self, reg1_name, reg2_name):
+        # identify data for each regression
+        reg1 = self.reg_history[reg1_name]
+        reg2 = self.reg_history[reg2_name]
+        # identify beta estimates for each regression to draw variables
+        reg1_estimates = reg1["Estimates"]        
+        reg2_estimates = reg2["Estimates"]
+        # name of y_var is saved as estimates index name
+        reg1_y_name = reg1_estimates.index.name
+        reg2_y_name = reg2_estimates.index.name
+        num_obs1 = int(reg1["Reg Stats"].loc["Obs."][0])
+        num_obs2 = int(reg2["Reg Stats"].loc["Obs."][0])
+        # check that the f-stat is measuring restriction,not for diff data sets  
+        if num_obs1 != num_obs2: 
+            self.joint_f_error()
+        if reg1_y_name == reg2_y_name:        
+            restr_reg = reg1 if \
+                len(reg1_estimates.index) < len(reg2_estimates.index) else reg2
+            unrestr_reg = reg2 if restr_reg is reg1 else reg1
+            restr_var_names = restr_reg["Estimates"].index
+            unrestr_var_names = unrestr_reg["Estimates"].index
+        # identify statistics for each regression
+        restr_reg = restr_reg if False not in \
+                [key in unrestr_var_names for key in restr_var_names] else None
+        if restr_reg == None:
+            self.joint_f_error()
+        else:
+            sser = restr_reg["Reg Stats"].loc["SSE"][0]
+            sseu = unrestr_reg["Reg Stats"].loc["SSE"][0]
+            dofr = restr_reg["Reg Stats"].loc["DOF"][0]     
+            dofu = unrestr_reg["Reg Stats"].loc["DOF"][0]
+            dfn = dofr - dofu
+            dfd = dofu - 1
+            f_stat = ((sser - sseu) / (dfn)) / (sseu / (dfd))
+            f_crit_val = 1 - f.cdf(f_stat,dfn = dfn, dfd = dfd)
+            #make dictionary?
+            f_test_label = ""
+            for key in unrestr_var_names:
+                if key not in restr_var_names:
+                    f_test_label = f_test_label + str(key) + " = "
+            f_test_label = f_test_label + "0"
+            res_dict = {"f-stat":[f_stat],
+                        "p-value":[f_crit_val],
+                        "dfn":[dfn],
+                        "dfd":[dfd]}
+            res_DF = pd.DataFrame(res_dict)
+            res_DF = res_DF.rename(index={0:""})
+            res_DF = res_DF.T
+            res_DF.index.name = f_test_label
+            
+            return res_DF
+            
+    def joint_f_error(self):
+            print("Regressions not comparable for joint F-test")
+            return None
+            

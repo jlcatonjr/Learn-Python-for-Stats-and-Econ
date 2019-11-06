@@ -27,8 +27,12 @@ for key in data:
 # this will increase efficiency of managing differenced data
 data_dict = {}
 data_dict["Data"] = data
-data_dict["Diff Data"] = data.groupby(level=0).diff(-1).dropna()
-
+data_dict["Diff Data"] = data.copy().loc[data.groupby(level=0).diff(-1).dropna().index]
+for key in data:
+    if "GDP" in key:
+        data_dict["Diff Data"][key] = data[key].groupby(level=0).diff(-1)
+data_dict["Diff Data"] = data_dict["Diff Data"].dropna()
+#
 #Create indicator variable for North America in both data and diff_data
 indicator_name = "North America"
 index_name = "ISO_Code"
@@ -38,17 +42,17 @@ countries_in_north_america = ["BHS", "BRB", "BLZ", "CAN", "CRI", "DOM",
 for key in data_dict:
     create_indicator_variable(data_dict[key], indicator_name, index_name,
                           countries_in_north_america)
-
+    
 # prepare regression variables
 X_names = ["SUMMARY INDEX", "Log RGDP Per Capita Lag", "North America"]
 y_name = ["Log RGDP Per Capita"]
 
+reg = regression.Regression()
 for key in data_dict:
     #save instance of regression class
-    reg = regression.Regression()
     # call regression method
-    reg.regress(reg_name = key, data = data_dict[key].dropna(), 
-                y_name = y_name, X_names = X_names,)
+    reg.OLS(reg_name = key, data = data_dict[key].dropna(), 
+                y_name = y_name, beta_names = X_names,)
     print(key + "\n", reg.estimates)
     print(reg.stats_DF)
     print()
