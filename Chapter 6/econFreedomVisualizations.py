@@ -94,12 +94,13 @@ corr_data = pd.read_csv("econFreedomCorrMatrix.csv", index_col = [0])
 pp = PdfPages("Economic Freedom Plots.pdf")
 # Set size of font used unless otherwise specified
 plt.rcParams.update({"font.size": 26})
-# select subste of variables to visualize in scatter plot
-scatter_cats = ["Judical Effectiveness", "5 Year GDP Growth Rate (%)", 
+# select subset of variables to visualize in scatter plot
+scatter_cats = ["World Rank", "2017 Score", "Property Rights",
+                "Judical Effectiveness", "5 Year GDP Growth Rate (%)", 
                 "GDP per Capita (PPP)"]
 select_data = data[scatter_cats]
 select_corr_data = corr_data.loc[scatter_cats][scatter_cats]
 color_dim_scatter(select_data, pp)
-corr_matrix_heatmap(data.drop("World Rank", "Region Rank"), pp)
+corr_matrix_heatmap(select_data, pp)
 formatted_scatter_matrix(select_data, pp)
 pp.close()
