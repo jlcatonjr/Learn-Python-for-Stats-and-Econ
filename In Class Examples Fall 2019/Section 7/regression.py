@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import copy
 from stats import *
+from scipy.stats import t
 
 class Regression:
     def __init__(self):
@@ -67,6 +68,8 @@ class Regression:
         self.calculate_degrees_of_freedom()
         self.calculate_estimator_variance()
         self.calculate_covariance_matrix()
+        self.calculate_t_p_error_stats()
+        
     def sum_square_stats(self):
         ssr_list = []
         sse_list = []
@@ -110,11 +113,36 @@ class Regression:
         self.cov_matrix = pd.DataFrame(self.cov_matrix,
                                        columns = self.beta_names,
                                        index = self.beta_names)
-        
-        
-        
-        
-        
+
+    def calculate_t_p_error_stats(self):
+        ratings = [.05, .01, .001]
+        results = self.estimates
+        stat_sig_names = ["SE", "t-stat", "p-value"]
+        # create space in data frame for SE, t, and p
+        for stat_name in stat_sig_names:
+            results[stat_name] = np.nan
+        # generate statistic for each variable
+        for var in self.beta_names:
+            # SE ** 2 of coefficient is found in the diagonal of cov_matrix
+            results.loc[var]["SE"] = self.cov_matrix[var][var] ** (1/2)
+            
+            # t-stat = Coef / SE
+            results.loc[var]["t-stat"] = \
+                results["Coefficient"][var] / results["SE"][var]
+            # p-values is estimated using a table that transforms t-value in 
+            # light of degrees of freedom
+            results.loc[var]["p-value"] = np.round(t.sf(np.abs(results.\
+                       loc[var]["t-stat"]), self.degrees_of_freedom + 1) * 2, 5)
+        # values for significances will be blank unless p-values < .05
+        # pandas does not allow np.nan values or default blank strings to 
+        # be replaced x-post
+        significance = ["" for i in range(len(self.beta_names))]
+        for i in range(len(self.beta_names)):
+            var = self.beta_names[i]
+            for val in ratings:
+                if results.loc[var]["p-value"] < val:
+                    significance[i] = significance[i]  + "*"
+        results["signficance"] = significance
         
         
         
