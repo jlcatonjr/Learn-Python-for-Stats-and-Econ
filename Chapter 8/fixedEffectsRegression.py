@@ -1,7 +1,7 @@
 #fixedEffectsRegression.py
 import pandas as pd
 import regression
-data = pd.DataFrame.from_csv("fraserDataWithRGDPPC.csv", index_col=[0,1], 
+data = pd.read_csv("fraserDataWithRGDPPC.csv", index_col=[0,1], 
                              parse_dates = True)
 data["RGDP Per Capita Lag"] = data.groupby(level=0)["RGDP Per Capita"].shift(-1)
 data = data.dropna()
@@ -9,6 +9,7 @@ restrict_name ="Restricted Econ Freedom Panel Reg"
 unrestrict_name = "Unrestricted Econ Freedom Panel Reg"
 X_names = ["RGDP Per Capita Lag"]
 y_name = ["RGDP Per Capita"]
+
 # create new column of data to mark countries that are in North America
 reg = regression.Regression()
 reg.panel_regression(reg_name = restrict_name, data = data,

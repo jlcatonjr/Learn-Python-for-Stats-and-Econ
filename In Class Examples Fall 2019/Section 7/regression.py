@@ -86,6 +86,7 @@ class Regression:
             ssr_list.append((r) ** 2)
             sse_list.append((e) ** 2)
             sst_list.append((t) ** 2)
+            
         # call item - call value instead of matrix
         self.ssr = self.stats.total(ssr_list).item(0)
         self.sse = self.stats.total(sse_list).item(0)
@@ -143,6 +144,8 @@ class Regression:
                 if results.loc[var]["p-value"] < val:
                     significance[i] = significance[i]  + "*"
         results["signficance"] = significance
+        
+    
         
         
         

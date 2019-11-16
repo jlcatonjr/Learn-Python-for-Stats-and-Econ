@@ -1,23 +1,16 @@
 #dataForPanel.py
-import numpy as np
 import pandas as pd
 
 #make sure dates are imported in the same format; to do this,
 #we turned off parse_dates
-fraserData = pd.read_excel("EFW2018ForPython.xlsx",
-                           sheet_name = "EFW Index 2018 Report",
-                           index_col = [1, 0],
-                           parse_dates=False)
-#drop empy columns and rows
-fraserData = fraserData.dropna(axis=0, thresh=1).dropna(axis=1, thresh=1)
+fraser_data = pd.read_excel("efw-2019-master-index-data-for-researchers.xlsx",
+                           sheet_name = "EFW Panel Data 2019 Report",
+                           header = [2], index_col = [2, 1], parse_dates=False)
+# drop any empty column and any empty row
+fraser_data = fraser_data.dropna(axis=0, thresh=1).dropna(axis=1, thresh=1)
 
-#utf-8 error usually corrected by passing encoding='iso-8859-1'
-maddisonData = pd.read_excel("mpd2018.xlsx",encoding='iso-8859-1',
-                                       sheet_name = "Full data", 
-                                       index_col = [0, 2])
+maddison_data = pd.read_excel("mpd2018.xlsx", sheet_name = "Full data", 
+                              index_col = [0,2])
 
-# for loop iterates through the index keys
-fraserData["RGDP Per Capita"] = maddisonData["cgdppc"]
-
-print(fraserData["RGDP Per Capita"])
-fraserData.to_csv("fraserDataWithRGDPPC.csv")
+fraser_data["RGDP Per Capita"] = maddison_data["cgdppc"]
+fraser_data.to_csv("fraserDataWithRGDPPC.csv")
