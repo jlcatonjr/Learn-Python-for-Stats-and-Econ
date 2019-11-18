@@ -4,11 +4,13 @@ import numpy as np
 import copy
 from stats import *
 from scipy.stats import t, f
+import sys
 
 class Regression:
     def __init__(self):
         self.stats = Stats()
         self.reg_history = {}
+        
     def OLS(self, reg_name, data, y_name, beta_names, min_val = 0,
             max_val = None, constant = True):
         # min_val and max_val set index range by index number
@@ -31,6 +33,49 @@ class Regression:
         self.estimate_betas_and_yhat()
         self.calculate_regression_stats()
         self.save_output()
+    
+    def panel_regression(self, reg_name, data, y_name, X_names, min_val = 0,
+                         max_val = None, entity = False, time = False, 
+                         constant = True):
+        if (entity and time) or (not entity and not time):
+            print("Choose time OR entity")
+            sys.exit()
+        #identify which index column holds dates, which holds entities
+        for i in range(len(data.index.levels)):
+            if isinstance(data.index.levels[i], pd.DatetimeIndex):
+                date_level = i
+                date_index_name = data.index.names[date_level]
+            else:
+                entity_level = i
+                entity_index_name = data.index.names[entity_level]
+        #save name of selected index
+        index_name = entity_index_name if entity else date_index_name
+        # reduce list to unique elements and sort
+        self.indicator_names = list(set(data.index.get_level_values(index_name)))
+        self.indicator_names = sorted(self.indicator_names)
+        self.indicator_names.pop()
+        
+        for indicator in self.indicator_names:
+            self.create_indicator_variable(data, indicator, index_name, 
+                                           [indicator])
+        X_and_indicator_names = X_names + self.indicator_names
+        self.OLS(reg_name, data = data, y_name = y_name, 
+                 beta_names = X_and_indicator_names, min_val = min_val,
+                 max_val = max_val, constant = constant)
+        self.X_names = X_names + ["Constant"]
+        self.data = self.data[self.X_names]
+        self.estimates = self.estimates.loc[self.X_names]
+        
+    def create_indicator_variable(self,data, indicator_name, index_name, 
+                                  target_index_list):
+        # Prepare column with name of indicator variable
+        data[indicator_name] = 0
+        # for each index whose name matches an entry in target_index_list
+        # a value of 1 will be recorded
+        for index in target_index_list:
+            data.loc[data.index.get_level_values(\
+                index_name) == index, indicator_name] = 1
+     
     def add_constant(self):
         self.data["Constant"] = 1
         self.beta_names.append("Constant")
@@ -170,8 +215,8 @@ class Regression:
                       "SSE":[self.sse],
                       "SSR":[self.ssr],
                       "SST":[self.sst],
-                      "Obs.":[self.num_obs],
-                      "DOF":[self.degrees_of_freedom]}
+                      "Obs.":[int(self.num_obs)],
+                      "DOF":[int(self.degrees_of_freedom)]}
         self.stats_DF = pd.DataFrame(stats_dict)
         self.stats_DF = self.stats_DF.rename(index={0:"Estimation Statistics"})
         self.stats_DF = self.stats_DF.T

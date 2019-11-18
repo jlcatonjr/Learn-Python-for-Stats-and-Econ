@@ -170,8 +170,8 @@ class Regression:
                       "SSE":[self.sse],
                       "SSR":[self.ssr],
                       "SST":[self.sst],
-                      "Obs.":[self.num_obs],
-                      "DOF":[self.degrees_of_freedom]}
+                      "Obs.":[int(self.num_obs)],
+                      "DOF":[int(self.degrees_of_freedom)]}
         self.stats_DF = pd.DataFrame(stats_dict)
         self.stats_DF = self.stats_DF.rename(index={0:"Estimation Statistics"})
         self.stats_DF = self.stats_DF.T
