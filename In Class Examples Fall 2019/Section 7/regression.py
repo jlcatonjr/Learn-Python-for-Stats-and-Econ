@@ -8,7 +8,8 @@ from scipy.stats import t
 class Regression:
     def __init__(self):
         self.stats = Stats()
-    
+        self.reg_history = {}
+        
     def OLS(self, reg_name, data, y_name, beta_names, min_val = 0,
             max_val = None, constant = True):
         # min_val and max_val set index range by index number
@@ -30,6 +31,7 @@ class Regression:
         self.build_matrices() 
         self.estimate_betas_and_yhat()
         self.calculate_regression_stats()
+        self.save_output()
     
     def add_constant(self):
         self.data["Constant"] = 1
@@ -69,7 +71,10 @@ class Regression:
         self.calculate_estimator_variance()
         self.calculate_covariance_matrix()
         self.calculate_t_p_error_stats()
-        
+        self.calculate_root_mse()
+        self.calculate_rsquared()
+        self.calculate_fstat()
+        self.build_stats_DF()
     def sum_square_stats(self):
         ssr_list = []
         sse_list = []
@@ -145,18 +150,36 @@ class Regression:
                     significance[i] = significance[i]  + "*"
         results["signficance"] = significance
         
+    def calculate_root_mse(self):
+        self.root_mse = self.estimator_variance ** (1/2)
     
+    def calculate_rsquared(self):
+        self.r_sq = self.ssr / self.sst
+        self.adj_r_sq = 1 - self.sse / self.degrees_of_freedom / (self.sst\
+            / (self.num_obs - 1))
+    def calculate_fstat(self):
+        self.f_stat = (self.sst - self.sse) / (self.lost_degrees_of_freedom\
+        - 1) / self.estimator_variance
+        
+    def build_stats_DF(self):
+        stats_dict = {"r**2":[self.r_sq],
+                      "Adj. r**2":[self.adj_r_sq],
+                      "f-stat":[self.f_stat],
+                      "Est Var":[self.estimator_variance],
+                      "rootMSE":[self.root_mse],
+                      "SSE":[self.sse],
+                      "SSR":[self.ssr],
+                      "SST":[self.sst],
+                      "Obs.":[int(self.num_obs)],
+                      "DOF":[int(self.degrees_of_freedom)]}
+        self.stats_DF = pd.DataFrame(stats_dict)
+        self.stats_DF = self.stats_DF.rename(index={0:"Estimation Statistics"})
+        self.stats_DF = self.stats_DF.T
+        
+    def save_output(self):
+        self.reg_history[self.reg_name] = {"Reg Stats": self.stats_DF.copy(),
+                        "Estimates": self.estimates.copy(),
+                        "Cov Matrix": self.cov_matrix.copy(),
+                        "Data": self.data.copy()}
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    
-    

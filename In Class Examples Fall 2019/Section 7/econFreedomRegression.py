@@ -1,6 +1,6 @@
 #econFreedomRegression
 import pandas as pd
-import regression1
+import regression
 import matplotlib.pyplot as plt
 
 def plot_scatter_with_estimator(data, x_vars, y_var):
@@ -34,7 +34,7 @@ def plot_scatter_with_estimator(data, x_vars, y_var):
         plt.close()
 
 data = pd.read_csv("cleanedEconFreedomData.csv", index_col = [0])
-reg = regression1.Regression()
+reg = regression.Regression()
 
 y_var = ["GDP per Capita (PPP)"]
 x_vars = ["Trade Freedom", "Property Rights", "Judical Effectiveness",
@@ -42,4 +42,4 @@ x_vars = ["Trade Freedom", "Property Rights", "Judical Effectiveness",
          "Inflation (%)", "Public Debt (% of GDP)"]
 
 reg.OLS("GDP Per Capita", data, y_var, x_vars)
-plot_scatter_with_estimator(reg.data, x_vars, y_var)
+#plot_scatter_with_estimator(reg.data, x_vars, y_var)
