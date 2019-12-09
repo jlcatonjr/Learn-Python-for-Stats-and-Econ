@@ -181,5 +181,5 @@ class Regression:
                         "Estimates": self.estimates.copy(),
                         "Cov Matrix": self.cov_matrix.copy(),
                         "Data": self.data.copy()}
-        
+    
         
