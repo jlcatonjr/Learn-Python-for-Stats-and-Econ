@@ -12,5 +12,5 @@ fraser_data = fraser_data.dropna(axis=0, thresh=1).dropna(axis=1, thresh=1)
 maddison_data = pd.read_excel("mpd2018.xlsx", sheet_name = "Full data", 
                               index_col = [0,2])
 
-fraser_data["RGDP Per Capita"] = maddison_data["cgdppc"]
+fraser_data["RGDP Per Capita"z] = maddison_data["cgdppc"]
 fraser_data.to_csv("fraserDataWithRGDPPC.csv")

@@ -3,7 +3,9 @@ msg = "john nash"
 print(msg)
 
 # ALL CAPS
-print(msg.upper())
+msg_upper = msg.upper()
+print(msg_upper)
 
 # First Letter Of Each Word Capitalized
-print(msg.title())
+msg_title = msg.title()
+print(msg_title)

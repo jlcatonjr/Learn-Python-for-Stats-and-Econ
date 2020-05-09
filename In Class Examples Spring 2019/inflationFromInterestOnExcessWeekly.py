@@ -14,7 +14,7 @@ from statsmodels.tsa.api import VAR, DynamicVAR
 def plotDF(df, names,pp, title="", secondary_y=None, logy=False, legend=False, dataType="",
            start=None,end=None):
 #    start = df.index[0]
-    plt.rcParams['axes.ymargin'] = .01# * df[names].max().max()
+    plt.rcParams['axes.ymargin'] = .01
     plt.rcParams['axes.xmargin'] = 0
     
     fig, ax1 = plt.subplots(figsize=(24,12))
@@ -22,10 +22,6 @@ def plotDF(df, names,pp, title="", secondary_y=None, logy=False, legend=False, d
     vlineObama = datetime.datetime(2009, 3, 31)
     vlineTrump = datetime.datetime(2017, 3, 31)
     plt.axvline(vlinePowell, color="k",ls="--")    
-#    plt.axvline(vlineObama,color="b",ls="-")
-#    plt.axvline(vlineTrump,color="r",ls="-")
-    #    plt.text(vlineObama.year + .5,.9 * df.max().max(),"Obama", fontsize = 24)
-#    plt.text(vlineTrump.year + .5,.9 * df.max().max(),"Trump", fontsize = 24)
 
     #plot data synced to different y-axes
     lns=[]  

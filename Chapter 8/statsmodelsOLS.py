@@ -12,8 +12,11 @@ y = data[y_var]
 X = data[x_vars]
 X["Constant"] = 1
 results = sm.OLS(y, X).fit()
+print(X.keys())
+restricted_results = sm.OLS(y, X.drop(x_vars[1:], axis = 1)).fit()    
+print(results.compare_f_test(restricted_results))
 
-betaEstimates = results.params
+betaParams = results.params
 tStats = results.tvalues
 pValues =  results.pvalues
 stdErrors = results.bse
@@ -26,6 +29,7 @@ resultsDF = pd.DataFrame(resultsDict)
 OLSSummary = results.summary()
 
 predictor = results.predict()
+
 data[y_var[0] + " Predictor"] = predictor
 fig, ax = plt.subplots(figsize = (12,8))
 plt.rcParams.update({"font.size": 18})
