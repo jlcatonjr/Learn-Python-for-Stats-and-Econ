@@ -1,5 +1,4 @@
 #removeListElements.py
-
 list1 = ["red", "blue", "orange", "black", "white", "golden"]
 list2 = ["nose", "ice", "fire", "cat", "mouse", "dog"]
 print("lists before deletion: ")
