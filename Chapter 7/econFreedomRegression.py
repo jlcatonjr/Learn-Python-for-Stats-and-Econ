@@ -1,6 +1,6 @@
 #econFreedomRegression
 import pandas as pd
-import regression
+from regression import Regression
 import statsmodels.api as sm
 import matplotlib.pyplot as plt
 
@@ -35,7 +35,7 @@ def plot_scatter_with_estimator(data, x_vars, y_var):
         plt.close()
 
 data = pd.read_csv("cleanedEconFreedomData.csv")
-reg = regression.Regression()
+reg = Regression()
 
 y_var = ["GDP per Capita (PPP)"]
 x_vars = ["Judical Effectiveness", "Property Rights",
