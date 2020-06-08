@@ -1,1 +1,0 @@
-Class projects to be uploaded in the appropriate folder
