@@ -1,39 +1,36 @@
 import geopandas
 import numpy as np
 import pandas as pd
+import datetime
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from matplotlib.backends.backend_pdf import PdfPages
-from matplotlib import cm
 import matplotlib.ticker as mtick
-from matplotlib.ticker import MaxNLocator
-import datetime
 import datadotworld as dw
 
-def import_geo_data(filename, index_col = "Date", rename_FIPS = "FIPS"):
+def import_geo_data(filename, index_col = "Date", FIPS_name = "FIPS"):
     # import county level shapefile
     map_data = geopandas.read_file(filename = filename,                                   
                                    index_col = index_col)
-    map_data.rename(columns={"COUNTYFP":rename_FIPS, "State":"state"},
-                    inplace = True)
-    map_data[rename_FIPS] = map_data["STATEFP"].astype(str) + \
-        map_data[rename_FIPS].astype(str)
-    map_data[rename_FIPS] = map_data[rename_FIPS].astype(np.int64)
+    map_data.rename(columns={"State":"state"}, inplace = True)
+    map_data.loc[:, FIPS_name] = map_data["STATEFP"].astype(str) + \
+        map_data.loc[:, "COUNTYFP"].astype(str)
+    map_data.loc[:, FIPS_name] = map_data[FIPS_name].astype(np.int64)
     map_data.set_index("fips_code", inplace=True)
     cea_data = map_data.to_crs({"proj": "cea"})
-    map_data["area (sq. km)"] = cea_data.area / 10 ** 6
+#    map_data["area (sq. km)"] = cea_data.area / 10 ** 6
     
     return map_data
 
-def import_covid_data(filename, fips_name):
+def import_covid_data(filename, FIPS_name):
     # Load COVID19 county data using datadotworld API
     # Data provided by Johns Hopkins, file provided by Associated Press
     dataset = dw.load_dataset("associatedpress/johns-hopkins-coronavirus-case-tracker")
     covid_data = dataset.dataframes["2_cases_and_deaths_by_county_timeseries"]
     covid_data = covid_data[covid_data[fips_name] < 57000]
-    covid_data[fips_name] = covid_data[fips_name].astype(int)
+    covid_data.loc[:, fips_name] = covid_data[fips_name].astype(int)
     covid_data.set_index([fips_name, "date"], inplace = True)
     covid_data.loc[:, "state_abr"] = ""
     for state, abr in state_dict.items():
@@ -41,7 +38,7 @@ def import_covid_data(filename, fips_name):
 
     return covid_data
 
-def create_covid_geo_dataframe(covid_data, map_data):
+def create_covid_geo_dataframe(covid_data, map_data, dates):
     # create geopandas dataframe with multiindex for date
     # original geopandas dataframe had no dates, so copies of the df are 
     # stacked vertically, with a new copy for each date in the covid_data index
@@ -51,7 +48,7 @@ def create_covid_geo_dataframe(covid_data, map_data):
         df = covid_data[covid_data.index.get_level_values("date")==date]
         counties = df.index.get_level_values("fips_code")
         agg_df = map_data.loc[counties]
-        agg_df["date"] = df.index.get_level_values("date")[0]
+        agg_df.loc[:, "date"] = date#df.index.get_level_values("date")[0]
         if i == 0:
             matching_gpd = geopandas.GeoDataFrame(agg_df, crs = map_data.crs)
             i += 1
@@ -70,7 +67,7 @@ def create_state_dataframe(covid_data):
     states.remove("District of Columbia")
     
     state_data = covid_data.reset_index().set_index(["date", "state","fips_code"]).groupby(["state", "date"]).sum(numeric_only = True,
-              ignore_index = False) 
+              ignore_index = False).copy()
     drop_cols = ["uid", "location_name", "cumulative_cases_per_100_000", 
                  "cumulative_deaths_per_100_000", "new_cases_per_100_000",
                  "new_deaths_per_100_000",'new_cases_rolling_7_day_avg', 
@@ -86,7 +83,6 @@ def create_state_dataframe(covid_data):
     return state_data    
 
 def create_new_vars(covid_data, moving_average_days):
-#    covid_data["Population / Sq Km"] = covid_data["total_population"].div(covid_data['area (sq. km)'])
     for key in ["cases", "deaths"]:
         cap_key = key.title()
         covid_data[cap_key + " per Million"] = covid_data["cumulative_" + key].div(covid_data["total_population"]).mul(10 ** 6)
@@ -107,15 +103,14 @@ def create_zero_day_dict(covid_data, start_date):
         day_zero_val[key] = 2 if "Deaths" in key else 10
     entities = sorted(list(set(covid_data.index.get_level_values(0))))    
     for key in zero_day_dict.keys():
+        print(key)
         vals = covid_data[key]
         thresh_vals = covid_data["Deaths per Million"] if "Deaths" in key else \
             covid_data["Cases per Million"]
         dz_val = day_zero_val[key]
         for entity in entities:
             dpc = vals[vals.index.get_level_values(0) == entity][thresh_vals > dz_val]
-            dpc = dpc[dpc.index.get_level_values("date") > start_date]
             zero_day_dict[key][entity] = dpc.copy()
-            print(entity)
     return zero_day_dict, day_zero_val
 
 def plot_zero_day_data(state_name, state, covid_data, zero_day_dict, 
@@ -224,11 +219,11 @@ def plot_map(i, *fargs):
     ax.clear()
     date = dates[i]
 #    cmap = cm.get_cmap('YlOrBr', 8)
-    cmap = cm.get_cmap('Reds', 4)
+    cmap = mpl.cm.get_cmap('Reds', 4)
     vmin = 1 if "Deaths" in key else 10
     print(key, date)
     
-    plt.cm.ScalarMappable(cmap=cmap, norm=cm.colors.LogNorm(vmin=vmin, 
+    plt.cm.ScalarMappable(cmap=cmap, norm=mpl.cm.colors.LogNorm(vmin=vmin, 
                                 vmax =vmax))#round(vmax, len(str(vmax))-1)))
     plot_df = val[val.index.get_level_values("date")==date]
     plot_df.plot(ax=ax, cax = ax, column=key, vmin=vmin ,vmax = vmax, 
@@ -239,11 +234,11 @@ def plot_map(i, *fargs):
     
 def init():
     # Create colorbar as a legend
-    cmap = cm.get_cmap('Reds', 4)
+    cmap = mpl.cm.get_cmap('Reds', 4)
     vmin = 1 if "Deaths" in key else 10
     print(vmin, vmax)
     size = "5%" 
-    sm = plt.cm.ScalarMappable(cmap=cmap, norm=cm.colors.LogNorm(vmin=vmin, 
+    sm = plt.cm.ScalarMappable(cmap=cmap, norm=mpl.cm.colors.LogNorm(vmin=vmin, 
                                 vmax =vmax))#round(vmax, len(str(vmax))-1)))
     # empty array for the data range
     sm._A = []
@@ -278,23 +273,17 @@ state_dict = {
     'Washington': 'WA', 'West Virginia': 'WV', 'Wisconsin': 'WI', 'Wyoming': 'WY'
 }
 
-plt.rcParams['axes.ymargin'] = 0
-plt.rcParams['axes.xmargin'] = 0
-plt.rcParams.update({'font.size': 32})
-
-
 if "data_processed" not in locals():
     fips_name = "fips_code"
-    covid_file = "COVID19DataAP.csv"
+    covid_filename = "COVID19DataAP.csv"
     # rename_FIPS matches map_data FIPS with COVID19 FIPS name
     map_data = import_geo_data(filename = "countiesWithStatesAndPopulation.shp",
-                    index_col = "Date", rename_FIPS = fips_name)
-    covid_data = import_covid_data(filename = covid_file, fips_name = fips_name)
-    # dates is global, will be called in create_covid_geo_dataframe() 
-    # and will be used later
-    dates = sorted(list(set(covid_data.index.get_level_values("date"))))
-    covid_data = create_covid_geo_dataframe(covid_data, map_data)
+                    index_col = "Date", FIPS_name= fips_name)
+    covid_data = import_covid_data(filename = covid_filename, FIPS_name = fips_name)
     state_data = create_state_dataframe(covid_data)
+    # dates will be used to create a geopandas DataFrame with multiindex 
+    dates = sorted(list(set(covid_data.index.get_level_values("date"))))
+    covid_data = create_covid_geo_dataframe(covid_data, map_data, dates)
     moving_average_days = 7
     create_new_vars(covid_data, moving_average_days)
     create_new_vars(state_data, moving_average_days)
@@ -307,6 +296,9 @@ if "data_processed" not in locals():
     # not to repeat these operations 
     data_processed = True
 
+plt.rcParams['axes.ymargin'] = 0
+plt.rcParams['axes.xmargin'] = 0
+plt.rcParams.update({'font.size': 32})
 keys = ["Cases per Million", "Deaths per Million"]
 
 lines= {}
