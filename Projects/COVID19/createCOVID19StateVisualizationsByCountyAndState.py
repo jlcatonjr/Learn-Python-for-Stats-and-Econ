@@ -17,9 +17,9 @@ def import_geo_data(filename, index_col = "Date", FIPS_name = "FIPS"):
     map_data.rename(columns={"State":"state"}, inplace = True)
     map_data.loc[:, FIPS_name] = map_data["STATEFP"].astype(str) + \
         map_data.loc[:, "COUNTYFP"].astype(str)
-    map_data.loc[:, FIPS_name] = map_data[FIPS_name].astype(np.int64)
+    map_data.loc[FIPS_name] = map_data[FIPS_name].astype(np.int64)
     map_data.set_index("fips_code", inplace=True)
-    cea_data = map_data.to_crs({"proj": "cea"})
+#    cea_data = map_data.to_crs({"proj": "cea"})
 #    map_data["area (sq. km)"] = cea_data.area / 10 ** 6
     
     return map_data
@@ -116,7 +116,7 @@ def create_zero_day_dict(covid_data, start_date):
 def plot_zero_day_data(state_name, state, covid_data, zero_day_dict, 
                        day_zero_val, keys, entity_type, entities, pp, 
                        n_largest = 10, bold_entities = None, daily = False):
-    max_x = 0
+    
     fig, a = plt.subplots(2,1, figsize = (48, 32))
     for key in keys:
         val_key = "Daily " + key + " MA" if daily else key
