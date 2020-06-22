@@ -257,7 +257,7 @@ def init():
     print(vals)
     cbar.ax.yaxis.set_major_formatter(mtick.LogFormatter())
     cbar.ax.set_yticklabels([int(x) for x in vals])
-    cbar.ax.set_ylabel(key.replace("Cases", key), fontsize = 20)
+    cbar.ax.set_ylabel(key, fontsize = 20)
 
 # I maintained this dictionary to use the state abbrevations in the names of
 # saved files.
@@ -309,27 +309,27 @@ if "data_processed" not in locals():
 
 keys = ["Cases per Million", "Deaths per Million"]
 
-lines= {}
-colors = ["C" + str(i) for i in range(10)]
-colors_dict = {}
-#pp = PdfPages("covidDataByState.pdf")
-#n_largest = 10
-#
-#
-#for daily in [True, False]:
-#    if not daily:
-#        for state_name, state in state_dict.items():
-#            state_fips = sorted(list(set(covid_data[covid_data["state_abr"] == state].index.get_level_values("fips_code").copy())))
-#            plot_zero_day_data(state_name, state, covid_data, county_zero_day_dict, 
+# lines= {}
+# colors = ["C" + str(i) for i in range(10)]
+# colors_dict = {}
+# pp = PdfPages("covidDataByState.pdf")
+# n_largest = 10
+
+
+# for daily in [True, False]:
+#     if not daily:
+#         for state_name, state in state_dict.items():
+#             state_fips = sorted(list(set(covid_data[covid_data["state_abr"] == state].index.get_level_values("fips_code").copy())))
+#             plot_zero_day_data(state_name, state, covid_data, county_zero_day_dict, 
 #                               day_zero_val, keys, "fips_code", state_fips, pp, 
 #                               n_largest, daily = daily)
-#        
-#    
-#    plot_zero_day_data("United States", "U.S.A", state_data, state_zero_day_dict, 
+        
+    
+#     plot_zero_day_data("United States", "U.S.A", state_data, state_zero_day_dict, 
 #                       day_zero_val, keys, "state", state_dict.keys(), pp,
 #                           bold_entities = ["IA", "MN", "NE", "ND","SD", "WI"],
 #                           daily = daily)
-#pp.close()
+# pp.close()
 
 if "map_bounded" not in locals():
     minx = -125
@@ -342,7 +342,7 @@ if "map_bounded" not in locals():
 mpl.rcParams['animation.embed_limit'] = 200
 plot_dates = sorted(list(set(covid_data[covid_data.index.get_level_values("date") > start_date].index.get_level_values("date"))))
 #dates = plot_dates[plot_dates.index("2020-03-17"):]
-dates = plot_dates[29*3*-1 -1::3]
+dates = plot_dates[31*3*-1 -1::3]
 keys.append("Daily Cases per Million MA")
 keys.append("Daily Deaths per Million MA")
 for key in keys:
