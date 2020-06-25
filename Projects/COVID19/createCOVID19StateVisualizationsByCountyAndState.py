@@ -357,7 +357,7 @@ for key in keys:
     frames=[i for i in range(len(dates))]
     anim = FuncAnimation(fig, plot_map, frames = frames, 
                          blit = False, init_func = init, interval=300,
-                         fargs = (val, vmax, key))
+                         fargs = (ax, val, vmax, key))
 
     with open(key.replace("/", "-")+ ".html", "w") as f:
         print(anim.to_html5_video(), file=f)
