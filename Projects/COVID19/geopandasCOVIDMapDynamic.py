@@ -249,8 +249,5 @@ for key in keys:
     anim.save(key + ".mp4", writer = "ffmpeg")
     # with open(key.replace("/", "-")+ ".html", "w") as f:
     #     print(anim.to_html5_video(), file=f)
-
-
-    
     plt.show()    
     plt.close()
