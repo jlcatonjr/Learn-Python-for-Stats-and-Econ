@@ -309,27 +309,27 @@ if "data_processed" not in locals():
 
 keys = ["Cases per Million", "Deaths per Million"]
 
-# lines= {}
-# colors = ["C" + str(i) for i in range(10)]
-# colors_dict = {}
-# pp = PdfPages("covidDataByState.pdf")
-# n_largest = 10
+lines= {}
+colors = ["C" + str(i) for i in range(10)]
+colors_dict = {}
+pp = PdfPages("covidDataByState.pdf")
+n_largest = 10
 
 
-# for daily in [True, False]:
-#     if not daily:
-#         for state_name, state in state_dict.items():
-#             state_fips = sorted(list(set(covid_data[covid_data["state_abr"] == state].index.get_level_values("fips_code").copy())))
-#             plot_zero_day_data(state_name, state, covid_data, county_zero_day_dict, 
-#                               day_zero_val, keys, "fips_code", state_fips, pp, 
-#                               n_largest, daily = daily)
+for daily in [True, False]:
+    if not daily:
+        for state_name, state in state_dict.items():
+            state_fips = sorted(list(set(covid_data[covid_data["state_abr"] == state].index.get_level_values("fips_code").copy())))
+            plot_zero_day_data(state_name, state, covid_data, county_zero_day_dict, 
+                              day_zero_val, keys, "fips_code", state_fips, pp, 
+                              n_largest, daily = daily)
         
     
-#     plot_zero_day_data("United States", "U.S.A", state_data, state_zero_day_dict, 
-#                       day_zero_val, keys, "state", state_dict.keys(), pp,
-#                           bold_entities = ["IA", "MN", "NE", "ND","SD", "WI"],
-#                           daily = daily)
-# pp.close()
+    plot_zero_day_data("United States", "U.S.A", state_data, state_zero_day_dict, 
+                      day_zero_val, keys, "state", state_dict.keys(), pp,
+                          bold_entities = ["IA", "MN", "NE", "ND","SD", "WI"],
+                          daily = daily)
+pp.close()
 
 if "map_bounded" not in locals():
     minx = -125
