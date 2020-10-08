@@ -42,7 +42,6 @@ def plot_ts_scatter(df, s = 75, figsize = (40,20),
                     directory = "plots/" + x[:12] + " " + y[:12] + " c=Year"
                     plt.savefig(directory.replace(":","-") + ".png")
                 if pp != None: pp.savefig(fig, bbox_inches = "tight")
-#plots.py
 
 def plot_lines(df, linewidth = 1, figsize = (40,20), 
                legend = True, pp = None):
@@ -67,3 +66,34 @@ def plot_lines(df, linewidth = 1, figsize = (40,20),
     plt.savefig(filename[:50] + "line.png",
                bbox_inches = "tight")
     if pp != None: pp.savefig(fig, box_inches = "tight")
+    
+def plot_stacked_lines(df, plot_vars, linewidth = 1, 
+                       figsize = (40, 20),
+                       pp = None, total_var = False,
+                       title = False):
+    fig, ax = plt.subplots(figsize = figsize)
+    # df.plot.area() created a stacked plot
+    df[plot_vars].plot.area(stacked = True, linewidth = linewidth,
+                            ax = ax)
+    if total_var != False:
+        df[total_var].plot.line(linewidth = linewidth, ax = ax,
+                                c = "k",label = total_var, 
+                                ls = "--")
+    # place legend in top left corner of plot
+    # format legend so that there are two columns of names
+    ax.legend(loc = 2, ncol = 2)
+    if title != False:
+        plt.title(title)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
