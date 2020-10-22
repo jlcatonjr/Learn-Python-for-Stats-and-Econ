@@ -31,12 +31,48 @@ class Regression:
         self.estimate_betas_and_yhat()
         self.calculate_regression_stats()
         
+    def add_constant(self):
+        self.data["Constant"] = 1
+        self.beta_names.append("Constant")
+        
+    def estimate_betas_and_yhat(self):
+        # betas = (X'X)**-1 * X'y
+        self.betas = np.matmul(self.X_transp_X_inverse, self.X_transp_y)
+        # y-hat = X * betas
+        self.y_hat = np.matmul(self.X, self.betas)
+        self.data[self.y_name[0] + " estimator"] =\
+            [i.item(0) for i in self.y_hat]
+        # create a table for the estimates
+        self.estimates = pd.DataFrame(self.betas, index = self.beta_names,
+                                      columns = ["Coefficient"])
+        # identify y vairiable in index
+        self.estimates.index.name = "y = " + self.y_name[0]
+            
+            
+    def build_matrices(self):
+        # Transform dataframes to matrices
+        self.y = np.matrix(self.data[self.y_name][self.min_val:self.max_val])
+        # create a k X n nested lest containing vectors from each exog var
+        self.X = np.matrix(self.data[self.beta_names])
+        self.X_transpose = np.matrix(self.X).getT()
+        # (X'X)**-1
+        X_transp_X = np.matmul(self.X_transpose, self.X)
+        self.X_transp_X_inverse = X_transp_X.getI()
+        # X'y
+        self.X_transp_y = np.matmul(self.X_transpose, self.y)
+        
+
     def calculate_regression_stats(self):
         self.sum_square_stats()
         self.calculate_degrees_of_freedom()
         self.calculate_estimator_variance()
         self.calculate_covariance_matrix()
         self.calculate_t_p_error_stats()
+        self.calculate_root_MSE()
+        self.calculate_rsquared()
+        self.calculate_fstat()
+        self.build_stats_DF()
+        
     def sum_square_stats(self):
         ssr_list = []
         sse_list = []
@@ -112,43 +148,30 @@ class Regression:
                 if results.loc[var]["p-value"] < rating:
                     significance[i] = significance[i] + "*"
         results["significance"] = significance
-        
-    def add_constant(self):
-        self.data["Constant"] = 1
-        self.beta_names.append("Constant")
-        
-    def estimate_betas_and_yhat(self):
-        # betas = (X'X)**-1 * X'y
-        self.betas = np.matmul(self.X_transp_X_inverse, self.X_transp_y)
-        # y-hat = X * betas
-        self.y_hat = np.matmul(self.X, self.betas)
-        self.data[self.y_name[0] + " estimator"] =\
-            [i.item(0) for i in self.y_hat]
-        # create a table for the estimates
-        self.estimates = pd.DataFrame(self.betas, index = self.beta_names,
-                                      columns = ["Coefficient"])
-        # identify y vairiable in index
-        self.estimates.index.name = "y = " + self.y_name[0]
-            
-            
-    def build_matrices(self):
-        # Transform dataframes to matrices
-        self.y = np.matrix(self.data[self.y_name][self.min_val:self.max_val])
-        # create a k X n nested lest containing vectors from each exog var
-        self.X = np.matrix(self.data[self.beta_names])
-        self.X_transpose = np.matrix(self.X).getT()
-        # (X'X)**-1
-        X_transp_X = np.matmul(self.X_transpose, self.X)
-        self.X_transp_X_inverse = X_transp_X.getI()
-        # X'y
-        self.X_transp_y = np.matmul(self.X_transpose, self.y)
 
-
-
-
-
-
-
+    def calculate_root_MSE(self):
+        self.root_mse = self.estimator_variance ** (1/2)
+    
+    def calculate_rsquared(self):
+        self.r_sq = self.ssr / self.sst
+    
+    def calculate_fstat(self):
+        self.f_stat = (self.sst - self.sse) / (self.lost_degrees_of_freedom\
+                                               - 1) / self.estimator_variance
+    
+    def build_stats_DF(self):
+        stats_dict = {"r**2": [self.r_sq],
+                      "f-stat":[self.f_stat],
+                      "Est Var":[self.estimator_variance],
+                      "rootMSE":[self.root_mse],
+                      "SSE":[self.sse],
+                      "SSR": [self.ssr],
+                      "SST":[self.sst],
+                      "Obs.":[int(self.num_obs)],
+                      "DOF":[int(self.degrees_of_freedom)]}
+        self.stats_DF = pd.DataFrame(stats_dict)
+        self.stats_DF = self.stats_DF.rename(index = {0:"Estimation Statistics"})
+        self.stats_DF = self.stats_DF.T 
 
 
 
