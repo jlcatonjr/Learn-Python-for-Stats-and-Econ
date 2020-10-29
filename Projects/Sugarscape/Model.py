@@ -4,25 +4,50 @@ import math
 from randomdict import RandomDict
 
 from Patch import *
-from Agent import *
+from AgentBranch import *
 #Model.py
 class Model():
-    def __init__(self, gui, num_agents):
+    def __init__(self, gui, num_agents, data_aggregator, mutate, genetic):
         self.GUI = gui
+        self.data_aggregator = data_aggregator
         self.initial_population = num_agents
-        self.total_agents_created = 0
-        self.min_init_sugar = 5
-        self.max_init_sugar = 25
+        self.mutate = mutate
+        self.genetic = genetic
+        if self.mutate:
+            self.max_mutate_rate = .5
+        if self.genetic:
+            self.cross_over_rate = .5
+        ############    set model parameters    ############
+        self.total_agents_created = 0   
+        self.goods = ["sugar", "water"]
+        self.goods_params = {good:{"min":5,
+                                   "max":25} for good in self.goods}
+        
+        self.max_init_demand_vals = {"price":{"min": 1/10,
+                                              "max": 10},
+                                     "quantity":{"min":1,
+                                                 "max":100}}
+        self.consumption_rate = {"sugar":.5,
+                                 "water":.5}
+        
+        self.breeds = ["basic", "herder", "switcher", "arbitrageur"]
+        basic = .5
+        self.breed_probabilities = {"basic":basic, # if you are not a basic, you are a switcher
+                                    "herder":.5,
+                                    "arbitrageur":.5}
         self.max_vision = 1
+        # record price of every transaction
+        # then take average at end of period
+        self.transaction_prices = []
+        
+        ############ import map and build nav_dict ############
         # hash table that identifies possible moves relative to agent position 
-        self.move_dict = {
+        self.nav_dict = {
             v:{
                 i:{
-                    j: True for j in range(-v, v + 1) if (i ** 2 + j ** 2) <= (v ** 2) }
+                    j: True for j in range(-v, v + 1) if 0 < (i ** 2 + j ** 2) <= (v ** 2)}
                 for i in range(-v, v + 1)}
             for v in range(1, self.max_vision + 1)}
-        # {i:{j:{k:""}} for i in range(10) for j in range(10) for k in range(10)}
-        # {i:{j:{k: i * j * k for k in range(5) if k < 3} for j in range(2)} for i in range(2) }
         #sugarMap.shape calls the a tuple with dimensions
         #of the dataframe
         self.sugarMap = pd.read_csv('sugar-map.txt', header = None, sep = ' ')
@@ -30,95 +55,75 @@ class Model():
         for key in self.sugarMap:
             self.sugarMap[key] = self.sugarMap[key].add(1)
         self.rows, self.cols = self.sugarMap.shape
-        #Use to efficiently track which patches are empty
+        
+        ############   Initialization   ############ 
         self.initializePatches()
         self.initializeAgents()
-        
+        # self.aggregate_data = {"agent":}
+    
     def initializePatches(self):
         #Instantiate Patches
-        #Create a list to hold the patches. We first fill these with
-        #zeros to hold the place for each Patch object
-        self.patch_dict = {i:{j:0} for i in range(self.rows) for j in range(self.cols)}
-        for i in range(self.rows):
-            for j in range(self.cols):
-                #replace zeros with actual Patch objects
-                self.patch_dict[i][j] = Patch(self,  i , j, self.sugarMap[i][j], "sugar")
-        self.empty_patches = RandomDict({(i,j):self.patch_dict[i][j] for i in range(self.rows) for j in range(self.cols)})
-                
+        #Create a dictionary to hold the patches, organize as grid. 
+        #We first fill these with zeros as placeh holders
+        self.patch_dict = {row:{col:0}
+                           for row in range(self.rows) for col in range(self.cols)}
+        for row in range(self.rows):
+            for col in range(self.cols):
+                # replace zeros with actual Patch objects
+                good = "sugar" if row + col >= self.rows else "water"
+                self.patch_dict[row][col] = Patch(self,  row , col, 
+                                              self.sugarMap[row][col], good)
+    # use RandomDict - O(n) time complexity - for choosing random empty patch
+        self.empty_patches = RandomDict({
+            (row,col):self.patch_dict[row][col]
+            for row in range(self.rows) for col in range(self.cols)})
         
     def initializeAgents(self):
+        # agents stored in a dict by ID
         self.agent_dict = {}
-        # self.agentLocationDict = {}
+        # dead agents will be removed from agent_dict
+        self.dead_agent_dict = {}
         for i in range(self.initial_population):
             self.total_agents_created += 1
             ID = self.total_agents_created
             row, col = self.chooseRandomEmptyPatch()  
-            del self.empty_patches[row, col]
-            self.agent_dict[ID] = Agent(self, row, col, ID)
-        
+            self.agent_dict[ID] = Agent(self, row, col, ID, kwargs = None)
+            self.patch_dict[row][col].agent = self.agent_dict[ID]
+        self.population = self.total_agents_created
 #     def recordAgentLocationInDict(self, agent):
 #         patchIndex = self.convert2dTo1d(agent.row, agent.col)
 #         self.agentLocationDict[patchIndex] = agent
 
     def chooseRandomEmptyPatch(self):
-        i, j = self.empty_patches.random_key() 
-        return i, j
+        row, col = self.empty_patches.random_key() 
+        del self.empty_patches[row, col]
+
+        return row, col
 
     def runModel(self, periods):
-        agent_list = list(self.agent_dict.values())
-        for period in range(periods):
-            # print("period:", period)
+        for period in range(1, periods + 1):
             self.growPatches()
+            agent_list = list(self.agent_dict.values())
             random.shuffle(agent_list)
             for agent in agent_list:
-                self.agentMove(agent)
-            # if period % 1 == 0:
-            #     self.GUI.updatePatches()
-            #     self.GUI.moveAgents()
-            #     self.GUI.canvas.update()
+                agent.move()
+                agent.harvest()
+                agent.trade()
+                agent.consume()
+                agent.reproduce()
+                agent.checkAlive()
+                agent.updateParams()
+            self.population = len(agent_list)
             
-    def agentMove(self, agent):
-        max_patch = {"sugar":None,
-                     "water":None}
-        max_q = {"sugar":0,
-                 "water":0}
-        curr_i, curr_j = agent.row, agent.col
-        
-        patch_moves = [(curr_i + i, curr_j + j)
-                       for i in self.move_dict[agent.vision]
-                       for j in self.move_dict[agent.vision][i]]
-        random.shuffle(patch_moves)
-        near_empty_patch = False
-        for i in range(len(patch_moves)):
-                            
-            coords = patch_moves[i]
-            if coords in self.empty_patches:
-                near_empty_patch = True
-                i, j = coords[0], coords[1]                            
-                empty_patch = self.patch_dict[i][j]
-                patch_q = empty_patch.Q
-                patch_good = empty_patch.good
-                if patch_q > max_q[patch_good]:
-                    max_patch[patch_good] = empty_patch
-                near_empty_patch = True
-                
-        if near_empty_patch:
-            # agent_move()
-            target_patch = max_patch[agent.target]
-            new_coords = target_patch.row, target_patch.col                
-            agent.dx = target_patch.col - agent.col
-            agent.dy = target_patch.row - agent.row
-            agent.row, agent.col = new_coords
-            del self.empty_patches[new_coords]
-            self.empty_patches[curr_i, curr_j] = self.patch_dict[curr_i][curr_j]
-        else:
-            agent.dx = 0
-            agent.dy = 0
-        # agent_harvest()
-        agent_patch = self.patch_dict[agent.row][agent.col]
-        agent.good[agent_patch.good] += agent_patch.Q
-        agent_patch.Q = 0 
-
+            self.data_aggregator.collectData(self, self.GUI.name, 
+                                             self.GUI.run, period)
+            if period % self.GUI.every_t_frames == 0:
+                self.data_aggregator.showData(self.GUI.name, self.GUI.run)
+                if self.GUI.live_visual:
+                    self.GUI.parent.title("Sugarscape: " + str(period))
+                    self.GUI.updatePatches()
+                    self.GUI.moveAgents()
+                    self.GUI.canvas.update()
     
     def growPatches(self):
         for i, vals in self.patch_dict.items():
