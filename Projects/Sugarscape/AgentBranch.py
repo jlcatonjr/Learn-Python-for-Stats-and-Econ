@@ -7,7 +7,7 @@ from scipy.stats.mstats import gmean
 
 class Agent():
     # **inheritance are the inherited
-    def __init__(self, model, row, col, ID, hasParent = False, **inheritance):
+    def __init__(self, model, row, col, ID, hasParent = False, inheritance = None):
         
         # select parameters except for row, col, ID
         
@@ -18,9 +18,9 @@ class Agent():
                 mutate_rate = True, **mutate_kwargs):    
 
                         
-                        # at first, you are the agent does not know any one else
-                    # give all agents these variables to avoid error when deleted from
-                    # inheritance dict
+            # at first, you are the agent does not know any one else
+            # give all agents these variables to avoid error when deleted from
+            # inheritance dict
             def setReservationDemand():#price_change = True, quantity_change = True):
                 ### don't mutate reservation quantity and price
                 ### these are set in live time
@@ -63,7 +63,9 @@ class Agent():
                     good :min_reproduction_criteria[good] +random.random() * (
                         max_reproduction_criteria[good] - min_reproduction_criteria[good])
                     for good in self.model.goods} 
-                        
+                
+            ###################################################################            
+
             # define mutate rate first so that it effects mutation of all
             # other attributes
             if mutate_rate and self.model.mutate:
@@ -97,12 +99,14 @@ class Agent():
             for breed_ in self.model.breeds:
                 # if mutate, don't anchor from preselected probabilities
                 # just switch select whether the breed is true or false
-                if breed in mutate_kwargs:
-                    select_breed = random.choice((True, False))
-                    if select_breed:
-                        setattr(self, breed_, select_breed)
-                        
-            if breed:                            
+                if breed_ in mutate_kwargs:
+                    if mutate_kwargs[breed_]:
+                        select_breed = random.choice((True, False))
+                        if select_breed:
+                            setattr(self, breed_, select_breed)
+            
+            # select breed randomly if agent has no parent            
+            if inheritance == None:                            
                 for breed_, prob in self.model.breed_probabilities.items():
                     if random.random() <= prob :
                         setattr(self, breed_, True)  
@@ -125,6 +129,9 @@ class Agent():
                     self.vision = random.randint(1, self.model.max_vision)
             # wealth is the number of periods worth of food owned by the agent
             # assumes that one good is instantly convertable to another
+        
+        #######################################################################
+        
         def mutate():
             # select which parameters will be mutated
             mutate_dict = {key: True if random.random() < self.mutate_rate else False for key in inheritance.keys()}

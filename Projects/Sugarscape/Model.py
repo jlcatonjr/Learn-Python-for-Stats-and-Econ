@@ -87,7 +87,7 @@ class Model():
             self.total_agents_created += 1
             ID = self.total_agents_created
             row, col = self.chooseRandomEmptyPatch()  
-            self.agent_dict[ID] = Agent(self, row, col, ID, kwargs = None)
+            self.agent_dict[ID] = Agent(self, row, col, ID)
             self.patch_dict[row][col].agent = self.agent_dict[ID]
         self.population = self.total_agents_created
 #     def recordAgentLocationInDict(self, agent):
