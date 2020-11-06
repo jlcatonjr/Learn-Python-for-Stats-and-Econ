@@ -1,6 +1,6 @@
 import os
 
-folder = "chestData"
+folder = "chests"
 files = os.listdir(folder)
 save_files = ["GUI.py", "Model.py", "Patch.py", "Agent.py",
               "AgentBranch.py", "deleteFiles.py"

@@ -7,14 +7,20 @@ from Patch import *
 from AgentBranch import *
 #Model.py
 class Model():
-    def __init__(self, gui, num_agents, data_aggregator, mutate, genetic):
+    def __init__(self, gui, num_agents, mutate, genetic):
         self.GUI = gui
-        self.data_aggregator = data_aggregator
         self.initial_population = num_agents
         self.mutate = mutate
         self.genetic = genetic
+        
+        # attributes that are not copied during mutation or herding
+        self.drop_attr = ["col", "row", "dx", "dy", "id", "wealth", "top_wealth",
+            "sugar", "water","target", "not_target",
+            "exchange_target", "not_exchange_target", "parent"]
+        if self.GUI.live_visual:
+            self.drop_attr.append("image")
         if self.mutate:
-            self.max_mutate_rate = .5
+            self.max_mutate_rate = 0.5 if mutate else 0 #.5
         if self.genetic:
             self.cross_over_rate = .5
         ############    set model parameters    ############
@@ -23,22 +29,23 @@ class Model():
         self.goods_params = {good:{"min":5,
                                    "max":25} for good in self.goods}
         
-        self.max_init_demand_vals = {"price":{"min": 1/10,
-                                              "max": 10},
-                                     "quantity":{"min":1,
-                                                 "max":100}}
-        self.consumption_rate = {"sugar":.5,
-                                 "water":.5}
+        self.max_init_demand_vals = {"price":{"min": 1/2,
+                                              "max": 2},
+                                     "quantity":{"min":10,
+                                                 "max":25}}
+        self.consumption_rate = {"sugar":.35,
+                                 "water":.35}
         
         self.breeds = ["basic", "herder", "switcher", "arbitrageur"]
         basic = .5
         self.breed_probabilities = {"basic":basic, # if you are not a basic, you are a switcher
-                                    "herder":.5,
-                                    "arbitrageur":.5}
+                                    "herder":0,
+                                    "arbitrageur":0}
         self.max_vision = 1
         # record price of every transaction
         # then take average at end of period
         self.transaction_prices = []
+        self.average_price = np.nan
         
         ############ import map and build nav_dict ############
         # hash table that identifies possible moves relative to agent position 
@@ -70,7 +77,7 @@ class Model():
         for row in range(self.rows):
             for col in range(self.cols):
                 # replace zeros with actual Patch objects
-                good = "sugar" if row + col >= self.rows else "water"
+                good = "sugar" if row - col < 0 else "water"
                 self.patch_dict[row][col] = Patch(self,  row , col, 
                                               self.sugarMap[row][col], good)
     # use RandomDict - O(n) time complexity - for choosing random empty patch
@@ -100,7 +107,12 @@ class Model():
 
         return row, col
 
-    def runModel(self, periods):
+    def runModel(self, periods, data_aggregator):
+        def updateModelVariables():
+            self.population = len(agent_list)
+            self.average_price = np.mean(self.transaction_prices)
+            self.transaction_prices = []
+            
         for period in range(1, periods + 1):
             self.growPatches()
             agent_list = list(self.agent_dict.values())
@@ -110,23 +122,25 @@ class Model():
                 agent.harvest()
                 agent.trade()
                 agent.consume()
-                agent.reproduce()
                 agent.checkAlive()
+                agent.reproduce()
                 agent.updateParams()
-            self.population = len(agent_list)
             
-            self.data_aggregator.collectData(self, self.GUI.name, 
+            data_aggregator.collectData(self, self.GUI.name, 
                                              self.GUI.run, period)
+            updateModelVariables()
             if period % self.GUI.every_t_frames == 0:
-                self.data_aggregator.showData(self.GUI.name, self.GUI.run)
+
                 if self.GUI.live_visual:
                     self.GUI.parent.title("Sugarscape: " + str(period))
                     self.GUI.updatePatches()
                     self.GUI.moveAgents()
                     self.GUI.canvas.update()
-    
+            if period == periods:
+                data_aggregator.saveData(self.GUI.name, self.GUI.run)
+            
     def growPatches(self):
-        for i, vals in self.patch_dict.items():
-            for patch in vals.values():
+        for i in self.patch_dict:
+            for patch in self.patch_dict[i].values():
                 if patch.Q < patch.maxQ:
                     patch.Q += 1

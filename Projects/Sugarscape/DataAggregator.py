@@ -1,6 +1,7 @@
 # dataAggregator.py
 import pandas as pd
 from chest import *
+import os
 class DataAggregator():
     def __init__(self, agent_attributes, model_attributes):
         self.agent_attributes = agent_attributes
@@ -8,12 +9,16 @@ class DataAggregator():
         self.attributes = agent_attributes + model_attributes
         self.trial_data = {}
         
-        self.folder = "chestData"
+        self.folder = "chests"
         try:
-            os.mkdir(folder)
+            os.mkdir(self.folder)
         except:
-            pass
-        
+            # if folder is not empty, 
+            # remove all files to avoid error
+            files = os.listdir(self.folder)
+            for file in files:
+                os.remove(self.folder + "\\" + file)
+            
     def prepSetting(self, name):
         self.trial_data[name] = {}
     
@@ -32,9 +37,10 @@ class DataAggregator():
             for attribute in self.model_attributes:
                 self.trial_data[name][run][attribute][period] = getattr(model, attribute)
                 
+            
         collectAgentAttributes()
         collectModelAttributes()
         
-    def showData(self, name, run):
-        chest = self.trial_data[name][run]
-        print(pd.DataFrame(data = chest.values(), index = chest.keys()).T)
+    def saveData(self, name, run):
+        dict_of_chests = self.trial_data[name][run]
+        pd.DataFrame(data = dict_of_chests.values(), index = dict_of_chests.keys()).T.to_csv(name.replace(":", " ") + str(run) + ".csv")

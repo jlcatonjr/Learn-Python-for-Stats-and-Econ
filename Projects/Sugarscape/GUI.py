@@ -2,15 +2,16 @@ from tkinter import *
 from Model import *
 from DataAggregator import *
 import time
+import os
 class GUI():
     def __init__(self, name, run, parent, num_agents, live_visual, every_t_frames, 
-                 data_aggregator, mutate = False, genetic = False):
+                 mutate = False, genetic = False):
         self.parent = parent
         self.name = name
         self.run = run
-        self.model = Model(self, num_agents, data_aggregator, mutate, genetic)
-        self.dimPatch = 16
         self.live_visual = live_visual
+        self.model = Model(self, num_agents, mutate, genetic)
+        self.dimPatch = 16
         self.every_t_frames = every_t_frames
 
         canvasWidth = self.model.cols * self.dimPatch
@@ -79,11 +80,11 @@ class GUI():
 
 agent_attributes = ["water", "sugar", "wealth", "basic", "switcher",
                         "herder", "arbitrageur"]
-model_attributes = ["population", "total_agents_created", "transaction_prices"]
+model_attributes = ["population", "total_agents_created", "average_price", "transaction_prices"]
 
 data_agg = DataAggregator(agent_attributes, model_attributes)
 
-for mutate in (True, False):
+for mutate in [False]:
     for genetic in (True, False):
         name = "mutate: " + str(mutate) + " genetic: " + str(genetic)
         data_agg.prepSetting(name)
@@ -94,19 +95,18 @@ for mutate in (True, False):
             data_agg.prepRun(name, run)
             parent = Tk()
             # parent.title"Sugarscape"
-            num_agents = 2000
-            periods = 100
+            num_agents = 1000
+            periods = 300
             start = time.time()
-            y = GUI(name, run, parent, num_agents, live_visual = False, every_t_frames = periods -1 , 
-                    mutate = mutate, genetic = genetic, data_aggregator = data_agg)
-            y.model.runModel(periods)
+            y = GUI(name, run, parent, num_agents, live_visual = True, 
+                    every_t_frames = 1, mutate = mutate, 
+                    genetic = genetic, )
+            y.model.runModel(periods, data_agg)
             final_num_agents = len(y.model.agent_dict)
             y.parent.quit()
             y.parent.destroy()
             end = time.time()
             elapse = end - start
-            
             print(run, num_agents, final_num_agents, periods, elapse, sep = "\t")
-# data_agg        
 if __name__ == "__main__":
     parent.mainloop()
