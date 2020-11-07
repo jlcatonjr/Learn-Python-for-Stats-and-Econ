@@ -63,22 +63,39 @@ class Agent():
                         max_reproduction_criteria[good] - min_reproduction_criteria[good])
                     for good in self.model.goods} 
                 
-            def selectBreed():            
+            def selectBreed():    
                 if self.parent:
-                    for breed_ in self.model.breeds:
+                    # place herder first in list
+                    shuffle_breeds = copy.copy(self.model.primary_breeds)
+                    random.shuffle(shuffle_breeds)
+                    for breed_ in ["herder"] + shuffle_breeds:
                         if random.random() < self.mutate_rate:
-                            select_breed = random.choice((True, False))
+                            # if mutation occurs, switch breed boolean
+                            select_breed = False if getattr(self, breed_) else True
                             setattr(self, breed_, select_breed)
+                            
+                            if select_breed == True and breed_ in shuffle_breeds:
+                                shuffle_breeds.remove(breed_)
+                                for not_my_breed in shuffle_breeds:
+                                    setattr(self, not_my_breed, False)
+                                break
+                    # set breed basic if all breeds are turned to False
+                    if True not in (getattr(self, brd)
+                                    for brd in self.model.primary_breeds):
+                        self.setBreedBasic(herder = self.herder)
+
                 # select breed randomly if agent has no parent            
                 else:                            
-                    for breed_, prob in self.model.breed_probabilities.items():
-                        if random.random() <= prob :
-                            setattr(self, breed_, True)  
-                        else: 
-                            setattr(self, breed_, False)  
+                    # for breed_, prob in self.model.breed_probabilities.items():
+                    #     if random.random() <= prob :
+                    #         setattr(self, breed_, True)  
+                    #     else: 
+                    #         setattr(self, breed_, False)  
                     # since switcher and basic are mutually exclusive,
-                    # set switcher opposite of basic
-                self.switcher = False if self.basic == True else True
+                    # All initial agents are basic, other breeds only 
+                    # appear through mutation
+                    self.setBreedBasic(herder = False)
+                    
                 self.selectBreedParameters(mutate, self.parent, 
                                            herding = False)
 
@@ -159,7 +176,6 @@ class Agent():
             if self.model.mutate:
                 mutate()    
             else:
-                self.switcher = False if self.basic == True else True
                 self.selectBreedParameters(mutate = False,
                                            parent = self.parent,
                                            herding  = False)
@@ -176,7 +192,11 @@ class Agent():
         self.reproduced = False
 
 ###############################################################################     
-
+    def setBreedBasic(self, herder):
+        self.basic = True
+        self.switcher = False 
+        self.arbitrageur = False
+        self.herder = herder
 
     def selectBreedParameters(self, mutate, parent, herding = False, 
                               partner = None):
@@ -184,13 +204,13 @@ class Agent():
             if breed == "basic":
                 self.target = "sugar"
                 self.not_target = "water"
-            if breed == "switcher":
-                switch_min = 5 if not mutate or"switch_rate"  not in inheritance else\
-                    int(inheritance["switch_rate"] / (1 + self.mutate_rate))
-                switch_max = 50 if not mutate or "switch_rate" not in inheritance else\
-                    int(inheritance["switch_rate"] * (1 + self.mutate_rate))
-                self.switch_rate = random.randint(switch_min, switch_max)
-                self.periods_to_switch = self.switch_rate
+            # if breed == "switcher":
+            #     switch_min = 5 if not mutate or"switch_rate"  not in inheritance else\
+            #         int(inheritance["switch_rate"] / (1 + self.mutate_rate))
+            #     switch_max = 50 if not mutate or "switch_rate" not in inheritance else\
+            #         int(inheritance["switch_rate"] * (1 + self.mutate_rate))
+            #     self.switch_rate = random.randint(switch_min, switch_max)
+            #     self.periods_to_switch = self.switch_rate
                 # start switcher with random target
  
             if breed == "arbitrageur":
@@ -212,11 +232,11 @@ class Agent():
         def copyPartnerParameters():
             # if copied breed and missing parameter value, draw from partner
             if getattr(self, breed):
-                if breed == "switcher":
-                    if not hasattr(self, 'switch_rate'):
-                        self.switch_rate = partner.switch_rate
-                    self.periods_to_switch = self.switch_rate
-                    self.basic = False
+                # if breed == "switcher":
+                #     if not hasattr(self, 'switch_rate'):
+                #         self.switch_rate = partner.switch_rate
+                #     self.periods_to_switch = self.switch_rate
+                #     self.basic = False
                 if breed  == "herder":  
                     if not hasattr(self, "top_wealth"):
                         self.top_wealth = partner.wealth
@@ -259,12 +279,13 @@ class Agent():
                 if self.wealth > self.top_wealth:
                     self.wealthiest = self
                 if self.wealthiest != self:
-                    self.top_wealth *= .995
+                    self.top_wealth *= .999
             # let exchange target be determined by reservation demand
             # if shortage of both goods, choose randomly
             good1 = random.choice(self.model.goods)
             good2 = "water" if good1 == "sugar" else "sugar"
-            if self.basic and not self.arbitrageur:
+            # if self.basic and not self.arbitrageur:
+            if self.switcher:
                 if getattr(self,good1) < self.reservation_demand[good1]["quantity"]\
                     and getattr(self,good2) < self.reservation_demand[good2]["quantity"]:
                     self.target, self.not_target = good1, good2
@@ -277,24 +298,14 @@ class Agent():
                 elif getattr(self,good2) < self.reservation_demand[good2]["quantity"]\
                     and getattr(self,good1) > self.reservation_demand[good1]["quantity"]:
                     self.target, self.not_target = good2, good1                
-            else:
-                # only update switcher and arbitrager parameters if 
-                # not experiencing a shortage
-                if self.switcher:
-                    self.periods_to_switch -= 1
-                    if self.periods_to_switch == 0:
-                        old_target = copy.copy(self.target)
-                        new_target = copy.copy(self.not_target)
-                        self.target = new_target
-                        self.not_target = old_target
-                        self.periods_to_switch = self.switch_rate
-                if self.arbitrageur:
-                    # arbitrageur exchanges for the good that is cheaper than his WTP
-                    WTP = self.reservation_demand["sugar"]["price"]
-                    if self.expected_price > WTP:
-                        self.target, self.not_target = "sugar", "water"  
-                    else: 
-                        self.target, self.not_target = "water", "sugar"
+             
+            if self.arbitrageur:
+                # arbitrageur exchanges for the good that is cheaper than his WTP
+                WTP = self.reservation_demand["sugar"]["price"]
+                if self.expected_price > WTP:
+                    self.target, self.not_target = "sugar", "water"  
+                else: 
+                    self.target, self.not_target = "water", "sugar"
 
         def checkReservation():
             for good in self.model.goods:
@@ -402,11 +413,11 @@ class Agent():
                     for patch in empty_patches:
                         coord_sum = patch.col + patch.row 
                         if target == "sugar":
-                            if coord_sum > max_val:
+                            if coord_sum < min_val:
                                 max_val = coord_sum
                                 target_patch = patch
                         elif target == "water":
-                            if coord_sum < min_val:
+                            if coord_sum > max_val:
                                 min_val = coord_sum
                                 target_patch = patch
                                                 
@@ -440,6 +451,7 @@ class Agent():
         # save agent coords to track agent movement, changes in (not) empty patches
         curr_row, curr_col = self.row, self.col
         max_patch, near_empty_patch, empty_patches = findMaxEmptyPatch(curr_row, curr_col)
+        random.shuffle(empty_patches)
         
         # if near_empty_patch:
         moveToMaxEmptyPatch(curr_row, curr_col, max_patch, 
@@ -451,7 +463,7 @@ class Agent():
         agent_patch = self.model.patch_dict[self.row][self.col]
         setattr(self, agent_patch.good, getattr(self, agent_patch.good) + agent_patch.Q)
         agent_patch.Q = 0 
-        
+
         
     def trade(self):
         
@@ -492,6 +504,13 @@ class Agent():
                         self.present_price_weight) + transaction_price) / self.present_price_weight
                 
         def herdTraits(agent, partner):
+            def turn_off_other_primary_breeds(agent, breed, have_attr):
+                if attr in self.model.primary_breeds:
+                    # if breed changed, set other values false
+                    if have_attr == True:
+                        for brd in self.model.primary_breeds:
+                            if brd != breed: 
+                                setattr(agent, brd, False)
             # agent will copy partner traits. Sometimes, agent is self, 
             # sometimes not, so we call agent.selectBreedParameters at end
             if agent.herder:
@@ -501,13 +520,21 @@ class Agent():
                         for attr, val in copy_attributes.items():
                             if random.random() <= agent.model.cross_over_rate:
                                 setattr(agent, attr, val)
+                                # if attr is a primary breed, other breeds 
+                                # will be switched off
+                                turn_off_other_primary_breeds(agent, attr, val)
+                        
+                        # set basic True if all primary breeds switched to false
+                        # due to genetic algorithm
+                        if True not in (getattr(agent, breed)
+                                        for breed in self.model.primary_breeds):
+                            agent.setBreedBasic(herder = agent.herder)
                         agent.selectBreedParameters(mutate = False, parent = None, 
                                                    herding = True, partner = partner)
           
                     else: 
                         for attr, val in copy_attributes.items():
-                            setattr(agent, attr, val)
-             
+                            setattr(agent, attr, val)             
 
     ###############################################################################            
 
@@ -518,7 +545,8 @@ class Agent():
         random.shuffle(neighbor_patches)
         for coords in neighbor_patches:
             if coords not in self.model.empty_patches.keys:
-                target_patch = self.model.patch_dict[coords[0]][coords[1]]
+                row, col = coords[0], coords[1]
+                target_patch = self.model.patch_dict[row][col]
                 # if partner found on patch, ask to trade
                 partner, right_good = askToTrade(target_patch)
                 if right_good: 

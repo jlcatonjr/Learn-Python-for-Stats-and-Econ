@@ -56,7 +56,22 @@ class GUI():
             self.canvas.move(agent.image, 
  			agent.dx * self.dimPatch,
  			agent.dy * self.dimPatch)
-
+            color, outline = self.agentColor(agent)
+            self.canvas.itemconfig(agent.image,
+                                   fill = color,
+                                   outline = outline, 
+                                   width = 2)
+    
+    def agentColor(self, agent):
+        if agent.basic:
+            color = "red"
+        if agent.switcher:
+            color = "orange"
+        if agent.arbitrageur:
+            color = "green"
+        outline = "black" if agent.herder else color
+        return color, outline
+    
     def updatePatches(self):
         for i in self.model.patch_dict:
             for patch in self.model.patch_dict[i].values():    
@@ -84,29 +99,32 @@ model_attributes = ["population", "total_agents_created", "average_price", "tran
 
 data_agg = DataAggregator(agent_attributes, model_attributes)
 
-for mutate in [False]:
-    for genetic in (True, False):
+for mutate in [True]:
+    for genetic in [True]:#(True, False):
         name = "mutate: " + str(mutate) + " genetic: " + str(genetic)
         data_agg.prepSetting(name)
         print("mutate", "genetic", sep = "\t")
         print(mutate, genetic, sep = "\t")
         print("trial", "agents", "endagents", "periods", "time", sep = "\t")
-        for run in range(1):
+        for run in range(500):
             data_agg.prepRun(name, run)
             parent = Tk()
             # parent.title"Sugarscape"
-            num_agents = 1000
-            periods = 300
+            num_agents = 500
+            periods = 120
             start = time.time()
-            y = GUI(name, run, parent, num_agents, live_visual = True, 
-                    every_t_frames = 1, mutate = mutate, 
-                    genetic = genetic, )
+            y = GUI(name, run, parent, num_agents, live_visual = False, 
+                    every_t_frames = 101, mutate = mutate, genetic = genetic)
             y.model.runModel(periods, data_agg)
             final_num_agents = len(y.model.agent_dict)
             y.parent.quit()
             y.parent.destroy()
             end = time.time()
             elapse = end - start
-            print(run, num_agents, final_num_agents, periods, elapse, sep = "\t")
+            print(run, num_agents, final_num_agents,
+                  periods, elapse, sep = "\t")
+        data_agg.saveDistributionByPeriod(name)
+        data_agg.plotDistributionByPeriod(name)
+
 if __name__ == "__main__":
     parent.mainloop()

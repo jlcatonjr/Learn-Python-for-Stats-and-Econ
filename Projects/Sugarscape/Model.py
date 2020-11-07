@@ -33,11 +33,14 @@ class Model():
                                               "max": 2},
                                      "quantity":{"min":10,
                                                  "max":25}}
-        self.consumption_rate = {"sugar":.35,
-                                 "water":.35}
+        self.consumption_rate = {"sugar":.5,
+                                 "water":.5}
+        self.primary_breeds = ["basic", "switcher", "arbitrageur"]
+        self.secondary_breeds = ["herder"]
         
-        self.breeds = ["basic", "herder", "switcher", "arbitrageur"]
-        basic = .5
+        self.breeds = self.primary_breeds + self.secondary_breeds
+        # all agents start as basic, only mutation can create other agents
+        basic = 1
         self.breed_probabilities = {"basic":basic, # if you are not a basic, you are a switcher
                                     "herder":0,
                                     "arbitrageur":0}
@@ -77,7 +80,7 @@ class Model():
         for row in range(self.rows):
             for col in range(self.cols):
                 # replace zeros with actual Patch objects
-                good = "sugar" if row - col < 0 else "water"
+                good = "sugar" if row + col < self.cols else "water"
                 self.patch_dict[row][col] = Patch(self,  row , col, 
                                               self.sugarMap[row][col], good)
     # use RandomDict - O(n) time complexity - for choosing random empty patch
@@ -130,15 +133,14 @@ class Model():
                                              self.GUI.run, period)
             updateModelVariables()
             if period % self.GUI.every_t_frames == 0:
-
+                print("period", period, "population", self.population, sep = "\t")
                 if self.GUI.live_visual:
                     self.GUI.parent.title("Sugarscape: " + str(period))
                     self.GUI.updatePatches()
                     self.GUI.moveAgents()
                     self.GUI.canvas.update()
-            if period == periods:
-                data_aggregator.saveData(self.GUI.name, self.GUI.run)
-            
+            # if period == periods:
+            #     data_aggregator.saveData(self.GUI.name, self.GUI.run)
     def growPatches(self):
         for i in self.patch_dict:
             for patch in self.patch_dict[i].values():
