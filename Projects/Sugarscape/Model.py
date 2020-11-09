@@ -1,4 +1,5 @@
 import pandas as pd
+from scipy.stats.mstats import gmean
 import random
 import math
 from randomdict import RandomDict
@@ -113,7 +114,7 @@ class Model():
     def runModel(self, periods, data_aggregator):
         def updateModelVariables():
             self.population = len(agent_list)
-            self.average_price = np.mean(self.transaction_prices)
+            self.average_price = gmean(self.transaction_prices)
             self.transaction_prices = []
             
         for period in range(1, periods + 1):

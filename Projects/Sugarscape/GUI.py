@@ -95,7 +95,7 @@ class GUI():
 
 agent_attributes = ["water", "sugar", "wealth", "basic", "switcher",
                         "herder", "arbitrageur"]
-model_attributes = ["population", "total_agents_created", "average_price", "transaction_prices"]
+model_attributes = ["population", "total_agents_created", "average_price"]
 
 data_agg = DataAggregator(agent_attributes, model_attributes)
 
@@ -106,23 +106,23 @@ for mutate in [True]:
         print("mutate", "genetic", sep = "\t")
         print(mutate, genetic, sep = "\t")
         print("trial", "agents", "endagents", "periods", "time", sep = "\t")
-        for run in range(500):
+        for run in range(300):
             data_agg.prepRun(name, run)
             parent = Tk()
             # parent.title"Sugarscape"
             num_agents = 500
-            periods = 120
+            periods = 150
             start = time.time()
             y = GUI(name, run, parent, num_agents, live_visual = False, 
-                    every_t_frames = 101, mutate = mutate, genetic = genetic)
+                    every_t_frames = 500, mutate = mutate, genetic = genetic)
             y.model.runModel(periods, data_agg)
             final_num_agents = len(y.model.agent_dict)
             y.parent.quit()
             y.parent.destroy()
             end = time.time()
             elapse = end - start
-            print(run, num_agents, final_num_agents,
-                  periods, elapse, sep = "\t")
+            print(run, num_agents, final_num_agents, periods, elapse, 
+                  sep = "\t")
         data_agg.saveDistributionByPeriod(name)
         data_agg.plotDistributionByPeriod(name)
 

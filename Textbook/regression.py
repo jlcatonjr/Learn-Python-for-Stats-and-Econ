@@ -8,7 +8,7 @@ import sys
 
 class Regression:
     def __init__(self):
-        self.stats = Stats()
+        self.stats = stats()
         self.reg_history = {}
         
     def OLS(self, reg_name, data, y_name, beta_names, min_val = 0,
@@ -51,8 +51,7 @@ class Regression:
         #save name of selected index
         index_name = entity_index_name if entity else date_index_name
         # reduce list to unique elements and sort
-        self.indicator_names = list(set(data.index.get_level_values(index_name)))
-        self.indicator_names = sorted(self.indicator_names)
+        self.indicator_names = list(data.groupby(index_name).mean().index)
         self.indicator_names.pop()
         
         for indicator in self.indicator_names:
