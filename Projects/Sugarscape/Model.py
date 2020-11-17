@@ -50,7 +50,7 @@ class Model():
         # then take average at end of period
         self.transaction_prices = []
         self.average_price = np.nan
-        
+        self.total_exchanges = 0
         ############ import map and build nav_dict ############
         # hash table that identifies possible moves relative to agent position 
         self.nav_dict = {

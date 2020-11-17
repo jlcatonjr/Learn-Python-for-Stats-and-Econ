@@ -91,11 +91,11 @@ class GUI():
                 hx = '0' + hx
             color += hx
         return color
-    
+
 
 agent_attributes = ["water", "sugar", "wealth", "basic", "switcher",
                         "herder", "arbitrageur"]
-model_attributes = ["population", "total_agents_created", "average_price"]
+model_attributes = ["population", "total_agents_created", "total_exchanges", "average_price"]
 
 data_agg = DataAggregator(agent_attributes, model_attributes)
 
@@ -106,15 +106,15 @@ for mutate in [True]:
         print("mutate", "genetic", sep = "\t")
         print(mutate, genetic, sep = "\t")
         print("trial", "agents", "endagents", "periods", "time", sep = "\t")
-        for run in range(300):
+        for run in range(100):
             data_agg.prepRun(name, run)
             parent = Tk()
             # parent.title"Sugarscape"
             num_agents = 500
-            periods = 150
+            periods = 15000
             start = time.time()
             y = GUI(name, run, parent, num_agents, live_visual = False, 
-                    every_t_frames = 500, mutate = mutate, genetic = genetic)
+                    every_t_frames = periods, mutate = mutate, genetic = genetic)
             y.model.runModel(periods, data_agg)
             final_num_agents = len(y.model.agent_dict)
             y.parent.quit()

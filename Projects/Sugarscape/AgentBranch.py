@@ -498,11 +498,11 @@ class Agent():
                 # save price of sugar or implied price of sugar for every exchange
                 transaction_price = price if self.target == "sugar" else 1 / price
                 self.model.transaction_prices.append(transaction_price)
+                self.model.total_exchanges += 1
                 # record impact on arbitrageurs expected price of sugar
                 if self.arbitrageur:
                     self.expected_price = (self.expected_price * (
                         self.present_price_weight) + transaction_price) / self.present_price_weight
-                
         def herdTraits(agent, partner):
             def turn_off_other_primary_breeds(agent, breed, have_attr):
                 if attr in self.model.primary_breeds:
