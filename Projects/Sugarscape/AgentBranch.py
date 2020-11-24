@@ -331,9 +331,9 @@ class Agent():
     def checkAlive(self):
         for good in self.model.goods:
             if getattr(self, good) < 0:
-                self.model.dead_agent_dict[self.id] = self
+                # self.model.dead_agent_dict[self.id] = self
                 self.model.empty_patches[self.row, self.col] = self.model.patch_dict[self.row][self.col]
-                if self.model.GUI.live_visual:
+                if self.model.live_visual:
                     self.model.GUI.canvas.delete(self.image)
                 del self.model.agent_dict[self.id]
                 break
@@ -351,7 +351,8 @@ class Agent():
             self.model.agent_dict[ID].top_wealth = self.wealth
             self.model.agent_dict[ID].wealthiest = self
             self.model.patch_dict[row][col].agent =  self.model.agent_dict[ID]
-            self.model.GUI.drawAgent(self.model.agent_dict[ID])
+            if self.model.live_visual:
+                self.model.GUI.drawAgent(self.model.agent_dict[ID])
             self.reproduced = True
 
 

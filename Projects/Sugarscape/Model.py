@@ -3,13 +3,18 @@ from scipy.stats.mstats import gmean
 import random
 import math
 from randomdict import RandomDict
-
+# from chest import *
+# import shelve
 from Patch import *
 from AgentBranch import *
 #Model.py
 class Model():
-    def __init__(self, gui, num_agents, mutate, genetic):
-        self.GUI = gui
+    def __init__(self, gui, num_agents, mutate, genetic, data_aggregator, live_visual):
+        if live_visual:
+            self.GUI = gui
+        self.live_visual = live_visual
+        self.name = gui.name
+        self.run = gui.run
         self.initial_population = num_agents
         self.mutate = mutate
         self.genetic = genetic
@@ -17,9 +22,9 @@ class Model():
         # attributes that are not copied during mutation or herding
         self.drop_attr = ["col", "row", "dx", "dy", "id", "wealth", "top_wealth",
             "sugar", "water","target", "not_target",
-            "exchange_target", "not_exchange_target", "parent"]
-        if self.GUI.live_visual:
-            self.drop_attr.append("image")
+            "exchange_target", "not_exchange_target", "parent", "image"]
+        # if self.GUI.live_visual:
+        #     self.drop_attr.append("image")
         if self.mutate:
             self.max_mutate_rate = 0.5 if mutate else 0 #.5
         if self.genetic:
@@ -69,7 +74,7 @@ class Model():
         
         ############   Initialization   ############ 
         self.initializePatches()
-        self.initializeAgents()
+        self.initializeAgents(data_aggregator)
         # self.aggregate_data = {"agent":}
     
     def initializePatches(self):
@@ -89,11 +94,11 @@ class Model():
             (row,col):self.patch_dict[row][col]
             for row in range(self.rows) for col in range(self.cols)})
         
-    def initializeAgents(self):
+    def initializeAgents(self, data_aggregator):
         # agents stored in a dict by ID
-        self.agent_dict = {}
+        self.agent_dict = {} #if self.live_visual else Chest(path = data_aggregator.folder) #shelve.open("agent_dict") 
         # dead agents will be removed from agent_dict
-        self.dead_agent_dict = {}
+        # self.dead_agent_dict = {}#Chest(path = data_aggregator.folder)
         for i in range(self.initial_population):
             self.total_agents_created += 1
             ID = self.total_agents_created
@@ -130,17 +135,18 @@ class Model():
                 agent.reproduce()
                 agent.updateParams()
             
-            data_aggregator.collectData(self, self.GUI.name, 
-                                             self.GUI.run, period)
+            data_aggregator.collectData(self, self.name, 
+                                             self.run, period)
             updateModelVariables()
-            if period % self.GUI.every_t_frames == 0:
-                print("period", period, "population", self.population, sep = "\t")
-                if self.GUI.live_visual:
+            if self.live_visual:
+                if period % self.GUI.every_t_frames == 0:
+                    print("period", period, "population", self.population, sep = "\t")
                     self.GUI.parent.title("Sugarscape: " + str(period))
                     self.GUI.updatePatches()
                     self.GUI.moveAgents()
                     self.GUI.canvas.update()
             # if period == periods:
+            #     self.agent_dict.close()
             #     data_aggregator.saveData(self.GUI.name, self.GUI.run)
     def growPatches(self):
         for i in self.patch_dict:
