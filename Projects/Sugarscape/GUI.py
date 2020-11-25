@@ -109,7 +109,7 @@ for mutate in [True]:
         print(mutate, genetic, sep = "\t")
         print("trial", "agents", "periods", "time", sep = "\t")
         for run in range(100):
-            gc.set_threshold(0)
+            gc.set_threshold(0,0)
             data_agg.prepRun(name, run)
             # parent.title"Sugarscape"
             num_agents = 500
