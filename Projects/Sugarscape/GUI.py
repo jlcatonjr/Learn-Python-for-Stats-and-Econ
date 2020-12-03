@@ -1,19 +1,23 @@
 from tkinter import *
 from Model import *
 from DataAggregator import *
+from memory_profiler import memory_usage
+import copy
 import time
 import os
 import gc
 
 class GUI():
     def __init__(self, name, run, num_agents, live_visual, every_t_frames, 
-                 mutate = False, genetic = False, data_aggregator=None):
+                 mutate = False, genetic = False, agent_attributes=None, 
+                 model_attributes = None):
         if live_visual:
             self.parent = Tk()
         self.name = name
         self.run = run
         self.live_visual = live_visual
-        self.model = Model(self, num_agents, mutate, genetic, data_aggregator, live_visual)
+        self.model = Model(self, num_agents, mutate, genetic, live_visual,
+                           agent_attributes, model_attributes)
         self.dimPatch = 16
         self.every_t_frames = every_t_frames
 
@@ -100,6 +104,7 @@ agent_attributes = ["water", "sugar", "wealth", "basic", "switcher",
                         "herder", "arbitrageur"]
 model_attributes = ["population", "total_agents_created", "total_exchanges", "average_price"]
 
+
 data_agg = DataAggregator(agent_attributes, model_attributes)
 for mutate in [True]:
     for genetic in [True]:#(True, False):
@@ -108,25 +113,34 @@ for mutate in [True]:
         print("mutate", "genetic", sep = "\t")
         print(mutate, genetic, sep = "\t")
         print("trial", "agents", "periods", "time", sep = "\t")
-        for run in range(100):
-            gc.set_threshold(0,0)
-            data_agg.prepRun(name, run)
+        gc.set_threshold(0)
+        for run in range(10):
+            mem_usage = memory_usage(-1, interval=1)#, timeout=1)
+            print(run, "mem:", str(int(mem_usage[0]))  + " MB", sep = "\t")
+            data_agg.prepRun(name, str(run))
             # parent.title"Sugarscape"
             num_agents = 500
-            periods = 150000
+            periods = 150
             start = time.time()
             y = GUI(name, run, num_agents, live_visual = False, 
-                    every_t_frames = periods, mutate = mutate, genetic = genetic,
-                    data_aggregator = data_agg)
-            y.model.runModel(periods, data_agg)
+                    every_t_frames = int(periods / 100), mutate = mutate, genetic = genetic,
+                    agent_attributes = agent_attributes, 
+                    model_attributes = model_attributes)
+            y.model.runModel(periods)
+            # print(dict(y.model.data_dict))
+            data_agg.saveRun(name, str(run), y.model.data_dict)
+            # run_data = copy.copy(y.model.data_dict)
+            y.model.data_dict.close()
             # final_num_agents = len(y.model.agent_dict)
             if y.live_visual:
                 y.parent.quit()
                 y.parent.destroy()
             end = time.time()
             elapse = end - start
-            print(run, num_agents, periods, elapse, 
-                  sep = "\t")
+            print("runtime:", int(elapse), sep = "\t")
+
+            # gc.collect()
+            # del run_data
         data_agg.saveDistributionByPeriod(name)
         data_agg.plotDistributionByPeriod(name)
 

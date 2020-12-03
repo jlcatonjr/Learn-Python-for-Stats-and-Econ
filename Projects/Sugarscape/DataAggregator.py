@@ -4,19 +4,18 @@ import pandas as pd
 import matplotlib.pyplot as plt 
 from matplotlib.animation import FuncAnimation
 import math
-from chest import *
+import shelve
 import os
 from matplotlib.backends.backend_pdf import PdfPages
 from scipy.stats.mstats import gmean
 
 class DataAggregator():
     def __init__(self, agent_attributes, model_attributes):
+        self.folder = "shelves"
         self.agent_attributes = agent_attributes
         self.model_attributes = model_attributes
         self.attributes = agent_attributes + model_attributes
-        self.trial_data = {}
         
-        self.folder = "chests"
         try:
             os.mkdir(self.folder)
         except:
@@ -25,12 +24,16 @@ class DataAggregator():
             files = os.listdir(self.folder)
             for file in files:
                 os.remove(self.folder + "\\" + file)
+        self.trial_data = {}#shelve.open(self.folder + "\\dataAgMaster")
             
     def prepSetting(self, name):
-        self.trial_data[name] = {}
+        self.trial_data[name] = shelve.open(self.folder + "\\dataAg" + name.replace(":", "-"), writeback = True)#(path = self.folder)
     
     def prepRun(self, name, run):
-        self.trial_data[name][run] = {attribute: Chest(path = self.folder) for attribute in self.attributes}
+        self.trial_data[name][run] = {}#shelve.open(self.folder + "\\" + name.replace(":", "-") + run)
+        for attribute in self.attributes:
+            self.trial_data[name][run][attribute] ={}# shelve.open(
+                # self.folder + "\\" + name.replace(":", "-") + run + attribute) 
     def collectData(self, model, name, run, period):
         
         def collectAgentAttributes():
@@ -50,12 +53,25 @@ class DataAggregator():
             
         collectAgentAttributes()
         collectModelAttributes()
-        
+    
+    
+    def saveRun(self, name, run, run_data):
+        for attribute in run_data.keys():
+            for period, val in run_data[attribute].items():
+                self.trial_data[name][run][attribute][period] = val
+        self.trial_data[name].sync()
+            
+            # print(dict(self.trial_data[name][run][attribute]))
+        # print(pd.read_pickle(self.trial_data[name]))
+            # print(pd.concat([pd.DataFrame(dict(pair for pair self.trial_data[name][run][attributes].items()), columns = attribute) ], axis = 1 ))
+            # print(pd.DataFrame(
+                # print(dict(pair for pair in self.trial_data[name][run][attribute].items())), 
+                # columns = attribute))
     def saveData(self, name, trial):
         dict_of_chests = self.trial_data[name][trial]
-        pd.DataFrame(data = dict_of_chests.values(), 
-                     index = dict_of_chests.keys()).T.to_csv(
-                         name.replace(":", " ") + str(trial) + ".csv")
+        # pd.DataFrame(data = dict_of_chests.values(), 
+        #               index = dict_of_chests.keys()).T.to_csv(
+        #                   name.replace(":", " ") + str(trial) + ".csv")
     
     def saveDistributionByPeriod(self, name):
 
@@ -65,7 +81,7 @@ class DataAggregator():
         for attr in self.attributes:
             for trial in self.trial_data[name]:
                 # for period in self.trial_data[name][trial]:
-                self.distribution_dict[name][attr][trial] = self. trial_data[name][trial][attr]
+                self.distribution_dict[name][attr][trial] = self.trial_data[name][trial][attr]
 
     def plotDistributionByPeriod(self, name):
 
@@ -123,16 +139,16 @@ class DataAggregator():
 
             if alt_x_axis is False:
                 x_name = "period"
-                for key in df.keys():
-                    ax.scatter(x = df.index, y = df[key], c = "C0",
-                               s = 10)
+                for key, col in df.items():
+                    ax.scatter(x = df.index, y = col, c = "C0",
+                               s = 10, alpha = .2)
                 df["mean"].plot.line(c="C3", linewidth = 10, ax = ax)
             else:
-                x_name = alt_x_axis.index.name
-                for key in df.keys():
-                    ax.scatter(x = alt_x_axis[key], y = df[key], c = "C0",
-                               s = 5)
-                ax.plot(alt_x_axis["mean"], df["mean"], c="C3", 
+                x_name = alt_x_axis
+                for key, col in df.items():
+                    ax.scatter(x = df[alt_x_axis], y = col, c = "C0",
+                               s = 5, alpha = .2)
+                ax.plot(df[alt_x_axis], df["mean"], c="C3", 
                         linewidth = 10)
                 
             ax.set_xlabel(x_name)
@@ -157,17 +173,21 @@ class DataAggregator():
             plt.savefig(folder + "\\" +attr+"x=" + x_name + "linxlogy.png")
             plt.close()
         plt.rcParams.update({"font.size": 30})
-        pp = PdfPages("Sugarscape Plots.pdf")
+        pp = None# PdfPages("Sugarscape Plots.pdf")
         
         gen_dict = self.distribution_dict[name]["total_agents_created"]
         gen_df = pd.DataFrame(data = gen_dict.values(), 
                           index= gen_dict.keys()).T
+        gen_df.index = gen_df.index.astype(int)
+        gen_df = gen_df.sort_index()
         gen_df.index.name = "Number of Generations"
         gen_df["mean"] = gen_df.mean(axis = 1)
         
         exchange_dict = self.distribution_dict[name]["total_exchanges"]
         exchange_df = pd.DataFrame(data = exchange_dict.values(), 
                           index= exchange_dict.keys()).T
+        exchange_df.index = exchange_df.index.astype(int)
+        exchange_df = exchange_df.sort_index()
         exchange_df.index.name = "Cumulative Exchanges"
         exchange_df["mean"] = exchange_df.mean(axis = 1)
         
@@ -177,22 +197,26 @@ class DataAggregator():
                     dict_of_chests = self.distribution_dict[name][attr]
                 df = pd.DataFrame(data = dict_of_chests.values(), 
                                   index= dict_of_chests.keys()).T
+                df.index = df.index.astype(int)
+                df = df.sort_index()
                 # build_distribution_video(df, attr)
                 if attr != "average_price":
                     df["mean"] = df.mean(axis=1)
                 else:
                     df["mean"] = [gmean(df.loc[row].dropna()) for row in df.index]
-                                        
-                build_line_plots_with_scatter(df, attr, pp)
-                build_line_plots_with_scatter(df, attr, pp, gen_df)
-                build_line_plots_with_scatter(df, attr, pp, exchange_df)                
+                
+                df["generations mean"] = gen_df["mean"]
+                df["exchanges mean"] = exchange_df["mean"]
+                build_line_plots_with_scatter(df, attr, pp = pp)
+                build_line_plots_with_scatter(df, attr, pp = pp, alt_x_axis = "generations mean")
+                build_line_plots_with_scatter(df, attr, pp = pp, alt_x_axis = "exchanges mean")                
                 # else:
                 #     df["mean"] = np.nan
                 #     for row in df.index
                 #     df.loc[row]["mean"] = gmean(df.drop("mean").loc["row"])
                     
                     
-        pp.close()
+        if pp != None: pp.close()
                     
                     
                     

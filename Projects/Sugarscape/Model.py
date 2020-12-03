@@ -1,15 +1,19 @@
+import numpy as np 
 import pandas as pd
 from scipy.stats.mstats import gmean
 import random
 import math
 from randomdict import RandomDict
 # from chest import *
-# import shelve
+import shelve
 from Patch import *
 from AgentBranch import *
+import gc
+from memory_profiler import memory_usage
 #Model.py
 class Model():
-    def __init__(self, gui, num_agents, mutate, genetic, data_aggregator, live_visual):
+    def __init__(self, gui, num_agents, mutate, genetic, live_visual, agent_attributes,
+                 model_attributes):
         if live_visual:
             self.GUI = gui
         self.live_visual = live_visual
@@ -18,7 +22,9 @@ class Model():
         self.initial_population = num_agents
         self.mutate = mutate
         self.genetic = genetic
-        
+        self.agent_attributes = agent_attributes
+        self.model_attributes = model_attributes
+        self.attributes = agent_attributes + model_attributes
         # attributes that are not copied during mutation or herding
         self.drop_attr = ["col", "row", "dx", "dy", "id", "wealth", "top_wealth",
             "sugar", "water","target", "not_target",
@@ -74,8 +80,10 @@ class Model():
         
         ############   Initialization   ############ 
         self.initializePatches()
-        self.initializeAgents(data_aggregator)
-        # self.aggregate_data = {"agent":}
+        self.initializeAgents()
+        self.data_dict = shelve.open("shelves\\masterShelve", writeback = True)
+        for attribute in self.attributes:
+            self.data_dict[attribute] = shelve.open("shelves\\subshelve-"+attribute, writeback = True) 
     
     def initializePatches(self):
         #Instantiate Patches
@@ -94,11 +102,10 @@ class Model():
             (row,col):self.patch_dict[row][col]
             for row in range(self.rows) for col in range(self.cols)})
         
-    def initializeAgents(self, data_aggregator):
+    def initializeAgents(self):
         # agents stored in a dict by ID
         self.agent_dict = {} #if self.live_visual else Chest(path = data_aggregator.folder) #shelve.open("agent_dict") 
         # dead agents will be removed from agent_dict
-        # self.dead_agent_dict = {}#Chest(path = data_aggregator.folder)
         for i in range(self.initial_population):
             self.total_agents_created += 1
             ID = self.total_agents_created
@@ -116,7 +123,7 @@ class Model():
 
         return row, col
 
-    def runModel(self, periods, data_aggregator):
+    def runModel(self, periods):
         def updateModelVariables():
             self.population = len(agent_list)
             self.average_price = gmean(self.transaction_prices)
@@ -135,9 +142,11 @@ class Model():
                 agent.reproduce()
                 agent.updateParams()
             
-            data_aggregator.collectData(self, self.name, 
-                                             self.run, period)
+            # data_aggregator.collectData(self, self.name, 
+            #                                  self.run, period)
             updateModelVariables()
+            self.collectData(str(period))
+            
             if self.live_visual:
                 if period % self.GUI.every_t_frames == 0:
                     print("period", period, "population", self.population, sep = "\t")
@@ -145,11 +154,38 @@ class Model():
                     self.GUI.updatePatches()
                     self.GUI.moveAgents()
                     self.GUI.canvas.update()
-            # if period == periods:
-            #     self.agent_dict.close()
-            #     data_aggregator.saveData(self.GUI.name, self.GUI.run)
+
+            if period == periods:
+                mem_usage = memory_usage(-1, interval=1)#, timeout=1)
+                print(period, "end memory usage before sync//collect:", mem_usage[0], sep = "\t")
+                self.data_dict.sync()
+                gc.collect()
+                mem_usage = memory_usage(-1, interval=1)#, timeout=1)
+                print(period, "end memory usage after sync//collect:", mem_usage[0], sep = "\t")
+
     def growPatches(self):
         for i in self.patch_dict:
             for patch in self.patch_dict[i].values():
                 if patch.Q < patch.maxQ:
                     patch.Q += 1
+
+
+    def collectData(self, period):
+        
+        def collectAgentAttributes():
+            temp_dict={}
+            for attribute in self.agent_attributes:
+                temp_dict[attribute] = []
+            for ID, agent in self.agent_dict.items():
+                for attribute in self.agent_attributes:
+                    temp_dict[attribute].append(getattr(agent, attribute)) 
+            
+            for attribute, val in temp_dict.items():
+                self.data_dict[attribute][period] = np.mean(val)
+
+        def collectModelAttributes():
+            for attribute in self.model_attributes:
+                self.data_dict[attribute][period] = getattr(self, attribute)
+                
+        collectAgentAttributes()
+        collectModelAttributes()
