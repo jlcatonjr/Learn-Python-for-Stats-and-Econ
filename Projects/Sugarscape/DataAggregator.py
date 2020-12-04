@@ -139,13 +139,13 @@ class DataAggregator():
 
             if alt_x_axis is False:
                 x_name = "period"
-                for key, col in df.items():
+                for key, col in df.drop(["generations mean", "exchanges mean"], axis = 1).items():
                     ax.scatter(x = df.index, y = col, c = "C0",
                                s = 10, alpha = .2)
                 df["mean"].plot.line(c="C3", linewidth = 10, ax = ax)
             else:
                 x_name = alt_x_axis
-                for key, col in df.items():
+                for key, col in df.drop(["generations mean", "exchanges mean"], axis = 1).items():
                     ax.scatter(x = df[alt_x_axis], y = col, c = "C0",
                                s = 5, alpha = .2)
                 ax.plot(df[alt_x_axis], df["mean"], c="C3", 
