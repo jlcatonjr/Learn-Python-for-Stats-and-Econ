@@ -217,12 +217,13 @@ class DataAggregator():
                     
                     
         if pp != None: pp.close()
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-            
+    def remove_shelves(self):
+        def process_files(path):
+            files = os.listdir(path)
+            for file in files:
+                if ".dat" in file or ".dir" in file or ".bak" in file:
+                    os.remove(path + "\\" + file)
+        path = self.folder
+        process_files(path)
+        path = "."
+        process_files(path)

@@ -143,6 +143,6 @@ for mutate in [True]:
             # del run_data
         data_agg.saveDistributionByPeriod(name)
         data_agg.plotDistributionByPeriod(name)
-
+        data_agg.remove_shelves()
 # if __name__ == "__main__":
 #     parent.mainloop()
