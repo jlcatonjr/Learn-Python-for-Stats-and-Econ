@@ -8,8 +8,11 @@ class livePlot():
 
         plt.rcParams["font.size"] = 20
         self.fig, self.ax = plt.subplots(1, figsize = (8, 6))
-        self.ax.set_ylim(0, 130)
-        self.ax.set_xlim(0, 1000)
+        
+        self.maxx = 1000
+        self.maxy = 130
+        self.ax.set_xlim(0, self.maxx)
+        self.ax.set_ylim(0, self.maxy)
         plt.xticks([])
         plt.yticks([])
 
@@ -28,9 +31,17 @@ class livePlot():
 
         self.text_vert_shift = 1
         self.text_horiz_shift = 20
-        self.P_text = self.ax.text(-50, y_int, "P")
-        self.AD_text = self.ax.text(900, self.AD.get_ydata()[900] + self.text_vert_shift * -2, "AD")
-        self.y0_text = self.ax.text(self.LRAS.get_xdata(orig=False)[0] - self.text_horiz_shift * 2, -10, "y0")
+        self.P_text = self.ax.text(-50, y_int, "$P$")
+        self.AD_text = self.ax.text(900, self.AD.get_ydata()[900] + self.text_vert_shift * -2, "$AD$")
+        self.LRAS_text = self.ax.text(self.LRAS.get_xdata(orig=False)[0] + self.text_horiz_shift ,
+                                      110, "$LRAS$")
+        self.y0_text = self.ax.text(self.LRAS.get_xdata(orig=False)[0] - self.text_horiz_shift * .75, -10, "$y$")
+        # self.MV_val_text = self.ax.text(1001, 100, "MV =" +str(self.M * self.V))
+        # self.str_vals = "MV =" +str(int(self.M * self.V)) + "   P =" + str(int(self.M * self.V / self.y0)) + "   y ="+ str(int(self.y0))
+        self.show_vals = self.ax.text(1, self.maxy * 1.03, 
+                                      "MV =" +str(int(self.M * self.V)) + "    P =" + str(int(self.M * self.V / self.y0)) + "    y ="+ str(int(self.y0)),
+                                      fontsize = 14) 
+
         self.interact()
         
     def interact(self):
@@ -41,7 +52,14 @@ class livePlot():
             self.h_line_intersect.set_ydata(y_int)
             self.AD_text.set_position((900, self.AD.get_ydata()[900] + self.text_vert_shift))
             self.P_text.set_position((-50, y_int + self.text_vert_shift * -2))
-            self.y0_text.set_position((self.LRAS.get_xdata(orig=False)[0] - self.text_horiz_shift * 2,-10))
+            self.LRAS_text.set_position((self.LRAS.get_xdata(orig=False)[0] + self.text_horiz_shift ,
+                                      110))
+            self.y0_text.set_position((self.LRAS.get_xdata(orig=False)[0] - self.text_horiz_shift * .75,-10))
+            # self.str_vals = "MV =" +str(int(self.M * self.V)) + "   P =" + str(int(self.M * self.V / self.y0)) + "   y ="+ str(int(self.y0))
+            self.show_vals.set_text(
+                "$MV=$" + "$("+ str(M) + ")(" + str(V) + ")=" + str(int(M * V)) + "$  $y ="+ str(int(y0)) + "$ $P = " + str(int(M*V)) + " / " + str(y0)+"="+ str(round(M * V / y0,1)) + "$") 
+            # title = self.ax.text("MV =" +str(self.M * self.V)) 
+
             
         self.widget = ipw.interact(update, 
                      M = ipw.widgets.IntSlider(value=self.M,
@@ -53,7 +71,7 @@ class livePlot():
                         max = self.V * 2,
                         step = .1),
                     y0 = ipw.widgets.IntSlider(values = self.y0,
-                        min = self.y0 / 10,
+                        min = self.y0 / 4,
                         max = self.y0 * 2,
                         step = 5))
         
@@ -70,8 +88,3 @@ class livePlot():
             y = line1_data[1][x]
 
         return x, y
-
-
-
-
-plot = livePlot()
