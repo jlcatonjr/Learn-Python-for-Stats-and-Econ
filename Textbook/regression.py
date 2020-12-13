@@ -263,10 +263,10 @@ class Regression:
                 f_stat = ((sser - sseu) / (dfn)) / (sseu / (dfd))  
                 f_crit_val = 1 - f.cdf(f_stat,dfn = dfn, dfd = dfd)  
                 #make dictionary?  
-                f_test_label = ""  
+                f_test_label = "h_0"  
                 for key in unrestr_var_names:  
                     if key not in restr_var_names:  
-                        f_test_label = f_test_label + str(key) + " = "  
+                        f_test_label = f_test_label + str(key) + " == "  
                 f_test_label = f_test_label + "0"  
                 res_dict = {"f-stat":[f_stat],  
                             "p-value":[f_crit_val],  
