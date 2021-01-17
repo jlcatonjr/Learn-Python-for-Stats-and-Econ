@@ -5,3 +5,4 @@ matplotlib
 ipywidgets
 mpl_toolkits
 voila
+pyarrow
