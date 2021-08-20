@@ -7,32 +7,38 @@ import matplotlib.pyplot as plt
 
 #plots.py
 # . . .
-def plot_lines(df, linewidth = 1, figsize = (40,20), pp = None):
+def plot_lines(df, linewidth = 1, figsize = (40,20),secondary_y = None, legend=True, pp = None, save_fig = False):
     
     fig, ax = plt.subplots(figsize = figsize)    
     # If no secondary_y (axis), plot all variables at once
-    df.dropna().plot.line(linewidth = linewidth, ax = ax)
+    df.dropna(axis=0, how = "all").plot.line(linewidth = linewidth, ax = ax, secondary_y=secondary_y, legend = legend)
     # Turn the text on the x-axis so that it reads vertically
     ax.tick_params(axis='x', rotation=90)
     # Get rid of tick lines perpendicular to the axis for aesthetic
     ax.tick_params('both', length=0, which='both')
     # transform y-axis values from sci notation to integers
     vals = ax.get_yticks()
-    ax.set_yticklabels([int(x) for x in vals]) 
+    ax.set_yticklabels([round(x,2) for x in vals]) 
     
     # format image filename 
     remove_chars = "[]:$'\\"
     filename = str(list(df.keys()))
     for char in remove_chars:
         filename = filename.replace(char, "")  
-    plt.savefig(filename[:50] + " line.png", 
+    if save_fig:
+        try:
+            os.mkdir("plots")
+        except:
+            pass
+        plt.savefig("plots/" + filename[:50] + " line.png", 
                 bbox_inches = "tight")
     #[:50] + " line.png"
     # save image if PdfPages object was passed
     if pp != None: pp.savefig(fig, bbox_inches = "tight")
 
-def plot_ts_scatter(df, s = 75, figsize = (40, 20), save_fig = False, pp = None):
+def plot_scatter(data, s = 75, figsize = (40, 20), save_fig = False, pp = None):
     # Create plot for every unique pair of variables
+    df = data.copy()
     for var1 in df:
         for var2 in df:
             if var1 != var2:
@@ -102,3 +108,21 @@ def corr_matrix_heatmap(df, save_fig = False, pp = None):
 
         if pp != None: pp.savefig(fig, bbox_inches="tight")
     plt.close()
+
+def plot_stacked_lines(df, plot_vars, linewidth = 1, 
+                       figsize = (40, 20),
+                       pp = None, total_var = False,
+                      title = False):
+    fig, ax = plt.subplots(figsize = figsize)
+    # df.plot.area() created a stacked plot
+    df[plot_vars].plot.area(stacked = True, linewidth = linewidth,
+                            ax = ax)
+    if total_var != False:
+        df[total_var].plot.line(linewidth = linewidth, ax = ax,
+                                c = "k",label = total_var, 
+                                ls = "--")
+    # place legend in top left corner of plot
+    # format legend so that there are two columns of names
+    ax.legend(loc = 2, ncol = 2)
+    if title != False:
+        plt.title(title)
