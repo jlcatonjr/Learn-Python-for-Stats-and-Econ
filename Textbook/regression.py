@@ -2,13 +2,12 @@
 import pandas as pd
 import numpy as np
 import copy
-from stats import *
+import stats
 from scipy.stats import t, f
 import sys
 
 class Regression:
     def __init__(self):
-        self.stats = stats()
         self.reg_history = {}
         
     def OLS(self, reg_name, data, y_name, beta_names, min_val = 0,
@@ -37,26 +36,30 @@ class Regression:
     def panel_regression(self, reg_name, data, y_name, X_names, min_val = 0,
                          max_val = None, entity = False, time = False, 
                          constant = True):
-        if (entity and time) or (not entity and not time):
-            print("Choose time OR entity")
-            sys.exit()
+        self.indicator_lists = {}
         #identify which index column holds dates, which holds entities
         for i in range(len(data.index.levels)):
-            if isinstance(data.index.levels[i], pd.DatetimeIndex):
-                date_level = i
-                date_index_name = data.index.names[date_level]
-            else:
-                entity_level = i
-                entity_index_name = data.index.names[entity_level]
-        #save name of selected index
-        index_name = entity_index_name if entity else date_index_name
-        # reduce list to unique elements and sort
-        self.indicator_names = list(data.groupby(index_name).mean().index)
-        self.indicator_names.pop()
-        
-        for indicator in self.indicator_names:
-            self.create_indicator_variable(data, indicator, index_name, 
-                                           [indicator])
+                if isinstance(data.index.levels[i], pd.DatetimeIndex):
+                    if time:
+                        date_level = i
+                        date_index_name = data.index.names[date_level]
+                        self.indicator_lists[date_index_name] = list(data.groupby(date_index_name).mean().index)
+                        self.indicator_lists[date_index_name].pop()
+
+                else:
+                    if entity:
+                        entity_level = i
+                        entity_index_name = data.index.names[entity_level]
+                        self.indicator_lists[entity_index_name] = list(data.groupby(entity_index_name).mean().index)
+                        self.indicator_lists[entity_index_name].pop()
+
+        self.indicator_names = []
+        for index_name, lst in self.indicator_lists.items():
+            for indicator in lst:
+                self.create_indicator_variable(data, indicator, index_name, 
+                                               [indicator])
+            self.indicator_names = self.indicator_names + lst
+
         X_and_indicator_names = X_names + self.indicator_names
         self.OLS(reg_name, data = data, y_name = y_name, 
                  beta_names = X_and_indicator_names, min_val = min_val,
@@ -64,7 +67,9 @@ class Regression:
         self.X_names = X_names + ["Constant"]
         self.data = self.data[self.X_names]
         self.estimates = self.estimates.loc[self.X_names]
-        
+
+
+
     def create_indicator_variable(self,data, indicator_name, index_name, 
                                   target_index_list):
         # Prepare column with name of indicator variable
@@ -122,7 +127,7 @@ class Regression:
         ssr_list = []
         sse_list = []
         sst_list = []
-        mean_y = self.stats.mean(self.y).item(0)
+        mean_y = stats.mean(self.y).item(0)
         for i in range(len(self.y)):
             # ssr is sum of squared distances between the estimated y values
             # (y-hat) and the average of y values (y-bar)
@@ -136,9 +141,9 @@ class Regression:
             sst_list.append((t) ** 2)
             
         # call item - call value instead of matrix
-        self.ssr = self.stats.total(ssr_list).item(0)
-        self.sse = self.stats.total(sse_list).item(0)
-        self.sst = self.stats.total(sst_list).item(0)
+        self.ssr = stats.total(ssr_list).item(0)
+        self.sse = stats.total(sse_list).item(0)
+        self.sst = stats.total(sst_list).item(0)
         
     def calculate_degrees_of_freedom(self):
         # Degrees of freedom compares the number of observations to the number
