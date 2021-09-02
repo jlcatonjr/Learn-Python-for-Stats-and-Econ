@@ -114,16 +114,16 @@ for mutate in [True]:
         print(mutate, genetic, sep = "\t")
         print("trial", "agents", "periods", "time", sep = "\t")
         gc.set_threshold(0)
-        for run in range(10):
+        for run in range(1):
             mem_usage = memory_usage(-1, interval=1)#, timeout=1)
             print(run, "mem:", str(int(mem_usage[0]))  + " MB", sep = "\t")
             data_agg.prepRun(name, str(run))
             # parent.title"Sugarscape"
             num_agents = 500
-            periods = 150
+            periods = 1000
             start = time.time()
-            y = GUI(name, run, num_agents, live_visual = False, 
-                    every_t_frames = int(periods / 100), mutate = mutate, genetic = genetic,
+            y = GUI(name, run, num_agents, live_visual = True, 
+                    every_t_frames = int(1), mutate = mutate, genetic = genetic,
                     agent_attributes = agent_attributes, 
                     model_attributes = model_attributes)
             y.model.runModel(periods)
