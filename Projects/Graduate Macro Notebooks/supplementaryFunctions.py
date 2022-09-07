@@ -33,32 +33,17 @@ def build_estimator(data, results, y_name):
     
 def plot_errors(data):
     plot_data = data.rename(columns = {key:key.replace("$$","$") for key in data.keys()})
-    keys = list(plot_data.keys())[:-2]
-    y_name, x_names = [keys[0]],keys[1:]
-# matplotlib rejects keys with $$, replace with $
-    for x_name in x_names:    
-        fig, ax = plt.subplots(figsize = (20,10))
-        plot_data.plot.scatter(x = x_name, 
-                                                                        y = "$\hat{u}$", 
-                                                                        ax = ax)
-        # Check SLR4
-        error_corr = plot_data.corr().round(2)["$\hat{u}$"][x_name]
-        plt.title("Correlation: " + str(error_corr))
-
-def plot_errors(data):
-    plot_data = data.rename(columns = {key:key.replace("$$","$") for key in data.keys()})
     names = list(plot_data.keys())[:-2]
     y_name, x_names = names[0],names[1:]
 # matplotlib rejects keys with $$, replace with $
     for x_name in x_names:    
         fig, ax = plt.subplots(figsize = (20,10))
         plot_data.plot.scatter(x = x_name, 
-                                y = "$\widehat{" + y_name + "}$", 
+                                y = "$\hat{u}$", 
                                 ax = ax)
         # Check SLR4
         error_corr = plot_data.corr().round(2)["$\hat{u}$"][x_name]
         plt.title("Correlation: " + str(error_corr))
-        
         
 def build_X_y_matrices(data, names, log_vars = None, constant = True):
     if type(log_vars) is list:

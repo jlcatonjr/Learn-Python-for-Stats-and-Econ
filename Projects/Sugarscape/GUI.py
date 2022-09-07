@@ -114,7 +114,7 @@ for mutate in [True]:
         print(mutate, genetic, sep = "\t")
         print("trial", "agents", "periods", "time", sep = "\t")
         gc.set_threshold(0)
-        for run in range(100):
+        for run in range(2):
             mem_usage = memory_usage(-1, interval=1)#, timeout=1)
             print(run, "mem:", str(int(mem_usage[0]))  + " MB", sep = "\t")
             data_agg.prepRun(name, str(run))
