@@ -63,7 +63,7 @@ def plot_scatter(data, s = 75, figsize = (40, 20), save_fig = False, pp = None):
                             bbox_inches = "tight")
                     if pp != None: pp.savefig(fig, bbox_inches = "tight")
 
-def corr_matrix_heatmap(df, save_fig = False, pp = None, title = "Correlation"):  
+def corr_matrix_heatmap(df, save_fig = False, pp = None):  
     #Create a figure to visualize a corr matrix  
     fig, ax = plt.subplots(figsize=(20,20))  
     # use ax.imshow() to create a heatmap of correlation values  
@@ -94,7 +94,7 @@ def corr_matrix_heatmap(df, save_fig = False, pp = None, title = "Correlation"):
                            va="center", color = "w")  
     #Create title with Times New Roman Font  
     title_font = {"fontname":"Times New Roman"}  
-    plt.title(title, fontsize = 50, **title_font)  
+    plt.title("Correlation", fontsize = 50, **title_font)  
     #Call scale to show value of colors 
     cbar = fig.colorbar(im)
     plt.show()
