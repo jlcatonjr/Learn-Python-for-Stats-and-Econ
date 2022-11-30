@@ -376,8 +376,8 @@ class Agent():
                 partner.good[self.exchange_target] -= 1
                 partner.good[self.not_exchange_target] += price
                 
-                if self.breed["argbitrageur"]:
-                    self.expected_price = (self.expected_oprice * (
+                if self.breed["arbitrageur"]:
+                    self.expected_price = (self.expected_price * (
                         self.present_price_weight) + price) / self.present_price_weight
                 
         def herdTraits(partner):
