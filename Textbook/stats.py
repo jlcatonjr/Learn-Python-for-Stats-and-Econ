@@ -1,3 +1,5 @@
+import pandas as pd
+
 def total(lst):
     total_ = 0
     n = len(lst)
@@ -8,6 +10,7 @@ def total(lst):
 def mean(lst):
     n = len(lst)
     mean_ = total(lst) / n
+    
     return mean_
 
 def median(lst):
@@ -122,7 +125,7 @@ def skewness(lst, sample = False):
     n = len(lst)
     for val in lst:
         skew += (val - mean_) ** 3
-        skew = skew / (n * SD_ ** 3) if not sample else n * skew / ((n - 1)*(n - 1) * SD_ ** 3)
+    skew = skew / (n * SD_ ** 3) if not sample else n * skew / ((n - 1)*(n - 1) * SD_ ** 3)
         
     return skew
 
