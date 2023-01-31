@@ -87,13 +87,13 @@ class GUI():
         
     #Outputs string in the format '#RRGGBB'
     def color(self, q, good):
+            hx = hex(v)[2:]
+            while len(hx) < 2: 
         #(256 / 4) - 1  = 63
         rgb = (255 - 3 * q,255 - 10 * q,255 - 51*q) if good == "sugar" else (30 - 3 * q, 50 - 5 * q ,255 - 35*q)
         color = '#'
         for v in rgb:
             # cuts off beginning of hex() output: '0x' 
-            hx = hex(v)[2:]
-            while len(hx) < 2: 
                 # add 0 to beginning if 1 characters
                 hx = '0' + hx
             color += hx
