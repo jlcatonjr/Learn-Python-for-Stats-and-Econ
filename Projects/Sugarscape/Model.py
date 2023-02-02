@@ -10,6 +10,7 @@ from Patch import *
 from AgentBranch import *
 import gc
 from memory_profiler import memory_usage
+import time
 #Model.py
 class Model():
     def __init__(self, gui, num_agents, mutate, genetic, live_visual, agent_attributes,
@@ -130,6 +131,7 @@ class Model():
             self.transaction_prices = []
             
         for period in range(1, periods + 1):
+            start = time.time()
             self.growPatches()
             agent_list = list(self.agent_dict.values())
             random.shuffle(agent_list)
@@ -149,7 +151,7 @@ class Model():
             
             if self.live_visual:
                 if period % self.GUI.every_t_frames == 0:
-                    print("period", period, "population", self.population, sep = "\t")
+                    # print("period", period, "population", self.population, sep = "\t")
                     self.GUI.parent.title("Sugarscape: " + str(period))
                     self.GUI.updatePatches()
                     self.GUI.moveAgents()
@@ -162,7 +164,9 @@ class Model():
                 gc.collect()
                 mem_usage = memory_usage(-1, interval=1)#, timeout=1)
                 print(period, "end memory usage after sync//collect:", mem_usage[0], sep = "\t")
-
+            end = time.time()
+            diff = (end - start)
+            print(period, diff)
     def growPatches(self):
         for i in self.patch_dict:
             for patch in self.patch_dict[i].values():
