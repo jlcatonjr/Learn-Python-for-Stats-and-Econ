@@ -1,6 +1,6 @@
 #plots.py
 import os
-import pandas
+import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -63,9 +63,9 @@ def plot_scatter(data, s = 75, figsize = (40, 20), save_fig = False, pp = None):
                             bbox_inches = "tight")
                     if pp != None: pp.savefig(fig, bbox_inches = "tight")
 
-def corr_matrix_heatmap(df, save_fig = False, pp = None, title = "Correlation"):  
+def corr_matrix_heatmap(df, save_fig = False,figsize = (20,20), pp = None, title = "Correlation"):  
     #Create a figure to visualize a corr matrix  
-    fig, ax = plt.subplots(figsize=(20,20))  
+    fig, ax = plt.subplots(figsize=figsize)  
     # use ax.imshow() to create a heatmap of correlation values  
     # seismic mapping shows negative values as blue and positive values as red  
     im = ax.imshow(df, norm = plt.cm.colors.Normalize(-1,1), cmap = "seismic")  
@@ -108,7 +108,22 @@ def corr_matrix_heatmap(df, save_fig = False, pp = None, title = "Correlation"):
 
         if pp != None: pp.savefig(fig, bbox_inches="tight")
     plt.close()
-
+    
+def formatted_scatter_matrix(data, c = "C0", cmap = "viridis", alpha = .05, pp=False):  
+    # Create a figure showing scatterplots given in scatter_cats  
+    fig_len = 15  
+    fig, ax = plt.subplots(figsize = ((fig_len, fig_len)))  
+    # Use fig_len to dictate fig_size, adjust size of font, size of dots, etc...  
+    num_vars = len(data.keys())  
+    fontsize = 65 / num_vars  
+    plt.rcParams.update({'font.size': fontsize})  
+    pd.plotting.scatter_matrix(data, c = c, alpha = alpha, s = 200 / num_vars, ax=ax)  
+    # tight layout improves layout of text and plots in the figure  
+    plt.tight_layout()  
+    plt.show()  
+    if pp != False:
+        pp.savefig(fig, bbox_inches = "tight")  
+    plt.close() 
 def plot_stacked_lines(df, plot_vars, linewidth = 1, 
                        figsize = (40, 20),
                        pp = None, total_var = False,
