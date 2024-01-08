@@ -1,0 +1,26 @@
+﻿Code,TaxDescription
+T01,Property Taxes
+T09,General Sales and Gross Receipts Taxes
+T10,Alcoholic Beverages Sales Tax
+T11,Amusements Sales Tax
+T12,Insurance Premiums Sales Tax
+T13,Motor Fuels Sales Tax
+T14,Pari-mutuels Sales Tax
+T15,Public Utilities Sales Tax
+T16,Tobacco Products Sales Tax
+T19,Other Selective Sales and Gross Receipts Taxes
+T20,Alcoholic Beverages License
+T21,Amusements License
+T22,Corporations in General License
+T23,Hunting and Fishing License
+T24,Motor Vehicles License
+T25,Motor Vehicle Operators License
+T27,Public Utilities License
+T28,"Occupation and Businesses License, NEC"
+T29,Other License Taxes
+T40,Individual Income Taxes
+T41,Corporation Net Income Taxes
+T50,Death and Gift Taxes
+T51,Documentary and Stock Transfer Taxes
+T53,Severance Taxes
+T99,"Taxes, NEC"
