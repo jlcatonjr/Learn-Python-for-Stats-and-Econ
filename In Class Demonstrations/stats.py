@@ -141,17 +141,21 @@ def kurtosis(lst, sample = False):
     
     return kurt
 
-def gather_statistics(df, sample = False):
+def gather_statistics(df, sample = True, round_to = 3):
+    # create an entry in the dictionary for each column of data
     dct = {key:{} for key in df}
-    for key, val in df.items():
-        # drop any missing observations from dataframe
-        val = val.dropna(axis=0)
-        dct[key]["mean"] = round(mean(val),3)
-        dct[key]["median"] = round(median(val),3)
-        # skip mode. . .         dct[key]["mode"] = mode(val)
-        dct[key]["variance"] = round(variance(val, sample),3)
-        dct[key]["S.D."] = round(SD(val, sample) ,3)
-        dct[key]["skewness"] = round(skewness(val, sample),3)
-        dct[key]["kurtosis"] = round(kurtosis(val, sample),3)
+    
+    for key, vals in df.items():
+        # .dropna(axis = 0)  drops any row with a null value 
+        ## axis = 1 would drop any column with a null value
+        vals = vals.dropna(axis=0)
+        dct[key]["mean"] = round(mean(vals), round_to)
+        dct[key]["median"] = round(median(vals), round_to)
+        dct[key]["variance"] = round(variance(vals, sample), round_to)
+        dct[key]["SD"] = round(SD(vals, sample), round_to)
+        dct[key]["SE"] = round(STE(vals, sample), round_to)
+        dct[key]["skewness"] = round(skewness(vals, sample), round_to)
+        dct[key]["kurtosis"] = round(kurtosis(vals, sample), round_to)
+            
     stats_df = pd.DataFrame(dct)
     return stats_df
