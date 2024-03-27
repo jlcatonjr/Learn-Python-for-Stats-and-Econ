@@ -134,7 +134,21 @@ def corr_matrix_heatmap(df, save_fig = False, pp = None, title = "Correlation"):
     plt.close()    
     
     
-    
+def formatted_scatter_matrix(data, c = "C0", cmap = "viridis", alpha = .05, pp=False):  
+    # Create a figure showing scatterplots given in scatter_cats  
+    fig_len = 15  
+    fig, ax = plt.subplots(figsize = ((fig_len, fig_len)))  
+    # Use fig_len to dictate fig_size, adjust size of font, size of dots, etc...  
+    num_vars = len(data.keys())  
+    fontsize = 65 / num_vars  
+    plt.rcParams.update({'font.size': fontsize})  
+    pd.plotting.scatter_matrix(data, c = c, alpha = alpha, s = 200 / num_vars, ax=ax)  
+    # tight layout improves layout of text and plots in the figure  
+    plt.tight_layout()  
+    plt.show()  
+    if pp != False:
+        pp.savefig(fig, bbox_inches = "tight")  
+    plt.close() 
     
     
     
