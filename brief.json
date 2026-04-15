@@ -1,0 +1,34 @@
+{
+  "project_name": "LearnPythonStatsEcon",
+  "project_goal": "Author and maintain a Python programming textbook for economists and social scientists, covering core Python, statistical analysis, econometrics, and data visualization. The textbook is delivered as a series of Jupyter notebooks organized into chapters, with accompanying tutorials, in-class demonstrations, and student projects.",
+  "deliverables": ["Jupyter notebooks", "tutorial notebooks", "in-class demonstration notebooks", "student project notebooks"],
+  "output_format": "Jupyter notebooks (.ipynb)",
+  "primary_output_dir": "Textbook/",
+  "components": [
+    {"slug": "ch1-essentials", "name": "Chapter 1 — The Essentials", "number": 1},
+    {"slug": "ch2-lists", "name": "Chapter 2 — Working With Lists", "number": 2},
+    {"slug": "ch3-numpy-pandas", "name": "Chapter 3 — NumPy, Pandas, and Matplotlib", "number": 3},
+    {"slug": "ch4-functional", "name": "Chapter 4 — Functional Programming and Rudimentary Statistics", "number": 4},
+    {"slug": "ch5-probability", "name": "Chapter 5 — Probability Distributions", "number": 5},
+    {"slug": "ch6-hypothesis", "name": "Chapter 6 — Hypothesis Testing", "number": 6},
+    {"slug": "ch7-ols", "name": "Chapter 7 — Building an OLS Regression Model", "number": 7},
+    {"slug": "ch8-advanced", "name": "Chapter 8 — Advanced Data Analysis", "number": 8},
+    {"slug": "ch9-abm", "name": "Chapter 9 — Agent-Based Modeling", "number": 9}
+  ],
+  "tools": [
+    {"name": "Python", "category": "language"},
+    {"name": "Jupyter", "category": "framework", "needs_specialist_agent": false},
+    {"name": "NumPy", "category": "library", "needs_specialist_agent": false},
+    {"name": "Pandas", "category": "library", "needs_specialist_agent": false},
+    {"name": "Matplotlib", "category": "library", "needs_specialist_agent": false},
+    {"name": "SciPy", "category": "library", "needs_specialist_agent": false},
+    {"name": "Statsmodels", "category": "library", "needs_specialist_agent": false}
+  ],
+  "authority_sources": [
+    "Textbook/Chapter 1 - The Essentials.ipynb",
+    "Textbook/Chapter 7 - Building an OLS Regression Model.ipynb",
+    "ECON 411 611 Syllabus.docx"
+  ],
+  "style_reference": null,
+  "existing_project_path": "/Users/jamescaton/githubrepositories/learn-python-for-stats-and-econ"
+}
