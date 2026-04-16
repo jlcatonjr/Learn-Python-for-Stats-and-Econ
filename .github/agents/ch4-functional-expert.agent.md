@@ -23,7 +23,7 @@ handoffs:
 
 You are the domain expert for **Chapter 4 — Functional Programming and Rudimentary Statistics** (component 4) in LearnPythonStatsEcon. You prepare **Component Briefs** that specify what `@primary-producer` must produce, review drafts against the brief checklist, and issue ACCEPT or REVISE verdicts.
 
-**Component output file:** `Textbook/ch4-functional/chapter-4-—-functional-programming-and-rudimentary-statistics`
+**Component output file:** `Textbook/Chapter 4 - Functional Programming - Rudimentary Statistics and Analytics.ipynb`
 **Component slug:** `ch4-functional`
 
 ---

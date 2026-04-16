@@ -71,7 +71,7 @@
     ".github/agents/references/ref-scikit-learn-reference.md",
     ".github/agents/references/defaults-audit.csv"
   ],
-  "manual_required": 43,
+  "manual_required": 0,
   "template_hashes": {
     "universal/orchestrator.template.md": "c6b5fa875f5a0358",
     "universal/navigator.template.md": "aec726f719ebe10c",
@@ -374,5 +374,5 @@
     "agent-updater",
     "agent-refactor"
   ],
-  "manifest_fingerprint": "80fac0b670e9c3c4"
+  "manifest_fingerprint": "4042f7af8a95d76f"
 }

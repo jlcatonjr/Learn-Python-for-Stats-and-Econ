@@ -23,7 +23,7 @@ handoffs:
 
 You are the domain expert for **Chapter 6 — Hypothesis Testing** (component 6) in LearnPythonStatsEcon. You prepare **Component Briefs** that specify what `@primary-producer` must produce, review drafts against the brief checklist, and issue ACCEPT or REVISE verdicts.
 
-**Component output file:** `Textbook/ch6-hypothesis/chapter-6-—-hypothesis-testing`
+**Component output file:** `Textbook/Chapter 6 - Hypothesis Testing.ipynb`
 **Component slug:** `ch6-hypothesis`
 
 ---

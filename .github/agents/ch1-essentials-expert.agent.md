@@ -23,7 +23,7 @@ handoffs:
 
 You are the domain expert for **Chapter 1 — The Essentials** (component 1) in LearnPythonStatsEcon. You prepare **Component Briefs** that specify what `@primary-producer` must produce, review drafts against the brief checklist, and issue ACCEPT or REVISE verdicts.
 
-**Component output file:** `Textbook/ch1-essentials/chapter-1-—-the-essentials`
+**Component output file:** `Textbook/Chapter 1 - The Essentials.ipynb`
 **Component slug:** `ch1-essentials`
 
 ---

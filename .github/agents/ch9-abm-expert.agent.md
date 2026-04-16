@@ -23,7 +23,7 @@ handoffs:
 
 You are the domain expert for **Chapter 9 — Agent-Based Modeling** (component 9) in LearnPythonStatsEcon. You prepare **Component Briefs** that specify what `@primary-producer` must produce, review drafts against the brief checklist, and issue ACCEPT or REVISE verdicts.
 
-**Component output file:** `Textbook/ch9-abm/chapter-9-—-agent-based-modeling`
+**Component output file:** `Textbook/Chapter 9 - Agent Based Modeling (early draft).ipynb`
 **Component slug:** `ch9-abm`
 
 ---

@@ -23,7 +23,7 @@ handoffs:
 
 You are the domain expert for **Chapter 2 — Working With Lists** (component 2) in LearnPythonStatsEcon. You prepare **Component Briefs** that specify what `@primary-producer` must produce, review drafts against the brief checklist, and issue ACCEPT or REVISE verdicts.
 
-**Component output file:** `Textbook/ch2-lists/chapter-2-—-working-with-lists`
+**Component output file:** `Textbook/Chapter 2 - Working With Lists.ipynb`
 **Component slug:** `ch2-lists`
 
 ---

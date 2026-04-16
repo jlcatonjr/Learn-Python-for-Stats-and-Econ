@@ -23,7 +23,7 @@ handoffs:
 
 You are the domain expert for **Chapter 3 — NumPy, Pandas, and Matplotlib** (component 3) in LearnPythonStatsEcon. You prepare **Component Briefs** that specify what `@primary-producer` must produce, review drafts against the brief checklist, and issue ACCEPT or REVISE verdicts.
 
-**Component output file:** `Textbook/ch3-numpy-pandas/chapter-3-—-numpy,-pandas,-and-matplotlib`
+**Component output file:** `Textbook/Chapter 3 - Introduction to numpy, pandas, and matplotlib.ipynb`
 **Component slug:** `ch3-numpy-pandas`
 
 ---

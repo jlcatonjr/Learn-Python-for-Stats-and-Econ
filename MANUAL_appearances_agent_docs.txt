@@ -1,0 +1,119 @@
+./.github/agents/SETUP-REQUIRED.md:13:**Action required:** Search for `{MANUAL:REFERENCE_DB_PATH}` across all generated
+./.github/agents/SETUP-REQUIRED.md:23:**Action required:** Search for `{MANUAL:STYLE_REFERENCE_PATH}` across all generated
+./.github/agents/SETUP-REQUIRED.md:33:**Action required:** Search for `{MANUAL:CONVERSION_PIPELINE}` across all generated
+./.github/agents/SETUP-REQUIRED.md:43:**Action required:** Search for `{MANUAL:TOOL_DOCS_URL}` across all generated
+./.github/agents/SETUP-REQUIRED.md:53:**Action required:** Search for `{MANUAL:TOOL_API_SURFACE}` across all generated
+./.github/agents/SETUP-REQUIRED.md:63:**Action required:** Search for `{MANUAL:TOOL_COMMON_PATTERNS}` across all generated
+./.github/agents/SETUP-REQUIRED.md:73:**Action required:** Search for `{MANUAL:TOOL_DOCS_URL}` across all generated
+./.github/agents/SETUP-REQUIRED.md:83:**Action required:** Search for `{MANUAL:TOOL_API_SURFACE}` across all generated
+./.github/agents/SETUP-REQUIRED.md:93:**Action required:** Search for `{MANUAL:TOOL_COMMON_PATTERNS}` across all generated
+./.github/agents/SETUP-REQUIRED.md:103:**Action required:** Search for `{MANUAL:COMPONENT_SPEC}` across all generated
+./.github/agents/SETUP-REQUIRED.md:113:**Action required:** Search for `{MANUAL:COMPONENT_SECTIONS}` across all generated
+./.github/agents/SETUP-REQUIRED.md:123:**Action required:** Search for `{MANUAL:COMPONENT_QUALITY_CRITERIA}` across all generated
+./.github/agents/SETUP-REQUIRED.md:133:**Action required:** Search for `{MANUAL:COMPONENT_SPEC}` across all generated
+./.github/agents/SETUP-REQUIRED.md:143:**Action required:** Search for `{MANUAL:COMPONENT_SECTIONS}` across all generated
+./.github/agents/SETUP-REQUIRED.md:153:**Action required:** Search for `{MANUAL:COMPONENT_SOURCES}` across all generated
+./.github/agents/SETUP-REQUIRED.md:163:**Action required:** Search for `{MANUAL:COMPONENT_QUALITY_CRITERIA}` across all generated
+./.github/agents/SETUP-REQUIRED.md:173:**Action required:** Search for `{MANUAL:COMPONENT_SPEC}` across all generated
+./.github/agents/SETUP-REQUIRED.md:183:**Action required:** Search for `{MANUAL:COMPONENT_SECTIONS}` across all generated
+./.github/agents/SETUP-REQUIRED.md:193:**Action required:** Search for `{MANUAL:COMPONENT_SOURCES}` across all generated
+./.github/agents/SETUP-REQUIRED.md:203:**Action required:** Search for `{MANUAL:COMPONENT_QUALITY_CRITERIA}` across all generated
+./.github/agents/SETUP-REQUIRED.md:213:**Action required:** Search for `{MANUAL:COMPONENT_SPEC}` across all generated
+./.github/agents/SETUP-REQUIRED.md:223:**Action required:** Search for `{MANUAL:COMPONENT_SECTIONS}` across all generated
+./.github/agents/SETUP-REQUIRED.md:233:**Action required:** Search for `{MANUAL:COMPONENT_SOURCES}` across all generated
+./.github/agents/SETUP-REQUIRED.md:243:**Action required:** Search for `{MANUAL:COMPONENT_QUALITY_CRITERIA}` across all generated
+./.github/agents/SETUP-REQUIRED.md:253:**Action required:** Search for `{MANUAL:COMPONENT_SPEC}` across all generated
+./.github/agents/SETUP-REQUIRED.md:263:**Action required:** Search for `{MANUAL:COMPONENT_SECTIONS}` across all generated
+./.github/agents/SETUP-REQUIRED.md:273:**Action required:** Search for `{MANUAL:COMPONENT_SOURCES}` across all generated
+./.github/agents/SETUP-REQUIRED.md:283:**Action required:** Search for `{MANUAL:COMPONENT_QUALITY_CRITERIA}` across all generated
+./.github/agents/SETUP-REQUIRED.md:293:**Action required:** Search for `{MANUAL:COMPONENT_SPEC}` across all generated
+./.github/agents/SETUP-REQUIRED.md:303:**Action required:** Search for `{MANUAL:COMPONENT_SECTIONS}` across all generated
+./.github/agents/SETUP-REQUIRED.md:313:**Action required:** Search for `{MANUAL:COMPONENT_SOURCES}` across all generated
+./.github/agents/SETUP-REQUIRED.md:323:**Action required:** Search for `{MANUAL:COMPONENT_QUALITY_CRITERIA}` across all generated
+./.github/agents/SETUP-REQUIRED.md:333:**Action required:** Search for `{MANUAL:COMPONENT_SPEC}` across all generated
+./.github/agents/SETUP-REQUIRED.md:343:**Action required:** Search for `{MANUAL:COMPONENT_SECTIONS}` across all generated
+./.github/agents/SETUP-REQUIRED.md:353:**Action required:** Search for `{MANUAL:COMPONENT_QUALITY_CRITERIA}` across all generated
+./.github/agents/SETUP-REQUIRED.md:363:**Action required:** Search for `{MANUAL:COMPONENT_SPEC}` across all generated
+./.github/agents/SETUP-REQUIRED.md:373:**Action required:** Search for `{MANUAL:COMPONENT_SECTIONS}` across all generated
+./.github/agents/SETUP-REQUIRED.md:383:**Action required:** Search for `{MANUAL:COMPONENT_SOURCES}` across all generated
+./.github/agents/SETUP-REQUIRED.md:393:**Action required:** Search for `{MANUAL:COMPONENT_QUALITY_CRITERIA}` across all generated
+./.github/agents/SETUP-REQUIRED.md:403:**Action required:** Search for `{MANUAL:COMPONENT_SPEC}` across all generated
+./.github/agents/SETUP-REQUIRED.md:413:**Action required:** Search for `{MANUAL:COMPONENT_SECTIONS}` across all generated
+./.github/agents/SETUP-REQUIRED.md:423:**Action required:** Search for `{MANUAL:COMPONENT_SOURCES}` across all generated
+./.github/agents/SETUP-REQUIRED.md:433:**Action required:** Search for `{MANUAL:COMPONENT_QUALITY_CRITERIA}` across all generated
+./.github/agents/references/ref-plotly-reference.md:14:{MANUAL:TOOL_API_SURFACE}
+./.github/agents/references/ref-plotly-reference.md:18:{MANUAL:TOOL_COMMON_PATTERNS}
+./.github/agents/references/ref-helipad-reference.md:14:{MANUAL:TOOL_API_SURFACE}
+./.github/agents/references/ref-helipad-reference.md:18:{MANUAL:TOOL_COMMON_PATTERNS}
+./.github/agents/references/defaults-audit.csv:2:orchestrator.agent.md,MANUAL_PLACEHOLDER,STYLE_REFERENCE_PATH,139,Domain Agent Routing,"| Within-section cohesion | `@cohesion-repairer` | Disjointed paragraphs, broken argument flow, orphaned evidence | | | ",N/A — no formal style guide defined for this project,auto_filled
+./.github/agents/references/defaults-audit.csv:3:orchestrator.agent.md,MANUAL_PLACEHOLDER,REFERENCE_DB_PATH,142,Domain Agent Routing,| Format conversion | `@format-converter` | Source format → output format `Jupyter notebooks (.ipynb)` | | | References ,N/A — no citation database configured for this project,auto_filled
+./.github/agents/references/defaults-audit.csv:4:navigator.agent.md,MANUAL_PLACEHOLDER,REFERENCE_DB_PATH,38,Project Structure,**Primary output directory:** `Textbook/` | **Reference/dependency database:** `{MANUAL:REFERENCE_DB_PATH}` | **Figures ,N/A — no citation database configured for this project,auto_filled
+./.github/agents/references/defaults-audit.csv:5:conflict-auditor.agent.md,MANUAL_PLACEHOLDER,REFERENCE_DB_PATH,74,Reference Layer,### Reference Layer | - `{MANUAL:REFERENCE_DB_PATH}` — Reference database,N/A — no citation database configured for this project,auto_filled
+./.github/agents/references/defaults-audit.csv:6:cleanup.agent.md,MANUAL_PLACEHOLDER,REFERENCE_DB_PATH,29,Protected Files (Never Remove),| Primary deliverables | `Textbook/*` | Core authored output | | | Reference database | `{MANUAL:REFERENCE_DB_PATH}` | S,N/A — no citation database configured for this project,auto_filled
+./.github/agents/references/defaults-audit.csv:7:cleanup.agent.md,MANUAL_PLACEHOLDER,STYLE_REFERENCE_PATH,33,Protected Files (Never Remove),| Project instructions | `copilot-instructions.md` | Project conventions | | | Style references | `{MANUAL:STYLE_REFEREN,N/A — no formal style guide defined for this project,auto_filled
+./.github/agents/references/defaults-audit.csv:8:agent-updater.agent.md,MANUAL_PLACEHOLDER,REFERENCE_DB_PATH,52,Change-to-Agent Mapping,"| `Textbook/*` | `@conflict-auditor`, `@primary-producer`, `@style-guardian`, `@navigator` | | | `{MANUAL:REFERENCE_DB_P",N/A — no citation database configured for this project,auto_filled
+./.github/agents/references/defaults-audit.csv:9:agent-updater.agent.md,MANUAL_PLACEHOLDER,STYLE_REFERENCE_PATH,53,Change-to-Agent Mapping,"| `{MANUAL:REFERENCE_DB_PATH}` | `@reference-manager`, `@output-compiler` | | | `{MANUAL:STYLE_REFERENCE_PATH}` | `@styl",N/A — no formal style guide defined for this project,auto_filled
+./.github/agents/references/defaults-audit.csv:10:primary-producer.agent.md,MANUAL_PLACEHOLDER,REFERENCE_DB_PATH,63,Quality Floors,- All sections from the Component Brief are present and substantively addressed | - All citations map to keys in `{MANUA,N/A — no citation database configured for this project,auto_filled
+./.github/agents/references/defaults-audit.csv:11:style-guardian.agent.md,MANUAL_PLACEHOLDER,STYLE_REFERENCE_PATH,23,Style Guardian — LearnPythonStatsEcon,**Style reference:** `{MANUAL:STYLE_REFERENCE_PATH}`,N/A — no formal style guide defined for this project,auto_filled
+./.github/agents/references/defaults-audit.csv:12:references/ref-scipy-reference.md,TOOL_METADATA,TOOL_DOCS_URL,18,Official Documentation,{MANUAL:TOOL_DOCS_URL},https://docs.scipy.org/doc/scipy/reference/,auto_filled
+./.github/agents/references/defaults-audit.csv:13:references/ref-scipy-reference.md,TOOL_METADATA,TOOL_API_SURFACE,22,Key API Surface,{MANUAL:TOOL_API_SURFACE},"scipy.stats — probability distributions (norm, t, f, chi2, binom), hypothesis tests (ttest_ind, ttest_rel, mannwhitneyu, chi2_contingency, f_oneway), descriptive stats (describe, skew, kurtosis); scipy.optimize — minimize, curve_fit, root_scalar; scipy.linalg — solve, inv, det, eig",auto_filled
+./.github/agents/references/defaults-audit.csv:14:references/ref-scipy-reference.md,TOOL_METADATA,TOOL_COMMON_PATTERNS,28,Common Patterns & Pitfalls,{MANUAL:TOOL_COMMON_PATTERNS},"scipy.stats.norm.cdf/ppf for z-score and critical-value lookups. ttest_ind(a, b, equal_var=False) (Welch t-test) unless variances are verified equal. f_oneway(*groups) for one-way ANOVA. Pitfall: most distribution objects use scale (not variance) as the second parameter.",auto_filled
+./.github/agents/references/defaults-audit.csv:15:references/ref-statsmodels-reference.md,TOOL_METADATA,TOOL_DOCS_URL,18,Official Documentation,{MANUAL:TOOL_DOCS_URL},https://www.statsmodels.org/stable/api.html,auto_filled
+./.github/agents/references/defaults-audit.csv:16:references/ref-statsmodels-reference.md,TOOL_METADATA,TOOL_API_SURFACE,22,Key API Surface,{MANUAL:TOOL_API_SURFACE},"OLS regression (sm.OLS, smf.ols); GLM (sm.GLM); time-series models (ARIMA, SARIMAX, VAR); diagnostic tests (acf/pacf, Durbin-Watson, Breusch-Pagan, White test); summary tables (.summary(), .summary2()); formula interface (smf.ols('y ~ x1 + x2', data=df).fit())",auto_filled
+./.github/agents/references/defaults-audit.csv:17:references/ref-statsmodels-reference.md,TOOL_METADATA,TOOL_COMMON_PATTERNS,28,Common Patterns & Pitfalls,{MANUAL:TOOL_COMMON_PATTERNS},Always call .fit() — the model object alone is not fitted. Use smf formula interface for clean model specification with categorical dummies. model.summary() prints LaTeX-ready tables. Use HC3 robust standard errors: .fit(cov_type='HC3'). Pitfall: sm.add_constant(X) must be called explicitly when using sm.OLS with arrays.,auto_filled
+./.github/agents/references/defaults-audit.csv:18:ch1-essentials-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SPEC,37,Component Specification,{MANUAL:COMPONENT_SPEC},"Chapter 1 — The Essentials teaches the following core concepts:
+./.github/agents/references/defaults-audit.csv:26:ch1-essentials-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SECTIONS,41,Sections,{MANUAL:COMPONENT_SECTIONS},"1. **Chapter 1: The Essentials**
+./.github/agents/references/defaults-audit.csv:35:ch1-essentials-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_QUALITY_CRITERIA,49,Quality Criteria,{MANUAL:COMPONENT_QUALITY_CRITERIA},"- All code cells execute without errors in a clean kernel restart
+./.github/agents/references/defaults-audit.csv:40:ch1-essentials-expert.agent.md,MANUAL_PLACEHOLDER,REFERENCE_DB_PATH,67,Component Brief Preparation,"2. **Section list** — ordered list matching `## Sections` above, with a one-sentence description of each section's argum",N/A — no citation database configured for this project,auto_filled
+./.github/agents/references/defaults-audit.csv:41:ch2-lists-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SPEC,37,Component Specification,{MANUAL:COMPONENT_SPEC},"Chapter 2 — Working With Lists teaches the following core concepts:
+./.github/agents/references/defaults-audit.csv:49:ch2-lists-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SECTIONS,41,Sections,{MANUAL:COMPONENT_SECTIONS},"1. **Chapter 2: Working With Lists**
+./.github/agents/references/defaults-audit.csv:59:ch2-lists-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SOURCES,45,Sources,{MANUAL:COMPONENT_SOURCES},- Textbook/Chapter 2 - Working With Lists.ipynb,auto_filled
+./.github/agents/references/defaults-audit.csv:60:ch2-lists-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_QUALITY_CRITERIA,49,Quality Criteria,{MANUAL:COMPONENT_QUALITY_CRITERIA},"- All code cells execute without errors in a clean kernel restart
+./.github/agents/references/defaults-audit.csv:65:ch2-lists-expert.agent.md,MANUAL_PLACEHOLDER,REFERENCE_DB_PATH,67,Component Brief Preparation,"2. **Section list** — ordered list matching `## Sections` above, with a one-sentence description of each section's argum",N/A — no citation database configured for this project,auto_filled
+./.github/agents/references/defaults-audit.csv:66:ch3-numpy-pandas-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SPEC,37,Component Specification,{MANUAL:COMPONENT_SPEC},"Chapter 3 — NumPy, Pandas, and Matplotlib teaches the following core concepts:
+./.github/agents/references/defaults-audit.csv:74:ch3-numpy-pandas-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SECTIONS,41,Sections,{MANUAL:COMPONENT_SECTIONS},"1. **Introduction to _numpy_, _pandas_, and _matplotlib_**
+./.github/agents/references/defaults-audit.csv:84:ch3-numpy-pandas-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SOURCES,45,Sources,{MANUAL:COMPONENT_SOURCES},"- Textbook/Chapter 3 - Introduction to numpy, pandas, and matplotlib.ipynb",auto_filled
+./.github/agents/references/defaults-audit.csv:85:ch3-numpy-pandas-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_QUALITY_CRITERIA,49,Quality Criteria,{MANUAL:COMPONENT_QUALITY_CRITERIA},"- All code cells execute without errors in a clean kernel restart
+./.github/agents/references/defaults-audit.csv:90:ch3-numpy-pandas-expert.agent.md,MANUAL_PLACEHOLDER,REFERENCE_DB_PATH,67,Component Brief Preparation,"2. **Section list** — ordered list matching `## Sections` above, with a one-sentence description of each section's argum",N/A — no citation database configured for this project,auto_filled
+./.github/agents/references/defaults-audit.csv:91:ch4-functional-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SPEC,37,Component Specification,{MANUAL:COMPONENT_SPEC},"Chapter 4 — Functional Programming and Rudimentary Statistics teaches the following core concepts:
+./.github/agents/references/defaults-audit.csv:99:ch4-functional-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SECTIONS,41,Sections,{MANUAL:COMPONENT_SECTIONS},"1. **Chapter 4: Functional Programming: Rudimentary Statistics and Analytics**
+./.github/agents/references/defaults-audit.csv:109:ch4-functional-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SOURCES,45,Sources,{MANUAL:COMPONENT_SOURCES},- Textbook/Chapter 4 - Functional Programming - Rudimentary Statistics and Analytics.ipynb,auto_filled
+./.github/agents/references/defaults-audit.csv:110:ch4-functional-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_QUALITY_CRITERIA,49,Quality Criteria,{MANUAL:COMPONENT_QUALITY_CRITERIA},"- All code cells execute without errors in a clean kernel restart
+./.github/agents/references/defaults-audit.csv:115:ch4-functional-expert.agent.md,MANUAL_PLACEHOLDER,REFERENCE_DB_PATH,67,Component Brief Preparation,"2. **Section list** — ordered list matching `## Sections` above, with a one-sentence description of each section's argum",N/A — no citation database configured for this project,auto_filled
+./.github/agents/references/defaults-audit.csv:116:ch5-probability-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SPEC,37,Component Specification,{MANUAL:COMPONENT_SPEC},"Chapter 5 — Probability Distributions teaches the following core concepts:
+./.github/agents/references/defaults-audit.csv:124:ch5-probability-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SECTIONS,41,Sections,{MANUAL:COMPONENT_SECTIONS},"1. **Chapter 5: Probability Distributions**
+./.github/agents/references/defaults-audit.csv:134:ch5-probability-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SOURCES,45,Sources,{MANUAL:COMPONENT_SOURCES},- Textbook/Chapter 5 - Probability Distributions.ipynb,auto_filled
+./.github/agents/references/defaults-audit.csv:135:ch5-probability-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_QUALITY_CRITERIA,49,Quality Criteria,{MANUAL:COMPONENT_QUALITY_CRITERIA},"- All code cells execute without errors in a clean kernel restart
+./.github/agents/references/defaults-audit.csv:140:ch5-probability-expert.agent.md,MANUAL_PLACEHOLDER,REFERENCE_DB_PATH,67,Component Brief Preparation,"2. **Section list** — ordered list matching `## Sections` above, with a one-sentence description of each section's argum",N/A — no citation database configured for this project,auto_filled
+./.github/agents/references/defaults-audit.csv:141:ch6-hypothesis-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SPEC,37,Component Specification,{MANUAL:COMPONENT_SPEC},"Chapter 6 — Hypothesis Testing teaches the following core concepts:
+./.github/agents/references/defaults-audit.csv:149:ch6-hypothesis-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SECTIONS,41,Sections,{MANUAL:COMPONENT_SECTIONS},"1. **Chapter 6: Hypothesis Testing**
+./.github/agents/references/defaults-audit.csv:159:ch6-hypothesis-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SOURCES,45,Sources,{MANUAL:COMPONENT_SOURCES},- Textbook/Chapter 6 - Hypothesis Testing.ipynb,auto_filled
+./.github/agents/references/defaults-audit.csv:160:ch6-hypothesis-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_QUALITY_CRITERIA,49,Quality Criteria,{MANUAL:COMPONENT_QUALITY_CRITERIA},"- All code cells execute without errors in a clean kernel restart
+./.github/agents/references/defaults-audit.csv:165:ch6-hypothesis-expert.agent.md,MANUAL_PLACEHOLDER,REFERENCE_DB_PATH,67,Component Brief Preparation,"2. **Section list** — ordered list matching `## Sections` above, with a one-sentence description of each section's argum",N/A — no citation database configured for this project,auto_filled
+./.github/agents/references/defaults-audit.csv:166:ch7-ols-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SPEC,37,Component Specification,{MANUAL:COMPONENT_SPEC},"Chapter 7 — Building an OLS Regression Model teaches the following core concepts:
+./.github/agents/references/defaults-audit.csv:174:ch7-ols-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SECTIONS,41,Sections,{MANUAL:COMPONENT_SECTIONS},"1. **Chapter 7: Building an OLS Regression Model**
+./.github/agents/references/defaults-audit.csv:184:ch7-ols-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_QUALITY_CRITERIA,49,Quality Criteria,{MANUAL:COMPONENT_QUALITY_CRITERIA},"- All code cells execute without errors in a clean kernel restart
+./.github/agents/references/defaults-audit.csv:189:ch7-ols-expert.agent.md,MANUAL_PLACEHOLDER,REFERENCE_DB_PATH,67,Component Brief Preparation,"2. **Section list** — ordered list matching `## Sections` above, with a one-sentence description of each section's argum",N/A — no citation database configured for this project,auto_filled
+./.github/agents/references/defaults-audit.csv:190:ch8-advanced-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SPEC,37,Component Specification,{MANUAL:COMPONENT_SPEC},"Chapter 8 — Advanced Data Analysis teaches the following core concepts:
+./.github/agents/references/defaults-audit.csv:198:ch8-advanced-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SECTIONS,41,Sections,{MANUAL:COMPONENT_SECTIONS},"1. **Chapter 8: Advanced Data Analysis**
+./.github/agents/references/defaults-audit.csv:208:ch8-advanced-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SOURCES,45,Sources,{MANUAL:COMPONENT_SOURCES},- Textbook/Chapter 8 - Advanced Data Analysis.ipynb,auto_filled
+./.github/agents/references/defaults-audit.csv:209:ch8-advanced-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_QUALITY_CRITERIA,49,Quality Criteria,{MANUAL:COMPONENT_QUALITY_CRITERIA},"- All code cells execute without errors in a clean kernel restart
+./.github/agents/references/defaults-audit.csv:214:ch8-advanced-expert.agent.md,MANUAL_PLACEHOLDER,REFERENCE_DB_PATH,67,Component Brief Preparation,"2. **Section list** — ordered list matching `## Sections` above, with a one-sentence description of each section's argum",N/A — no citation database configured for this project,auto_filled
+./.github/agents/references/defaults-audit.csv:215:ch9-abm-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SPEC,37,Component Specification,{MANUAL:COMPONENT_SPEC},"Chapter 9 — Agent-Based Modeling teaches the following core concepts:
+./.github/agents/references/defaults-audit.csv:221:ch9-abm-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SECTIONS,41,Sections,{MANUAL:COMPONENT_SECTIONS},"1. **Building a Model in Helipad**
+./.github/agents/references/defaults-audit.csv:226:ch9-abm-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_SOURCES,45,Sources,{MANUAL:COMPONENT_SOURCES},- Textbook/Chapter 9 - Agent Based Modeling (early draft).ipynb,auto_filled
+./.github/agents/references/defaults-audit.csv:227:ch9-abm-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_QUALITY_CRITERIA,49,Quality Criteria,{MANUAL:COMPONENT_QUALITY_CRITERIA},"- All code cells execute without errors in a clean kernel restart
+./.github/agents/references/defaults-audit.csv:232:ch9-abm-expert.agent.md,MANUAL_PLACEHOLDER,REFERENCE_DB_PATH,67,Component Brief Preparation,"2. **Section list** — ordered list matching `## Sections` above, with a one-sentence description of each section's argum",N/A — no citation database configured for this project,auto_filled
+./.github/agents/references/defaults-audit.csv:233:../copilot-instructions.md,MANUAL_PLACEHOLDER,REFERENCE_DB_PATH,23,Directory Structure,| `figures/` | Diagrams and figures | | | `{MANUAL:REFERENCE_DB_PATH}` | Reference/bibliography database | | | `.github/,N/A — no citation database configured for this project,auto_filled
+./.github/agents/references/ref-networkx-reference.md:14:{MANUAL:TOOL_API_SURFACE}
+./.github/agents/references/ref-networkx-reference.md:18:{MANUAL:TOOL_COMMON_PATTERNS}
+./.github/agents/references/ref-scikit-learn-reference.md:14:{MANUAL:TOOL_API_SURFACE}
+./.github/agents/references/ref-scikit-learn-reference.md:18:{MANUAL:TOOL_COMMON_PATTERNS}
+./.github/agents/references/ref-seaborn-reference.md:14:{MANUAL:TOOL_API_SURFACE}
+./.github/agents/references/ref-seaborn-reference.md:18:{MANUAL:TOOL_COMMON_PATTERNS}
+./.github/agents/content-enricher.agent.md:35:After `agentteams` generates an agent team, many `{MANUAL:TOKEN}` placeholders remain unfilled because they require project-specific knowledge. This agent reads the defaults-audit CSV, inspects the project source materials, and replaces each placeholder with an accurate, project-specific value.
+./.github/agents/content-enricher.agent.md:48:| `category` | `MANUAL_PLACEHOLDER`, `TOOL_METADATA`, or `GENERIC_SECTION` |
+./.github/agents/content-enricher.agent.md:49:| `token` | The `{MANUAL:TOKEN}` name to fill |
+./.github/agents/content-enricher.agent.md:74:For each pending finding, open the agent file, locate the `{MANUAL:TOKEN}` placeholder, and replace it with the correct project-specific value.
+./.github/agents/content-enricher.agent.md:80:- Preserve all surrounding content unchanged — only replace the `{MANUAL:TOKEN}` string
+./.github/agents/content-enricher.agent.md:93:- No placeholder tokens (`{MANUAL:*}`) remain in agent files that were addressed
