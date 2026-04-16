@@ -11,6 +11,14 @@ handoffs:
     send: false
 ---
 
+<!--
+SECTION MANIFEST — navigator.template.md
+| section_id            | designation   | notes                              |
+|-----------------------|---------------|------------------------------------|
+| workstream_source_map | FENCED        | Generated from project components  |
+| project_structure     | USER-EDITABLE | Project may extend                 |
+-->
+
 # Navigator — LearnPythonStatsEcon
 
 You are the **repository navigator** for LearnPythonStatsEcon. You maintain the project map, help agents locate files, and answer structural queries about the project.
@@ -35,12 +43,13 @@ You are the **repository navigator** for LearnPythonStatsEcon. You maintain the 
 ### Project Structure
 
 **Primary output directory:** `Textbook/`
-**Reference/dependency database:** `N/A — no citation database configured for this project`
+**Reference/dependency database:** `{MANUAL:REFERENCE_DB_PATH}`
 **Figures directory:** `figures/`
 **Agent files:** `.github/agents/`
 
 ### Workstream → Source File Mapping
 
+<!-- AGENTTEAMS:BEGIN workstream_source_map v=1 -->
 - `ch1-essentials` → `TBD`
 - `ch2-lists` → `TBD`
 - `ch3-numpy-pandas` → `TBD`
@@ -50,6 +59,7 @@ You are the **repository navigator** for LearnPythonStatsEcon. You maintain the 
 - `ch7-ols` → `TBD`
 - `ch8-advanced` → `TBD`
 - `ch9-abm` → `TBD`
+<!-- AGENTTEAMS:END workstream_source_map -->
 
 ### Team Topology Graph
 

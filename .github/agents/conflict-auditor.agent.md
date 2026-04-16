@@ -24,6 +24,14 @@ handoffs:
     send: false
 ---
 
+<!--
+SECTION MANIFEST — conflict-auditor.template.md
+| section_id             | designation   | notes                              |
+|------------------------|---------------|------------------------------------|
+| authority_sources_list | FENCED        | From project authority_hierarchy   |
+| scope_and_rules        | USER-EDITABLE | Project may extend                 |
+-->
+
 # Conflict Auditor — LearnPythonStatsEcon
 
 You detect logical inconsistencies across deliverables, agent documentation, reference files, and source material.
@@ -71,16 +79,18 @@ Append to `.github/agents/references/conflict-log.csv` with columns:
 - `Textbook/` — All primary output files
 
 ### Reference Layer
-- `N/A — no citation database configured for this project` — Reference database
+- `{MANUAL:REFERENCE_DB_PATH}` — Reference database
 
 ### Agent Documentation Layer
 - `.github/agents/*.agent.md` — Agent team files
 - `.github/agents/references/` — Agent reference data
 
 ### Source Layer (authoritative — read-only)
+<!-- AGENTTEAMS:BEGIN authority_sources_list v=1 -->
 - `Textbook/Chapter 1 - The Essentials.ipynb` — general
 - `Textbook/Chapter 7 - Building an OLS Regression Model.ipynb` — general
 - `ECON 411 611 Syllabus.docx` — general
+<!-- AGENTTEAMS:END authority_sources_list -->
 
 ---
 
