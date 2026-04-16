@@ -70,11 +70,19 @@ Chapter 8 — Advanced Data Analysis teaches the following core concepts:
 
 ## Cross-References
 
-None specified.
+- Builds on `ch7-ols` — Chapter 7 — Building an OLS Regression Model
+- Leads to `ch9-abm` — Chapter 9 — Agent-Based Modeling
 
 ## Tool Dependencies
 
-No tool-specific dependencies.
+- jdc
+- `references/ref-matplotlib-reference.md`
+- mpl_toolkits
+- `references/ref-numpy-reference.md`
+- `references/ref-pandas-reference.md`
+- regression
+- `references/ref-scipy-reference.md`
+- stats
 
 ---
 

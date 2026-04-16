@@ -63,11 +63,11 @@ Chapter 9 — Agent-Based Modeling teaches the following core concepts:
 
 ## Cross-References
 
-None specified.
+- Builds on `ch8-advanced` — Chapter 8 — Advanced Data Analysis
 
 ## Tool Dependencies
 
-No tool-specific dependencies.
+- helipad
 
 ---
 

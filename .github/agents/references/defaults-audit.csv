@@ -231,7 +231,9 @@ ch9-abm-expert.agent.md,MANUAL_PLACEHOLDER,COMPONENT_QUALITY_CRITERIA,49,Quality
 - Output format is a clean, readable Jupyter notebooks (.ipynb) file",auto_filled
 ch9-abm-expert.agent.md,MANUAL_PLACEHOLDER,REFERENCE_DB_PATH,67,Component Brief Preparation,"2. **Section list** — ordered list matching `## Sections` above, with a one-sentence description of each section's argum",N/A — no citation database configured for this project,auto_filled
 ../copilot-instructions.md,MANUAL_PLACEHOLDER,REFERENCE_DB_PATH,23,Directory Structure,| `figures/` | Diagrams and figures | | | `{MANUAL:REFERENCE_DB_PATH}` | Reference/bibliography database | | | `.github/,N/A — no citation database configured for this project,auto_filled
+references/,MISSING_TOOL_REF,pandas-datareader,0,,import alias 'pandas_datareader' detected in project source; no reference file found.,https://pandas-datareader.readthedocs.io/en/latest/,auto_filled
 references/,MISSING_TOOL_REF,networkx,0,,import alias 'networkx' detected in project source; no reference file found.,https://networkx.org/documentation/stable/reference/,auto_filled
+references/,MISSING_TOOL_REF,ipywidgets,0,,import alias 'ipywidgets' detected in project source; no reference file found.,https://ipywidgets.readthedocs.io/en/stable/,auto_filled
 references/,MISSING_TOOL_REF,helipad,0,,import alias 'helipad' detected in project source; no reference file found.,https://helipad.dev/apidocs/,auto_filled
 references/,MISSING_TOOL_REF,plotly,0,,import alias 'plotly' detected in project source; no reference file found.,https://plotly.com/python-api-reference/,auto_filled
 references/,MISSING_TOOL_REF,seaborn,0,,import alias 'seaborn' detected in project source; no reference file found.,https://seaborn.pydata.org/api.html,auto_filled

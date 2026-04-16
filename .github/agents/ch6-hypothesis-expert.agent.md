@@ -70,11 +70,19 @@ Chapter 6 — Hypothesis Testing teaches the following core concepts:
 
 ## Cross-References
 
-None specified.
+- Builds on `ch5-probability` — Chapter 5 — Probability Distributions
+- Leads to `ch7-ols` — Chapter 7 — Building an OLS Regression Model
 
 ## Tool Dependencies
 
-No tool-specific dependencies.
+- `references/ref-matplotlib-reference.md`
+- `references/ref-numpy-reference.md`
+- `references/ref-pandas-reference.md`
+- pandas-datareader
+- `references/ref-scipy-reference.md`
+- stats
+- `references/ref-statsmodels-reference.md`
+- yfinance
 
 ---
 

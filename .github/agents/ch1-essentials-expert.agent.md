@@ -69,7 +69,7 @@ Chapter 1 — The Essentials teaches the following core concepts:
 
 ## Cross-References
 
-None specified.
+- Leads to `ch2-lists` — Chapter 2 — Working With Lists
 
 ## Tool Dependencies
 

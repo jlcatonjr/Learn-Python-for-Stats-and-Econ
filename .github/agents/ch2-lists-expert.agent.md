@@ -70,7 +70,8 @@ Chapter 2 — Working With Lists teaches the following core concepts:
 
 ## Cross-References
 
-None specified.
+- Builds on `ch1-essentials` — Chapter 1 — The Essentials
+- Leads to `ch3-numpy-pandas` — Chapter 3 — NumPy, Pandas, and Matplotlib
 
 ## Tool Dependencies
 

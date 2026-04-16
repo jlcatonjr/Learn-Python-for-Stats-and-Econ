@@ -70,11 +70,15 @@ Chapter 4 — Functional Programming and Rudimentary Statistics teaches the foll
 
 ## Cross-References
 
-None specified.
+- Builds on `ch3-numpy-pandas` — Chapter 3 — NumPy, Pandas, and Matplotlib
+- Leads to `ch5-probability` — Chapter 5 — Probability Distributions
 
 ## Tool Dependencies
 
-No tool-specific dependencies.
+- `references/ref-matplotlib-reference.md`
+- `references/ref-numpy-reference.md`
+- `references/ref-pandas-reference.md`
+- stats
 
 ---
 

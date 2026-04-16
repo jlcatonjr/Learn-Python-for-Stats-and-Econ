@@ -70,11 +70,18 @@ Chapter 7 — Building an OLS Regression Model teaches the following core concep
 
 ## Cross-References
 
-None specified.
+- Builds on `ch6-hypothesis` — Chapter 6 — Hypothesis Testing
+- Leads to `ch8-advanced` — Chapter 8 — Advanced Data Analysis
 
 ## Tool Dependencies
 
-No tool-specific dependencies.
+- jdc
+- `references/ref-matplotlib-reference.md`
+- `references/ref-numpy-reference.md`
+- `references/ref-pandas-reference.md`
+- regression
+- `references/ref-scipy-reference.md`
+- stats
 
 ---
 

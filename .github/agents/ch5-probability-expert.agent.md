@@ -70,11 +70,19 @@ Chapter 5 — Probability Distributions teaches the following core concepts:
 
 ## Cross-References
 
-None specified.
+- Builds on `ch4-functional` — Chapter 4 — Functional Programming and Rudimentary Statistics
+- Leads to `ch6-hypothesis` — Chapter 6 — Hypothesis Testing
 
 ## Tool Dependencies
 
-No tool-specific dependencies.
+- `references/ref-jupyter-reference.md`
+- `references/ref-matplotlib-reference.md`
+- mpl_toolkits
+- `references/ref-numpy-reference.md`
+- `references/ref-pandas-reference.md`
+- pandas-datareader
+- stats
+- yfinance
 
 ---
 

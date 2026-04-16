@@ -70,11 +70,14 @@ Chapter 3 — NumPy, Pandas, and Matplotlib teaches the following core concepts:
 
 ## Cross-References
 
-None specified.
+- Builds on `ch2-lists` — Chapter 2 — Working With Lists
+- Leads to `ch4-functional` — Chapter 4 — Functional Programming and Rudimentary Statistics
 
 ## Tool Dependencies
 
-No tool-specific dependencies.
+- `references/ref-matplotlib-reference.md`
+- `references/ref-numpy-reference.md`
+- `references/ref-pandas-reference.md`
 
 ---
 
