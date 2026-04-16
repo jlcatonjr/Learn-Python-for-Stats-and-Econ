@@ -20,7 +20,7 @@
 | `Textbook/` | Primary authored deliverables |
 | `build/` | Compiled/converted output artifacts |
 | `figures/` | Diagrams and figures |
-| `{MANUAL:REFERENCE_DB_PATH}` | Reference/bibliography database |
+| `N/A — no citation database configured for this project` | Reference/bibliography database |
 | `.github/agents/` | Agent definition files |
 | `.github/agents/references/` | Shared reference data |
 
@@ -88,7 +88,7 @@
 2. **Code hygiene second** — code changes require `@code-hygiene` audit before merge
 3. **Authority hierarchy is ground truth** — no agent may contradict a higher-authority source
 4. **Primary deliverables are the canonical output** — build artifacts are derived, never primary
-5. **No fabricated references** — every citation must be verifiable in `{MANUAL:REFERENCE_DB_PATH}`
+5. **No fabricated references** — every citation must be verifiable in `N/A — no citation database configured for this project`
 6. **Voice fidelity** — `@style-guardian` is the sole arbiter of voice deviation rulings
 7. **Living documentation** — agent docs must not accumulate stale content
 8. **Always close with `@conflict-auditor`** — required after any multi-file change session

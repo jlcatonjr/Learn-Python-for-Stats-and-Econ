@@ -34,19 +34,39 @@ You are the domain expert for **Chapter 5 — Probability Distributions** (compo
 
 ## Component Specification
 
-{MANUAL:COMPONENT_SPEC}
+Chapter 5 — Probability Distributions teaches the following core concepts:
+
+- Types of Probability Distributions
+- Lognormal Distribution
+- Binomial Distribution
+- Poisson Distribution
+- Working with Time Series Data
+- Measuring Volatility
 
 ## Sections
 
-{MANUAL:COMPONENT_SECTIONS}
+1. **Chapter 5: Probability Distributions**
+2. **Types of Probability Distributions**
+3. **Lognormal Distribution**
+4. **Binomial Distribution**
+5. **Poisson Distribution**
+6. **Working with Time Series Data**
+7. **Measuring Volatility**
+8. **Kurtosis**
+9. **$\beta$ and Volatility**
+10. **Central Limit Theorem:**
 
 ## Sources
 
-{MANUAL:COMPONENT_SOURCES}
+- Textbook/Chapter 5 - Probability Distributions.ipynb
 
 ## Quality Criteria
 
-{MANUAL:COMPONENT_QUALITY_CRITERIA}
+- All code cells execute without errors in a clean kernel restart
+- Each section opens with a clear learning objective or conceptual framing
+- Code is annotated with inline comments explaining non-obvious steps
+- Examples use economics, statistics, or social-science data where applicable
+- Output format is a clean, readable Jupyter notebooks (.ipynb) file
 
 ## Cross-References
 
@@ -64,7 +84,7 @@ Before `@primary-producer` drafts, you prepare a **Component Brief** containing:
 
 1. **Thesis or goal statement** — single sentence stating what this component must accomplish
 2. **Section list** — ordered list matching `## Sections` above, with a one-sentence description of each section's argument or content
-3. **Source list** — verified citation keys from `{MANUAL:REFERENCE_DB_PATH}` mapped to which sections they support
+3. **Source list** — verified citation keys from `N/A — no citation database configured for this project` mapped to which sections they support
 4. **Cross-reference map** — which components this one references, and where
 5. **Quality checklist** — derived from `## Quality Criteria` above, with pass/fail criteria `@primary-producer` can verify during drafting
 

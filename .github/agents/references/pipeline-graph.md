@@ -48,6 +48,8 @@ flowchart LR
     class conflict_auditor governance
     conflict_resolution["Conflict Resolution"]
     class conflict_resolution governance
+    content_enricher["Content Enricher"]
+    class content_enricher unknown
     navigator["Navigator"]
     class navigator governance
     orchestrator["Orchestrator"]
@@ -195,6 +197,10 @@ flowchart LR
     ch9_abm_expert -->|"Return to Orchestrator"| orchestrator
     ch9_abm_expert -.-> primary_producer
     ch9_abm_expert -.-> adversarial
+    content_enricher -->|"Validate Enriched Content"| technical_validator
+    content_enricher -->|"Return to Orchestrator"| orchestrator
+    content_enricher -.-> primary_producer
+    content_enricher -.-> technical_validator
 ```
 
 ---
@@ -231,6 +237,7 @@ flowchart LR
 | `cohesion-repairer` | domain | No | read, edit |
 | `conflict-auditor` | governance | No | read, edit, search, execute |
 | `conflict-resolution` | governance | No | edit, search, read |
+| `content-enricher` | unknown | Yes | read, edit, search |
 | `navigator` | governance | No | read, search, execute |
 | `orchestrator` | governance | Yes | read, edit, search, execute, todo, agent |
 | `output-compiler` | domain | No | read, edit, execute |
@@ -266,15 +273,16 @@ flowchart LR
 | `cohesion-repairer` | `orchestrator`, `primary-producer`, `quality-auditor` | `orchestrator`, `quality-auditor`, `style-guardian` |
 | `conflict-auditor` | `adversarial`, `agent-refactor`, `agent-updater`, `code-hygiene`, `orchestrator`, `primary-producer`, `technical-validator` | `agent-updater`, `conflict-resolution`, `orchestrator`, `technical-validator` |
 | `conflict-resolution` | `conflict-auditor`, `orchestrator` | `agent-updater`, `orchestrator` |
+| `content-enricher` | — | `orchestrator`, `primary-producer`, `technical-validator` |
 | `navigator` | `orchestrator` | `orchestrator` |
-| `orchestrator` | `adversarial`, `agent-refactor`, `agent-updater`, `ch1-essentials-expert`, `ch2-lists-expert`, `ch3-numpy-pandas-expert`, `ch4-functional-expert`, `ch5-probability-expert`, `ch6-hypothesis-expert`, `ch7-ols-expert`, `ch8-advanced-expert`, `ch9-abm-expert`, `cleanup`, `code-hygiene`, `cohesion-repairer`, `conflict-auditor`, `conflict-resolution`, `navigator`, `output-compiler`, `primary-producer`, `quality-auditor`, `security`, `style-guardian`, `technical-validator`, `tool-doc-researcher`, `visual-designer` | `adversarial`, `agent-refactor`, `agent-updater`, `cleanup`, `code-hygiene`, `cohesion-repairer`, `conflict-auditor`, `conflict-resolution`, `navigator`, `output-compiler`, `primary-producer`, `quality-auditor`, `security`, `style-guardian`, `technical-validator`, `visual-designer` |
+| `orchestrator` | `adversarial`, `agent-refactor`, `agent-updater`, `ch1-essentials-expert`, `ch2-lists-expert`, `ch3-numpy-pandas-expert`, `ch4-functional-expert`, `ch5-probability-expert`, `ch6-hypothesis-expert`, `ch7-ols-expert`, `ch8-advanced-expert`, `ch9-abm-expert`, `cleanup`, `code-hygiene`, `cohesion-repairer`, `conflict-auditor`, `conflict-resolution`, `content-enricher`, `navigator`, `output-compiler`, `primary-producer`, `quality-auditor`, `security`, `style-guardian`, `technical-validator`, `tool-doc-researcher`, `visual-designer` | `adversarial`, `agent-refactor`, `agent-updater`, `cleanup`, `code-hygiene`, `cohesion-repairer`, `conflict-auditor`, `conflict-resolution`, `navigator`, `output-compiler`, `primary-producer`, `quality-auditor`, `security`, `style-guardian`, `technical-validator`, `visual-designer` |
 | `output-compiler` | `orchestrator` | `orchestrator`, `technical-validator` |
-| `primary-producer` | `ch1-essentials-expert`, `ch2-lists-expert`, `ch3-numpy-pandas-expert`, `ch4-functional-expert`, `ch5-probability-expert`, `ch6-hypothesis-expert`, `ch7-ols-expert`, `ch8-advanced-expert`, `ch9-abm-expert`, `orchestrator`, `quality-auditor`, `style-guardian`, `technical-validator` | `cohesion-repairer`, `conflict-auditor`, `orchestrator`, `quality-auditor`, `style-guardian` |
+| `primary-producer` | `ch1-essentials-expert`, `ch2-lists-expert`, `ch3-numpy-pandas-expert`, `ch4-functional-expert`, `ch5-probability-expert`, `ch6-hypothesis-expert`, `ch7-ols-expert`, `ch8-advanced-expert`, `ch9-abm-expert`, `content-enricher`, `orchestrator`, `quality-auditor`, `style-guardian`, `technical-validator` | `cohesion-repairer`, `conflict-auditor`, `orchestrator`, `quality-auditor`, `style-guardian` |
 | `quality-auditor` | `cohesion-repairer`, `orchestrator`, `primary-producer`, `visual-designer` | `cohesion-repairer`, `orchestrator`, `primary-producer`, `style-guardian` |
 | `security` | `code-hygiene`, `orchestrator` | `orchestrator` |
 | `style-guardian` | `cohesion-repairer`, `orchestrator`, `primary-producer`, `quality-auditor` | `orchestrator`, `primary-producer` |
 | `team-builder` | — | — |
-| `technical-validator` | `conflict-auditor`, `orchestrator`, `output-compiler` | `conflict-auditor`, `orchestrator`, `primary-producer` |
+| `technical-validator` | `conflict-auditor`, `content-enricher`, `orchestrator`, `output-compiler` | `conflict-auditor`, `orchestrator`, `primary-producer` |
 | `tool-doc-researcher` | — | `agent-updater`, `orchestrator` |
 | `visual-designer` | `orchestrator` | `orchestrator`, `quality-auditor` |
 
@@ -307,6 +315,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
     "cohesion-repairer" [label="Cohesion Repairer", fillcolor="#e8ffe8"];
     "conflict-auditor" [label="Conflict Auditor", fillcolor="#e8e8ff"];
     "conflict-resolution" [label="Conflict Resolution", fillcolor="#e8e8ff"];
+    "content-enricher" [label="Content Enricher", fillcolor="#f5f5f5"];
     "navigator" [label="Navigator", fillcolor="#e8e8ff"];
     "orchestrator" [label="Orchestrator", fillcolor="#e8e8ff"];
     "output-compiler" [label="Output Compiler", fillcolor="#e8ffe8"];
@@ -405,6 +414,9 @@ digraph "LearnPythonStatsEcon Agent Team" {
     "ch9-abm-expert" -> "adversarial" [style=solid, label="Vet Brief Before Drafting"];
     "ch9-abm-expert" -> "primary-producer" [style=solid, label="Send to Primary Producer"];
     "ch9-abm-expert" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "content-enricher" -> "technical-validator" [style=solid, label="Validate Enriched Content"];
+    "content-enricher" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "content-enricher" -> "primary-producer" [style=dashed];
 }
 ```
 
@@ -583,6 +595,16 @@ digraph "LearnPythonStatsEcon Agent Team" {
         "edit",
         "search",
         "read"
+      ]
+    },
+    "content-enricher": {
+      "display_name": "Content Enricher",
+      "agent_type": "unknown",
+      "user_invokable": true,
+      "tools": [
+        "read",
+        "edit",
+        "search"
       ]
     },
     "navigator": {
@@ -1448,6 +1470,30 @@ digraph "LearnPythonStatsEcon Agent Team" {
       "target": "adversarial",
       "edge_type": "agents-list",
       "label": null
+    },
+    {
+      "source": "content-enricher",
+      "target": "technical-validator",
+      "edge_type": "handoff",
+      "label": "Validate Enriched Content"
+    },
+    {
+      "source": "content-enricher",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "content-enricher",
+      "target": "primary-producer",
+      "edge_type": "agents-list",
+      "label": null
+    },
+    {
+      "source": "content-enricher",
+      "target": "technical-validator",
+      "edge_type": "agents-list",
+      "label": null
     }
   ],
   "adjacency": {
@@ -1592,7 +1638,12 @@ digraph "LearnPythonStatsEcon Agent Team" {
       "orchestrator",
       "primary-producer"
     ],
-    "team-builder": []
+    "team-builder": [],
+    "content-enricher": [
+      "orchestrator",
+      "primary-producer",
+      "technical-validator"
+    ]
   }
 }
 ```

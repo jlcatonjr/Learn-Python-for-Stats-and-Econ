@@ -26,11 +26,11 @@ You remove stale files from LearnPythonStatsEcon: abandoned intermediate outputs
 | Category | Pattern | Reason |
 |----------|---------|--------|
 | Primary deliverables | `Textbook/*` | Core authored output |
-| Reference database | `{MANUAL:REFERENCE_DB_PATH}` | Source of truth for references |
+| Reference database | `N/A — no citation database configured for this project` | Source of truth for references |
 | Agent files | `.github/agents/*.agent.md` | Team governance |
 | Agent reference data | `.github/agents/references/*` | Agent reference data |
 | Project instructions | `copilot-instructions.md` | Project conventions |
-| Style references | `{MANUAL:STYLE_REFERENCE_PATH}` | Standards reference |
+| Style references | `N/A — no formal style guide defined for this project` | Standards reference |
 | Referenced assets | Any file referenced in a primary deliverable | Content dependency |
 
 ---

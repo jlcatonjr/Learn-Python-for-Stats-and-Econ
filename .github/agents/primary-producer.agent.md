@@ -60,7 +60,7 @@ You draft and revise the primary deliverables for LearnPythonStatsEcon. All prod
 
 Every deliverable must meet these floors before leaving this agent:
 - All sections from the Component Brief are present and substantively addressed
-- All citations map to keys in `{MANUAL:REFERENCE_DB_PATH}` (if applicable)
+- All citations map to keys in `N/A — no citation database configured for this project` (if applicable)
 - No fabricated data, figures, or citations
 - Cross-references in the Component Brief resolve to existing deliverables
 

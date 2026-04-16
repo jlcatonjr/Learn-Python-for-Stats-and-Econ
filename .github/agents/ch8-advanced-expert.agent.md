@@ -34,19 +34,39 @@ You are the domain expert for **Chapter 8 — Advanced Data Analysis** (componen
 
 ## Component Specification
 
-{MANUAL:COMPONENT_SPEC}
+Chapter 8 — Advanced Data Analysis teaches the following core concepts:
+
+- Using a Double Index to Work with Panel Data
+- Plotting with Double Index
+- Merge Data Sets with Double Index
+- Creating Indicator Variables
+- Create Quantile Ranking
+- Lag Variables and Differenced Log Values
 
 ## Sections
 
-{MANUAL:COMPONENT_SECTIONS}
+1. **Chapter 8: Advanced Data Analysis**
+2. **Using a Double Index to Work with Panel Data**
+3. **Plotting with Double Index**
+4. **Merge Data Sets with Double Index**
+5. **Creating Indicator Variables**
+6. **Create Quantile Ranking**
+7. **Lag Variables and Differenced Log Values**
+8. **Using Indicator Variables in Regression**
+9. **Panel Regression**
+10. **Checking Explanatory Power of Panel Regression**
 
 ## Sources
 
-{MANUAL:COMPONENT_SOURCES}
+- Textbook/Chapter 8 - Advanced Data Analysis.ipynb
 
 ## Quality Criteria
 
-{MANUAL:COMPONENT_QUALITY_CRITERIA}
+- All code cells execute without errors in a clean kernel restart
+- Each section opens with a clear learning objective or conceptual framing
+- Code is annotated with inline comments explaining non-obvious steps
+- Examples use economics, statistics, or social-science data where applicable
+- Output format is a clean, readable Jupyter notebooks (.ipynb) file
 
 ## Cross-References
 
@@ -64,7 +84,7 @@ Before `@primary-producer` drafts, you prepare a **Component Brief** containing:
 
 1. **Thesis or goal statement** — single sentence stating what this component must accomplish
 2. **Section list** — ordered list matching `## Sections` above, with a one-sentence description of each section's argument or content
-3. **Source list** — verified citation keys from `{MANUAL:REFERENCE_DB_PATH}` mapped to which sections they support
+3. **Source list** — verified citation keys from `N/A — no citation database configured for this project` mapped to which sections they support
 4. **Cross-reference map** — which components this one references, and where
 5. **Quality checklist** — derived from `## Quality Criteria` above, with pass/fail criteria `@primary-producer` can verify during drafting
 

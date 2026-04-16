@@ -49,8 +49,8 @@ You synchronize agent documentation after changes in LearnPythonStatsEcon. When 
 | Changed File Pattern | Agents to Update |
 |---------------------|-----------------|
 | `Textbook/*` | `@conflict-auditor`, `@primary-producer`, `@style-guardian`, `@navigator` |
-| `{MANUAL:REFERENCE_DB_PATH}` | `@reference-manager`, `@output-compiler` |
-| `{MANUAL:STYLE_REFERENCE_PATH}` | `@style-guardian`, `@primary-producer` |
+| `N/A — no citation database configured for this project` | `@reference-manager`, `@output-compiler` |
+| `N/A — no formal style guide defined for this project` | `@style-guardian`, `@primary-producer` |
 | `.github/agents/references/*` | All agents that reference that file |
 | `copilot-instructions.md` | All agents |
 

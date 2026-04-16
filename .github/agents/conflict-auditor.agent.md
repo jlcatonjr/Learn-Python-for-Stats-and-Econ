@@ -71,7 +71,7 @@ Append to `.github/agents/references/conflict-log.csv` with columns:
 - `Textbook/` — All primary output files
 
 ### Reference Layer
-- `{MANUAL:REFERENCE_DB_PATH}` — Reference database
+- `N/A — no citation database configured for this project` — Reference database
 
 ### Agent Documentation Layer
 - `.github/agents/*.agent.md` — Agent team files

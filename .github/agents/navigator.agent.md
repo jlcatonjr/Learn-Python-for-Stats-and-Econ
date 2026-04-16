@@ -35,7 +35,7 @@ You are the **repository navigator** for LearnPythonStatsEcon. You maintain the 
 ### Project Structure
 
 **Primary output directory:** `Textbook/`
-**Reference/dependency database:** `{MANUAL:REFERENCE_DB_PATH}`
+**Reference/dependency database:** `N/A — no citation database configured for this project`
 **Figures directory:** `figures/`
 **Agent files:** `.github/agents/`
 

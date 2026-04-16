@@ -34,11 +34,26 @@ You are the domain expert for **Chapter 1 — The Essentials** (component 1) in 
 
 ## Component Specification
 
-{MANUAL:COMPONENT_SPEC}
+Chapter 1 — The Essentials teaches the following core concepts:
+
+- Printing
+- Hello World!
+- Create a String Object
+- String Methods
+- Escape Sequences
+- More String Functions
 
 ## Sections
 
-{MANUAL:COMPONENT_SECTIONS}
+1. **Chapter 1: The Essentials**
+2. **Printing**
+3. **Hello World!**
+4. **Create a String Object**
+5. **String Methods**
+6. **Escape Sequences**
+7. **More String Functions**
+8. **Working with Numbers**
+9. **Exercises**
 
 ## Sources
 
@@ -46,7 +61,11 @@ You are the domain expert for **Chapter 1 — The Essentials** (component 1) in 
 
 ## Quality Criteria
 
-{MANUAL:COMPONENT_QUALITY_CRITERIA}
+- All code cells execute without errors in a clean kernel restart
+- Each section opens with a clear learning objective or conceptual framing
+- Code is annotated with inline comments explaining non-obvious steps
+- Examples use economics, statistics, or social-science data where applicable
+- Output format is a clean, readable Jupyter notebooks (.ipynb) file
 
 ## Cross-References
 
@@ -64,7 +83,7 @@ Before `@primary-producer` drafts, you prepare a **Component Brief** containing:
 
 1. **Thesis or goal statement** — single sentence stating what this component must accomplish
 2. **Section list** — ordered list matching `## Sections` above, with a one-sentence description of each section's argument or content
-3. **Source list** — verified citation keys from `{MANUAL:REFERENCE_DB_PATH}` mapped to which sections they support
+3. **Source list** — verified citation keys from `N/A — no citation database configured for this project` mapped to which sections they support
 4. **Cross-reference map** — which components this one references, and where
 5. **Quality checklist** — derived from `## Quality Criteria` above, with pass/fail criteria `@primary-producer` can verify during drafting
 

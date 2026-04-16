@@ -34,19 +34,39 @@ You are the domain expert for **Chapter 3 — NumPy, Pandas, and Matplotlib** (c
 
 ## Component Specification
 
-{MANUAL:COMPONENT_SPEC}
+Chapter 3 — NumPy, Pandas, and Matplotlib teaches the following core concepts:
+
+- numpy
+- Arrays
+- Useful Methods and Values
+- Indexing
+- _pandas_
+- Dictionaries
 
 ## Sections
 
-{MANUAL:COMPONENT_SECTIONS}
+1. **Introduction to _numpy_, _pandas_, and _matplotlib_**
+2. **numpy**
+3. **Arrays**
+4. **Useful Methods and Values**
+5. **Indexing**
+6. **_pandas_**
+7. **Dictionaries**
+8. **DataFrame**
+9. **Using a Dictionary to Specify a DataFrame's Index**
+10. **matplotlib**
 
 ## Sources
 
-{MANUAL:COMPONENT_SOURCES}
+- Textbook/Chapter 3 - Introduction to numpy, pandas, and matplotlib.ipynb
 
 ## Quality Criteria
 
-{MANUAL:COMPONENT_QUALITY_CRITERIA}
+- All code cells execute without errors in a clean kernel restart
+- Each section opens with a clear learning objective or conceptual framing
+- Code is annotated with inline comments explaining non-obvious steps
+- Examples use economics, statistics, or social-science data where applicable
+- Output format is a clean, readable Jupyter notebooks (.ipynb) file
 
 ## Cross-References
 
@@ -64,7 +84,7 @@ Before `@primary-producer` drafts, you prepare a **Component Brief** containing:
 
 1. **Thesis or goal statement** — single sentence stating what this component must accomplish
 2. **Section list** — ordered list matching `## Sections` above, with a one-sentence description of each section's argument or content
-3. **Source list** — verified citation keys from `{MANUAL:REFERENCE_DB_PATH}` mapped to which sections they support
+3. **Source list** — verified citation keys from `N/A — no citation database configured for this project` mapped to which sections they support
 4. **Cross-reference map** — which components this one references, and where
 5. **Quality checklist** — derived from `## Quality Criteria` above, with pass/fail criteria `@primary-producer` can verify during drafting
 

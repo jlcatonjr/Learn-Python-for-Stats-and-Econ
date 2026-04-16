@@ -136,10 +136,10 @@ You coordinate all agent operations for **LearnPythonStatsEcon**. You route work
 | Architecture and file hygiene | `@code-hygiene` | Backup files, script lifecycle, duplication, agent doc consistency |
 | Quality and structural defects | `@quality-auditor` | Purposeless content, structural weakness, pattern violations |
 | Within-section cohesion | `@cohesion-repairer` | Disjointed paragraphs, broken argument flow, orphaned evidence |
-| Style and standards | `@style-guardian` | Style reference: {MANUAL:STYLE_REFERENCE_PATH} |
+| Style and standards | `@style-guardian` | Style reference: N/A — no formal style guide defined for this project |
 | Technical accuracy | `@technical-validator` | Code, paths, counts, claims against source files |
 | Format conversion | `@format-converter` | Source format → output format `Jupyter notebooks (.ipynb)` |
-| References and dependencies | `@reference-manager` | Database: `{MANUAL:REFERENCE_DB_PATH}` |
+| References and dependencies | `@reference-manager` | Database: `N/A — no citation database configured for this project` |
 | Final compilation | `@output-compiler` | Final assembly and build |
 | Diagrams and figures | `@visual-designer` | Files in `figures/` |
 

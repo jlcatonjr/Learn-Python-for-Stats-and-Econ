@@ -34,19 +34,32 @@ You are the domain expert for **Chapter 9 — Agent-Based Modeling** (component 
 
 ## Component Specification
 
-{MANUAL:COMPONENT_SPEC}
+Chapter 9 — Agent-Based Modeling teaches the following core concepts:
+
+- Outlining the Model
+- The `match` Function
+- Data Collection and Display
+- Final Touches
 
 ## Sections
 
-{MANUAL:COMPONENT_SECTIONS}
+1. **Building a Model in Helipad**
+2. **Outlining the Model**
+3. **The `match` Function**
+4. **Data Collection and Display**
+5. **Final Touches**
 
 ## Sources
 
-{MANUAL:COMPONENT_SOURCES}
+- Textbook/Chapter 9 - Agent Based Modeling (early draft).ipynb
 
 ## Quality Criteria
 
-{MANUAL:COMPONENT_QUALITY_CRITERIA}
+- All code cells execute without errors in a clean kernel restart
+- Each section opens with a clear learning objective or conceptual framing
+- Code is annotated with inline comments explaining non-obvious steps
+- Examples use economics, statistics, or social-science data where applicable
+- Output format is a clean, readable Jupyter notebooks (.ipynb) file
 
 ## Cross-References
 
@@ -64,7 +77,7 @@ Before `@primary-producer` drafts, you prepare a **Component Brief** containing:
 
 1. **Thesis or goal statement** — single sentence stating what this component must accomplish
 2. **Section list** — ordered list matching `## Sections` above, with a one-sentence description of each section's argument or content
-3. **Source list** — verified citation keys from `{MANUAL:REFERENCE_DB_PATH}` mapped to which sections they support
+3. **Source list** — verified citation keys from `N/A — no citation database configured for this project` mapped to which sections they support
 4. **Cross-reference map** — which components this one references, and where
 5. **Quality checklist** — derived from `## Quality Criteria` above, with pass/fail criteria `@primary-producer` can verify during drafting
 

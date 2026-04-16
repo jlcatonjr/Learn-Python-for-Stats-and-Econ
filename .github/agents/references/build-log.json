@@ -62,7 +62,14 @@
     ".github/copilot-instructions.md",
     ".github/agents/team-builder.agent.md",
     ".github/agents/SETUP-REQUIRED.md",
-    ".github/agents/references/pipeline-graph.md"
+    ".github/agents/content-enricher.agent.md",
+    ".github/agents/references/pipeline-graph.md",
+    ".github/agents/references/ref-networkx-reference.md",
+    ".github/agents/references/ref-helipad-reference.md",
+    ".github/agents/references/ref-plotly-reference.md",
+    ".github/agents/references/ref-seaborn-reference.md",
+    ".github/agents/references/ref-scikit-learn-reference.md",
+    ".github/agents/references/defaults-audit.csv"
   ],
   "manual_required": 43,
   "template_hashes": {
@@ -88,7 +95,8 @@
     "domain/code-hygiene-rules-reference.template.md": "d8591cae76d9bbad",
     "workstream-expert.template.md": "6219fc38c570a94f",
     "copilot-instructions.template.md": "0efbc510daf5de31",
-    "builder/team-builder-copilot-vscode.template.md": "6a0e998c5ce278f2"
+    "builder/team-builder-copilot-vscode.template.md": "6a0e998c5ce278f2",
+    "domain/content-enricher.template.md": "2dc5e25c4606657b"
   },
   "output_files_map": [
     {
@@ -318,6 +326,12 @@
       "template": "",
       "type": "graph",
       "component_slug": null
+    },
+    {
+      "path": "content-enricher.agent.md",
+      "template": "domain/content-enricher.template.md",
+      "type": "agent",
+      "component_slug": null
     }
   ],
   "agent_slug_list": [
@@ -360,5 +374,5 @@
     "agent-updater",
     "agent-refactor"
   ],
-  "manifest_fingerprint": "f2881e63e8800079"
+  "manifest_fingerprint": "80fac0b670e9c3c4"
 }

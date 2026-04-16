@@ -34,11 +34,27 @@ You are the domain expert for **Chapter 7 — Building an OLS Regression Model**
 
 ## Component Specification
 
-{MANUAL:COMPONENT_SPEC}
+Chapter 7 — Building an OLS Regression Model teaches the following core concepts:
+
+- Linear Algebra for OLS
+- Inverting a Matrix
+- Linear Algebra in _numpy_
+- Building a Regression Function
+- Selecting Variables
+- Tests and Adjustments
 
 ## Sections
 
-{MANUAL:COMPONENT_SECTIONS}
+1. **Chapter 7: Building an OLS Regression Model**
+2. **Linear Algebra for OLS**
+3. **Inverting a Matrix**
+4. **Linear Algebra in _numpy_**
+5. **Building a Regression Function**
+6. **Selecting Variables**
+7. **Tests and Adjustments**
+8. **Adjusted R-Squared**
+9. **Joint F-test**
+10. **Call the Joint F-Test**
 
 ## Sources
 
@@ -46,7 +62,11 @@ You are the domain expert for **Chapter 7 — Building an OLS Regression Model**
 
 ## Quality Criteria
 
-{MANUAL:COMPONENT_QUALITY_CRITERIA}
+- All code cells execute without errors in a clean kernel restart
+- Each section opens with a clear learning objective or conceptual framing
+- Code is annotated with inline comments explaining non-obvious steps
+- Examples use economics, statistics, or social-science data where applicable
+- Output format is a clean, readable Jupyter notebooks (.ipynb) file
 
 ## Cross-References
 
@@ -64,7 +84,7 @@ Before `@primary-producer` drafts, you prepare a **Component Brief** containing:
 
 1. **Thesis or goal statement** — single sentence stating what this component must accomplish
 2. **Section list** — ordered list matching `## Sections` above, with a one-sentence description of each section's argument or content
-3. **Source list** — verified citation keys from `{MANUAL:REFERENCE_DB_PATH}` mapped to which sections they support
+3. **Source list** — verified citation keys from `N/A — no citation database configured for this project` mapped to which sections they support
 4. **Cross-reference map** — which components this one references, and where
 5. **Quality checklist** — derived from `## Quality Criteria` above, with pass/fail criteria `@primary-producer` can verify during drafting
 
