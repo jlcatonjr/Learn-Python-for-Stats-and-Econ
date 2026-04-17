@@ -221,6 +221,7 @@ The plan slug is a lowercase-hyphenated name derived from the workflow trigger (
 5. *(If `@style-guardian` in team)* Invoke `@style-guardian` → audit style consistency
 6. Invoke `@conflict-auditor` → verify no new contradictions introduced
 7. *(If `@reference-manager` in team)* Invoke `@reference-manager` → verify all references still resolve
+8. Invoke `@agent-updater` → sync agent documentation to reflect revised deliverable state
 
 ### Workflow 3: Technical Accuracy Audit
 
@@ -231,6 +232,7 @@ The plan slug is a lowercase-hyphenated name derived from the workflow trigger (
 3. If corrections needed → invoke `@primary-producer` to update deliverable
 4. If deliverable edited → invoke `@quality-auditor`; also `@cohesion-repairer`, `@style-guardian` if in team
 5. Invoke `@conflict-auditor` → verify consistency
+6. If any corrections were made → invoke `@agent-updater` → sync agent documentation to reflect corrected state
 
 ### Workflow 4: Compile Final Output
 
@@ -245,11 +247,13 @@ The plan slug is a lowercase-hyphenated name derived from the workflow trigger (
 
 **Trigger:** "Review all deliverables" / "Run consistency audit"
 
-1. Invoke `@conflict-auditor` → detect contradictions across all deliverable files
-2. Invoke `@technical-validator` → verify technical claims match source on disk
-3. *(If `@reference-manager` in team)* Invoke `@reference-manager` → verify every reference resolves
-4. *(If `@style-guardian` in team)* Invoke `@style-guardian` → style audit
-5. Consolidate findings → present to user
+1. Invoke `@adversarial` → challenge the presuppositions underlying the current knowledge state before audit begins (e.g., "files on disk match what agents believe", "the authority hierarchy list is current")
+2. Invoke `@conflict-auditor` → detect contradictions across all deliverable files
+3. Invoke `@technical-validator` → verify technical claims match source on disk
+4. *(If `@reference-manager` in team)* Invoke `@reference-manager` → verify every reference resolves
+5. *(If `@style-guardian` in team)* Invoke `@style-guardian` → style audit
+6. Consolidate findings → present to user
+7. If any issues found → invoke `@agent-updater` → sync agent documentation to reflect corrected state
 
 ### Workflow 6: Documentation Maintenance
 
@@ -274,11 +278,12 @@ The plan slug is a lowercase-hyphenated name derived from the workflow trigger (
 **Trigger:** "Run code hygiene audit" / "Pre-merge check" / "Check file hygiene"
 
 1. Invoke `@code-hygiene` → full audit against CH-01 through CH-20 (and any CH-21+ extensions)
-2. Review findings
-3. If deletions needed (CH-01, CH-15, CH-16, CH-18, CH-19) → invoke `@security` for clearance → invoke `@cleanup`
-4. If structural extraction needed (CH-08, CH-14) → invoke `@agent-refactor`
-5. If agent doc contradictions found (CH-20) → invoke `@conflict-auditor`
-6. Invoke `@agent-updater` → update docs if changes were made
+2. Invoke `@adversarial` → challenge the presuppositions in the hygiene findings before acting (e.g., "this file is truly orphaned", "no other agent depends on this") — especially required before any step 4 deletion plan
+3. Review findings
+4. If deletions needed (CH-01, CH-15, CH-16, CH-18, CH-19) → invoke `@security` for clearance → invoke `@cleanup`
+5. If structural extraction needed (CH-08, CH-14) → invoke `@agent-refactor`
+6. If agent doc contradictions found (CH-20) → invoke `@conflict-auditor`
+7. Invoke `@agent-updater` → update docs if changes were made
 
 ### Workflow 9: Cross-Repository Coordination
 
@@ -297,6 +302,7 @@ The plan slug is a lowercase-hyphenated name derived from the workflow trigger (
 
 1. Read `references/plans/` → list all `.plan.md` and `.steps.csv` files
 2. For each plan: summarize current `status` column distribution across steps (pending / in_progress / done / blocked)
-3. Surface any `blocked` steps with their `notes` to the user
-4. If plan is complete → mark all rows `done` and append completion date to `.plan.md`
-5. If plan needs revision → update the relevant `.steps.csv` rows; append a revision note to `.plan.md`
+3. **Pre-execution truth check** — before marking any step `in_progress`, invoke `@technical-validator` to verify the factual claims stated in that step's `inputs`, `outputs`, and `notes` fields against current on-disk state; flag any UNVERIFIED facts to the user before proceeding
+4. Surface any `blocked` steps with their `notes` to the user
+5. If plan is complete → mark all rows `done` and append completion date to `.plan.md`
+6. If plan needs revision → update the relevant `.steps.csv` rows; append a revision note to `.plan.md`

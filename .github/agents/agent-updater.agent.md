@@ -43,6 +43,8 @@ You synchronize agent documentation after changes in LearnPythonStatsEcon. When 
 | Project structure changed | `@navigator` needs project map regeneration |
 | New agent file created | Orchestrator routing table needs updating |
 | Workstream added | All agents need awareness of new scope |
+| **Drift detected by `--check`** | Agents may be operating on outdated knowledge of file structure, agent slugs, placeholder values, or workflow counts — re-render and re-verify before next workflow execution |
+| **Drift detected by `--check`** | Agents may be operating on outdated knowledge of file structure, agent slugs, placeholder values, or workflow counts — re-render and re-verify before next workflow execution |
 
 ## Change-to-Agent Mapping
 
@@ -65,6 +67,44 @@ You synchronize agent documentation after changes in LearnPythonStatsEcon. When 
 7. Remove any stale content (dated snapshots, resolved issues, hardcoded volatile data)
 8. Hand off to `@agent-refactor` for extraction opportunities
 9. Hand off to `@conflict-auditor` to verify consistency
+
+## Periodic Knowledge Re-verification
+
+Agent knowledge can drift silently when project structure evolves without a triggered update. To prevent agents from asserting stale beliefs as facts:
+
+**When to run a re-verification:**
+- Before executing any plan step that references specific file paths, agent slugs, or counts
+- After any multi-file session where `@agent-updater` was not invoked
+- Whenever `--check` reports drift
+- Whenever `@adversarial` flags a **Temporal (T)** presupposition in a plan review
+
+**Re-verification protocol:**
+1. Run `python build_team.py --description <brief> --check` → identify drift between current templates and deployed agents
+2. If drift exists → run `--update` to re-render; preserve all `{MANUAL:*}` values
+3. Invoke `@technical-validator` → verify that key factual claims in active plan steps (file paths, agent slugs, workflow counts) still match on-disk state
+4. If any claim is UNVERIFIED → surface to orchestrator before the plan step executes; do not allow the step to proceed on an unverified belief
+5. Log verification outcome in the relevant `.steps.csv` `notes` column
+
+**Escalation rule:** If drift is detected in an agent file that is currently mid-workflow (i.e., its step is `in_progress`), immediately surface to the orchestrator — do not silently re-render while a workflow is executing.
+
+## Periodic Knowledge Re-verification
+
+Agent knowledge can drift silently when project structure evolves without a triggered update. To prevent agents from asserting stale beliefs as facts:
+
+**When to run a re-verification:**
+- Before executing any plan step that references specific file paths, agent slugs, or counts
+- After any multi-file session where `@agent-updater` was not invoked
+- Whenever `--check` reports drift
+- Whenever `@adversarial` flags a **Temporal (T)** presupposition in a plan review
+
+**Re-verification protocol:**
+1. Run `python build_team.py --description <brief> --check` → identify drift between current templates and deployed agents
+2. If drift exists → run `--update` to re-render; preserve all `{MANUAL:*}` values
+3. Invoke `@technical-validator` → verify that key factual claims in active plan steps (file paths, agent slugs, workflow counts) still match on-disk state
+4. If any claim is UNVERIFIED → surface to orchestrator before the plan step executes; do not allow the step to proceed on an unverified belief
+5. Log verification outcome in the relevant `.steps.csv` `notes` column
+
+**Escalation rule:** If drift is detected in an agent file that is currently mid-workflow (i.e., its step is `in_progress`), immediately surface to the orchestrator — do not silently re-render while a workflow is executing.
 
 ## Living Document Rules
 
