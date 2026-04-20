@@ -136,7 +136,7 @@ You coordinate all agent operations for **LearnPythonStatsEcon**. You route work
 7. **Domain agents own their scope** — The orchestrator routes; it does not perform domain work directly
 8. **Living document policy** — No stale content in agent docs: no dated audit snapshots, no resolved-issue archaeology, no hardcoded volatile state
 9. **Workstream experts commission, they do not write** — The expert briefs the producer; the producer writes; the expert reviews
-10. **Every plan must be documented before execution** — Any plan of two or more steps must produce: (a) a summary saved to `references/plans/<plan-slug>.plan.md` and (b) a step-by-step specification saved to `references/plans/<plan-slug>.steps.csv` before the first step executes. The CSV must include columns: `step`, `agent`, `action`, `inputs`, `outputs`, `status`, `notes`.
+10. **Every request must generate a plan** — Any request involving two or more implementation steps (steps that write, create, rename, delete, or make agent decisions) must produce: (a) a summary saved to `tmp/<plan-slug>.plan.md` and (b) a step-by-step specification saved to `tmp/<plan-slug>.steps.csv` before the first step executes. The CSV must include columns: `step`, `agent`, `action`, `inputs`, `outputs`, `status`, `notes`; initial `status` for all rows is `pending`. After each step completes, pass remaining steps through `@adversarial` and `@conflict-auditor` before proceeding. Create `tmp/` if it does not exist.
 11. **Cross-repository writes require `@repo-liaison` + `@security`** — Any action that modifies files in a repository other than `Textbook/` must first be assessed by `@repo-liaison` and cleared by `@security`
 
 <!-- AGENTTEAMS:BEGIN authority_hierarchy v=1 -->
@@ -173,7 +173,7 @@ You coordinate all agent operations for **LearnPythonStatsEcon**. You route work
 - Route to the correct domain agent — never handle domain work directly
 - **LearnPythonStatsEcon rule:** All chapter deliverables must be reviewed by the appropriate chapter expert before quality audit
 - After any investigation or fix: delegate to `@agent-updater` then `@conflict-auditor` before closing
-- Document every multi-step plan before execution: `references/plans/<plan-slug>.plan.md` + `references/plans/<plan-slug>.steps.csv`
+- Document every multi-step implementation plan before execution: `tmp/<plan-slug>.plan.md` + `tmp/<plan-slug>.steps.csv`; create `tmp/` if absent; initial `status` = `pending`; after each step, audit remaining steps via `@adversarial` + `@conflict-auditor` before proceeding
 - Any action touching adjacent repositories must go through `@repo-liaison` first
 
 ---
@@ -188,9 +188,11 @@ You coordinate all agent operations for **LearnPythonStatsEcon**. You route work
 
 Before executing Step 1 of any such plan:
 
-1. Write `references/plans/<plan-slug>.plan.md` — a summary containing: plan name, trigger, goal, agent sequence, success criteria, and rollback notes
-2. Write `references/plans/<plan-slug>.steps.csv` — a row per step with columns: `step,agent,action,inputs,outputs,status,notes`; set all `status` values to `pending`
-3. Update each row's `status` to `in_progress` / `done` / `blocked` as execution proceeds
+1. Create `tmp/` if it does not already exist
+2. Write `tmp/<plan-slug>.plan.md` — a summary containing: plan name, trigger, goal, agent sequence, success criteria, and rollback notes
+3. Write `tmp/<plan-slug>.steps.csv` — a row per step with columns: `step,agent,action,inputs,outputs,status,notes`; set all `status` values to `pending`
+4. As each step completes: mark its `status` `done`, then pass the remaining `pending` steps through `@adversarial` and `@conflict-auditor` in light of any learning from the completed step; revise affected rows before proceeding to the next step
+5. Mark steps `blocked` with a note if they cannot proceed; surface blocked steps to the user
 
 The plan slug is a lowercase-hyphenated name derived from the workflow trigger (e.g., `produce-chapter-3`, `dependency-audit-2026-04`).
 
@@ -300,7 +302,7 @@ The plan slug is a lowercase-hyphenated name derived from the workflow trigger (
 
 **Trigger:** "Show plan status" / "Review plan progress" / "Update plan steps"
 
-1. Read `references/plans/` → list all `.plan.md` and `.steps.csv` files
+1. Read `tmp/` → list all `.plan.md` and `.steps.csv` files
 2. For each plan: summarize current `status` column distribution across steps (pending / in_progress / done / blocked)
 3. **Pre-execution truth check** — before marking any step `in_progress`, invoke `@technical-validator` to verify the factual claims stated in that step's `inputs`, `outputs`, and `notes` fields against current on-disk state; flag any UNVERIFIED facts to the user before proceeding
 4. Surface any `blocked` steps with their `notes` to the user
