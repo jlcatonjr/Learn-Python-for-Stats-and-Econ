@@ -1,0 +1,123 @@
+{
+  "project_name": "LearnPythonStatsEcon",
+  "project_goal": "Author and maintain a Python programming textbook for economists and social scientists, covering core Python, statistical analysis, econometrics, and data visualization. The textbook is delivered as a series of Jupyter notebooks organized into chapters, with accompanying tutorials, in-class demonstrations, and student projects.",
+  "deliverables": [
+    "Jupyter notebooks",
+    "tutorial notebooks",
+    "in-class demonstration notebooks",
+    "student project notebooks"
+  ],
+  "output_format": "Jupyter notebooks (.ipynb)",
+  "primary_output_dir": "Textbook/",
+  "build_output_dir": "build/",
+  "figures_dir": "figures/",
+  "governance_agents": [
+    "adversarial",
+    "agent-refactor",
+    "agent-updater",
+    "cleanup",
+    "code-hygiene",
+    "conflict-auditor",
+    "conflict-resolution",
+    "navigator",
+    "repo-liaison",
+    "security"
+  ],
+  "selected_archetypes": [
+    "primary-producer",
+    "quality-auditor",
+    "cohesion-repairer",
+    "style-guardian",
+    "technical-validator",
+    "output-compiler",
+    "visual-designer"
+  ],
+  "tools": [
+    {
+      "name": "Helipad",
+      "category": "library"
+    },
+    {
+      "name": "ipywidgets",
+      "category": "library"
+    },
+    {
+      "name": "Jupyter",
+      "category": "framework"
+    },
+    {
+      "name": "matplotlib",
+      "category": "library"
+    },
+    {
+      "name": "networkx",
+      "category": "library"
+    },
+    {
+      "name": "numpy",
+      "category": "library"
+    },
+    {
+      "name": "pandas",
+      "category": "library"
+    },
+    {
+      "name": "pandas-datareader",
+      "category": "library"
+    },
+    {
+      "name": "plotly",
+      "category": "library"
+    },
+    {
+      "name": "scipy",
+      "category": "library"
+    },
+    {
+      "name": "seaborn",
+      "category": "library"
+    },
+    {
+      "name": "statsmodels",
+      "category": "library"
+    }
+  ],
+  "components": [
+    {
+      "slug": "ch1-essentials",
+      "name": "Chapter 1 - The Essentials"
+    },
+    {
+      "slug": "ch2-lists",
+      "name": "Chapter 2 - Working With Lists"
+    },
+    {
+      "slug": "ch3-numpy-pandas",
+      "name": "Chapter 3 - NumPy, Pandas, and Matplotlib"
+    },
+    {
+      "slug": "ch4-functional",
+      "name": "Chapter 4 - Functional Programming and Rudimentary Statistics"
+    },
+    {
+      "slug": "ch5-probability",
+      "name": "Chapter 5 - Probability Distributions"
+    },
+    {
+      "slug": "ch6-hypothesis",
+      "name": "Chapter 6 - Hypothesis Testing"
+    },
+    {
+      "slug": "ch7-ols",
+      "name": "Chapter 7 - Building an OLS Regression Model"
+    },
+    {
+      "slug": "ch8-advanced",
+      "name": "Chapter 8 - Advanced Data Analysis"
+    },
+    {
+      "slug": "ch9-abm",
+      "name": "Chapter 9 - Agent-Based Modeling"
+    }
+  ]
+}
