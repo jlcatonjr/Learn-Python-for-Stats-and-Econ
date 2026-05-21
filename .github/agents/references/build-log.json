@@ -25,36 +25,41 @@
     "ch9-abm"
   ],
   "files_written": [],
-  "manual_required": 45,
+  "manual_required": 57,
   "template_hashes": {
-    "universal/orchestrator.template.md": "5416667a3cd637f3",
-    "universal/navigator.template.md": "9db306df5d5700c2",
-    "universal/security.template.md": "442858abff26711d",
-    "universal/code-hygiene.template.md": "df4e5770cbe4e525",
-    "universal/adversarial.template.md": "78de0d3f3735c1f8",
-    "universal/conflict-auditor.template.md": "7aed52f8a607d1a3",
+    "universal/orchestrator.template.md": "5235f88a0e27869d",
+    "universal/navigator.template.md": "a774c9a70b43505a",
+    "universal/security.template.md": "6974720c9091639d",
+    "universal/code-hygiene.template.md": "92c2224832e1bb45",
+    "universal/adversarial.template.md": "de9896b303a341be",
+    "universal/conflict-auditor.template.md": "bd88a84d93a3500e",
     "universal/conflict-resolution.template.md": "a30ff077e5a03ce9",
     "universal/cleanup.template.md": "0c005812c2b52dd8",
-    "universal/agent-updater.template.md": "b89bdcda0382850c",
+    "universal/agent-updater.template.md": "8c51be1bff0c05ee",
     "universal/agent-refactor.template.md": "a9717cc56c35f4ac",
-    "universal/repo-liaison.template.md": "f1390eb5d95098c4",
+    "universal/repo-liaison.template.md": "f3ab2dffbbbb29ff",
+    "universal/git-operations.template.md": "564a362a85cd90bc",
+    "domain/work-summarizer.template.md": "f696746ad47aad68",
     "domain/primary-producer.template.md": "c128e8f2fb52885f",
     "domain/quality-auditor.template.md": "5adfc79b00290c06",
-    "domain/cohesion-repairer.template.md": "795b8c18b94827fc",
+    "domain/cohesion-repairer.template.md": "a2c3b4844110b04a",
     "domain/style-guardian.template.md": "919e2e8d6cd90721",
     "domain/technical-validator.template.md": "47a48583cf212303",
     "domain/output-compiler.template.md": "fd90f3a13765386a",
     "domain/visual-designer.template.md": "cae39ee7b6d167f4",
     "domain/tool-doc-researcher.template.md": "ed54707800500bed",
     "domain/tool-reference.template.md": "cf44c4bf906ba8b8",
-    "domain/code-hygiene-rules-reference.template.md": "d8591cae76d9bbad",
-    "universal/security-vulnerability-watch.reference.template.md": "7a895abc0b71ecdf",
+    "domain/code-hygiene-rules-reference.template.md": "8d7af49f0273b4dd",
+    "universal/security-vulnerability-watch.reference.template.md": "1680e6cfd2a72275",
     "universal/security-vulnerability-watch.json.template": "ebcec1b04ad46caa",
-    "universal/adjacent-repos.reference.template.md": "e9a6df08eb70b144",
-    "workstream-expert.template.md": "a03699e3caabb58c",
-    "copilot-instructions.template.md": "adb74a064e11f294",
+    "universal/adjacent-repos.reference.template.md": "d5f6783fe18f21c6",
+    "universal/github-workflows-merge.reference.template.md": "9a85c14fca008010",
+    "universal/work-summary-spec.reference.template.md": "d29ca7e680ad715d",
+    "universal/work-summary-tooling.reference.template.md": "62e643b1a9711af6",
+    "workstream-expert.template.md": "13161f3a3cdf1789",
+    "copilot-instructions.template.md": "3ccf82ef795fcace",
     "builder/team-builder-copilot-vscode.template.md": "6a0e998c5ce278f2",
-    "domain/content-enricher.template.md": "2dc5e25c4606657b"
+    "domain/content-enricher.template.md": "d7e6e4a50dcef1c7"
   },
   "output_files_map": [
     {
@@ -124,6 +129,18 @@
       "component_slug": null
     },
     {
+      "path": "git-operations.agent.md",
+      "template": "universal/git-operations.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "work-summarizer.agent.md",
+      "template": "domain/work-summarizer.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
       "path": "primary-producer.agent.md",
       "template": "domain/primary-producer.template.md",
       "type": "agent",
@@ -172,7 +189,31 @@
       "component_slug": null
     },
     {
+      "path": "references/ref-helipad-reference.md",
+      "template": "domain/tool-reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/ref-ipywidgets-reference.md",
+      "template": "domain/tool-reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
       "path": "references/ref-jupyter-reference.md",
+      "template": "domain/tool-reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/ref-matplotlib-reference.md",
+      "template": "domain/tool-reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/ref-networkx-reference.md",
       "template": "domain/tool-reference.template.md",
       "type": "reference",
       "component_slug": null
@@ -190,13 +231,25 @@
       "component_slug": null
     },
     {
-      "path": "references/ref-matplotlib-reference.md",
+      "path": "references/ref-pandas-datareader-reference.md",
+      "template": "domain/tool-reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/ref-plotly-reference.md",
       "template": "domain/tool-reference.template.md",
       "type": "reference",
       "component_slug": null
     },
     {
       "path": "references/ref-scipy-reference.md",
+      "template": "domain/tool-reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/ref-seaborn-reference.md",
       "template": "domain/tool-reference.template.md",
       "type": "reference",
       "component_slug": null
@@ -229,6 +282,24 @@
       "path": "references/adjacent-repos.md",
       "template": "universal/adjacent-repos.reference.template.md",
       "type": "artifact",
+      "component_slug": null
+    },
+    {
+      "path": "references/github-workflows-merge.reference.md",
+      "template": "universal/github-workflows-merge.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/work-summary-spec.reference.md",
+      "template": "universal/work-summary-spec.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/work-summary-tooling.reference.md",
+      "template": "universal/work-summary-tooling.reference.template.md",
+      "type": "reference",
       "component_slug": null
     },
     {
@@ -328,6 +399,8 @@
     "agent-updater",
     "agent-refactor",
     "repo-liaison",
+    "git-operations",
+    "work-summarizer",
     "primary-producer",
     "quality-auditor",
     "cohesion-repairer",
@@ -356,10 +429,14 @@
     "cleanup",
     "agent-updater",
     "agent-refactor",
-    "repo-liaison"
+    "repo-liaison",
+    "git-operations"
   ],
-  "manifest_fingerprint": "e0dfaedc633a7c31",
+  "manifest_fingerprint": "b0fc375cce3578ea",
+  "fingerprint_algo_version": 1,
   "file_hashes": {
-    "security.agent.md": "c9c21d42e9fd668d"
+    "security.agent.md": "db1b16a2515f6cf6",
+    "references/security-vulnerability-watch.reference.md": "400a0fa29ccec1d2",
+    "references/security-vulnerability-watch.json": "7d176c01847cd8ad"
   }
 }

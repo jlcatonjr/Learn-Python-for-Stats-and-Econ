@@ -1,0 +1,314 @@
+{
+  "artifact_type": "backup-manifest",
+  "manifest_schema_version": "1.0",
+  "agentteams_version": null,
+  "framework": "copilot-vscode",
+  "description_path": "/Users/jamescaton/githubrepositories/Learn-Python-for-Stats-and-Econ/.github/agents/_build-description.json",
+  "output_root": "/Users/jamescaton/githubrepositories/Learn-Python-for-Stats-and-Econ/.github/agents",
+  "reason": "pre-update",
+  "timestamp_utc": "2026-05-21T19:00:07Z",
+  "total_files": 50,
+  "total_bytes": 317518,
+  "files": [
+    {
+      "source_path": "orchestrator.agent.md",
+      "backup_path": "orchestrator.agent.md",
+      "source_size_bytes": 36749,
+      "source_sha256": "b70a4d7e67f97024c5e5c17b1aa4d22493eedf211f3a2116c59066354371f311"
+    },
+    {
+      "source_path": "navigator.agent.md",
+      "backup_path": "navigator.agent.md",
+      "source_size_bytes": 3619,
+      "source_sha256": "099154cedca9c7d5e33f962910db4985846d6772c770ec255b2ba2de5cf7b09f"
+    },
+    {
+      "source_path": "security.agent.md",
+      "backup_path": "security.agent.md",
+      "source_size_bytes": 22846,
+      "source_sha256": "021d7fee6bdde1a0a25b0e9a90bc8ed6101cfd6fd3af38dfb482362d2ae81efa"
+    },
+    {
+      "source_path": "code-hygiene.agent.md",
+      "backup_path": "code-hygiene.agent.md",
+      "source_size_bytes": 6763,
+      "source_sha256": "f121e52cbfd854671c41968f4945adf17c86aae52e4111b31a0364cb06263ee4"
+    },
+    {
+      "source_path": "adversarial.agent.md",
+      "backup_path": "adversarial.agent.md",
+      "source_size_bytes": 4360,
+      "source_sha256": "ed94e3ce7c4442d18400a333837bd6b382e8e525ec24b2af6541a2d603a98807"
+    },
+    {
+      "source_path": "conflict-auditor.agent.md",
+      "backup_path": "conflict-auditor.agent.md",
+      "source_size_bytes": 6898,
+      "source_sha256": "6349c33f45a82fbe9c93fa085338c2cb63d664b179228480e3fcb2fab04c2397"
+    },
+    {
+      "source_path": "conflict-resolution.agent.md",
+      "backup_path": "conflict-resolution.agent.md",
+      "source_size_bytes": 2841,
+      "source_sha256": "5a14befa5b0f8b61f26c9976ccff6ab42081b41605cd6b187ebf560cd32fd344"
+    },
+    {
+      "source_path": "cleanup.agent.md",
+      "backup_path": "cleanup.agent.md",
+      "source_size_bytes": 3088,
+      "source_sha256": "368558c5acc0391177daefbb58a66e315e83061879f09374a8a2a654ca7e0043"
+    },
+    {
+      "source_path": "agent-updater.agent.md",
+      "backup_path": "agent-updater.agent.md",
+      "source_size_bytes": 6811,
+      "source_sha256": "688e3d76f10f1be77c02312396a7bf258865c593471a6e3099f50ac0ebb91d45"
+    },
+    {
+      "source_path": "agent-refactor.agent.md",
+      "backup_path": "agent-refactor.agent.md",
+      "source_size_bytes": 2615,
+      "source_sha256": "ee5c96ee8eb8d711938c475087c7bd35e1deb993577eed063301fcff552d3b85"
+    },
+    {
+      "source_path": "repo-liaison.agent.md",
+      "backup_path": "repo-liaison.agent.md",
+      "source_size_bytes": 6499,
+      "source_sha256": "c5dedda9084608ba9f64e78c50227aa30bcd06bd6e6d3e2b1e10ea7cac300a21"
+    },
+    {
+      "source_path": "primary-producer.agent.md",
+      "backup_path": "primary-producer.agent.md",
+      "source_size_bytes": 3174,
+      "source_sha256": "b52865f34cc1e36c040947cb8e6dddf65f44f24d200858e719e8d3bc9f15522b"
+    },
+    {
+      "source_path": "quality-auditor.agent.md",
+      "backup_path": "quality-auditor.agent.md",
+      "source_size_bytes": 2732,
+      "source_sha256": "91e9241f1b1fea5d24a6d30af714da945d166c36156a17b44be68f3b0b997f97"
+    },
+    {
+      "source_path": "cohesion-repairer.agent.md",
+      "backup_path": "cohesion-repairer.agent.md",
+      "source_size_bytes": 2698,
+      "source_sha256": "6eea1a7534dd693d9a09b6e6ab3d611b831a9e855a1738e9c28be01118340ddf"
+    },
+    {
+      "source_path": "style-guardian.agent.md",
+      "backup_path": "style-guardian.agent.md",
+      "source_size_bytes": 2597,
+      "source_sha256": "ea464a2c72e9a8be6c62a9fffe29cfe1c93ce20eadf7b9b84cd963467932cff1"
+    },
+    {
+      "source_path": "output-compiler.agent.md",
+      "backup_path": "output-compiler.agent.md",
+      "source_size_bytes": 2184,
+      "source_sha256": "512bf86b34af14f7ccc1399679788679dd82f46d66f1939b165b7923e2706296"
+    },
+    {
+      "source_path": "visual-designer.agent.md",
+      "backup_path": "visual-designer.agent.md",
+      "source_size_bytes": 2294,
+      "source_sha256": "efe805c596c83abac9cbfdde92613a7c27cea98c1d0ef2f93a53792ebee751bd"
+    },
+    {
+      "source_path": "tool-doc-researcher.agent.md",
+      "backup_path": "tool-doc-researcher.agent.md",
+      "source_size_bytes": 6573,
+      "source_sha256": "2b7bed6a27b9b54046f6f18d08101a1695c50d690f19778b2a7e4baa95dce0df"
+    },
+    {
+      "source_path": "references/ref-helipad-reference.md",
+      "backup_path": "references/ref-helipad-reference.md",
+      "source_size_bytes": 1374,
+      "source_sha256": "0357e5091d95854f96479eb003b3643634444dc83f874cbca405d17f4be05dbe"
+    },
+    {
+      "source_path": "references/ref-ipywidgets-reference.md",
+      "backup_path": "references/ref-ipywidgets-reference.md",
+      "source_size_bytes": 1688,
+      "source_sha256": "742a42a6d7b1fb70fc1e06b87988800d1edf7441a4f457e9f9f34b79e5d5d87b"
+    },
+    {
+      "source_path": "references/ref-jupyter-reference.md",
+      "backup_path": "references/ref-jupyter-reference.md",
+      "source_size_bytes": 1193,
+      "source_sha256": "f72c30d4091a04d0ec8fa2e3ce95fac6f0a1f2be6fb88dc48af384ccd088c400"
+    },
+    {
+      "source_path": "references/ref-matplotlib-reference.md",
+      "backup_path": "references/ref-matplotlib-reference.md",
+      "source_size_bytes": 1203,
+      "source_sha256": "d63d2a98943d6fec583ec79a64df707e36ee87426fd7799a933eb47f6a8d73ed"
+    },
+    {
+      "source_path": "references/ref-networkx-reference.md",
+      "backup_path": "references/ref-networkx-reference.md",
+      "source_size_bytes": 1280,
+      "source_sha256": "e4b6dadbde88f08ee0accca1922b88c1183ebf02c88e37557d8e581cfb1b3a4d"
+    },
+    {
+      "source_path": "references/ref-numpy-reference.md",
+      "backup_path": "references/ref-numpy-reference.md",
+      "source_size_bytes": 1142,
+      "source_sha256": "d855cc4155296ba7a0df3da82856becb5179b0c9ecd8382f2ed810c86a69de0e"
+    },
+    {
+      "source_path": "references/ref-pandas-reference.md",
+      "backup_path": "references/ref-pandas-reference.md",
+      "source_size_bytes": 1156,
+      "source_sha256": "f57fc6df65fe8a20c46a4ba8d47d2b0bb8e007e66ebb619b5be64c22a5a5a8cd"
+    },
+    {
+      "source_path": "references/ref-pandas-datareader-reference.md",
+      "backup_path": "references/ref-pandas-datareader-reference.md",
+      "source_size_bytes": 1511,
+      "source_sha256": "be0e6aac971056f5226bf000dabdb646937591dbeaa64046a067a82bf799fc40"
+    },
+    {
+      "source_path": "references/ref-plotly-reference.md",
+      "backup_path": "references/ref-plotly-reference.md",
+      "source_size_bytes": 1267,
+      "source_sha256": "79714dcabc27068cf1723885a33facc307da89b3f637cfd4848b6e3143605fc6"
+    },
+    {
+      "source_path": "references/ref-scipy-reference.md",
+      "backup_path": "references/ref-scipy-reference.md",
+      "source_size_bytes": 1025,
+      "source_sha256": "ebb0e7536244faa8e187c82fb3eb9a1a7dc9d1a0dba8b851acd4a39527a9cd52"
+    },
+    {
+      "source_path": "references/ref-seaborn-reference.md",
+      "backup_path": "references/ref-seaborn-reference.md",
+      "source_size_bytes": 1256,
+      "source_sha256": "6b8323421d0dec181cf8477ff46baa22f31489bed62606f8fbba798529f955b6"
+    },
+    {
+      "source_path": "references/ref-statsmodels-reference.md",
+      "backup_path": "references/ref-statsmodels-reference.md",
+      "source_size_bytes": 1073,
+      "source_sha256": "3ae07abc47669508d61557e4605f6f64c20d496139cf0a9eff1cf06eefafc882"
+    },
+    {
+      "source_path": "references/code-hygiene-rules.reference.md",
+      "backup_path": "references/code-hygiene-rules.reference.md",
+      "source_size_bytes": 4788,
+      "source_sha256": "fb3e88391e4a018161ad7c1f9b24818a9d91f72834d1d99e37fc04276d15282a"
+    },
+    {
+      "source_path": "references/security-vulnerability-watch.reference.md",
+      "backup_path": "references/security-vulnerability-watch.reference.md",
+      "source_size_bytes": 11047,
+      "source_sha256": "7e322affe6c78eb5badd6b2b3070788f02417b7ae7d5c1c7ad00a75d5a8a4600"
+    },
+    {
+      "source_path": "references/security-vulnerability-watch.json",
+      "backup_path": "references/security-vulnerability-watch.json",
+      "source_size_bytes": 17047,
+      "source_sha256": "64a7586891820b10f430c4a5f76e2f3e38f15aa9bf62acc12fb32fb8343f3534"
+    },
+    {
+      "source_path": "references/adjacent-repos.md",
+      "backup_path": "references/adjacent-repos.md",
+      "source_size_bytes": 1604,
+      "source_sha256": "dab7c73184749212510e36a267cb0add6abe6156c71a27b477290fe72afe4efa"
+    },
+    {
+      "source_path": "ch1-essentials-expert.agent.md",
+      "backup_path": "ch1-essentials-expert.agent.md",
+      "source_size_bytes": 5527,
+      "source_sha256": "f6a7d1c8372a8c98af7c92c8d07d923fb70a8f06f6a9fbf2f71385c54d83416c"
+    },
+    {
+      "source_path": "ch2-lists-expert.agent.md",
+      "backup_path": "ch2-lists-expert.agent.md",
+      "source_size_bytes": 5531,
+      "source_sha256": "a382929a465c8aff8d9455c28cb1ded3f23127981831857c09cd525b073292ee"
+    },
+    {
+      "source_path": "ch3-numpy-pandas-expert.agent.md",
+      "backup_path": "ch3-numpy-pandas-expert.agent.md",
+      "source_size_bytes": 5625,
+      "source_sha256": "8d2332cac8e2a3fa2a5fda9da64ad3ff4b2ac1db3eb74704b4a9e045534cbc03"
+    },
+    {
+      "source_path": "ch4-functional-expert.agent.md",
+      "backup_path": "ch4-functional-expert.agent.md",
+      "source_size_bytes": 5737,
+      "source_sha256": "6873afc70cb84f75d926487194053704a862193c21161f228b12f51e0c6e897e"
+    },
+    {
+      "source_path": "ch5-probability-expert.agent.md",
+      "backup_path": "ch5-probability-expert.agent.md",
+      "source_size_bytes": 5597,
+      "source_sha256": "602a23023a9214231d0d175c69ddd2477337251c7bfaee962f088220553dab9c"
+    },
+    {
+      "source_path": "ch6-hypothesis-expert.agent.md",
+      "backup_path": "ch6-hypothesis-expert.agent.md",
+      "source_size_bytes": 5551,
+      "source_sha256": "35b1276844ef3b23a2daad4a3de0c683e433248f38dfa7172f998065cec434b9"
+    },
+    {
+      "source_path": "ch7-ols-expert.agent.md",
+      "backup_path": "ch7-ols-expert.agent.md",
+      "source_size_bytes": 5607,
+      "source_sha256": "d57dd8fe5531479800b6d5c4edb5477a15be422a70fadc25e85f6b4fc186b0bf"
+    },
+    {
+      "source_path": "ch8-advanced-expert.agent.md",
+      "backup_path": "ch8-advanced-expert.agent.md",
+      "source_size_bytes": 5567,
+      "source_sha256": "04baddf33abb4b3c4cb08334c5ad22702267782ec0717e18f8431594682f9672"
+    },
+    {
+      "source_path": "ch9-abm-expert.agent.md",
+      "backup_path": "ch9-abm-expert.agent.md",
+      "source_size_bytes": 5535,
+      "source_sha256": "15d3a8dde254354c551d904404f7c9a5df6925d0849af357d010ae392f17a273"
+    },
+    {
+      "source_path": "/Users/jamescaton/githubrepositories/Learn-Python-for-Stats-and-Econ/.github/copilot-instructions.md",
+      "backup_path": "copilot-instructions.md",
+      "source_size_bytes": 6901,
+      "source_sha256": "ce50e6ff2ae16bb569a42bc5e352d4e1958da980fb68dc7afee25e290ada21bc"
+    },
+    {
+      "source_path": "team-builder.agent.md",
+      "backup_path": "team-builder.agent.md",
+      "source_size_bytes": 4494,
+      "source_sha256": "6a0e998c5ce278f2623ba7d50b9f889e7dd286436b61bc51778b608b058c5268"
+    },
+    {
+      "source_path": "SETUP-REQUIRED.md",
+      "backup_path": "SETUP-REQUIRED.md",
+      "source_size_bytes": 18145,
+      "source_sha256": "ea43d58ac5642bd41250a4f14bdf67cc2589b4def5f6895d2c50b9c7f6d04ae3"
+    },
+    {
+      "source_path": "content-enricher.agent.md",
+      "backup_path": "content-enricher.agent.md",
+      "source_size_bytes": 5186,
+      "source_sha256": "9f33f6322a0146f7b3226d7c5afd732af18db6625855bf9b1e6ab5e1578a12eb"
+    },
+    {
+      "source_path": "references/pipeline-graph.md",
+      "backup_path": "references/pipeline-graph.md",
+      "source_size_bytes": 57437,
+      "source_sha256": "cdf18022d3ed51d727f950fc9162fa280bac870165e8c1b9484ae0e45861e1d5"
+    },
+    {
+      "source_path": "references/adjacent-repos-changelog.csv",
+      "backup_path": "references/adjacent-repos-changelog.csv",
+      "source_size_bytes": 45,
+      "source_sha256": "f2b9cecd8d849cc4bb3f9d9341b5656ce4b77ce5ab902deb466e60d84d7788c0"
+    },
+    {
+      "source_path": "references/adjacent-repos-coordination-log.csv",
+      "backup_path": "references/adjacent-repos-coordination-log.csv",
+      "source_size_bytes": 38,
+      "source_sha256": "8d21cc87349960106a613d1848d877c4c8e25160da6460004d8d97e968cf7f85"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "artifact_type": "backup-manifest",
+  "manifest_schema_version": "1.0",
+  "agentteams_version": null,
+  "framework": "copilot-vscode",
+  "description_path": "/Users/jamescaton/githubrepositories/Learn-Python-for-Stats-and-Econ/.github/agents/_build-description.json",
+  "output_root": "/Users/jamescaton/githubrepositories/Learn-Python-for-Stats-and-Econ/.github/agents",
+  "reason": "pre-update",
+  "timestamp_utc": "2026-05-21T18:26:59Z",
+  "total_files": 5,
+  "total_bytes": 85614,
+  "files": [
+    {
+      "source_path": "references/security-vulnerability-watch.reference.md",
+      "backup_path": "references/security-vulnerability-watch.reference.md",
+      "source_size_bytes": 11047,
+      "source_sha256": "7e322affe6c78eb5badd6b2b3070788f02417b7ae7d5c1c7ad00a75d5a8a4600"
+    },
+    {
+      "source_path": "references/security-vulnerability-watch.json",
+      "backup_path": "references/security-vulnerability-watch.json",
+      "source_size_bytes": 17047,
+      "source_sha256": "e46ca6082335dbafbeedfffd34cf4fe05dd78d748cd6383ee4db593aaad770eb"
+    },
+    {
+      "source_path": "references/pipeline-graph.md",
+      "backup_path": "references/pipeline-graph.md",
+      "source_size_bytes": 57437,
+      "source_sha256": "cdf18022d3ed51d727f950fc9162fa280bac870165e8c1b9484ae0e45861e1d5"
+    },
+    {
+      "source_path": "references/adjacent-repos-changelog.csv",
+      "backup_path": "references/adjacent-repos-changelog.csv",
+      "source_size_bytes": 45,
+      "source_sha256": "f2b9cecd8d849cc4bb3f9d9341b5656ce4b77ce5ab902deb466e60d84d7788c0"
+    },
+    {
+      "source_path": "references/adjacent-repos-coordination-log.csv",
+      "backup_path": "references/adjacent-repos-coordination-log.csv",
+      "source_size_bytes": 38,
+      "source_sha256": "8d21cc87349960106a613d1848d877c4c8e25160da6460004d8d97e968cf7f85"
+    }
+  ]
+}
