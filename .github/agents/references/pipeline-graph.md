@@ -1,3 +1,4 @@
+<!-- AGENTTEAMS:BEGIN content v=1 -->
 # LearnPythonStatsEcon — Agent Team Topology
 
 > **Auto-generated.** Regenerated on every `build_team.py` run.
@@ -20,23 +21,23 @@ flowchart LR
     class agent_refactor governance
     agent_updater["Agent Updater"]
     class agent_updater governance
-    ch1_essentials_expert["Chapter 1"]
+    ch1_essentials_expert["Chapter 1 - The Essentials Expert"]
     class ch1_essentials_expert workstream_expert
-    ch2_lists_expert["Chapter 2"]
+    ch2_lists_expert["Chapter 2 - Working With Lists Expert"]
     class ch2_lists_expert workstream_expert
-    ch3_numpy_pandas_expert["Chapter 3"]
+    ch3_numpy_pandas_expert["Chapter 3 - NumPy, Pandas, and Matplotlib Expert"]
     class ch3_numpy_pandas_expert workstream_expert
-    ch4_functional_expert["Chapter 4"]
+    ch4_functional_expert["Chapter 4 - Functional Programming and Rudimentary Statistics Expert"]
     class ch4_functional_expert workstream_expert
-    ch5_probability_expert["Chapter 5"]
+    ch5_probability_expert["Chapter 5 - Probability Distributions Expert"]
     class ch5_probability_expert workstream_expert
-    ch6_hypothesis_expert["Chapter 6"]
+    ch6_hypothesis_expert["Chapter 6 - Hypothesis Testing Expert"]
     class ch6_hypothesis_expert workstream_expert
-    ch7_ols_expert["Chapter 7"]
+    ch7_ols_expert["Chapter 7 - Building an OLS Regression Model Expert"]
     class ch7_ols_expert workstream_expert
-    ch8_advanced_expert["Chapter 8"]
+    ch8_advanced_expert["Chapter 8 - Advanced Data Analysis Expert"]
     class ch8_advanced_expert workstream_expert
-    ch9_abm_expert["Chapter 9"]
+    ch9_abm_expert["Chapter 9 - Agent-Based Modeling Expert"]
     class ch9_abm_expert workstream_expert
     cleanup["Cleanup"]
     class cleanup governance
@@ -49,7 +50,9 @@ flowchart LR
     conflict_resolution["Conflict Resolution"]
     class conflict_resolution governance
     content_enricher["Content Enricher"]
-    class content_enricher unknown
+    class content_enricher domain
+    git_operations["Git Operations"]
+    class git_operations governance
     navigator["Navigator"]
     class navigator governance
     orchestrator["Orchestrator"]
@@ -61,7 +64,7 @@ flowchart LR
     quality_auditor["Quality Auditor"]
     class quality_auditor domain
     repo_liaison["Repo Liaison"]
-    class repo_liaison unknown
+    class repo_liaison governance
     security["Security"]
     class security governance
     style_guardian["Style Guardian"]
@@ -74,6 +77,8 @@ flowchart LR
     class tool_doc_researcher tool_specialist
     visual_designer["Visual Designer"]
     class visual_designer domain
+    work_summarizer["Work Summarizer"]
+    class work_summarizer domain
     orchestrator -->|"Produce / Revise Deliverable"| primary_producer
     orchestrator -->|"Audit Quality"| quality_auditor
     orchestrator -->|"Repair Cohesion"| cohesion_repairer
@@ -91,6 +96,8 @@ flowchart LR
     orchestrator -->|"Update Agent Docs"| agent_updater
     orchestrator -->|"Refactor Agent Docs"| agent_refactor
     orchestrator -->|"Cross-Repository Liaison"| repo_liaison
+    orchestrator -->|"Summarize Work Period"| work_summarizer
+    orchestrator -->|"Git Operations"| git_operations
     navigator -->|"Return to Orchestrator"| orchestrator
     security -->|"Return to Orchestrator"| orchestrator
     code_hygiene -->|"Security Clearance (for Deletions)"| security
@@ -111,8 +118,10 @@ flowchart LR
     conflict_resolution -->|"Update Agent Docs"| agent_updater
     cleanup -->|"Return to Orchestrator"| orchestrator
     agent_updater -->|"Refactor Agent Docs"| agent_refactor
+    agent_updater -->|"Run Adversarial Review"| adversarial
     agent_updater -->|"Run Conflict Audit"| conflict_auditor
     agent_updater -->|"Return to Orchestrator"| orchestrator
+    agent_updater -.-> adversarial
     agent_updater -.-> conflict_auditor
     agent_updater -.-> agent_refactor
     agent_refactor -->|"Run Conflict Audit"| conflict_auditor
@@ -121,6 +130,17 @@ flowchart LR
     repo_liaison -->|"Return to Orchestrator"| orchestrator
     repo_liaison -->|"Security Review for Cross-Repo Write"| security
     repo_liaison -->|"Conflict Audit After Cross-Repo Change"| conflict_auditor
+    git_operations -->|"Return to Orchestrator"| orchestrator
+    git_operations -->|"Security Review"| security
+    git_operations -->|"Conflict Resolution"| conflict_resolution
+    git_operations -->|"Update Agent Docs"| agent_updater
+    work_summarizer -->|"Verify Summary Accuracy"| technical_validator
+    work_summarizer -->|"Run Adversarial Audit"| adversarial
+    work_summarizer -->|"Run Conflict Audit"| conflict_auditor
+    work_summarizer -->|"Return to Orchestrator"| orchestrator
+    work_summarizer -.-> technical_validator
+    work_summarizer -.-> adversarial
+    work_summarizer -.-> conflict_auditor
     primary_producer -->|"Style Audit"| style_guardian
     primary_producer -->|"Cohesion Audit"| cohesion_repairer
     primary_producer -->|"Quality Audit"| quality_auditor
@@ -241,21 +261,23 @@ flowchart LR
 | `cleanup` | governance | No | edit, search, execute |
 | `code-hygiene` | governance | No | read, search |
 | `cohesion-repairer` | domain | No | read, edit |
-| `conflict-auditor` | governance | No | read, edit, search, execute |
+| `conflict-auditor` | governance | No | read, search |
 | `conflict-resolution` | governance | No | edit, search, read |
-| `content-enricher` | unknown | Yes | read, edit, search |
+| `content-enricher` | domain | Yes | read, edit, search |
+| `git-operations` | governance | Yes | read, execute, search |
 | `navigator` | governance | No | read, search, execute |
 | `orchestrator` | governance | Yes | read, edit, search, execute, todo, agent |
 | `output-compiler` | domain | No | read, edit, execute |
 | `primary-producer` | domain | No | read, edit, search |
 | `quality-auditor` | domain | No | read, search |
-| `repo-liaison` | unknown | No | read, edit, search, execute, agent |
+| `repo-liaison` | governance | No | read, edit, search, execute, agent |
 | `security` | governance | No | read, search |
 | `style-guardian` | domain | No | read, edit, search |
 | `team-builder` | governance | Yes | read, edit, search, execute, todo |
 | `technical-validator` | domain | No | read, search |
 | `tool-doc-researcher` | tool_specialist | No | read, search |
 | `visual-designer` | domain | No | read, edit, execute, search |
+| `work-summarizer` | domain | Yes | read, search, execute, edit, agent |
 
 ---
 
@@ -263,9 +285,9 @@ flowchart LR
 
 | Agent | Receives from | Hands off to |
 | --- | --- | --- |
-| `adversarial` | `ch1-essentials-expert`, `ch2-lists-expert`, `ch3-numpy-pandas-expert`, `ch4-functional-expert`, `ch5-probability-expert`, `ch6-hypothesis-expert`, `ch7-ols-expert`, `ch8-advanced-expert`, `ch9-abm-expert`, `orchestrator` | `conflict-auditor`, `orchestrator` |
+| `adversarial` | `agent-updater`, `ch1-essentials-expert`, `ch2-lists-expert`, `ch3-numpy-pandas-expert`, `ch4-functional-expert`, `ch5-probability-expert`, `ch6-hypothesis-expert`, `ch7-ols-expert`, `ch8-advanced-expert`, `ch9-abm-expert`, `orchestrator`, `work-summarizer` | `conflict-auditor`, `orchestrator` |
 | `agent-refactor` | `agent-updater`, `code-hygiene`, `orchestrator` | `conflict-auditor`, `orchestrator` |
-| `agent-updater` | `conflict-auditor`, `conflict-resolution`, `orchestrator`, `tool-doc-researcher` | `agent-refactor`, `conflict-auditor`, `orchestrator` |
+| `agent-updater` | `conflict-auditor`, `conflict-resolution`, `git-operations`, `orchestrator`, `tool-doc-researcher` | `adversarial`, `agent-refactor`, `conflict-auditor`, `orchestrator` |
 | `ch1-essentials-expert` | — | `adversarial`, `orchestrator`, `primary-producer` |
 | `ch2-lists-expert` | — | `adversarial`, `orchestrator`, `primary-producer` |
 | `ch3-numpy-pandas-expert` | — | `adversarial`, `orchestrator`, `primary-producer` |
@@ -278,21 +300,23 @@ flowchart LR
 | `cleanup` | `code-hygiene`, `orchestrator` | `orchestrator` |
 | `code-hygiene` | `orchestrator` | `agent-refactor`, `cleanup`, `conflict-auditor`, `orchestrator`, `security` |
 | `cohesion-repairer` | `orchestrator`, `primary-producer`, `quality-auditor` | `orchestrator`, `quality-auditor`, `style-guardian` |
-| `conflict-auditor` | `adversarial`, `agent-refactor`, `agent-updater`, `code-hygiene`, `orchestrator`, `primary-producer`, `repo-liaison`, `technical-validator` | `agent-updater`, `conflict-resolution`, `orchestrator`, `technical-validator` |
-| `conflict-resolution` | `conflict-auditor`, `orchestrator` | `agent-updater`, `orchestrator` |
+| `conflict-auditor` | `adversarial`, `agent-refactor`, `agent-updater`, `code-hygiene`, `orchestrator`, `primary-producer`, `repo-liaison`, `technical-validator`, `work-summarizer` | `agent-updater`, `conflict-resolution`, `orchestrator`, `technical-validator` |
+| `conflict-resolution` | `conflict-auditor`, `git-operations`, `orchestrator` | `agent-updater`, `orchestrator` |
 | `content-enricher` | — | `orchestrator`, `primary-producer`, `technical-validator` |
+| `git-operations` | `orchestrator` | `agent-updater`, `conflict-resolution`, `orchestrator`, `security` |
 | `navigator` | `orchestrator` | `orchestrator` |
-| `orchestrator` | `adversarial`, `agent-refactor`, `agent-updater`, `ch1-essentials-expert`, `ch2-lists-expert`, `ch3-numpy-pandas-expert`, `ch4-functional-expert`, `ch5-probability-expert`, `ch6-hypothesis-expert`, `ch7-ols-expert`, `ch8-advanced-expert`, `ch9-abm-expert`, `cleanup`, `code-hygiene`, `cohesion-repairer`, `conflict-auditor`, `conflict-resolution`, `content-enricher`, `navigator`, `output-compiler`, `primary-producer`, `quality-auditor`, `repo-liaison`, `security`, `style-guardian`, `technical-validator`, `tool-doc-researcher`, `visual-designer` | `adversarial`, `agent-refactor`, `agent-updater`, `cleanup`, `code-hygiene`, `cohesion-repairer`, `conflict-auditor`, `conflict-resolution`, `navigator`, `output-compiler`, `primary-producer`, `quality-auditor`, `repo-liaison`, `security`, `style-guardian`, `technical-validator`, `visual-designer` |
+| `orchestrator` | `adversarial`, `agent-refactor`, `agent-updater`, `ch1-essentials-expert`, `ch2-lists-expert`, `ch3-numpy-pandas-expert`, `ch4-functional-expert`, `ch5-probability-expert`, `ch6-hypothesis-expert`, `ch7-ols-expert`, `ch8-advanced-expert`, `ch9-abm-expert`, `cleanup`, `code-hygiene`, `cohesion-repairer`, `conflict-auditor`, `conflict-resolution`, `content-enricher`, `git-operations`, `navigator`, `output-compiler`, `primary-producer`, `quality-auditor`, `repo-liaison`, `security`, `style-guardian`, `technical-validator`, `tool-doc-researcher`, `visual-designer`, `work-summarizer` | `adversarial`, `agent-refactor`, `agent-updater`, `cleanup`, `code-hygiene`, `cohesion-repairer`, `conflict-auditor`, `conflict-resolution`, `git-operations`, `navigator`, `output-compiler`, `primary-producer`, `quality-auditor`, `repo-liaison`, `security`, `style-guardian`, `technical-validator`, `visual-designer`, `work-summarizer` |
 | `output-compiler` | `orchestrator` | `orchestrator`, `technical-validator` |
 | `primary-producer` | `ch1-essentials-expert`, `ch2-lists-expert`, `ch3-numpy-pandas-expert`, `ch4-functional-expert`, `ch5-probability-expert`, `ch6-hypothesis-expert`, `ch7-ols-expert`, `ch8-advanced-expert`, `ch9-abm-expert`, `content-enricher`, `orchestrator`, `quality-auditor`, `style-guardian`, `technical-validator` | `cohesion-repairer`, `conflict-auditor`, `orchestrator`, `quality-auditor`, `style-guardian` |
 | `quality-auditor` | `cohesion-repairer`, `orchestrator`, `primary-producer`, `visual-designer` | `cohesion-repairer`, `orchestrator`, `primary-producer`, `style-guardian` |
 | `repo-liaison` | `orchestrator` | `conflict-auditor`, `orchestrator`, `security` |
-| `security` | `code-hygiene`, `orchestrator`, `repo-liaison` | `orchestrator` |
+| `security` | `code-hygiene`, `git-operations`, `orchestrator`, `repo-liaison` | `orchestrator` |
 | `style-guardian` | `cohesion-repairer`, `orchestrator`, `primary-producer`, `quality-auditor` | `orchestrator`, `primary-producer` |
 | `team-builder` | — | — |
-| `technical-validator` | `conflict-auditor`, `content-enricher`, `orchestrator`, `output-compiler` | `conflict-auditor`, `orchestrator`, `primary-producer` |
+| `technical-validator` | `conflict-auditor`, `content-enricher`, `orchestrator`, `output-compiler`, `work-summarizer` | `conflict-auditor`, `orchestrator`, `primary-producer` |
 | `tool-doc-researcher` | — | `agent-updater`, `orchestrator` |
 | `visual-designer` | `orchestrator` | `orchestrator`, `quality-auditor` |
+| `work-summarizer` | `orchestrator` | `adversarial`, `conflict-auditor`, `orchestrator`, `technical-validator` |
 
 ---
 
@@ -309,33 +333,35 @@ digraph "LearnPythonStatsEcon Agent Team" {
     "adversarial" [label="Adversarial", fillcolor="#e8e8ff"];
     "agent-refactor" [label="Agent Refactor", fillcolor="#e8e8ff"];
     "agent-updater" [label="Agent Updater", fillcolor="#e8e8ff"];
-    "ch1-essentials-expert" [label="Chapter 1", fillcolor="#fff8e8"];
-    "ch2-lists-expert" [label="Chapter 2", fillcolor="#fff8e8"];
-    "ch3-numpy-pandas-expert" [label="Chapter 3", fillcolor="#fff8e8"];
-    "ch4-functional-expert" [label="Chapter 4", fillcolor="#fff8e8"];
-    "ch5-probability-expert" [label="Chapter 5", fillcolor="#fff8e8"];
-    "ch6-hypothesis-expert" [label="Chapter 6", fillcolor="#fff8e8"];
-    "ch7-ols-expert" [label="Chapter 7", fillcolor="#fff8e8"];
-    "ch8-advanced-expert" [label="Chapter 8", fillcolor="#fff8e8"];
-    "ch9-abm-expert" [label="Chapter 9", fillcolor="#fff8e8"];
+    "ch1-essentials-expert" [label="Chapter 1 - The Essentials Expert", fillcolor="#fff8e8"];
+    "ch2-lists-expert" [label="Chapter 2 - Working With Lists Expert", fillcolor="#fff8e8"];
+    "ch3-numpy-pandas-expert" [label="Chapter 3 - NumPy, Pandas, and Matplotlib Expert", fillcolor="#fff8e8"];
+    "ch4-functional-expert" [label="Chapter 4 - Functional Programming and Rudimentary Statistics Expert", fillcolor="#fff8e8"];
+    "ch5-probability-expert" [label="Chapter 5 - Probability Distributions Expert", fillcolor="#fff8e8"];
+    "ch6-hypothesis-expert" [label="Chapter 6 - Hypothesis Testing Expert", fillcolor="#fff8e8"];
+    "ch7-ols-expert" [label="Chapter 7 - Building an OLS Regression Model Expert", fillcolor="#fff8e8"];
+    "ch8-advanced-expert" [label="Chapter 8 - Advanced Data Analysis Expert", fillcolor="#fff8e8"];
+    "ch9-abm-expert" [label="Chapter 9 - Agent-Based Modeling Expert", fillcolor="#fff8e8"];
     "cleanup" [label="Cleanup", fillcolor="#e8e8ff"];
     "code-hygiene" [label="Code Hygiene", fillcolor="#e8e8ff"];
     "cohesion-repairer" [label="Cohesion Repairer", fillcolor="#e8ffe8"];
     "conflict-auditor" [label="Conflict Auditor", fillcolor="#e8e8ff"];
     "conflict-resolution" [label="Conflict Resolution", fillcolor="#e8e8ff"];
-    "content-enricher" [label="Content Enricher", fillcolor="#f5f5f5"];
+    "content-enricher" [label="Content Enricher", fillcolor="#e8ffe8"];
+    "git-operations" [label="Git Operations", fillcolor="#e8e8ff"];
     "navigator" [label="Navigator", fillcolor="#e8e8ff"];
     "orchestrator" [label="Orchestrator", fillcolor="#e8e8ff"];
     "output-compiler" [label="Output Compiler", fillcolor="#e8ffe8"];
     "primary-producer" [label="Primary Producer", fillcolor="#e8ffe8"];
     "quality-auditor" [label="Quality Auditor", fillcolor="#e8ffe8"];
-    "repo-liaison" [label="Repo Liaison", fillcolor="#f5f5f5"];
+    "repo-liaison" [label="Repo Liaison", fillcolor="#e8e8ff"];
     "security" [label="Security", fillcolor="#e8e8ff"];
     "style-guardian" [label="Style Guardian", fillcolor="#e8ffe8"];
     "team-builder" [label="Team Builder", fillcolor="#e8e8ff"];
     "technical-validator" [label="Technical Validator", fillcolor="#e8ffe8"];
     "tool-doc-researcher" [label="Tool Documentation Researcher", fillcolor="#ffe8e8"];
     "visual-designer" [label="Visual Designer", fillcolor="#e8ffe8"];
+    "work-summarizer" [label="Work Summarizer", fillcolor="#e8ffe8"];
     "orchestrator" -> "primary-producer" [style=solid, label="Produce / Revise Deliverable"];
     "orchestrator" -> "quality-auditor" [style=solid, label="Audit Quality"];
     "orchestrator" -> "cohesion-repairer" [style=solid, label="Repair Cohesion"];
@@ -353,6 +379,8 @@ digraph "LearnPythonStatsEcon Agent Team" {
     "orchestrator" -> "agent-updater" [style=solid, label="Update Agent Docs"];
     "orchestrator" -> "agent-refactor" [style=solid, label="Refactor Agent Docs"];
     "orchestrator" -> "repo-liaison" [style=solid, label="Cross-Repository Liaison"];
+    "orchestrator" -> "work-summarizer" [style=solid, label="Summarize Work Period"];
+    "orchestrator" -> "git-operations" [style=solid, label="Git Operations"];
     "navigator" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
     "security" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
     "code-hygiene" -> "security" [style=solid, label="Security Clearance (for Deletions)"];
@@ -370,6 +398,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
     "conflict-resolution" -> "agent-updater" [style=solid, label="Update Agent Docs"];
     "cleanup" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
     "agent-updater" -> "agent-refactor" [style=solid, label="Refactor Agent Docs"];
+    "agent-updater" -> "adversarial" [style=solid, label="Run Adversarial Review"];
     "agent-updater" -> "conflict-auditor" [style=solid, label="Run Conflict Audit"];
     "agent-updater" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
     "agent-refactor" -> "conflict-auditor" [style=solid, label="Run Conflict Audit"];
@@ -377,6 +406,14 @@ digraph "LearnPythonStatsEcon Agent Team" {
     "repo-liaison" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
     "repo-liaison" -> "security" [style=solid, label="Security Review for Cross-Repo Write"];
     "repo-liaison" -> "conflict-auditor" [style=solid, label="Conflict Audit After Cross-Repo Change"];
+    "git-operations" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "git-operations" -> "security" [style=solid, label="Security Review"];
+    "git-operations" -> "conflict-resolution" [style=solid, label="Conflict Resolution"];
+    "git-operations" -> "agent-updater" [style=solid, label="Update Agent Docs"];
+    "work-summarizer" -> "technical-validator" [style=solid, label="Verify Summary Accuracy"];
+    "work-summarizer" -> "adversarial" [style=solid, label="Run Adversarial Audit"];
+    "work-summarizer" -> "conflict-auditor" [style=solid, label="Run Conflict Audit"];
+    "work-summarizer" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
     "primary-producer" -> "style-guardian" [style=solid, label="Style Audit"];
     "primary-producer" -> "cohesion-repairer" [style=solid, label="Cohesion Audit"];
     "primary-producer" -> "quality-auditor" [style=solid, label="Quality Audit"];
@@ -472,7 +509,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
       ]
     },
     "ch1-essentials-expert": {
-      "display_name": "Chapter 1",
+      "display_name": "Chapter 1 - The Essentials Expert",
       "agent_type": "workstream_expert",
       "user_invokable": false,
       "tools": [
@@ -482,7 +519,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
       ]
     },
     "ch2-lists-expert": {
-      "display_name": "Chapter 2",
+      "display_name": "Chapter 2 - Working With Lists Expert",
       "agent_type": "workstream_expert",
       "user_invokable": false,
       "tools": [
@@ -492,7 +529,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
       ]
     },
     "ch3-numpy-pandas-expert": {
-      "display_name": "Chapter 3",
+      "display_name": "Chapter 3 - NumPy, Pandas, and Matplotlib Expert",
       "agent_type": "workstream_expert",
       "user_invokable": false,
       "tools": [
@@ -502,7 +539,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
       ]
     },
     "ch4-functional-expert": {
-      "display_name": "Chapter 4",
+      "display_name": "Chapter 4 - Functional Programming and Rudimentary Statistics Expert",
       "agent_type": "workstream_expert",
       "user_invokable": false,
       "tools": [
@@ -512,7 +549,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
       ]
     },
     "ch5-probability-expert": {
-      "display_name": "Chapter 5",
+      "display_name": "Chapter 5 - Probability Distributions Expert",
       "agent_type": "workstream_expert",
       "user_invokable": false,
       "tools": [
@@ -522,7 +559,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
       ]
     },
     "ch6-hypothesis-expert": {
-      "display_name": "Chapter 6",
+      "display_name": "Chapter 6 - Hypothesis Testing Expert",
       "agent_type": "workstream_expert",
       "user_invokable": false,
       "tools": [
@@ -532,7 +569,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
       ]
     },
     "ch7-ols-expert": {
-      "display_name": "Chapter 7",
+      "display_name": "Chapter 7 - Building an OLS Regression Model Expert",
       "agent_type": "workstream_expert",
       "user_invokable": false,
       "tools": [
@@ -542,7 +579,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
       ]
     },
     "ch8-advanced-expert": {
-      "display_name": "Chapter 8",
+      "display_name": "Chapter 8 - Advanced Data Analysis Expert",
       "agent_type": "workstream_expert",
       "user_invokable": false,
       "tools": [
@@ -552,7 +589,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
       ]
     },
     "ch9-abm-expert": {
-      "display_name": "Chapter 9",
+      "display_name": "Chapter 9 - Agent-Based Modeling Expert",
       "agent_type": "workstream_expert",
       "user_invokable": false,
       "tools": [
@@ -595,9 +632,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
       "user_invokable": false,
       "tools": [
         "read",
-        "edit",
-        "search",
-        "execute"
+        "search"
       ]
     },
     "conflict-resolution": {
@@ -612,11 +647,21 @@ digraph "LearnPythonStatsEcon Agent Team" {
     },
     "content-enricher": {
       "display_name": "Content Enricher",
-      "agent_type": "unknown",
+      "agent_type": "domain",
       "user_invokable": true,
       "tools": [
         "read",
         "edit",
+        "search"
+      ]
+    },
+    "git-operations": {
+      "display_name": "Git Operations",
+      "agent_type": "governance",
+      "user_invokable": true,
+      "tools": [
+        "read",
+        "execute",
         "search"
       ]
     },
@@ -674,7 +719,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
     },
     "repo-liaison": {
       "display_name": "Repo Liaison",
-      "agent_type": "unknown",
+      "agent_type": "governance",
       "user_invokable": false,
       "tools": [
         "read",
@@ -742,6 +787,18 @@ digraph "LearnPythonStatsEcon Agent Team" {
         "edit",
         "execute",
         "search"
+      ]
+    },
+    "work-summarizer": {
+      "display_name": "Work Summarizer",
+      "agent_type": "domain",
+      "user_invokable": true,
+      "tools": [
+        "read",
+        "search",
+        "execute",
+        "edit",
+        "agent"
       ]
     }
   },
@@ -847,6 +904,18 @@ digraph "LearnPythonStatsEcon Agent Team" {
       "target": "repo-liaison",
       "edge_type": "handoff",
       "label": "Cross-Repository Liaison"
+    },
+    {
+      "source": "orchestrator",
+      "target": "work-summarizer",
+      "edge_type": "handoff",
+      "label": "Summarize Work Period"
+    },
+    {
+      "source": "orchestrator",
+      "target": "git-operations",
+      "edge_type": "handoff",
+      "label": "Git Operations"
     },
     {
       "source": "navigator",
@@ -970,6 +1039,12 @@ digraph "LearnPythonStatsEcon Agent Team" {
     },
     {
       "source": "agent-updater",
+      "target": "adversarial",
+      "edge_type": "handoff",
+      "label": "Run Adversarial Review"
+    },
+    {
+      "source": "agent-updater",
       "target": "conflict-auditor",
       "edge_type": "handoff",
       "label": "Run Conflict Audit"
@@ -979,6 +1054,12 @@ digraph "LearnPythonStatsEcon Agent Team" {
       "target": "orchestrator",
       "edge_type": "handoff",
       "label": "Return to Orchestrator"
+    },
+    {
+      "source": "agent-updater",
+      "target": "adversarial",
+      "edge_type": "agents-list",
+      "label": null
     },
     {
       "source": "agent-updater",
@@ -1027,6 +1108,72 @@ digraph "LearnPythonStatsEcon Agent Team" {
       "target": "conflict-auditor",
       "edge_type": "handoff",
       "label": "Conflict Audit After Cross-Repo Change"
+    },
+    {
+      "source": "git-operations",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "git-operations",
+      "target": "security",
+      "edge_type": "handoff",
+      "label": "Security Review"
+    },
+    {
+      "source": "git-operations",
+      "target": "conflict-resolution",
+      "edge_type": "handoff",
+      "label": "Conflict Resolution"
+    },
+    {
+      "source": "git-operations",
+      "target": "agent-updater",
+      "edge_type": "handoff",
+      "label": "Update Agent Docs"
+    },
+    {
+      "source": "work-summarizer",
+      "target": "technical-validator",
+      "edge_type": "handoff",
+      "label": "Verify Summary Accuracy"
+    },
+    {
+      "source": "work-summarizer",
+      "target": "adversarial",
+      "edge_type": "handoff",
+      "label": "Run Adversarial Audit"
+    },
+    {
+      "source": "work-summarizer",
+      "target": "conflict-auditor",
+      "edge_type": "handoff",
+      "label": "Run Conflict Audit"
+    },
+    {
+      "source": "work-summarizer",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "work-summarizer",
+      "target": "technical-validator",
+      "edge_type": "agents-list",
+      "label": null
+    },
+    {
+      "source": "work-summarizer",
+      "target": "adversarial",
+      "edge_type": "agents-list",
+      "label": null
+    },
+    {
+      "source": "work-summarizer",
+      "target": "conflict-auditor",
+      "edge_type": "agents-list",
+      "label": null
     },
     {
       "source": "primary-producer",
@@ -1555,6 +1702,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
       "cohesion-repairer",
       "conflict-auditor",
       "conflict-resolution",
+      "git-operations",
       "navigator",
       "output-compiler",
       "primary-producer",
@@ -1563,7 +1711,8 @@ digraph "LearnPythonStatsEcon Agent Team" {
       "security",
       "style-guardian",
       "technical-validator",
-      "visual-designer"
+      "visual-designer",
+      "work-summarizer"
     ],
     "navigator": [
       "orchestrator"
@@ -1596,6 +1745,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
       "orchestrator"
     ],
     "agent-updater": [
+      "adversarial",
       "agent-refactor",
       "conflict-auditor",
       "orchestrator"
@@ -1608,6 +1758,18 @@ digraph "LearnPythonStatsEcon Agent Team" {
       "conflict-auditor",
       "orchestrator",
       "security"
+    ],
+    "git-operations": [
+      "agent-updater",
+      "conflict-resolution",
+      "orchestrator",
+      "security"
+    ],
+    "work-summarizer": [
+      "adversarial",
+      "conflict-auditor",
+      "orchestrator",
+      "technical-validator"
     ],
     "primary-producer": [
       "cohesion-repairer",
@@ -1702,3 +1864,4 @@ digraph "LearnPythonStatsEcon Agent Team" {
   }
 }
 ```
+<!-- AGENTTEAMS:END content -->

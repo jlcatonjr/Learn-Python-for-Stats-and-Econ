@@ -19,6 +19,7 @@ handoffs:
     prompt: "Agent documentation has been synchronized with project changes."
     send: false
 ---
+<!-- AGENTTEAMS:BEGIN content v=1 -->
 
 # Agent Updater — LearnPythonStatsEcon
 
@@ -112,3 +113,8 @@ Agent knowledge can drift silently when project structure evolves without a trig
 - **No resolved-issue archaeology** — once fixed, remove from docs
 - **No dated fix logs** — remove after verification
 - **Hardcoded volatile state belongs in reference files** — not embedded in agent prose
+<!-- AGENTTEAMS:END content -->
+
+## Project-Specific Notes
+
+> ⚙️ **USER-EDITABLE** — project-specific rules, overrides, and extensions for this agent. This section lies outside every `AGENTTEAMS` fence and is preserved verbatim across `agentteams --update --merge`.

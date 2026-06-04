@@ -92,3 +92,7 @@ python -m src.graph .github/agents/ --output .github/agents/references/pipeline-
 2. **Regenerate the project map after structural changes** — new files, new directories, renamed files
 3. **You are read-oriented** — you do not modify deliverable content, agent docs, or source files
 4. **External repo paths are read-only** — navigate but never modify files outside the project
+
+## Project-Specific Notes
+
+> ⚙️ **USER-EDITABLE** — project-specific rules, overrides, and extensions for this agent. This section lies outside every `AGENTTEAMS` fence and is preserved verbatim across `agentteams --update --merge`.

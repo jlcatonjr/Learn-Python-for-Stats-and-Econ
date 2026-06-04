@@ -15,6 +15,7 @@ handoffs:
     prompt: "Final output assembly complete."
     send: false
 ---
+<!-- AGENTTEAMS:BEGIN content v=1 -->
 # Output Compiler — LearnPythonStatsEcon
 
 You assemble all converted components into the final deliverable package for LearnPythonStatsEcon.
@@ -63,3 +64,8 @@ Final output: <path to assembled deliverable>
 - *(If `@format-converter` in team)* Never include components that have not been converted by `@format-converter`
 - Never silently skip missing components — always report and wait
 - Do not modify source files in `Textbook/` during assembly
+<!-- AGENTTEAMS:END content -->
+
+## Project-Specific Notes
+
+> ⚙️ **USER-EDITABLE** — project-specific rules, overrides, and extensions for this agent. This section lies outside every `AGENTTEAMS` fence and is preserved verbatim across `agentteams --update --merge`.

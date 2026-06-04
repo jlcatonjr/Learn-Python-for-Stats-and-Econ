@@ -553,3 +553,7 @@ Before executing any such step:
 6. If no at-large issues are found: note "No at-large issues detected"
 7. If a plan reached all `done` during this session: invoke `@work-summarizer` to append/update `workSummaries/daily/YYYY-MM-DD.md` before closeout
 <!-- AGENTTEAMS:END available_workflows -->
+
+## Project-Specific Notes
+
+> ⚙️ **USER-EDITABLE** — project-specific rules, overrides, and extensions for this agent. This section lies outside every `AGENTTEAMS` fence and is preserved verbatim across `agentteams --update --merge`.

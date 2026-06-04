@@ -1,28 +1,43 @@
-# Pandas Datareader Reference — LearnPythonStatsEcon
+<!-- AGENTTEAMS:BEGIN content v=1 -->
+# pandas-datareader Reference — LearnPythonStatsEcon
 
-> Quick-reference for **Pandas Datareader** in LearnPythonStatsEcon.
-> This is a lightweight reference file, not a full agent.
+> Quick-reference for **pandas-datareader ** (library) in LearnPythonStatsEcon.
+> This is a lightweight reference file, not a full agent. For tool-specific operations, consult the relevant specialist agent or escalate to `@orchestrator`.
 
 ---
 
+## Version
+
+`pandas-datareader` ``
+
+## Configuration
+
+**Config files:** `N/A`
+
 ## Official Documentation
 
-https://pandas-datareader.readthedocs.io/en/latest/
+https://pydata.github.io/pandas-datareader/
 
 ## Key API Surface
 
-pdr.DataReader(name, data_source, start, end) — fetch time-series data; data_source options: 'fred' (FRED), 'yahoo' (Yahoo Finance), 'famafrench' (Fama-French), 'wb' (World Bank), 'oecd', 'eurostat'; pdr.fred.FredReader(symbols, start, end).read() — direct FRED access; pdr.wb.download(indicator, country, start, end) — World Bank data; Returns pandas DataFrame indexed by date
+data.DataReader, fred.FredReader, wb.download
+
+<!-- Document the primary classes, functions, or APIs that project code depends on from pandas-datareader. -->
 
 ## Common Patterns & Pitfalls
 
-Use pdr.DataReader('SERIES_ID', 'fred', start='2000-01-01') to fetch FRED series — SERIES_ID examples: 'GDP', 'CPIAUCSL', 'FEDFUNDS', 'UNRATE', 'M2SL'. Chain with .pct_change() or .diff() for growth rates. Pitfall: Yahoo Finance reader is unreliable — prefer yfinance for equity data. Pitfall: some data sources require an API key set as environment variable (e.g. FRED requires FRED_API_KEY for bulk requests). Wrap reads in try/except RemoteDataError for network resilience in notebooks.
+Cache downloaded data for reproducibility, document provider-specific limits, and normalize index frequency immediately after fetch.
+
+<!-- Document common usage patterns, best practices, and known issues for pandas-datareader . -->
 
 ## Key Conventions
 
-- Follow project style rules when using Pandas Datareader
+- Follow project style rules when using pandas-datareader
 - Refer to authority sources for API contract accuracy
+- Validate changes against existing tests before committing
 
 ## Related Agents
 
-- `@technical-validator` — verify technical accuracy of Pandas Datareader usage
-- `@primary-producer` — implements code that depends on Pandas Datareader
+- `@technical-validator` — verify technical accuracy of pandas-datareader usage
+- `@primary-producer` — implements code that depends on pandas-datareader
+<!-- AGENTTEAMS:END content -->

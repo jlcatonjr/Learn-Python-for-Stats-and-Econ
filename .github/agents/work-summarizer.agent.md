@@ -60,6 +60,20 @@ Use only two authoritative source classes:
 1. Planning artifacts in canonical week-organized storage `tmp/by-week/YYYY-Www/` plus legacy undated artifacts in `tmp/` (`*.plan.md`, `*.steps.csv`)
 2. Git history from this repository (commit metadata, stats, and diffs)
 
+### Daily completeness scan (daily only)
+
+A daily summary must never portray a day as planning-only when execution actually occurred. **Before drafting a daily summary**, in addition to the two authoritative classes above, scan `tmp/by-week/YYYY-Www/` for non-plan **execution-evidence** files whose mtime falls in the window:
+- apply-logs (`*apply-log*.md`)
+- run-results and run logs (`*results*.md`, `*run*.log`)
+- operation/deletion summaries (`*SUMMARY*.md`, `*delete*`)
+
+Report the executed work these files record under an **Executed Work Today** section, attributed to its actual repository/target (this repo, an adjacent repo, or a production/data target). When such a file references commits in an **adjacent repository**, surface those commits (hash, repo, branch, subject) for completeness, clearly marked out-of-repo and not adjudicated by this summary. This matters most when this repository's own git window is empty: a zero-commit day is **not** evidence of a planning-only day.
+
+These execution-evidence files are **corroborating context, not new authoritative classes** — git and plan artifacts remain authoritative for what changed and what was intended. Never elevate an apply-log or results file above the git/plan authority hierarchy; use it to avoid an under-reported (true-sentences-but-false-picture) daily summary.
+
+<!-- agentteams-lint: no-memory-index OK — protocol is encoded inline below
+     with template-specific weekly/monthly framing rather than the canonical
+     v=2 fence; new audit/validation templates should use the fence instead. -->
 ### Memory-index consultation (weekly / monthly only)
 
 When generating a **weekly** or **monthly** summary, query `references/memory-index.json` **before** scanning the filesystem for prior weeks' summaries:
@@ -157,3 +171,7 @@ Trigger examples: "Summarize this month", "Monthly summary for YYYY-MM"
 - If a target summary already exists, use the selected write mode and state it explicitly in your run notes.
 - Mark uncertain claims as `unverified` instead of inferring.
 <!-- AGENTTEAMS:END content -->
+
+## Project-Specific Notes
+
+> ⚙️ **USER-EDITABLE** — project-specific rules, overrides, and extensions for this agent. This section lies outside every `AGENTTEAMS` fence and is preserved verbatim across `agentteams --update --merge`.

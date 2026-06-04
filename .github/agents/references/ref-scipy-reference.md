@@ -1,3 +1,4 @@
+<!-- AGENTTEAMS:BEGIN content v=1 -->
 # SciPy Reference — LearnPythonStatsEcon
 
 > Quick-reference for **SciPy ** (library) in LearnPythonStatsEcon.
@@ -39,3 +40,4 @@
 
 - `@technical-validator` — verify technical accuracy of SciPy usage
 - `@primary-producer` — implements code that depends on SciPy
+<!-- AGENTTEAMS:END content -->

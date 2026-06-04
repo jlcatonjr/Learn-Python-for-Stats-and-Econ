@@ -1,3 +1,4 @@
+<!-- AGENTTEAMS:BEGIN content v=1 -->
 # Matplotlib Reference — LearnPythonStatsEcon
 
 > Quick-reference for **Matplotlib ** (library) in LearnPythonStatsEcon.
@@ -39,3 +40,4 @@ Create figures and axes explicitly, label every chart, and save deterministic ou
 
 - `@technical-validator` — verify technical accuracy of Matplotlib usage
 - `@primary-producer` — implements code that depends on Matplotlib
+<!-- AGENTTEAMS:END content -->

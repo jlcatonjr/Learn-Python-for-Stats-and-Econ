@@ -14,6 +14,7 @@ handoffs:
     prompt: "Conflict resolutions may require agent documentation updates."
     send: false
 ---
+<!-- AGENTTEAMS:BEGIN content v=1 -->
 
 # Conflict Resolution — LearnPythonStatsEcon
 
@@ -67,3 +68,26 @@ Update `.github/agents/references/conflict-log.csv`: change `status` to `resolve
 2. Authority hierarchy (from `copilot-instructions.md`) is the tiebreaker — always
 3. ESCALATE only when genuinely unresolvable by the hierarchy
 4. Update the conflict log for every decision, including ACCEPT
+<!-- AGENTTEAMS:END content -->
+
+<!-- AGENTTEAMS:BEGIN memory_index_consultation v=2 -->
+### Memory-index consultation *(applies when `references/memory-index.json` is present)*
+
+Before deciding, check whether a structurally similar conflict has been resolved before — a prior `ACCEPT`/`REJECT`/`REVISE` outcome is binding precedent unless the authority hierarchy has changed. Lexical-first because conflict claims usually carry precise terminology or identifiers:
+
+```bash
+agentteams --query-index "<conflict claim, terminology, or identifiers>" --query-strategy lexical --query-k 5 --description .agentteams/brief.json --project . --output .github/agents --no-scan --yes
+```
+
+Fall back to `--query-strategy vector` when **either** (a) lexical returns zero hits, **or** (b) the lexical top-1 has no content-word overlap with the query (single-term false-positive guard).
+
+Per-strategy thresholds (the two scales are not comparable):
+- **Lexical:** top-1 ≥ 3.0 is a reliable precedent; 1.0–3.0 is candidate-for-inspection.
+- **Vector:** top-1 ≥ 0.30 is reliable; 0.20–0.30 is candidate-for-inspection. The empirical cap is ~0.42; never demand ≥ 0.5 on vector.
+
+If a prior resolution surfaces, open the cited resolution log entry and apply the same outcome; record the precedent in the new log entry's `resolution` field. Never block on the index — if no precedent is found, proceed with the hierarchy-based rules below.
+<!-- AGENTTEAMS:END memory_index_consultation -->
+
+## Project-Specific Notes
+
+> ⚙️ **USER-EDITABLE** — project-specific rules, overrides, and extensions for this agent. This section lies outside every `AGENTTEAMS` fence and is preserved verbatim across `agentteams --update --merge`.

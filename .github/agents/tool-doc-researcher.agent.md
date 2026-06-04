@@ -14,6 +14,7 @@ handoffs:
     prompt: "Tool documentation research complete."
     send: false
 ---
+<!-- AGENTTEAMS:BEGIN content v=1 -->
 
 # Tool Documentation Researcher — LearnPythonStatsEcon
 
@@ -138,3 +139,20 @@ After completing all tools in the list, hand off to `@agent-updater` with these 
 
 1. Add `docs_url`, `api_surface`, and `common_patterns` to each matching tool entry in the project brief so that future pipeline reruns auto-populate these fields.
 2. Directly update the affected tool agent files and reference files in `.github/agents/` so the current generation is complete without requiring a full rerender.
+<!-- AGENTTEAMS:END content -->
+
+<!-- AGENTTEAMS:BEGIN memory_index_consultation v=1 -->
+## Memory-index consultation *(applies when `references/memory-index.json` is present)*
+
+Before opening external documentation tiers, check whether the team has already researched this tool — prior handoffs, work summaries, or tool reference files may already carry the `docs_url`, `api_surface`, or version-pinned `common_patterns` for the version listed in the project brief:
+
+```bash
+agentteams --query-index "<tool name> <version>" --query-strategy lexical --query-k 5 --description .agentteams/brief.json --project . --output .github/agents --no-scan --yes
+```
+
+If a prior research artifact surfaces (top score ≥ 0.5, responsive snippet), open it and reuse the verified fields — re-verifying only the `docs_url` against the live site to confirm it has not moved. Cite the prior artifact in your output so `@agent-updater` knows the data was reused, not re-fetched. Never block on the index; if absent/empty, proceed to Tier 1 below.
+<!-- AGENTTEAMS:END memory_index_consultation -->
+
+## Project-Specific Notes
+
+> ⚙️ **USER-EDITABLE** — project-specific rules, overrides, and extensions for this agent. This section lies outside every `AGENTTEAMS` fence and is preserved verbatim across `agentteams --update --merge`.

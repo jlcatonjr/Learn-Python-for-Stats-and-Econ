@@ -15,6 +15,7 @@ handoffs:
     prompt: "Content enrichment complete. All auto-fillable placeholders have been resolved."
     send: false
 ---
+<!-- AGENTTEAMS:BEGIN content v=1 -->
 
 # Content Enricher — LearnPythonStatsEcon
 
@@ -42,6 +43,7 @@ After `agentteams` generates an agent team, many `{MANUAL:TOKEN}` placeholders r
 
 Open `.github/agents/references/defaults-audit.csv`. This file lists:
 
+<!-- CH14:ALLOW_INLINE_DATA -->
 | Column | Meaning |
 |--------|---------|
 | `file` | Agent file containing the placeholder |
@@ -50,6 +52,7 @@ Open `.github/agents/references/defaults-audit.csv`. This file lists:
 | `section` | Nearest `## Section` heading in the file |
 | `auto_suggestion` | Pre-computed suggestion (empty if manual review needed) |
 | `status` | `pending` = needs fill; `auto_filled` = already resolved by pipeline |
+<!-- /CH14:ALLOW_INLINE_DATA -->
 
 Focus on rows where `status == pending`.
 
@@ -98,6 +101,7 @@ Hand off to `@technical-validator` to verify that:
 
 Common tokens and their expected values for this project:
 
+<!-- CH14:ALLOW_INLINE_DATA -->
 | Token | Expected source |
 |-------|----------------|
 | `COMPONENT_SPEC` | Notebook chapter summary — title + list of topic sections |
@@ -109,6 +113,7 @@ Common tokens and their expected values for this project:
 | `TOOL_DOCS_URL` | Official documentation URL for the tool |
 | `TOOL_API_SURFACE` | Key classes/functions used in this project |
 | `TOOL_COMMON_PATTERNS` | Project-specific usage patterns and pitfalls |
+<!-- /CH14:ALLOW_INLINE_DATA -->
 
 ---
 
@@ -118,3 +123,8 @@ Common tokens and their expected values for this project:
 - Do not restructure templates or change section organization
 - Do not rewrite Invariant Core sections
 - Flag any token whose value cannot be determined from available source materials
+<!-- AGENTTEAMS:END content -->
+
+## Project-Specific Notes
+
+> ⚙️ **USER-EDITABLE** — project-specific rules, overrides, and extensions for this agent. This section lies outside every `AGENTTEAMS` fence and is preserved verbatim across `agentteams --update --merge`.

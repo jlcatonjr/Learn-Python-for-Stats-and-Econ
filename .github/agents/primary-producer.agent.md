@@ -27,6 +27,7 @@ handoffs:
     prompt: "Deliverable production is complete."
     send: false
 ---
+<!-- AGENTTEAMS:BEGIN content v=1 -->
 
 # Primary Producer — LearnPythonStatsEcon
 
@@ -69,3 +70,8 @@ Every deliverable must meet these floors before leaving this agent:
 1. **Textbook/Chapter 1 - The Essentials.ipynb** (`Textbook/Chapter 1 - The Essentials.ipynb`) — general
 2. **Textbook/Chapter 7 - Building an OLS Regression Model.ipynb** (`Textbook/Chapter 7 - Building an OLS Regression Model.ipynb`) — general
 3. **ECON 411 611 Syllabus.docx** (`ECON 411 611 Syllabus.docx`) — general
+<!-- AGENTTEAMS:END content -->
+
+## Project-Specific Notes
+
+> ⚙️ **USER-EDITABLE** — project-specific rules, overrides, and extensions for this agent. This section lies outside every `AGENTTEAMS` fence and is preserved verbatim across `agentteams --update --merge`.

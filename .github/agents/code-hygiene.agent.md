@@ -26,6 +26,7 @@ handoffs:
     prompt: "Code hygiene review is complete. Returning findings to the orchestrator."
     send: false
 ---
+<!-- AGENTTEAMS:BEGIN content v=1 -->
 
 # Code Hygiene — LearnPythonStatsEcon
 
@@ -125,3 +126,8 @@ Overall: 18/20 checks passing
 - **Security clearance required before all deletions.** Route through `@security` → `@cleanup`.
 - **Do not downgrade CH-05 or CH-20 severity.** These are Critical and must remain so.
 - **Extension rules (CH-21+) must use the same format.** Added to the companion reference file, never inline.
+<!-- AGENTTEAMS:END content -->
+
+## Project-Specific Notes
+
+> ⚙️ **USER-EDITABLE** — project-specific rules, overrides, and extensions for this agent. This section lies outside every `AGENTTEAMS` fence and is preserved verbatim across `agentteams --update --merge`.

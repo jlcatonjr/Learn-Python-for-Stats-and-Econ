@@ -1,3 +1,4 @@
+<!-- AGENTTEAMS:BEGIN content v=1 -->
 # Adjacent Repository Registry — LearnPythonStatsEcon
 
 This file is the authoritative registry of repositories adjacent to **LearnPythonStatsEcon** whose agent infrastructure may be affected by — or may affect — activity in this project.
@@ -47,3 +48,14 @@ Coordination requests exchanged with adjacent orchestrators are saved as individ
 Entries for repositories whose agent infrastructure no longer exists at the registered path, or whose relationship to this project has ended.
 
 *No retired entries.*
+<!-- AGENTTEAMS:END content -->
+
+<!-- AGENTTEAMS:BEGIN registry_header v=1 -->
+# Adjacent Repository Registry — LearnPythonStatsEcon
+
+This file is the authoritative registry of repositories adjacent to **LearnPythonStatsEcon** whose agent infrastructure may be affected by — or may affect — activity in this project.
+
+Maintained by `@repo-liaison`. Every cross-repository update must be recorded here.
+
+> **Merge-safe:** This file uses AGENTTEAMS fencing on the header only. All content below the header (Active Entries, Coordination Log, Retired Entries) is user-authored and is preserved automatically on `--merge` runs.
+<!-- AGENTTEAMS:END registry_header -->

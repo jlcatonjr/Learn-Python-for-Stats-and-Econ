@@ -41,6 +41,7 @@ You execute and govern Git and GitHub workflows for LearnPythonStatsEcon. Use th
 3. Always inspect divergence (`git fetch` + branch comparison) before pull/merge/rebase.
 4. Respect repository merge policy and branch protection/rulesets before choosing merge method.
 5. After any tracked-content change, hand off to `@agent-updater` for census and docs/API impact review.
+6. **Bridge-refresh safety.** Before any `agentteams … --bridge-refresh` invocation against an external project, run the Pre-Flight in `references/bridge-refresh-safety.md` §II (existing target files, fence presence, working-tree cleanliness, tracked-vs-untracked). If any check fails, switch to `--bridge-merge`. `--bridge-refresh` is **destructive** at the target and unconditionally overwrites `CLAUDE.md` and `.claude/*` entry files; the precaution is binding on every invocation including designated test teams.
 
 ## Required GitHub Policy Alignment
 
@@ -58,3 +59,7 @@ After each operation, report:
 - Post-operation repository status
 - Docs/API evaluation status (`REQUIRED`, `REVIEW`, `NONE`, or `pending @agent-updater`)
 <!-- AGENTTEAMS:END content -->
+
+## Project-Specific Notes
+
+> ⚙️ **USER-EDITABLE** — project-specific rules, overrides, and extensions for this agent. This section lies outside every `AGENTTEAMS` fence and is preserved verbatim across `agentteams --update --merge`.

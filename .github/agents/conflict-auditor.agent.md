@@ -134,3 +134,25 @@ When `references/eval-suite.json` exists, treat its `scenarios[].predicate` entr
 
 If `eval-suite.json` is absent or empty (older team): skip this section silently — do not fabricate findings against a missing artifact.
 <!-- AGENTTEAMS:END behavioral_spec_cross_check -->
+
+<!-- AGENTTEAMS:BEGIN memory_index_consultation v=2 -->
+### Memory-index consultation *(applies when `references/memory-index.json` is present)*
+
+Before adjudicating a conflict whose shape is **"has this been decided / accepted / rejected before?"** — typically `HC` (Hierarchy Conflict), `SR` (Stale Reference), and ambiguous `CC` (Claim Conflict) cases — query the index. Lexical-first because conflict-log questions usually carry precise identifiers (BBB IDs, file paths, terminology):
+
+```bash
+agentteams --query-index "<conflict identifiers, file paths, or terminology>" --query-strategy lexical --query-k 5 --description .agentteams/brief.json --project . --output .github/agents --no-scan --yes
+```
+
+Fall back to `--query-strategy vector` when **either** (a) lexical returns zero hits, **or** (b) the lexical top-1 has no content-word overlap with the query (high score on a wrong document via a single rare term match — protects against single-term false positives).
+
+Per-strategy thresholds (the two scales are not comparable):
+- **Lexical:** top-1 ≥ 3.0 is a reliable hit; 1.0–3.0 is candidate-for-inspection.
+- **Vector:** top-1 ≥ 0.30 is reliable; 0.20–0.30 is candidate-for-inspection. The empirical cap for sparse-TF-IDF cosine is ~0.42; never demand ≥ 0.5 on vector.
+
+Open the cited file and reference its decision in the conflict log. The index is a history layer, **not authoritative** — when it conflicts with current state on disk, trust disk and queue an `SR` finding. Never block on the index; if both strategies are inconclusive, fall back to filesystem search + `git log`.
+<!-- AGENTTEAMS:END memory_index_consultation -->
+
+## Project-Specific Notes
+
+> ⚙️ **USER-EDITABLE** — project-specific rules, overrides, and extensions for this agent. This section lies outside every `AGENTTEAMS` fence and is preserved verbatim across `agentteams --update --merge`.

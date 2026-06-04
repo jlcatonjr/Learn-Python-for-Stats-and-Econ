@@ -1,3 +1,4 @@
+<!-- AGENTTEAMS:BEGIN content v=1 -->
 # NumPy Reference — LearnPythonStatsEcon
 
 > Quick-reference for **NumPy ** (library) in LearnPythonStatsEcon.
@@ -39,3 +40,4 @@ Use array operations and broadcasting instead of Python loops where possible, an
 
 - `@technical-validator` — verify technical accuracy of NumPy usage
 - `@primary-producer` — implements code that depends on NumPy
+<!-- AGENTTEAMS:END content -->

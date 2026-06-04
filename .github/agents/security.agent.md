@@ -74,11 +74,11 @@ Use the generated reference `references/security-vulnerability-watch.reference.m
 ### Current Threat Intelligence Snapshot
 
 <!-- AGENTTEAMS:BEGIN threat_intelligence v=1 -->
-Generated at: `2026-05-21T18:32:58Z`
+Generated at: `2026-06-04T13:55:06Z`
 
 **Sources:**
 
-- CISA KEV: ok (catalog 2026.05.21, items 1599) — https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
+- CISA KEV: ok (catalog 2026.06.03, items 1611) — https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
 - MITRE CVE: metadata_only — https://cveawg.mitre.org/api/cve/
 - FIRST EPSS: ok (items 15) — https://api.first.org/data/v1/epss
 - NVD (NIST): ok (items 5) — https://services.nvd.nist.gov/rest/json/cves/2.0
@@ -88,21 +88,21 @@ Generated at: `2026-05-21T18:32:58Z`
 
 **Current major vulnerabilities:**
 
-- `UNKNOWN-CVE` | Unknown vendor Windows | Known exploited vulnerability | added n/a
-- `UNKNOWN-CVE` | Unknown vendor DirectX | Known exploited vulnerability | added n/a
-- `UNKNOWN-CVE` | Unknown vendor Acrobat and Reader | Known exploited vulnerability | added n/a
-- `UNKNOWN-CVE` | Unknown vendor Internet Explorer | Known exploited vulnerability | added n/a
-- `UNKNOWN-CVE` | Unknown vendor Internet Explorer | Known exploited vulnerability | added n/a
-- `UNKNOWN-CVE` | Unknown vendor Defender | Known exploited vulnerability | added n/a
-- `UNKNOWN-CVE` | Unknown vendor Defender | Known exploited vulnerability | added n/a
-- `UNKNOWN-CVE` | Unknown vendor Microsoft | Known exploited vulnerability | added n/a
-- `UNKNOWN-CVE` | Unknown vendor Catalyst SD-WAN | Known exploited vulnerability | added n/a
-- `UNKNOWN-CVE` | Unknown vendor LiteLLM | Known exploited vulnerability | added n/a
-- `UNKNOWN-CVE` | Unknown vendor Endpoint Manager Mobile (EPMM) | Known exploited vulnerability | added n/a
-- `UNKNOWN-CVE` | Unknown vendor PAN-OS | Known exploited vulnerability | added n/a
-- `UNKNOWN-CVE` | Unknown vendor Kernel | Known exploited vulnerability | added n/a
-- `UNKNOWN-CVE` | Unknown vendor cPanel & WHM and WP2 (WordPress Squared) | Known exploited vulnerability | added n/a
-- `UNKNOWN-CVE` | Unknown vendor ScreenConnect | Known exploited vulnerability | added n/a
+- `CVE-2026-45247` | Mirasvit Mirasvit Full Page Cache Warmer | Mirasvit Full Page Cache Warmer Deserialization of Untrusted Data Vulnerability | added 2026-06-03 | EPSS 0.061490000, percentile 0.909740000 | CVSS 9.8 CRITICAL
+- `CVE-2022-0492` | Linux Kernel | Linux Kernel Improper Authentication Vulnerability | added 2026-06-02 | EPSS 0.289730000, percentile 0.966590000 | CVSS 7.8 HIGH
+- `CVE-2025-48595` | Android Framework | Android Framework Integer Overflow Vulnerability | added 2026-06-02 | EPSS 0.004010000, percentile 0.611000000 | CVSS 8.4 HIGH
+- `CVE-2024-21182` | Oracle WebLogic Server | Oracle WebLogic Server Unspecified Vulnerability | added 2026-06-01 | EPSS 0.896490000, percentile 0.995800000 | CVSS 7.5 HIGH
+- `CVE-2026-0257` | Palo Alto Networks PAN-OS | Palo Alto Networks PAN-OS Authentication Bypass Vulnerability | added 2026-05-29 | EPSS 0.464530000, percentile 0.977170000 | CVSS 9.1 CRITICAL
+- `CVE-2026-48027` | Nx Nx Console | Nx Console Embedded Malicious Code Vulnerability | added 2026-05-27 | EPSS 0.320650000, percentile 0.969170000
+- `CVE-2026-45321` | TanStack TanStack | TanStack Unspecified Vulnerability | added 2026-05-27 | EPSS 0.170510000, percentile 0.951110000
+- `CVE-2026-8398` | Daemon Daemon Tools Lite | Daemon Tools Lite Embedded Malicious Code Vulnerability | added 2026-05-27 | EPSS 0.143900000, percentile 0.945450000
+- `CVE-2026-48172` | LiteSpeed cPanel Plugin | LiteSpeed cPanel Plugin Privilege Escalation Vulnerability | added 2026-05-26 | EPSS 0.079560000, percentile 0.922080000
+- `CVE-2026-9082` | Drupal Core | Drupal Core SQL Injection Vulnerability | added 2026-05-22 | EPSS 0.076650000, percentile 0.920400000
+- `CVE-2025-34291` | Langflow Langflow | Langflow Origin Validation Error Vulnerability | added 2026-05-21 | EPSS 0.327460000, percentile 0.969680000
+- `CVE-2026-34926` | Trend Micro Apex One | Trend Micro Apex One (On-Premise) Directory Traversal Vulnerability | added 2026-05-21 | EPSS 0.010180000, percentile 0.775330000
+- `CVE-2008-4250` | Microsoft Windows | Microsoft Windows Buffer Overflow Vulnerability | added 2026-05-20 | EPSS 0.920780000, percentile 0.997210000
+- `CVE-2009-1537` | Microsoft DirectX | Microsoft DirectX NULL Byte Overwrite Vulnerability | added 2026-05-20 | EPSS 0.530160000, percentile 0.980090000
+- `CVE-2009-3459` | Adobe Acrobat and Reader | Adobe Acrobat and Reader Heap-Based Buffer Overflow Vulnerability | added 2026-05-20 | EPSS 0.880730000, percentile 0.995010000
 
 **Prevention and mitigation playbook:**
 
@@ -111,6 +111,8 @@ Generated at: `2026-05-21T18:32:58Z`
 - Enforce patch windows with owner, SLA, and verification evidence for each critical CVE.
 - When patching is blocked, define compensating controls (WAF rules, ACL tightening, feature disablement).
 - Add detections for exploitation attempts and verify telemetry coverage for affected assets.
+- Vendor/CISA required actions:
+  - Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.
 
 ### LLM and AI-Specific Threat Intelligence
 
@@ -188,6 +190,7 @@ Cleared for: [specific action cleared, or NONE if HALT]
 | Any bulk edit affecting 3+ files simultaneously | Data integrity |
 | Any output compilation that pulls from external URLs | Supply chain risk |
 | Any execution of `batch_update.py` or `build_team.py --self --update` | Infrastructure scope — bulk cross-repo write |
+| Any invocation of `agentteams … --bridge-refresh` against an external project | Destructive at target — see `references/bridge-refresh-safety.md` Pre-Flight; clear only when Pre-Flight §II all-pass |
 | Any committed file containing absolute filesystem paths with home directory (`/Users/`, `/home/`) | OPSEC — PII exposure in artifacts |
 | Any committed or tracked file containing a local machine hostname, OS username, MAC address, local network IP (192.168.x.x, 10.x.x.x, 172.16-31.x.x), or machine-local absolute path outside `~/` notation | OPSEC — machine-specific information exposure |
 | Any agent with `edit` or `execute` tools acting outside its declared workstream | Excessive agency (LLM06) |
@@ -272,4 +275,21 @@ Use this table to determine the verdict. **Criteria are deterministic** — mode
 | No security-relevant findings | **PASS** |
 
 > **Precedence rule:** If a finding matches multiple rows, apply the **most restrictive** verdict (HALT > CONDITIONAL PASS > PASS).
+
+### AI-Authored Code Is Insecure By Default
+
+`@security` owns the **security-class habits of AI-generated code** — code an AI agent emits is frequently vulnerable absent any attacker. When reviewing code authored or substantially edited by an AI agent, screen it for these classes (the OWASP LLM Top 10, enumerated in the `threat_intelligence` fence, plus the following web-weakness and supply-chain classes that AI agents reproduce most often):
+
+- **Cross-site scripting (CWE-79)** — unescaped output. Fix: context-aware output encoding; framework auto-escaping; Content-Security-Policy.
+- **SQL injection (CWE-89)** — string-built queries. Fix: parameterized queries / ORM only; never concatenate untrusted input.
+- **Cross-site request forgery (CWE-352)** — state-changing routes without anti-CSRF. Fix: framework CSRF tokens; SameSite cookies.
+- **Broken access control / missing authorization (CWE-862)** — internal services/data reached without an authz check. Fix: centralized, deny-by-default authorization at every entry point.
+- **Supply-chain / slopsquatting** — AI hallucinates a non-existent package name an attacker can pre-register. Fix: verify every dependency resolves to the real, expected registry artifact; pin + lockfile; SCA scan (LLM03).
+- **Unsanitized output passed to a sink** — model output flowed into exec/DB/render without sanitization (LLM05). Fix: validate and sanitize before any sink.
+
+Treat an unmet defense in any of these as a security finding (apply the S-rules and HALT criteria above). Code-quality/correctness/process AI habits (over-commenting, duplication, hallucinated *imports* as a build-correctness defect, output *shape*-validation, skipped tests, etc.) are **not** `@security`'s concern — they are owned by `@code-hygiene` via the AI bad-habits catalog (`#file:references/ai-bad-habits-watch.reference.md`), which deliberately defers all security-class habits to this agent.
 <!-- AGENTTEAMS:END security_rules_invariant -->
+
+## Project-Specific Notes
+
+> ⚙️ **USER-EDITABLE** — project-specific rules, overrides, and extensions for this agent. This section lies outside every `AGENTTEAMS` fence and is preserved verbatim across `agentteams --update --merge`.

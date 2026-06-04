@@ -75,3 +75,19 @@ Recommended action: <correction specifics>
 - **Never guess.** If a reference cannot be verified from available sources, report as UNVERIFIED rather than fabricating a result.
 - *(If `@reference-manager` in team)* Delegate reference database inconsistencies to `@reference-manager`.
 - Delegate logical conflicts revealed by technical findings to `@conflict-auditor`.
+
+<!-- AGENTTEAMS:BEGIN memory_index_consultation v=1 -->
+## Memory-index consultation *(applies when `references/memory-index.json` is present)*
+
+When verifying a code excerpt, API reference, or tool invocation, first check whether a prior validation or known-issue entry exists — many "rename happened in week N" or "command flag deprecated on date D" facts live in work summaries and handoffs that the index covers:
+
+```bash
+agentteams --query-index "<symbol, file path, or invocation>" --query-strategy lexical --query-k 5 --description .agentteams/brief.json --project . --output .github/agents --no-scan --yes
+```
+
+Use **lexical** strategy when the query is a precise symbol or path; fall back to **vector** if lexical returns no hits and the question is thematic ("when did API X change shape?"). The index is a history layer, **not authoritative** — when it disagrees with current disk state, trust disk and emit the finding against current reality. Never block on the index; if absent/empty/low-confidence, proceed with direct file verification.
+<!-- AGENTTEAMS:END memory_index_consultation -->
+
+## Project-Specific Notes
+
+> ⚙️ **USER-EDITABLE** — project-specific rules, overrides, and extensions for this agent. This section lies outside every `AGENTTEAMS` fence and is preserved verbatim across `agentteams --update --merge`.

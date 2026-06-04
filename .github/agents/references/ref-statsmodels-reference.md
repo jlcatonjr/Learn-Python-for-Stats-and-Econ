@@ -1,3 +1,4 @@
+<!-- AGENTTEAMS:BEGIN content v=1 -->
 # Statsmodels Reference — LearnPythonStatsEcon
 
 > Quick-reference for **Statsmodels ** (library) in LearnPythonStatsEcon.
@@ -39,3 +40,4 @@
 
 - `@technical-validator` — verify technical accuracy of Statsmodels usage
 - `@primary-producer` — implements code that depends on Statsmodels
+<!-- AGENTTEAMS:END content -->

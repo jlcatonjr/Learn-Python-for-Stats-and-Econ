@@ -1,3 +1,4 @@
+<!-- AGENTTEAMS:BEGIN content v=1 -->
 # Code Hygiene Rules — Enforcement Catalog (LearnPythonStatsEcon)
 
 > **Authoritative source for:** `@code-hygiene` agent rule enforcement
@@ -106,6 +107,90 @@ No two agent files may make contradictory claims about the same fact (e.g., whic
 
 > Add project-specific hygiene rules below using the same ID/Name/Category/Severity structure.
 
+### CH-21 — Validate New Features Before Mainline Integration
+
+**Category:** Testing
+**Severity:** High
+
+Newly developed features must be tested or otherwise validated before they are merged into the main program path.
+
+### CH-22 — Type Check Function/Class Inputs
+
+**Category:** Type Safety
+**Severity:** High
+
+All function and class inputs must be type-checked (statically, at runtime, or both) to ensure only valid and meaningful input types are accepted.
+
+### CH-23 — Fail Fast on Invalid Inputs
+
+**Category:** Defensive Programming
+**Severity:** Critical
+
+Invalid inputs must raise explicit errors. Invalid data must never pass silently, and implicit fallback behavior that masks bad inputs is prohibited.
+
+### CH-24 — Exception Handling Is a Last Resort; Encode Conditions Explicitly
+
+**Category:** Defensive Programming
+**Severity:** Critical
+
+`try`/`except`/`finally` is the *last* resort, not the first. Broad or speculative exception handling hides the moment a program breaks, which delays the iterative debug-and-test cycle that depends on knowing immediately that something is wrong.
+
+**Preferred order of control flow:**
+
+1. **Encode expected conditions in data.** Map valid cases in a dictionary / lookup table / dispatch map. Membership and key lookups make the set of handled cases explicit and reviewable.
+2. **Guard with explicit checks, then fail hard.** Validate up front and `raise` (or assert) on the unexpected — see [[CH-23]]. A loud failure is a working failure: it points straight at the defect.
+3. **Use `try`/`except` only for genuinely unavoidable external failures** — I/O, network, subprocess, third-party calls whose failure modes cannot be predicted by inspection.
+
+**Prohibited patterns:**
+
+- Bare `except:` or `except Exception:` that swallows or logs-and-continues, hiding the real failure.
+- `try`/`except` used as flow control where a dictionary lookup, membership test, or `if`/`elif` chain would express the condition directly.
+- `except` blocks that return a default / fallback value, masking that the program is in a broken state.
+- `finally` used to paper over partial failures instead of letting the error propagate.
+
+**Required when `try`/`except` is genuinely warranted:**
+
+- Catch the *narrowest* applicable exception type, never a bare or blanket catch.
+- Either re-raise (optionally wrapped with context) or handle the specific, known recoverable case — never silently continue.
+
+**Enforcement check (illustrative):**
+```
+grep -rn "except:\|except Exception" Textbook/
+```
+Each hit must be justified as an unavoidable external-failure boundary; otherwise it is a violation. Prefer a dictionary-driven dispatch or an explicit guard that raises.
+
+### CH-25 — Screen AI-Generated Code Against the Bad-Habits Catalog
+
+**Category:** AI-Generated Code
+**Severity:** High
+
+Code authored or substantially edited by an AI agent must be screened against
+the AI bad-habits catalog before integration into the main program path. The
+catalog (`references/ai-bad-habits-watch.reference.md`, entries `BH-01..BH-NN`)
+is a curated, version-controlled list of **code-quality, correctness, and
+process** habits specific to AI agents, each mapped to a corrective pattern
+(source of truth: `agentteams/ai_bad_habits.py`).
+
+**Security-class AI habits are out of scope here.** Insecure-by-default code
+(injection, secrets exposure, excessive agency, supply chain, unbounded
+consumption) is owned by `@security` (CWE / OWASP LLM & Web taxonomies +
+S-rules). The catalog deliberately does not duplicate them; route every security
+finding to `@security`.
+
+The catalog is **authoritative** for the habits it lists; where a `BH-` entry
+carries a verified cross-link to an existing `CH-` rule, that rule governs the
+detail. Where the cross-link is `—`, the catalog entry is itself the rule.
+
+**Enforcement check (illustrative):**
+```
+# A new/changed file authored by an agent must not introduce any BH-NN
+# code-quality/correctness/process habit whose corrective pattern is unmet.
+# Security-class concerns are escalated to @security, not catalogued here.
+```
+
+This rule does not duplicate `@security`'s domain (single-source-of-truth,
+[[CH-05]] / [[CH-14]]).
+
 <!-- Example:
 ### CH-21 — Project-Specific Rule Name
 
@@ -114,3 +199,4 @@ No two agent files may make contradictory claims about the same fact (e.g., whic
 
 Description and enforcement check.
 -->
+<!-- AGENTTEAMS:END content -->

@@ -1,3 +1,4 @@
+<!-- AGENTTEAMS:BEGIN content v=1 -->
 # Pandas Reference — LearnPythonStatsEcon
 
 > Quick-reference for **Pandas ** (library) in LearnPythonStatsEcon.
@@ -39,3 +40,4 @@ Prefer vectorized operations, explicit dtypes, and merge or groupby pipelines ov
 
 - `@technical-validator` — verify technical accuracy of Pandas usage
 - `@primary-producer` — implements code that depends on Pandas
+<!-- AGENTTEAMS:END content -->
