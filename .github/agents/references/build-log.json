@@ -24,9 +24,7 @@
     "ch8-advanced",
     "ch9-abm"
   ],
-  "files_written": [
-    ".github/agents/references/work-summary-backfill.reference.md"
-  ],
+  "files_written": [],
   "manual_required": 43,
   "template_hashes": {
     "universal/orchestrator.template.md": "b2da8904757b0cb1",
@@ -435,25 +433,6 @@
   "manifest_fingerprint": "24c39352a37670cc",
   "fingerprint_algo_version": 1,
   "file_hashes": {
-    "references/work-summary-backfill.reference.md": "a0543cde8916cedb",
-    "orchestrator.agent.md": "262d3783a5c77402",
-    "security.agent.md": "44dc4fb650a3d2e4",
-    "conflict-auditor.agent.md": "7ce2601a059834b9",
-    "work-summarizer.agent.md": "32ca01b7a9e637a4",
-    "technical-validator.agent.md": "46fb9f4b82ed1bb1",
-    "references/ref-jupyter-reference.md": "ab8739c84c188392",
-    "references/ref-numpy-reference.md": "e0851ac27595e688",
-    "references/ref-pandas-reference.md": "8a12ecd685b2f8d9",
-    "references/ref-matplotlib-reference.md": "5f66a09b315a2fc3",
-    "references/ref-scipy-reference.md": "1c043f065f14e4f7",
-    "references/ref-statsmodels-reference.md": "5dadead296f60894",
-    "references/security-vulnerability-watch.reference.md": "1d72e669409d2fac",
-    "references/security-vulnerability-watch.json": "e5f14271876e2278",
-    "references/framework-watch.reference.md": "51190a0325a3dc41",
-    "ch1-essentials-expert.agent.md": "c05b71d5a28265cd",
-    "ch7-ols-expert.agent.md": "193b69f7c48fd197",
-    "../copilot-instructions.md": "79454e54cf51bc9d",
-    "team-builder.agent.md": "2c0000df132d0101",
-    "references/pipeline-graph.md": "fa5e08c725495d55"
+    "references/security-vulnerability-watch.json": "2972d1c4b057cddb"
   }
 }
