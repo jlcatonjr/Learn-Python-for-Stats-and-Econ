@@ -54,7 +54,7 @@ Ask:
 
 Ask:
 > "What tools, languages, or frameworks does this project use? (e.g., Python 3.11, LaTeX, React, Postgres)"
-> "Are any of these tools operational enough to need a dedicated tool document — a reference doc (Copilot) or skill (Claude)? (e.g., a database, a specific build system)"
+> "Are any of these tools specialized enough to need a dedicated tool specialist agent? (e.g., a database, a specific build system)"
 
 ### Section 6: Reference Database
 

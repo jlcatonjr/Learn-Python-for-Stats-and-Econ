@@ -87,9 +87,7 @@ Append to `.github/agents/references/conflict-log.csv` with columns:
 
 ### Source Layer (authoritative — read-only)
 <!-- AGENTTEAMS:BEGIN authority_sources_list v=1 -->
-- `Textbook/Chapter 1 - The Essentials.ipynb` — general
-- `Textbook/Chapter 7 - Building an OLS Regression Model.ipynb` — general
-- `ECON 411 611 Syllabus.docx` — general
+- Project source files (read-only)
 <!-- AGENTTEAMS:END authority_sources_list -->
 
 ---

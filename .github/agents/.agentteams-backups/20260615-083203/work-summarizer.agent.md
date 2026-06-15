@@ -148,7 +148,7 @@ Trigger examples: "Summarize this week", "Weekly summary for YYYY-Www"
 1. Resolve target ISO week.
 2. If the project provides a week-organization helper, run it before synthesis; otherwise read existing `tmp/by-week/` and legacy `tmp/` artifacts directly.
 3. Read daily summaries for that week.
-4. Fill missing daily summaries only when requested. *(In-synthesis daily gap-fill stays user-gated here; recent past daily gaps are also filled **automatically** at session close via Workflow D — see `references/work-summary-backfill.reference.md`.)*
+4. Fill missing daily summaries only when requested.
 5. Synthesize completed, in-progress, blocked work and discrepancies.
 6. Write `workSummaries/weekly/YYYY-Www.md`.
 7. Run audits in order: `@adversarial`, `@conflict-auditor`.
@@ -163,21 +163,6 @@ Trigger examples: "Summarize this month", "Monthly summary for YYYY-MM"
 4. Fill missing weekly summaries only when requested.
 5. Write `workSummaries/monthly/YYYY-MM.md`.
 6. Run audits in order: `@adversarial`, `@conflict-auditor`.
-
-### Workflow D — Automatic Backfill Sweep
-
-Implements the orchestrator's *Past-Day Backfill Obligation* — fills **recent past active-day** daily-summary gaps automatically at session close (not on explicit request). This **overrides (daily-only)** the "fill missing daily summaries only when requested" gating above: daily gaps are now filled on request **or** automatically via this workflow; weekly/monthly in-synthesis gap-fill stays user-gated.
-
-**All semantics are defined once** in `references/work-summary-backfill.reference.md` → *Automatic Trigger (session-close sweep)*. Do **not** restate the window, the `AUTO_BACKFILL_LOOKBACK_CAP_DAYS` cap, or the Rule-12 partition here — read them there.
-
-1. Confirm the trigger preconditions (executed-work gate held; a gap exists). If not, no-op.
-2. Resolve the window (`[latest_on_file + 1, yesterday]`, capped to `AUTO_BACKFILL_LOOKBACK_CAP_DAYS`; canonical clock = git author-date, repo-local TZ).
-3. Run **Step 1** gap analysis over the window; run **Step 2** honor-prior-skips (fail safe: if the skip source is absent/unreadable, do not author — surface).
-4. Auto-author **absent active days** in **`create` mode only** (never repair on-file dailies); Step 3 date-attribution + Step 4 evidence model apply. Gaps older than the cap are **recommend-only** (surface a notice; never auto-author).
-5. Run **Step 6** validation then the **Step 7** mandatory audit pass (`@adversarial` → `@conflict-auditor`); below-PASS findings block close and are surfaced to the user.
-6. Surface the result: days backfilled, days skipped (inactive / honored-skip), overflow deferred.
-
-**Idempotency / no recursion:** runs at most once per session; fires only from the orchestrator session-close past-day-backfill step; the audits it invokes are leaf agents that do not re-trigger the sweep. `create` mode + "on file → no longer a gap" makes repeat same-day sessions safe.
 
 ## Operating Limits
 

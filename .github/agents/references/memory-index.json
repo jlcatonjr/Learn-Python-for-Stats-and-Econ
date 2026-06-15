@@ -1,8 +1,8 @@
 {
   "artifact_type": "memory-index",
   "memory_index_schema_version": "1.3",
-  "index_format_version": "json-bm25-postings-v1",
-  "index_build_id": "39a151d5a31eda8b4e545e289126cb6e6a4953fb6d175ce32e3c1da128c36808",
+  "index_format_version": "json-bm25-postings-v2",
+  "index_build_id": "4468261ad81139320432ee14585d7bacc6b0226021afde01e063cf5a207aec9f",
   "index_write_owner": "agentteams.build_team",
   "vector_runtime_mode": "sparse-tfidf-cosine",
   "vector_model_id": null,
@@ -11,7 +11,7 @@
   "source_fingerprint": "49f3969318ad53c0e17060844592f51226adab2f1495dc1cc4ab6215879aefe7",
   "project_name": "LearnPythonStatsEcon",
   "framework": "copilot-vscode",
-  "built_at": "2026-05-21T19:00:07.690685Z",
+  "built_at": "2026-06-15T12:32:03.522635Z",
   "source_count": 1,
   "documents": [
     {
@@ -22,7 +22,8 @@
       "snippet": "",
       "paragraphs": [],
       "source_hash": "d1da3ec8a373208b7d447b41072671520a18ad29252cb368cf848dd435ae81f6",
-      "source_mtime": 1737576457.9526515
+      "source_mtime": 1737576457.9526515,
+      "vector_norm_sq": 0.08276097481015168
     }
   ],
   "postings": {

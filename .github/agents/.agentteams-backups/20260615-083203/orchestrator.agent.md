@@ -142,9 +142,7 @@ You coordinate all agent operations for **LearnPythonStatsEcon**. You route work
 <!-- AGENTTEAMS:BEGIN authority_hierarchy v=1 -->
 ### Authority Hierarchy
 
-1. **Textbook/Chapter 1 - The Essentials.ipynb** (`Textbook/Chapter 1 - The Essentials.ipynb`) — general
-2. **Textbook/Chapter 7 - Building an OLS Regression Model.ipynb** (`Textbook/Chapter 7 - Building an OLS Regression Model.ipynb`) — general
-3. **ECON 411 611 Syllabus.docx** (`ECON 411 611 Syllabus.docx`) — general
+1. **Project source files** — ground truth for all technical claims
 <!-- AGENTTEAMS:END authority_hierarchy -->
 
 ### Domain Agent Routing
