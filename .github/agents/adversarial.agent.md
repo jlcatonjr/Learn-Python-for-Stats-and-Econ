@@ -68,7 +68,10 @@ The memory-index is a history layer, **not authoritative**: when its evidence co
 - If the index returns low-confidence hits (empty result or top score < 0.1), retry with **vector** strategy to surface thematic context — related decisions or causal background that use different terminology.
 - Never block on the index; if both strategies return empty or low-confidence results, proceed with filesystem search + `git log`.
 
+If your runtime provides an index-access affordance (a search/recall capability over `references/memory-index.json`, e.g. the `recall` skill or `agentteams --query-index`), it performs a query of the shape below — you do **not** execute this yourself (this agent's grant is read/search-only). If no such affordance is available, skip straight to filesystem search + `git log`. The snippet is illustrative of the query the runtime issues:
+
 ```python
+# illustrative — the runtime's index affordance performs this; the agent does not run it
 from agentteams.memory_index import query_index
 hits = query_index(index, "X decided", k=3, strategy="lexical")
 if not hits or hits[0]["score"] < 0.1:

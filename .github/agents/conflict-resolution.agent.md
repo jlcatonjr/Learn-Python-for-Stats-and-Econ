@@ -83,7 +83,7 @@ Fall back to `--query-strategy vector` when **either** (a) lexical returns zero 
 
 Per-strategy thresholds (the two scales are not comparable):
 - **Lexical:** top-1 ≥ 3.0 is a reliable precedent; 1.0–3.0 is candidate-for-inspection.
-- **Vector:** top-1 ≥ 0.30 is reliable; 0.20–0.30 is candidate-for-inspection. The empirical cap is ~0.42; never demand ≥ 0.5 on vector.
+- **Vector:** top-1 ≥ 0.30 is reliable; 0.20–0.30 is candidate-for-inspection. These floors are corpus-specific guidance, not a mathematical cap — cosine ∈ [0,1] and high values (≥ 0.5, up to 1.0) are legitimate when query terms concentrate in a focused or short document, so do not treat ≥ 0.5 as anomalous.
 
 If a prior resolution surfaces, open the cited resolution log entry and apply the same outcome; record the precedent in the new log entry's `resolution` field. Never block on the index — if no precedent is found, proceed with the hierarchy-based rules below.
 <!-- AGENTTEAMS:END memory_index_consultation -->

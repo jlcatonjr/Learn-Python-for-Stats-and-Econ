@@ -23,6 +23,7 @@ deliberately not catalogued here.
 | BH-03 | Single-use helper functions adding needless indirection | — | Inline single-use helpers; abstract only on the third repetition (rule of three) |
 | BH-04 | Duplicated code blocks instead of reuse | CH-08 | Reuse existing utilities; extract a shared helper at 3 occurrences (DRY) |
 | BH-05 | Tests omitted unless explicitly requested | CH-21 | Tests mandatory (happy path + edge/error cases); enforce a coverage gate |
+| BH-10 | Wholesale file rewrites / reformatting untouched regions when a scoped edit suffices | CH-28 | Make the smallest change that satisfies the task; never reformat or restructure unrelated lines in the same edit (CH-28). Required guards/cleanups (CH-10/CH-22/CH-23/CH-24) and sanctioned refactors still apply. |
 
 ### AI-specific correctness
 

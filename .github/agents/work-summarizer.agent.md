@@ -60,6 +60,8 @@ Use only two authoritative source classes:
 1. Planning artifacts in canonical week-organized storage `tmp/by-week/YYYY-Www/` plus legacy undated artifacts in `tmp/` (`*.plan.md`, `*.steps.csv`)
 2. Git history from this repository (commit metadata, stats, and diffs)
 
+**Git is the primary executed-work signal.** Any session with commits/merges to this repository requires a daily summary — even when no plan artifact is found in `tmp/by-week/` (the plan may be undated, filed elsewhere, or absent for ad-hoc work). Plan artifacts supply *intent* context; their absence never downgrades a commit-bearing day to "planning-only." Find the day's executed work from the git window first, then enrich with whatever plan artifacts exist.
+
 ### Daily completeness scan (daily only)
 
 A daily summary must never portray a day as planning-only when execution actually occurred. **Before drafting a daily summary**, in addition to the two authoritative classes above, scan `tmp/by-week/YYYY-Www/` for non-plan **execution-evidence** files whose mtime falls in the window:

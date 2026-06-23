@@ -150,7 +150,7 @@ Before opening external documentation tiers, check whether the team has already 
 agentteams --query-index "<tool name> <version>" --query-strategy lexical --query-k 5 --description .agentteams/brief.json --project . --output .github/agents --no-scan --yes
 ```
 
-If a prior research artifact surfaces (top score ≥ 0.5, responsive snippet), open it and reuse the verified fields — re-verifying only the `docs_url` against the live site to confirm it has not moved. Cite the prior artifact in your output so `@agent-updater` knows the data was reused, not re-fetched. Never block on the index; if absent/empty, proceed to Tier 1 below.
+If a prior research artifact surfaces (top-1 ≥ 3.0 is a reliable hit; 1.0–3.0 is candidate-for-inspection, responsive snippet), open it and reuse the verified fields — re-verifying only the `docs_url` against the live site to confirm it has not moved. Cite the prior artifact in your output so `@agent-updater` knows the data was reused, not re-fetched. Never block on the index; if absent/empty, proceed to Tier 1 below.
 <!-- AGENTTEAMS:END memory_index_consultation -->
 
 ## Project-Specific Notes

@@ -2,7 +2,7 @@
 # Unix Philosophy — Code Hygiene Mapping (LearnPythonStatsEcon)
 
 > **Purpose:** Document how code-hygiene rules align with principles from Unix system design and software architecture
-> **Applies to:** CH-01 through CH-24 rule interpretations
+> **Applies to:** CH-01 through CH-28 rule interpretations
 > **Relationship:** This is a *reference for reasoning*, not the authoritative source of rules. See `code-hygiene-rules.reference.md` for the complete enforcement catalog.
 > **Authority Position:** Complements (not supersedes) the authority hierarchy defined in orchestrator.agent.md
 > **Maintenance:** Updated by `@agent-updater` when code-hygiene-rules.reference.md changes AND when interpretations of Unix principles need clarification
@@ -111,7 +111,10 @@ This principle insists on **discoverability and explicitness**. Hidden behaviors
 
 ## Extension Rules (CH-21+) and Design Principles
 
-The repository adds four enforcement rules. These are **project-specific operational requirements**, not derived from Unix philosophy, but complementary to it:
+The repository adds eight enforcement rules (CH-21 through CH-28). CH-21–CH-26 are
+largely **project-specific operational requirements** complementary to Unix
+philosophy; CH-27 and CH-28 align *directly* with it (Software Tools and the Rule
+of Simplicity, respectively):
 
 | Rule | Tier | Principle Connection |
 |------|------|---------------------|
@@ -119,6 +122,10 @@ The repository adds four enforcement rules. These are **project-specific operati
 | **CH-22** — Type Check Function/Class Inputs | 3 | **Type Safety.** Type checking makes input contracts explicit. Implicit type coercion hides expectations and causes subtle bugs. (Project-specific mandate; complements simplicity principles.) |
 | **CH-23** — Fail Fast on Invalid Inputs | 3 | **Defensive Programming.** Explicit errors reveal problems early. Silent failures hide bugs deep in a system, making them expensive to diagnose. (Project-specific mandate; aligns with transparency but not Unix-specific.) |
 | **CH-24** — Exception Handling Is a Last Resort; Encode Conditions Explicitly | 3 | **Transparency + Defensive Programming.** Encoding cases in dictionaries and failing hard keeps the program's true state visible; broad `try`/`except` hides brokenness and defeats fast iterative debugging. Aligns with "Value Transparency and Clarity" — behavior must be discoverable, not buried under blanket error suppression. (Project-specific mandate; reinforces [[CH-23]].) |
+| **CH-25** — Screen AI-Generated Code Against the Bad-Habits Catalog | 3 | **Process / Quality.** AI-authored code carries recurring quality/correctness habits; screening catches them before integration. (Project-specific mandate; security-class habits are `@security`'s domain.) |
+| **CH-26** — Agent Tool Declarations Follow Least Authority (PoLA) | 2 | **Make Programs That Work Together.** Minimal authority mirrors minimal, well-scoped interfaces — an agent granted only what it needs is easier to reason about and compose. (Governance mandate.) |
+| **CH-27** — Prefer Long-Lived Utilities Over Ad-Hoc Scripts | 1 | **Software Tools / "Make each program do one thing well."** Recurring work belongs in durable, reusable tools, not throwaway scripts. Directly expresses the Unix "build reusable tools" ethos. |
+| **CH-28** — Prefer Minimal, Scoped Edits | 1 | **Rule of Simplicity / Rule of Economy ("Design for Simplicity").** The smallest change that satisfies the task keeps intent and program state legible; gratuitous churn is the complexity Unix philosophy warns against. (Advisory; never overrides required changes or sanctioned refactors.) |
 
 ---
 
@@ -131,7 +138,7 @@ Understanding the alignment between rules and design principles helps developers
 3. **Extend the rule set** — New rules should be grounded in principles or clearly justified as project-specific
 4. **Maintain over time** — Knowing *why* a rule exists makes it easier to keep it in sync as the project evolves
 
-**Caveat:** This mapping documents which rules *happen to align with* Unix principles. It does not claim that Unix philosophy is the only valid source of design wisdom, or that all project rules must derive from it. The code-hygiene agent also enforces project-specific rules (CH-21–CH-24) that serve operational needs independent of Unix philosophy.
+**Caveat:** This mapping documents which rules *happen to align with* Unix principles. It does not claim that Unix philosophy is the only valid source of design wisdom, or that all project rules must derive from it. The code-hygiene agent also enforces project-specific rules (CH-21–CH-26) that serve operational needs independent of Unix philosophy, plus CH-27–CH-28 which align with it directly.
 
 ---
 

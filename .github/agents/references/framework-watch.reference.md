@@ -20,7 +20,7 @@ authoritative source; the table below is a human-readable projection
 re-rendered on every `--update --merge`.
 
 <!-- AGENTTEAMS:BEGIN framework_data v=1 -->
-> ⚠️ **STALE DATA** — snapshot is 21.1 days old (threshold 7 days). Run the daily research stage online.
+> ⚠️ **STALE DATA** — snapshot is 29.2 days old (threshold 7 days). Run the daily research stage online.
 
 Generated on: `2026-05-25`
 Source: https://docs.anthropic.com/en/docs/claude-code/sub-agents

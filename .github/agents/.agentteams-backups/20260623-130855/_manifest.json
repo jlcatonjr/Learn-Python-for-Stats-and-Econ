@@ -1,0 +1,338 @@
+{
+  "artifact_type": "backup-manifest",
+  "manifest_schema_version": "1.0",
+  "agentteams_version": "1.0.0rc6",
+  "framework": "copilot-vscode",
+  "description_path": "/Users/jamescaton/githubrepositories/Learn-Python-for-Stats-and-Econ/brief.json",
+  "output_root": "/Users/jamescaton/githubrepositories/Learn-Python-for-Stats-and-Econ/.github/agents",
+  "reason": "pre-update",
+  "timestamp_utc": "2026-06-23T17:08:55Z",
+  "total_files": 54,
+  "total_bytes": 402708,
+  "files": [
+    {
+      "source_path": "orchestrator.agent.md",
+      "backup_path": "orchestrator.agent.md",
+      "source_size_bytes": 37246,
+      "source_sha256": "262d3783a5c774025b37b8072be9d9b53c0db8d568584146ffcdd79ae9cba192"
+    },
+    {
+      "source_path": "navigator.agent.md",
+      "backup_path": "navigator.agent.md",
+      "source_size_bytes": 3859,
+      "source_sha256": "4c750599ff03449a827ce6b778fc3986f00d5bb108a61a308b756c6a229fc19b"
+    },
+    {
+      "source_path": "security.agent.md",
+      "backup_path": "security.agent.md",
+      "source_size_bytes": 24642,
+      "source_sha256": "44dc4fb650a3d2e4db0e5d7e00c29b910988d7d0d82a8be6a45144bae7d5e5a8"
+    },
+    {
+      "source_path": "code-hygiene.agent.md",
+      "backup_path": "code-hygiene.agent.md",
+      "source_size_bytes": 7073,
+      "source_sha256": "5451ac7e2f3f7a99fb6240c62e219eeebb4e0880c0abcaf01a9eaf049979d987"
+    },
+    {
+      "source_path": "adversarial.agent.md",
+      "backup_path": "adversarial.agent.md",
+      "source_size_bytes": 6543,
+      "source_sha256": "c4edea92fd100666c303238f7a6b4f058314111a96ca6c5a2443cd1d11b310ac"
+    },
+    {
+      "source_path": "conflict-auditor.agent.md",
+      "backup_path": "conflict-auditor.agent.md",
+      "source_size_bytes": 8945,
+      "source_sha256": "7ce2601a059834b9b80da00794b84e760d39876c3ee3c4c4ed5ac3f5607e8e6a"
+    },
+    {
+      "source_path": "conflict-resolution.agent.md",
+      "backup_path": "conflict-resolution.agent.md",
+      "source_size_bytes": 4603,
+      "source_sha256": "5d435f00bb69613f30b5417f24186c453b164358d3188e83e49aa09742f68da1"
+    },
+    {
+      "source_path": "cleanup.agent.md",
+      "backup_path": "cleanup.agent.md",
+      "source_size_bytes": 3398,
+      "source_sha256": "e5438f6de5f8f279add8b2e5757342ce5928125c1d050e8be46f64f079e1b668"
+    },
+    {
+      "source_path": "agent-updater.agent.md",
+      "backup_path": "agent-updater.agent.md",
+      "source_size_bytes": 7121,
+      "source_sha256": "228193b3f249f7e81c47fb202ac878f9c91b324fddc803f0663279b88f014b53"
+    },
+    {
+      "source_path": "repo-liaison.agent.md",
+      "backup_path": "repo-liaison.agent.md",
+      "source_size_bytes": 12594,
+      "source_sha256": "5f9501cb1f2ea2bd6ce27cf1f730109c051ac6faba8d5426e4b3e644ce5574ca"
+    },
+    {
+      "source_path": "git-operations.agent.md",
+      "backup_path": "git-operations.agent.md",
+      "source_size_bytes": 3078,
+      "source_sha256": "f181c7d056cf703a80620785115607788577098d2c27cdc80bb7535ce05137dd"
+    },
+    {
+      "source_path": "work-summarizer.agent.md",
+      "backup_path": "work-summarizer.agent.md",
+      "source_size_bytes": 11259,
+      "source_sha256": "32ca01b7a9e637a49b73f7d01d276a65d3b23424946c19dbbda0fd2bf2213a6a"
+    },
+    {
+      "source_path": "primary-producer.agent.md",
+      "backup_path": "primary-producer.agent.md",
+      "source_size_bytes": 3484,
+      "source_sha256": "ceffd881511b0c025e2e3444d52899d36f73b7a201dd33556c70ac25f28d9bbb"
+    },
+    {
+      "source_path": "quality-auditor.agent.md",
+      "backup_path": "quality-auditor.agent.md",
+      "source_size_bytes": 4719,
+      "source_sha256": "9c4464e7137e587838e21de04799eadb32276dee90855eba9f61b95881ea07c3"
+    },
+    {
+      "source_path": "style-guardian.agent.md",
+      "backup_path": "style-guardian.agent.md",
+      "source_size_bytes": 2907,
+      "source_sha256": "d0fe0721b37011da2d230de43596c15dc90d293c494eafeb925fb588b7eaaeba"
+    },
+    {
+      "source_path": "technical-validator.agent.md",
+      "backup_path": "technical-validator.agent.md",
+      "source_size_bytes": 4725,
+      "source_sha256": "46fb9f4b82ed1bb144e614c59feb71a69c42d5b179409d1569b68434fe5775bf"
+    },
+    {
+      "source_path": "tool-doc-researcher.agent.md",
+      "backup_path": "tool-doc-researcher.agent.md",
+      "source_size_bytes": 7934,
+      "source_sha256": "7581fc14591c6f3693d00a3ae2d6d4ab94606f76ba7b1585a2a8c3bbb2cb5179"
+    },
+    {
+      "source_path": "references/code-hygiene-rules.reference.md",
+      "backup_path": "references/code-hygiene-rules.reference.md",
+      "source_size_bytes": 9058,
+      "source_sha256": "553398020b5e77d4fe4894200db630230623c0a136254a40ff255b1d309996a0"
+    },
+    {
+      "source_path": "references/unix-philosophy-mapping.reference.md",
+      "backup_path": "references/unix-philosophy-mapping.reference.md",
+      "source_size_bytes": 12292,
+      "source_sha256": "1a5832f499601c8126a07716e6617df8120e708f966923c8892c823d9a1ef1ca"
+    },
+    {
+      "source_path": "references/security-vulnerability-watch.reference.md",
+      "backup_path": "references/security-vulnerability-watch.reference.md",
+      "source_size_bytes": 10455,
+      "source_sha256": "1d72e669409d2facf09dabae0c6d235dc9dd69e8b472ab903c15c7332e6eb0d1"
+    },
+    {
+      "source_path": "references/security-vulnerability-watch.json",
+      "backup_path": "references/security-vulnerability-watch.json",
+      "source_size_bytes": 17136,
+      "source_sha256": "2972d1c4b057cddbeb75563816be0424780c316b68997c2cfbae48e4db24dd24"
+    },
+    {
+      "source_path": "references/ai-bad-habits-watch.reference.md",
+      "backup_path": "references/ai-bad-habits-watch.reference.md",
+      "source_size_bytes": 2576,
+      "source_sha256": "30bd64fe07d91766e0583ecc52bf2d6d939e493de08b063dfea52d895d4350af"
+    },
+    {
+      "source_path": "references/framework-watch.reference.md",
+      "backup_path": "references/framework-watch.reference.md",
+      "source_size_bytes": 2428,
+      "source_sha256": "51190a0325a3dc41638d628d90c4b4aa0dfd82bfee59f66880489ffc9ff2b8e0"
+    },
+    {
+      "source_path": "references/adjacent-repos.md",
+      "backup_path": "references/adjacent-repos.md",
+      "source_size_bytes": 2311,
+      "source_sha256": "ebc316de06923363f9198e8f430ae51d9731c2e935674d67e602909fa082ff1a"
+    },
+    {
+      "source_path": "references/github-workflows-merge.reference.md",
+      "backup_path": "references/github-workflows-merge.reference.md",
+      "source_size_bytes": 3321,
+      "source_sha256": "6b0170ca1b59db99af4c67adcc9ad471b1cf92de809b184933b36372b75c68b5"
+    },
+    {
+      "source_path": "ch1-essentials-expert.agent.md",
+      "backup_path": "ch1-essentials-expert.agent.md",
+      "source_size_bytes": 5784,
+      "source_sha256": "c05b71d5a28265cd0c43da7b6f5cf42415c618ecb9fffe51bf0428743d1d78ff"
+    },
+    {
+      "source_path": "ch2-lists-expert.agent.md",
+      "backup_path": "ch2-lists-expert.agent.md",
+      "source_size_bytes": 5771,
+      "source_sha256": "3cd631f1ef34d08f60fcffe973d06e18f952502acc00c237fb2133bb9e4fc12d"
+    },
+    {
+      "source_path": "ch3-numpy-pandas-expert.agent.md",
+      "backup_path": "ch3-numpy-pandas-expert.agent.md",
+      "source_size_bytes": 5865,
+      "source_sha256": "024b8d6e4db296a7dcb7ebcd8c053b09fc2490afed06dc9b78093463b855e064"
+    },
+    {
+      "source_path": "ch4-functional-expert.agent.md",
+      "backup_path": "ch4-functional-expert.agent.md",
+      "source_size_bytes": 5977,
+      "source_sha256": "a272feaf4da8934041f363cb18b28e18f8cb811dc2884d1b5ac764d986f3b7f4"
+    },
+    {
+      "source_path": "ch5-probability-expert.agent.md",
+      "backup_path": "ch5-probability-expert.agent.md",
+      "source_size_bytes": 5837,
+      "source_sha256": "5a7a408b0ee0d385b3ece474bd9f8dfd7ef3f691912b75574a3fc0eb03b0dec9"
+    },
+    {
+      "source_path": "ch6-hypothesis-expert.agent.md",
+      "backup_path": "ch6-hypothesis-expert.agent.md",
+      "source_size_bytes": 5791,
+      "source_sha256": "c6ff1218da4fe1d96448e47e9bd411bda52be1e6dc457529d59fc2598e403770"
+    },
+    {
+      "source_path": "ch7-ols-expert.agent.md",
+      "backup_path": "ch7-ols-expert.agent.md",
+      "source_size_bytes": 5882,
+      "source_sha256": "193b69f7c48fd197b4f8c36766ea859e894afb1d7c1b0a69d70c403e47ca2353"
+    },
+    {
+      "source_path": "ch8-advanced-expert.agent.md",
+      "backup_path": "ch8-advanced-expert.agent.md",
+      "source_size_bytes": 5807,
+      "source_sha256": "bd4f553ee9af7fb465fdc3b149690ef4fcbf541719febe13f3d31fdd252c332b"
+    },
+    {
+      "source_path": "ch9-abm-expert.agent.md",
+      "backup_path": "ch9-abm-expert.agent.md",
+      "source_size_bytes": 5775,
+      "source_sha256": "dc548950081cc998da43766a88868e07bd168e999d02b7678ccc37aea699673c"
+    },
+    {
+      "source_path": "/Users/jamescaton/githubrepositories/Learn-Python-for-Stats-and-Econ/.github/copilot-instructions.md",
+      "backup_path": "__external__/copilot-instructions.md",
+      "source_size_bytes": 8169,
+      "source_sha256": "79454e54cf51bc9d3bbc779dc1c255864cf7fbdaf35309f0aa5feeba36f5d01b"
+    },
+    {
+      "source_path": "team-builder.agent.md",
+      "backup_path": "team-builder.agent.md",
+      "source_size_bytes": 4844,
+      "source_sha256": "2c0000df132d01010cb9f2f43dd3fd13edf91e9d4d094d1b66cf71d2ac96b5d8"
+    },
+    {
+      "source_path": "SETUP-REQUIRED.md",
+      "backup_path": "SETUP-REQUIRED.md",
+      "source_size_bytes": 18216,
+      "source_sha256": "47182160973143e3c2bbb235b3a1fa2485b45c3faf183e631b06e66a1e39e58c"
+    },
+    {
+      "source_path": "agent-refactor.agent.md",
+      "backup_path": "agent-refactor.agent.md",
+      "source_size_bytes": 2925,
+      "source_sha256": "d9b1434b52e25d9e004311cd055286f4b32994658bb6e9e11d3e0aa053ba15da"
+    },
+    {
+      "source_path": "cohesion-repairer.agent.md",
+      "backup_path": "cohesion-repairer.agent.md",
+      "source_size_bytes": 3037,
+      "source_sha256": "df8fc736cd9fd26f92e5a565f7bb0105dbd5d928e5002fb18105b864fe93beb4"
+    },
+    {
+      "source_path": "output-compiler.agent.md",
+      "backup_path": "output-compiler.agent.md",
+      "source_size_bytes": 2494,
+      "source_sha256": "7f6e1f9c8792056507334c275c5d78633025c444c0a0c09b9ebddd9fc5ffcb9e"
+    },
+    {
+      "source_path": "visual-designer.agent.md",
+      "backup_path": "visual-designer.agent.md",
+      "source_size_bytes": 2604,
+      "source_sha256": "f7319accb3ce946b21717fe744731e44a4cd103761a4814857d0b9b2faef9898"
+    },
+    {
+      "source_path": "references/ref-jupyter-reference.md",
+      "backup_path": "references/ref-jupyter-reference.md",
+      "source_size_bytes": 1264,
+      "source_sha256": "ab8739c84c188392339b8faef2e4a17a1ba3a5e71aa5da387423269a8f2ec939"
+    },
+    {
+      "source_path": "references/ref-numpy-reference.md",
+      "backup_path": "references/ref-numpy-reference.md",
+      "source_size_bytes": 1213,
+      "source_sha256": "e0851ac27595e688962bcd589ab2c9d0b7e32225055f382cdff31fdf7050d071"
+    },
+    {
+      "source_path": "references/ref-pandas-reference.md",
+      "backup_path": "references/ref-pandas-reference.md",
+      "source_size_bytes": 1227,
+      "source_sha256": "8a12ecd685b2f8d9919dac88842bcd1a4e36d885e32a4b6490b48b8fe710df8f"
+    },
+    {
+      "source_path": "references/ref-matplotlib-reference.md",
+      "backup_path": "references/ref-matplotlib-reference.md",
+      "source_size_bytes": 1274,
+      "source_sha256": "5f66a09b315a2fc32ec051133d5e861c1c9ed82174cecda7d3c06a15131e52cc"
+    },
+    {
+      "source_path": "references/ref-scipy-reference.md",
+      "backup_path": "references/ref-scipy-reference.md",
+      "source_size_bytes": 1096,
+      "source_sha256": "1c043f065f14e4f7ab06ce424110e36bce85b7462d65d4214f3572970698c2f0"
+    },
+    {
+      "source_path": "references/ref-statsmodels-reference.md",
+      "backup_path": "references/ref-statsmodels-reference.md",
+      "source_size_bytes": 1144,
+      "source_sha256": "5dadead296f608944bbee8e67264738f242f8ff1f5268753650eccaa438f4554"
+    },
+    {
+      "source_path": "references/work-summary-spec.reference.md",
+      "backup_path": "references/work-summary-spec.reference.md",
+      "source_size_bytes": 2783,
+      "source_sha256": "96232231a1f7c6bedf5f88786a47ade3b083b9863a26df30049c8de946d6f1bc"
+    },
+    {
+      "source_path": "references/work-summary-tooling.reference.md",
+      "backup_path": "references/work-summary-tooling.reference.md",
+      "source_size_bytes": 1912,
+      "source_sha256": "f3656972717153a91dc1fb099d9af73f6d11aa9d616edc99a664c24b3f4d221d"
+    },
+    {
+      "source_path": "references/work-summary-backfill.reference.md",
+      "backup_path": "references/work-summary-backfill.reference.md",
+      "source_size_bytes": 13566,
+      "source_sha256": "a0543cde8916cedb683700c0c461c634aa3fff08412aa703f4ba226792d1edc2"
+    },
+    {
+      "source_path": "content-enricher.agent.md",
+      "backup_path": "content-enricher.agent.md",
+      "source_size_bytes": 5626,
+      "source_sha256": "421e39314d447305798a9e5b5a8bae8a6cde26645246628a93263d53a95b7ecc"
+    },
+    {
+      "source_path": "references/pipeline-graph.md",
+      "backup_path": "references/pipeline-graph.md",
+      "source_size_bytes": 63035,
+      "source_sha256": "fa5e08c725495d556a3d17c52b8b4fbebc5eb867d5e7d6446ea50be1f58f4e9f"
+    },
+    {
+      "source_path": "references/adjacent-repos-changelog.csv",
+      "backup_path": "references/adjacent-repos-changelog.csv",
+      "source_size_bytes": 45,
+      "source_sha256": "f2b9cecd8d849cc4bb3f9d9341b5656ce4b77ce5ab902deb466e60d84d7788c0"
+    },
+    {
+      "source_path": "references/adjacent-repos-coordination-log.csv",
+      "backup_path": "references/adjacent-repos-coordination-log.csv",
+      "source_size_bytes": 38,
+      "source_sha256": "8d21cc87349960106a613d1848d877c4c8e25160da6460004d8d97e968cf7f85"
+    }
+  ]
+}
