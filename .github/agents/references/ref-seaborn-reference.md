@@ -2,7 +2,7 @@
 # seaborn Reference — LearnPythonStatsEcon
 
 > Quick-reference for **seaborn ** (library) in LearnPythonStatsEcon.
-> This is a lightweight reference file, not a full agent. For tool-specific operations, consult the relevant specialist agent or escalate to `@orchestrator`.
+> This is a lightweight reference file, not an agent. For operational procedures, consult the tool's reference/skill document, or escalate to `@orchestrator`.
 
 ---
 

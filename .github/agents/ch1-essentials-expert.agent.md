@@ -52,7 +52,7 @@ You are the domain expert for **Chapter 1 — The Essentials** (component 1) in 
 
 ## Sources
 
-- Textbook/Chapter 1 - The Essentials.ipynb
+{MANUAL:COMPONENT_SOURCES}
 
 ## Quality Criteria
 

@@ -21,23 +21,23 @@ flowchart LR
     class agent_refactor governance
     agent_updater["Agent Updater"]
     class agent_updater governance
-    ch1_essentials_expert["Chapter 1"]
+    ch1_essentials_expert["Chapter 1 - The Essentials Expert"]
     class ch1_essentials_expert workstream_expert
-    ch2_lists_expert["Chapter 2"]
+    ch2_lists_expert["Chapter 2 - Working With Lists Expert"]
     class ch2_lists_expert workstream_expert
-    ch3_numpy_pandas_expert["Chapter 3"]
+    ch3_numpy_pandas_expert["Chapter 3 - NumPy, Pandas, and Matplotlib Expert"]
     class ch3_numpy_pandas_expert workstream_expert
-    ch4_functional_expert["Chapter 4"]
+    ch4_functional_expert["Chapter 4 - Functional Programming and Rudimentary Statistics Expert"]
     class ch4_functional_expert workstream_expert
-    ch5_probability_expert["Chapter 5"]
+    ch5_probability_expert["Chapter 5 - Probability Distributions Expert"]
     class ch5_probability_expert workstream_expert
-    ch6_hypothesis_expert["Chapter 6"]
+    ch6_hypothesis_expert["Chapter 6 - Hypothesis Testing Expert"]
     class ch6_hypothesis_expert workstream_expert
-    ch7_ols_expert["Chapter 7"]
+    ch7_ols_expert["Chapter 7 - Building an OLS Regression Model Expert"]
     class ch7_ols_expert workstream_expert
-    ch8_advanced_expert["Chapter 8"]
+    ch8_advanced_expert["Chapter 8 - Advanced Data Analysis Expert"]
     class ch8_advanced_expert workstream_expert
-    ch9_abm_expert["Chapter 9"]
+    ch9_abm_expert["Chapter 9 - Agent-Based Modeling Expert"]
     class ch9_abm_expert workstream_expert
     cleanup["Cleanup"]
     class cleanup governance
@@ -333,15 +333,15 @@ digraph "LearnPythonStatsEcon Agent Team" {
     "adversarial" [label="Adversarial", fillcolor="#e8e8ff"];
     "agent-refactor" [label="Agent Refactor", fillcolor="#e8e8ff"];
     "agent-updater" [label="Agent Updater", fillcolor="#e8e8ff"];
-    "ch1-essentials-expert" [label="Chapter 1", fillcolor="#fff8e8"];
-    "ch2-lists-expert" [label="Chapter 2", fillcolor="#fff8e8"];
-    "ch3-numpy-pandas-expert" [label="Chapter 3", fillcolor="#fff8e8"];
-    "ch4-functional-expert" [label="Chapter 4", fillcolor="#fff8e8"];
-    "ch5-probability-expert" [label="Chapter 5", fillcolor="#fff8e8"];
-    "ch6-hypothesis-expert" [label="Chapter 6", fillcolor="#fff8e8"];
-    "ch7-ols-expert" [label="Chapter 7", fillcolor="#fff8e8"];
-    "ch8-advanced-expert" [label="Chapter 8", fillcolor="#fff8e8"];
-    "ch9-abm-expert" [label="Chapter 9", fillcolor="#fff8e8"];
+    "ch1-essentials-expert" [label="Chapter 1 - The Essentials Expert", fillcolor="#fff8e8"];
+    "ch2-lists-expert" [label="Chapter 2 - Working With Lists Expert", fillcolor="#fff8e8"];
+    "ch3-numpy-pandas-expert" [label="Chapter 3 - NumPy, Pandas, and Matplotlib Expert", fillcolor="#fff8e8"];
+    "ch4-functional-expert" [label="Chapter 4 - Functional Programming and Rudimentary Statistics Expert", fillcolor="#fff8e8"];
+    "ch5-probability-expert" [label="Chapter 5 - Probability Distributions Expert", fillcolor="#fff8e8"];
+    "ch6-hypothesis-expert" [label="Chapter 6 - Hypothesis Testing Expert", fillcolor="#fff8e8"];
+    "ch7-ols-expert" [label="Chapter 7 - Building an OLS Regression Model Expert", fillcolor="#fff8e8"];
+    "ch8-advanced-expert" [label="Chapter 8 - Advanced Data Analysis Expert", fillcolor="#fff8e8"];
+    "ch9-abm-expert" [label="Chapter 9 - Agent-Based Modeling Expert", fillcolor="#fff8e8"];
     "cleanup" [label="Cleanup", fillcolor="#e8e8ff"];
     "code-hygiene" [label="Code Hygiene", fillcolor="#e8e8ff"];
     "cohesion-repairer" [label="Cohesion Repairer", fillcolor="#e8ffe8"];
@@ -509,7 +509,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
       ]
     },
     "ch1-essentials-expert": {
-      "display_name": "Chapter 1",
+      "display_name": "Chapter 1 - The Essentials Expert",
       "agent_type": "workstream_expert",
       "user_invokable": false,
       "tools": [
@@ -519,7 +519,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
       ]
     },
     "ch2-lists-expert": {
-      "display_name": "Chapter 2",
+      "display_name": "Chapter 2 - Working With Lists Expert",
       "agent_type": "workstream_expert",
       "user_invokable": false,
       "tools": [
@@ -529,7 +529,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
       ]
     },
     "ch3-numpy-pandas-expert": {
-      "display_name": "Chapter 3",
+      "display_name": "Chapter 3 - NumPy, Pandas, and Matplotlib Expert",
       "agent_type": "workstream_expert",
       "user_invokable": false,
       "tools": [
@@ -539,7 +539,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
       ]
     },
     "ch4-functional-expert": {
-      "display_name": "Chapter 4",
+      "display_name": "Chapter 4 - Functional Programming and Rudimentary Statistics Expert",
       "agent_type": "workstream_expert",
       "user_invokable": false,
       "tools": [
@@ -549,7 +549,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
       ]
     },
     "ch5-probability-expert": {
-      "display_name": "Chapter 5",
+      "display_name": "Chapter 5 - Probability Distributions Expert",
       "agent_type": "workstream_expert",
       "user_invokable": false,
       "tools": [
@@ -559,7 +559,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
       ]
     },
     "ch6-hypothesis-expert": {
-      "display_name": "Chapter 6",
+      "display_name": "Chapter 6 - Hypothesis Testing Expert",
       "agent_type": "workstream_expert",
       "user_invokable": false,
       "tools": [
@@ -569,7 +569,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
       ]
     },
     "ch7-ols-expert": {
-      "display_name": "Chapter 7",
+      "display_name": "Chapter 7 - Building an OLS Regression Model Expert",
       "agent_type": "workstream_expert",
       "user_invokable": false,
       "tools": [
@@ -579,7 +579,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
       ]
     },
     "ch8-advanced-expert": {
-      "display_name": "Chapter 8",
+      "display_name": "Chapter 8 - Advanced Data Analysis Expert",
       "agent_type": "workstream_expert",
       "user_invokable": false,
       "tools": [
@@ -589,7 +589,7 @@ digraph "LearnPythonStatsEcon Agent Team" {
       ]
     },
     "ch9-abm-expert": {
-      "display_name": "Chapter 9",
+      "display_name": "Chapter 9 - Agent-Based Modeling Expert",
       "agent_type": "workstream_expert",
       "user_invokable": false,
       "tools": [

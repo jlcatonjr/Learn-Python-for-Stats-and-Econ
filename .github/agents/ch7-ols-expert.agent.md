@@ -52,7 +52,7 @@ You are the domain expert for **Chapter 7 — Building an OLS Regression Model**
 
 ## Sources
 
-- Textbook/Chapter 7 - Building an OLS Regression Model.ipynb
+{MANUAL:COMPONENT_SOURCES}
 
 ## Quality Criteria
 

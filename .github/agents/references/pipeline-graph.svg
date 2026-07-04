@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2776 830" width="2776" height="830" font-family="monospace">
+  <title>LearnPythonStatsEcon — Agent Team Topology</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <polygon points="0,0 10,5 0,10" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+  <path d="M148,415 C194,415 194,415 240,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M148,415 C510,415 510,415 872,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M800,415 C520,415 520,415 240,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <path d="M800,415 C836,415 836,415 872,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M592,415 C314,415 314,415 36,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <path d="M592,415 C628,415 628,415 664,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M592,415 C416,415 416,415 240,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M592,415 C732,415 732,415 872,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M1492,175 C764,175 764,415 36,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <path d="M1492,175 C1182,175 1182,415 872,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M1492,175 C1722,175 1722,415 1952,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M1508,223 C772,223 772,415 36,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <path d="M1508,223 C1190,223 1190,415 872,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M1508,223 C1730,223 1730,415 1952,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M1552,271 C794,271 794,415 36,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <path d="M1552,271 C1212,271 1212,415 872,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M1552,271 C1752,271 1752,415 1952,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M1632,319 C834,319 834,415 36,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <path d="M1632,319 C1252,319 1252,415 872,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M1632,319 C1792,319 1792,415 1952,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M1536,367 C786,367 786,415 36,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <path d="M1536,367 C1204,367 1204,415 872,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M1536,367 C1744,367 1744,415 1952,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M1508,415 C772,415 772,415 36,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <path d="M1508,415 C1190,415 1190,415 872,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M1508,415 C1730,415 1730,415 1952,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M1564,463 C800,463 800,415 36,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <path d="M1564,463 C1218,463 1218,415 872,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M1564,463 C1758,463 1758,415 1952,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M1524,511 C780,511 780,415 36,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <path d="M1524,511 C1198,511 1198,415 872,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M1524,511 C1738,511 1738,415 1952,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M1516,559 C776,559 776,415 36,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <path d="M1516,559 C1194,559 1194,415 872,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M1516,559 C1734,559 1734,415 1952,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M1832,439 C1352,439 1352,415 872,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M1408,799 C1036,799 1036,415 664,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <path d="M1408,799 C1580,799 1580,439 1752,439" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M1408,799 C824,799 824,415 240,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <path d="M1408,799 C1140,799 1140,415 872,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M1408,799 C1578,799 1578,487 1748,487" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M2336,415 C1604,415 1604,415 872,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M2336,415 C2372,415 2372,415 2408,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M2336,415 C2480,415 2480,415 2624,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M392,415 C1048,415 1048,343 1704,343" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M392,415 C632,415 632,415 872,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M392,415 C1048,415 1048,391 1704,391" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M1880,343 C1172,343 1172,415 464,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <path d="M1880,343 C1376,343 1376,415 872,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M168,367 C520,367 520,415 872,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M168,367 C1060,367 1060,415 1952,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M168,367 C936,367 936,391 1704,391" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M1416,703 C940,703 940,415 464,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <path d="M1416,703 C1560,703 1560,343 1704,343" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M1416,703 C1144,703 1144,415 872,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M1416,703 C1582,703 1582,487 1748,487" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M1396,31 C1134,31 1134,415 872,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M992,415 C1134,415 1134,607 1276,607" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M992,415 C1472,415 1472,415 1952,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M992,415 C1700,415 1700,415 2408,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M992,415 C1140,415 1140,751 1288,751" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M992,415 C1370,415 1370,487 1748,487" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M992,415 C1808,415 1808,415 2624,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M992,415 C1348,415 1348,391 1704,391" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M992,415 C1106,415 1106,79 1220,79" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M992,415 C1134,415 1134,127 1276,127" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M992,415 C1134,415 1134,655 1276,655" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M1420,607 C1562,607 1562,391 1704,391" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M2104,415 C2140,415 2140,415 2176,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M2104,415 C1172,415 1172,415 240,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <path d="M2104,415 C2256,415 2256,415 2408,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M2104,415 C2364,415 2364,415 2624,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M2552,415 C2588,415 2588,415 2624,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M1408,751 C824,751 824,415 240,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <path d="M1408,751 C1578,751 1578,487 1748,487" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M1880,391 C1916,391 1916,415 1952,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M1476,79 C970,79 970,415 464,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <path d="M1420,127 C1914,127 1914,415 2408,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M1420,655 C728,655 728,415 36,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <path d="M1420,655 C830,655 830,415 240,415" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <path d="M1420,655 C1562,655 1562,391 1704,391" fill="none" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="36" y="400" width="112" height="30" rx="6" fill="#e8e8ff" stroke="#6666cc" stroke-width="1.5"/>
+  <text x="92" y="420" font-size="13" text-anchor="middle" fill="#000000">Adversarial</text>
+  <rect x="664" y="400" width="136" height="30" rx="6" fill="#e8e8ff" stroke="#6666cc" stroke-width="1.5"/>
+  <text x="732" y="420" font-size="13" text-anchor="middle" fill="#000000">Agent Refactor</text>
+  <rect x="464" y="400" width="128" height="30" rx="6" fill="#e8e8ff" stroke="#6666cc" stroke-width="1.5"/>
+  <text x="528" y="420" font-size="13" text-anchor="middle" fill="#000000">Agent Updater</text>
+  <rect x="1204" y="160" width="288" height="30" rx="6" fill="#fff8e8" stroke="#ccaa44" stroke-width="1.5"/>
+  <text x="1348" y="180" font-size="13" text-anchor="middle" fill="#000000">Chapter 1 - The Essentials Expert</text>
+  <rect x="1188" y="208" width="320" height="30" rx="6" fill="#fff8e8" stroke="#ccaa44" stroke-width="1.5"/>
+  <text x="1348" y="228" font-size="13" text-anchor="middle" fill="#000000">Chapter 2 - Working With Lists Expert</text>
+  <rect x="1144" y="256" width="408" height="30" rx="6" fill="#fff8e8" stroke="#ccaa44" stroke-width="1.5"/>
+  <text x="1348" y="276" font-size="13" text-anchor="middle" fill="#000000">Chapter 3 - NumPy, Pandas, and Matplotlib Expert</text>
+  <rect x="1064" y="304" width="568" height="30" rx="6" fill="#fff8e8" stroke="#ccaa44" stroke-width="1.5"/>
+  <text x="1348" y="324" font-size="13" text-anchor="middle" fill="#000000">Chapter 4 - Functional Programming and Rudimentary Statistics Expert</text>
+  <rect x="1160" y="352" width="376" height="30" rx="6" fill="#fff8e8" stroke="#ccaa44" stroke-width="1.5"/>
+  <text x="1348" y="372" font-size="13" text-anchor="middle" fill="#000000">Chapter 5 - Probability Distributions Expert</text>
+  <rect x="1188" y="400" width="320" height="30" rx="6" fill="#fff8e8" stroke="#ccaa44" stroke-width="1.5"/>
+  <text x="1348" y="420" font-size="13" text-anchor="middle" fill="#000000">Chapter 6 - Hypothesis Testing Expert</text>
+  <rect x="1132" y="448" width="432" height="30" rx="6" fill="#fff8e8" stroke="#ccaa44" stroke-width="1.5"/>
+  <text x="1348" y="468" font-size="13" text-anchor="middle" fill="#000000">Chapter 7 - Building an OLS Regression Model Expert</text>
+  <rect x="1172" y="496" width="352" height="30" rx="6" fill="#fff8e8" stroke="#ccaa44" stroke-width="1.5"/>
+  <text x="1348" y="516" font-size="13" text-anchor="middle" fill="#000000">Chapter 8 - Advanced Data Analysis Expert</text>
+  <rect x="1180" y="544" width="336" height="30" rx="6" fill="#fff8e8" stroke="#ccaa44" stroke-width="1.5"/>
+  <text x="1348" y="564" font-size="13" text-anchor="middle" fill="#000000">Chapter 9 - Agent-Based Modeling Expert</text>
+  <rect x="1752" y="424" width="80" height="30" rx="6" fill="#e8e8ff" stroke="#6666cc" stroke-width="1.5"/>
+  <text x="1792" y="444" font-size="13" text-anchor="middle" fill="#000000">Cleanup</text>
+  <rect x="1288" y="784" width="120" height="30" rx="6" fill="#e8e8ff" stroke="#6666cc" stroke-width="1.5"/>
+  <text x="1348" y="804" font-size="13" text-anchor="middle" fill="#000000">Code Hygiene</text>
+  <rect x="2176" y="400" width="160" height="30" rx="6" fill="#e8ffe8" stroke="#66aa66" stroke-width="1.5"/>
+  <text x="2256" y="420" font-size="13" text-anchor="middle" fill="#000000">Cohesion Repairer</text>
+  <rect x="240" y="400" width="152" height="30" rx="6" fill="#e8e8ff" stroke="#6666cc" stroke-width="1.5"/>
+  <text x="316" y="420" font-size="13" text-anchor="middle" fill="#000000">Conflict Auditor</text>
+  <rect x="1704" y="328" width="176" height="30" rx="6" fill="#e8e8ff" stroke="#6666cc" stroke-width="1.5"/>
+  <text x="1792" y="348" font-size="13" text-anchor="middle" fill="#000000">Conflict Resolution</text>
+  <rect x="16" y="352" width="152" height="30" rx="6" fill="#e8ffe8" stroke="#66aa66" stroke-width="1.5"/>
+  <text x="92" y="372" font-size="13" text-anchor="middle" fill="#000000">Content Enricher</text>
+  <rect x="1280" y="688" width="136" height="30" rx="6" fill="#e8e8ff" stroke="#6666cc" stroke-width="1.5"/>
+  <text x="1348" y="708" font-size="13" text-anchor="middle" fill="#000000">Git Operations</text>
+  <rect x="1300" y="16" width="96" height="30" rx="6" fill="#e8e8ff" stroke="#6666cc" stroke-width="1.5"/>
+  <text x="1348" y="36" font-size="13" text-anchor="middle" fill="#000000">Navigator</text>
+  <rect x="872" y="400" width="120" height="30" rx="6" fill="#e8e8ff" stroke="#6666cc" stroke-width="1.5"/>
+  <text x="932" y="420" font-size="13" text-anchor="middle" fill="#000000">Orchestrator</text>
+  <rect x="1276" y="592" width="144" height="30" rx="6" fill="#e8ffe8" stroke="#66aa66" stroke-width="1.5"/>
+  <text x="1348" y="612" font-size="13" text-anchor="middle" fill="#000000">Output Compiler</text>
+  <rect x="1952" y="400" width="152" height="30" rx="6" fill="#e8ffe8" stroke="#66aa66" stroke-width="1.5"/>
+  <text x="2028" y="420" font-size="13" text-anchor="middle" fill="#000000">Primary Producer</text>
+  <rect x="2408" y="400" width="144" height="30" rx="6" fill="#e8ffe8" stroke="#66aa66" stroke-width="1.5"/>
+  <text x="2480" y="420" font-size="13" text-anchor="middle" fill="#000000">Quality Auditor</text>
+  <rect x="1288" y="736" width="120" height="30" rx="6" fill="#e8e8ff" stroke="#6666cc" stroke-width="1.5"/>
+  <text x="1348" y="756" font-size="13" text-anchor="middle" fill="#000000">Repo Liaison</text>
+  <rect x="1748" y="472" width="88" height="30" rx="6" fill="#e8e8ff" stroke="#6666cc" stroke-width="1.5"/>
+  <text x="1792" y="492" font-size="13" text-anchor="middle" fill="#000000">Security</text>
+  <rect x="2624" y="400" width="136" height="30" rx="6" fill="#e8ffe8" stroke="#66aa66" stroke-width="1.5"/>
+  <text x="2692" y="420" font-size="13" text-anchor="middle" fill="#000000">Style Guardian</text>
+  <rect x="32" y="448" width="120" height="30" rx="6" fill="#e8e8ff" stroke="#6666cc" stroke-width="1.5"/>
+  <text x="92" y="468" font-size="13" text-anchor="middle" fill="#000000">Team Builder</text>
+  <rect x="1704" y="376" width="176" height="30" rx="6" fill="#e8ffe8" stroke="#66aa66" stroke-width="1.5"/>
+  <text x="1792" y="396" font-size="13" text-anchor="middle" fill="#000000">Technical Validator</text>
+  <rect x="1220" y="64" width="256" height="30" rx="6" fill="#ffe8e8" stroke="#cc6666" stroke-width="1.5"/>
+  <text x="1348" y="84" font-size="13" text-anchor="middle" fill="#000000">Tool Documentation Researcher</text>
+  <rect x="1276" y="112" width="144" height="30" rx="6" fill="#e8ffe8" stroke="#66aa66" stroke-width="1.5"/>
+  <text x="1348" y="132" font-size="13" text-anchor="middle" fill="#000000">Visual Designer</text>
+  <rect x="1276" y="640" width="144" height="30" rx="6" fill="#e8ffe8" stroke="#66aa66" stroke-width="1.5"/>
+  <text x="1348" y="660" font-size="13" text-anchor="middle" fill="#000000">Work Summarizer</text>
+</svg>

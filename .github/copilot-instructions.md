@@ -87,15 +87,15 @@ SECTION MANIFEST — copilot-instructions.template.md
 - `@tool-doc-researcher` — specialized domain agent
 
 ### Workstream Experts
-- `@ch1-essentials-expert` — Chapter 1 — The Essentials
-- `@ch2-lists-expert` — Chapter 2 — Working With Lists
-- `@ch3-numpy-pandas-expert` — Chapter 3 — NumPy, Pandas, and Matplotlib
-- `@ch4-functional-expert` — Chapter 4 — Functional Programming and Rudimentary Statistics
-- `@ch5-probability-expert` — Chapter 5 — Probability Distributions
-- `@ch6-hypothesis-expert` — Chapter 6 — Hypothesis Testing
-- `@ch7-ols-expert` — Chapter 7 — Building an OLS Regression Model
-- `@ch8-advanced-expert` — Chapter 8 — Advanced Data Analysis
-- `@ch9-abm-expert` — Chapter 9 — Agent-Based Modeling
+- `@ch1-essentials-expert` — Chapter 1 - The Essentials
+- `@ch2-lists-expert` — Chapter 2 - Working With Lists
+- `@ch3-numpy-pandas-expert` — Chapter 3 - NumPy, Pandas, and Matplotlib
+- `@ch4-functional-expert` — Chapter 4 - Functional Programming and Rudimentary Statistics
+- `@ch5-probability-expert` — Chapter 5 - Probability Distributions
+- `@ch6-hypothesis-expert` — Chapter 6 - Hypothesis Testing
+- `@ch7-ols-expert` — Chapter 7 - Building an OLS Regression Model
+- `@ch8-advanced-expert` — Chapter 8 - Advanced Data Analysis
+- `@ch9-abm-expert` — Chapter 9 - Agent-Based Modeling
 <!-- AGENTTEAMS:END agent_team -->
 
 ---
