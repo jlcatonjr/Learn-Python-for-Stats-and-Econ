@@ -74,35 +74,36 @@ Use the generated reference `references/security-vulnerability-watch.reference.m
 ### Current Threat Intelligence Snapshot
 
 <!-- AGENTTEAMS:BEGIN threat_intelligence v=1 -->
-Generated at: `2026-07-04T14:15:08Z`
+Generated at: `2026-07-09T20:10:42Z`
 
 **Sources:**
 
-- CISA KEV: ok (catalog 2026.07.01, items 1631) — https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
+- CISA KEV: ok (catalog 2026.07.07, items 1635) — https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
 - MITRE CVE: metadata_only — https://cveawg.mitre.org/api/cve/
 - FIRST EPSS: ok (items 15) — https://api.first.org/data/v1/epss
 - NVD (NIST): ok (items 5) — https://services.nvd.nist.gov/rest/json/cves/2.0
 - OSV.dev: skipped — https://api.osv.dev/v1/querybatch
 - OWASP LLM Top 10: static — https://owasp.org/www-project-top-10-for-large-language-model-applications/
 - MITRE ATLAS: static — https://atlas.mitre.org/
+- MITRE CWE: static — https://cwe.mitre.org/
 
 **Current major vulnerabilities:**
 
-- `CVE-2026-45659` | Microsoft SharePoint Server | Microsoft SharePoint Server Deserialization of Untrusted Data Vulnerability | added 2026-07-01 | EPSS 0.032190000, percentile 0.866790000 | CVSS 8.8 HIGH
-- `CVE-2026-48558` | SimpleHelp  SimpleHelp | SimpleHelp Authentication Bypass Vulnerability | added 2026-06-29 | EPSS 0.011600000, percentile 0.632820000 | CVSS 10.0 CRITICAL
-- `CVE-2026-12569` | PTC Windchill and FlexPLM | PTC Windchill and FlexPLM Improper Input Validation Vulnerability | added 2026-06-25 | EPSS 0.011060000, percentile 0.618430000 | CVSS 9.8 CRITICAL
-- `CVE-2026-20230` | Cisco Unified Communications Manager | Cisco Unified Communications Manager Server-Side Request Forgery (SSRF) Vulnerability | added 2026-06-25 | EPSS 0.416940000, percentile 0.985120000 | CVSS 8.6 HIGH
-- `CVE-2025-67038` | Lantronix EDS5000 | Lantronix EDS5000 Code Injection Vulnerability | added 2026-06-23 | EPSS 0.011310000, percentile 0.625100000 | CVSS 9.8 CRITICAL
-- `CVE-2026-34910` | Ubiquiti UniFi OS | Ubiquiti UniFi OS Improper Input Validation Vulnerability | added 2026-06-23 | EPSS 0.785550000, percentile 0.995350000
-- `CVE-2026-34909` | Ubiquiti UniFi OS | Ubiquiti UniFi OS Path Traversal Vulnerability | added 2026-06-23 | EPSS 0.022690000, percentile 0.809260000
-- `CVE-2026-34908` | Ubiquiti UniFi OS | Ubiquiti UniFi OS Improper Access Control Vulnerability | added 2026-06-23 | EPSS 0.024520000, percentile 0.824270000
-- `CVE-2026-20253` | Splunk Enterprise | Splunk Enterprise Missing Authentication for Critical Function Vulnerability | added 2026-06-18 | EPSS 0.881710000, percentile 0.997480000
-- `CVE-2026-48907` | Widget Factory Joomla Content Editor  | Widget Factory Joomla Content Editor Improper Access Control Vulnerability | added 2026-06-16 | EPSS 0.804250000, percentile 0.995730000
-- `CVE-2026-54420` | LiteSpeed cPanel Plugin | LiteSpeed cPanel Plugin UNIX Symbolic Link (Symlink) Following Vulnerability | added 2026-06-15 | EPSS 0.012610000, percentile 0.660630000
-- `CVE-2026-20262` | Cisco Catalyst SD-WAN Manager | Cisco Catalyst SD-WAN Manager Directory or Path Traversal Vulnerability | added 2026-06-15 | EPSS 0.076830000, percentile 0.938650000
-- `CVE-2026-35273` | Oracle  PeopleSoft Enterprise PeopleTools | Oracle PeopleSoft Enterprise PeopleTools Missing Authentication for Critical Function Vulnerability | added 2026-06-12 | EPSS 0.923300000, percentile 0.998110000
-- `CVE-2026-10520` | Ivanti Sentry | Ivanti Sentry OS Command Injection Vulnerability | added 2026-06-11 | EPSS 0.990410000, percentile 0.999250000
-- `CVE-2026-11645` | Google Chromium V8 | Google Chromium V8 Out-of-Bounds Read and Write Vulnerability | added 2026-06-09 | EPSS 0.016540000, percentile 0.737160000
+- `CVE-2026-48908` | JoomShaper SP Page Builder | JoomShaper SP Page Builder Unrestricted Upload of File with Dangerous Type Vulnerability | added 2026-07-07 | EPSS 0.015690000, percentile 0.724180000 | CVSS 9.8 CRITICAL
+- `CVE-2026-55255` | Langflow Langflow | Langflow Authorization Bypass Through User-Controlled Key Vulnerability | added 2026-07-07 | EPSS 0.004670000, percentile 0.372420000 | CVSS 8.4 HIGH
+- `CVE-2026-56290` | Joomlack Page Builder | Joomlack Page Builder Improper Access Control Vulnerability | added 2026-07-07 | EPSS 0.029120000, percentile 0.853510000 | CVSS 9.8 CRITICAL
+- `CVE-2026-48282` | Adobe ColdFusion | Adobe ColdFusion Path Traversal Vulnerability | added 2026-07-07 | EPSS 0.285830000, percentile 0.979040000 | CVSS 10.0 CRITICAL
+- `CVE-2026-45659` | Microsoft SharePoint Server | Microsoft SharePoint Server Deserialization of Untrusted Data Vulnerability | added 2026-07-01 | EPSS 0.032190000, percentile 0.867130000 | CVSS 8.8 HIGH
+- `CVE-2026-48558` | SimpleHelp  SimpleHelp | SimpleHelp Authentication Bypass Vulnerability | added 2026-06-29 | EPSS 0.011600000, percentile 0.633480000
+- `CVE-2026-12569` | PTC Windchill and FlexPLM | PTC Windchill and FlexPLM Improper Input Validation Vulnerability | added 2026-06-25 | EPSS 0.012470000, percentile 0.657880000
+- `CVE-2026-20230` | Cisco Unified Communications Manager | Cisco Unified Communications Manager Server-Side Request Forgery (SSRF) Vulnerability | added 2026-06-25 | EPSS 0.416940000, percentile 0.985170000
+- `CVE-2025-67038` | Lantronix EDS5000 | Lantronix EDS5000 Code Injection Vulnerability | added 2026-06-23 | EPSS 0.008890000, percentile 0.550640000
+- `CVE-2026-34910` | Ubiquiti UniFi OS | Ubiquiti UniFi OS Improper Input Validation Vulnerability | added 2026-06-23 | EPSS 0.785550000, percentile 0.995370000
+- `CVE-2026-34909` | Ubiquiti UniFi OS | Ubiquiti UniFi OS Path Traversal Vulnerability | added 2026-06-23 | EPSS 0.022690000, percentile 0.809730000
+- `CVE-2026-34908` | Ubiquiti UniFi OS | Ubiquiti UniFi OS Improper Access Control Vulnerability | added 2026-06-23 | EPSS 0.024520000, percentile 0.824660000
+- `CVE-2026-20253` | Splunk Enterprise | Splunk Enterprise Missing Authentication for Critical Function Vulnerability | added 2026-06-18 | EPSS 0.881710000, percentile 0.997490000
+- `CVE-2026-48907` | Widget Factory Joomla Content Editor  | Widget Factory Joomla Content Editor Improper Access Control Vulnerability | added 2026-06-16 | EPSS 0.804250000, percentile 0.995750000
+- `CVE-2026-54420` | LiteSpeed cPanel Plugin | LiteSpeed cPanel Plugin UNIX Symbolic Link (Symlink) Following Vulnerability | added 2026-06-15 | EPSS 0.012610000, percentile 0.661300000
 
 **Prevention and mitigation playbook:**
 
@@ -113,7 +114,6 @@ Generated at: `2026-07-04T14:15:08Z`
 - Add detections for exploitation attempts and verify telemetry coverage for affected assets.
 - Vendor/CISA required actions:
   - Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.
-  - Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.
 
 ### LLM and AI-Specific Threat Intelligence
 
@@ -156,6 +156,7 @@ Generated at: `2026-07-04T14:15:08Z`
 | CTRL-08 | scoring-completeness | tests/test_security_refs.py::test_build_security_placeholders_osv_packages | security_refs OSV enrichment | implemented |
 | CTRL-09 | stale-data-signaling | tests/test_security_refs.py::test_build_security_placeholders_offline_from_cache | security_refs stale-cache warning | implemented |
 | CTRL-10 | continuous control drift | scripts/run_daily_security_maintenance.sh | daily security maintenance pipeline (.github/workflows/security-maintenance.yml; scheduled 09:00 EDT + workflow_dispatch fallback) | implemented |
+| CTRL-11 | low-level-vuln-awareness | tests/test_security_lowlevel_coverage.py::test_template_lists_low_level_classes | security.template.md low-level vulnerability screening block | implemented |
 <!-- AGENTTEAMS:END threat_intelligence -->
 
 ### Output Format
@@ -198,6 +199,7 @@ Cleared for: [specific action cleared, or NONE if HALT]
 | Any operation that exports, forwards, or logs agent YAML front matter or system prompt content | System prompt leakage (LLM07) |
 | Any modification to a vector store, embeddings index, or RAG data source | Vector/embedding attack surface (LLM08) |
 | Any agent loop or external API call without a declared rate limit or termination condition | Unbounded consumption (LLM10) |
+| Any AI-authored change to native or unsafe-memory code (C/C++/Objective-C, Rust `unsafe`, Zig, cgo, ctypes/cffi/PyO3/N-API/JNI, inline assembly, manual allocation, or raw pointer arithmetic) | Memory-safety exploit surface (low-level) |
 
 ### Security Rules
 
@@ -289,6 +291,36 @@ Use this table to determine the verdict. **Criteria are deterministic** — mode
 - **Unsanitized output passed to a sink** — model output flowed into exec/DB/render without sanitization (LLM05). Fix: validate and sanitize before any sink.
 
 Treat an unmet defense in any of these as a security finding (apply the S-rules and HALT criteria above). Code-quality/correctness/process AI habits (over-commenting, duplication, hallucinated *imports* as a build-correctness defect, output *shape*-validation, skipped tests, etc.) are **not** `@security`'s concern — they are owned by `@code-hygiene` via the AI bad-habits catalog (`#file:references/ai-bad-habits-watch.reference.md`), which deliberately defers all security-class habits to this agent.
+
+### Low-Level & Systems Vulnerabilities (Any Language)
+
+The classes above are web/service-tier. AI agents also emit **low-level** defects, in any language. Screen for these too; they are exploitable, so they are `@security`'s concern (not `@code-hygiene`'s).
+
+**Arbitrary code execution & injection sinks — applies to any language, always:**
+- **OS command injection (CWE-78)** — untrusted input built into a shell/`exec` command. Fix: pass an argument vector, never a shell string; allowlist; never interpolate untrusted input into a command line.
+- **Code injection / `eval` (CWE-94/95)** — untrusted input reaching `eval`/`exec`/dynamic template or code compilation. Fix: remove the dynamic-eval path; if unavoidable, sandbox + allowlist.
+- **Unsafe deserialization (CWE-502)** — `pickle` / `yaml.load` / native object deserialization on untrusted bytes. Fix: safe loaders only (`yaml.safe_load`, JSON); never deserialize untrusted data into live objects.
+- **Path traversal (CWE-22)** — untrusted path segments reaching the filesystem. Fix: canonicalize and confirm the resolved path stays within an allowed root.
+- **Server-side request forgery (CWE-918)** — untrusted input controls an outbound request target. Fix: allowlist hosts/schemes; block link-local/cloud-metadata IPs; never fetch a raw user-supplied URL.
+- **XML external entity (CWE-611)** — XML parsed with entity/DTD resolution enabled. Fix: disable DTD and external-entity processing.
+- **Unsafe reflection / dynamic loading (CWE-470)** and **insecure temp-file creation (CWE-377)** — untrusted input names a loaded class/module, or a predictable temp path is used. Fix: allowlist reflected targets; create temp files atomically (`mkstemp` / `O_EXCL`).
+
+**Memory-safety corruption — applies when the reviewed code touches a native/unsafe surface** (C/C++/Objective-C, Rust `unsafe`, Zig, cgo, ctypes/cffi/PyO3/N-API/JNI, inline assembly, manual allocation, or raw pointer arithmetic). Flag the **obvious/local** shapes; non-local lifetime bugs need a sanitizer/static analyzer — route those:
+- **Buffer overflow / out-of-bounds write (CWE-787/120/121/122)** and **out-of-bounds read (CWE-125)** — unbounded copy (`strcpy`/`memcpy`), fixed buffer with unchecked length, `arr[user_index]` without a bound check. Fix: bounded copies; validate every index and length.
+- **Use-after-free / double-free (CWE-416/415)** — deref or free after free (obvious local cases). Fix: null the pointer after free; a single clear owner (RAII / borrow checker).
+- **Integer overflow/underflow into an allocation or index (CWE-190/191)** — `malloc(a*b)` or size arithmetic that can wrap. Fix: checked arithmetic before allocating or indexing.
+- **Format string (CWE-134)** — untrusted string used as a format argument (`printf(user)`). Fix: a constant format string; pass data as arguments.
+- **Type confusion (CWE-843)** — `unsafe.Pointer` / union / `reinterpret_cast` misuse. Fix: tagged unions; validated casts.
+- **TOCTOU file race (CWE-367)** — `access()`-then-`open()` on a path an attacker can swap. Fix: operate on file descriptors; `O_NOFOLLOW`.
+
+**Hardware / microarchitectural exploits — awareness and candidate-flagging only, NOT per-line proof.** In crypto/auth code, flag the reviewable patterns: **non-constant-time comparison or secret-dependent branch/table-lookup (CWE-208)** and the canonical **Spectre-v1 bounds-check gadget** (`if (x < len) y = a2[a1[x]*K]`), as **candidates to route to specialist tooling** (constant-time libraries, speculation-safe compilers, sanitizers). Full Spectre/Meltdown/Rowhammer/cache-timing/fault-injection analysis requires microarchitectural modeling and is **out of scope for this agent's per-line review** — flag awareness and route; do not claim detection.
+
+**Platform hardening (OS-specific deployment targets).** When the project builds, deploys, runs, or is distributed for a specific operating system, screen the *platform* against the matching curated baseline — each covers system-integrity/boot, privilege escalation, mandatory access / application control, isolation & sandboxing, capability/process restriction, memory-protection build flags, service/daemon hardening, filesystem/disk-encryption/secrets, and auditing, with primary-authority sources (kernel.org, Apple, Microsoft, NSA/CISA, NIST/MITRE, CIS):
+- **Linux / native targets** — `references/security-linux-hardening.reference.md` (KSPP, LSM/SELinux/AppArmor, namespaces/containers, seccomp/capabilities, systemd).
+- **macOS targets** — `references/security-macos-hardening.reference.md` (SIP/SSV, Gatekeeper, TCC, App Sandbox, Hardened Runtime, notarization, PAC, FileVault/Keychain).
+- **Windows targets** — `references/security-windows-hardening.reference.md` (Secure Boot/VBS/HVCI, UAC/Credential Guard, WDAC/AppLocker, AppContainer/Windows Sandbox, CFG/CET/ACG, BitLocker/DPAPI).
+
+Apply only the baseline(s) matching the actual deployment target(s); skip this gate for pure managed-runtime projects with no OS-specific surface.
 <!-- AGENTTEAMS:END security_rules_invariant -->
 
 ## Project-Specific Notes
