@@ -1,10 +1,10 @@
 {
   "artifact_type": "delivery-receipt",
   "receipt_schema_version": "1.0",
-  "delivered_at": "2026-06-23T22:56:49Z",
+  "delivered_at": "2026-07-09T20:11:19Z",
   "project_name": "LearnPythonStatsEcon",
   "framework": "copilot-vscode",
-  "manifest_fingerprint": "cd5f0c7ad6c659c3",
+  "manifest_fingerprint": "93ab2fd769affb77",
   "fingerprint_algo_version": 1,
   "output_dir": "/Users/jamescaton/githubrepositories/Learn-Python-for-Stats-and-Econ/.github/agents",
   "agentteams_version": "1.0.0rc6"

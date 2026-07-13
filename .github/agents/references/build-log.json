@@ -24,12 +24,16 @@
     "ch8-advanced",
     "ch9-abm"
   ],
-  "files_written": [],
-  "manual_required": 57,
+  "files_written": [
+    ".github/agents/references/security-linux-hardening.reference.md",
+    ".github/agents/references/security-macos-hardening.reference.md",
+    ".github/agents/references/security-windows-hardening.reference.md"
+  ],
+  "manual_required": 43,
   "template_hashes": {
     "universal/orchestrator.template.md": "ee34760e1f596c17",
-    "universal/navigator.template.md": "a0d0ac008e49068f",
-    "universal/security.template.md": "22e1e8b5bd521eaf",
+    "universal/navigator.template.md": "003a30ed545c0523",
+    "universal/security.template.md": "eb2d9b0f5dd0daf9",
     "universal/code-hygiene.template.md": "5212068c8a00a608",
     "universal/adversarial.template.md": "54bb7645fbc898a0",
     "universal/conflict-auditor.template.md": "e25b928260b0e41f",
@@ -53,6 +57,9 @@
     "domain/unix-philosophy-mapping-reference.template.md": "b086c16596a3030b",
     "universal/security-vulnerability-watch.reference.template.md": "1680e6cfd2a72275",
     "universal/security-vulnerability-watch.json.template": "ebcec1b04ad46caa",
+    "universal/security-linux-hardening.reference.template.md": "622535f7bfa41de6",
+    "universal/security-macos-hardening.reference.template.md": "1333cb343a3e33cf",
+    "universal/security-windows-hardening.reference.template.md": "ac81a0b5b583aa6d",
     "universal/ai-bad-habits-watch.reference.template.md": "690a289b3fdbdf9e",
     "universal/framework-watch.reference.template.md": "7e895e4a5ccc6540",
     "universal/adjacent-repos.reference.template.md": "d5f6783fe18f21c6",
@@ -194,39 +201,11 @@
       "component_slug": null
     },
     {
-      "path": "references/ref-helipad-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-helipad"
-    },
-    {
-      "path": "references/ref-ipywidgets-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-ipywidgets"
-    },
-    {
       "path": "references/ref-jupyter-reference.md",
       "template": "domain/tool-reference.template.md",
       "type": "reference",
       "component_slug": null,
       "tool_slug": "ref-jupyter"
-    },
-    {
-      "path": "references/ref-matplotlib-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-matplotlib"
-    },
-    {
-      "path": "references/ref-networkx-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-networkx"
     },
     {
       "path": "references/ref-numpy-reference.md",
@@ -243,18 +222,11 @@
       "tool_slug": "ref-pandas"
     },
     {
-      "path": "references/ref-pandas-datareader-reference.md",
+      "path": "references/ref-matplotlib-reference.md",
       "template": "domain/tool-reference.template.md",
       "type": "reference",
       "component_slug": null,
-      "tool_slug": "ref-pandas-datareader"
-    },
-    {
-      "path": "references/ref-plotly-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-plotly"
+      "tool_slug": "ref-matplotlib"
     },
     {
       "path": "references/ref-scipy-reference.md",
@@ -262,13 +234,6 @@
       "type": "reference",
       "component_slug": null,
       "tool_slug": "ref-scipy"
-    },
-    {
-      "path": "references/ref-seaborn-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-seaborn"
     },
     {
       "path": "references/ref-statsmodels-reference.md",
@@ -299,6 +264,24 @@
       "path": "references/security-vulnerability-watch.json",
       "template": "universal/security-vulnerability-watch.json.template",
       "type": "artifact",
+      "component_slug": null
+    },
+    {
+      "path": "references/security-linux-hardening.reference.md",
+      "template": "universal/security-linux-hardening.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/security-macos-hardening.reference.md",
+      "template": "universal/security-macos-hardening.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/security-windows-hardening.reference.md",
+      "template": "universal/security-windows-hardening.reference.template.md",
+      "type": "reference",
       "component_slug": null
     },
     {
@@ -491,17 +474,17 @@
     "repo-liaison",
     "git-operations"
   ],
-  "manifest_fingerprint": "c4f8f6ae4867a039",
+  "manifest_fingerprint": "93ab2fd769affb77",
   "fingerprint_algo_version": 1,
   "file_hashes": {
-    "security.agent.md": "e4de232f6514e559",
-    "references/security-vulnerability-watch.reference.md": "9381a76a02cd8bb1",
-    "references/security-vulnerability-watch.json": "7aa39b59ff95b0a4",
-    "references/pipeline-graph.md": "1e68e0c785f9e2a0",
-    "references/pipeline-graph.svg": "ce5cbec4f565ba64",
-    "references/pipeline-handoffs.svg": "fb1213446499498b",
+    "references/security-linux-hardening.reference.md": "4f2ca17cf5536195",
+    "references/security-macos-hardening.reference.md": "4e272a417d26cae6",
+    "references/security-windows-hardening.reference.md": "e5e3fcc7fd4cb5e2",
+    "navigator.agent.md": "0e7baf0708eea3a3",
+    "security.agent.md": "5e5d952a8520e1cc",
+    "references/security-vulnerability-watch.reference.md": "9ea6046e56bb7287",
+    "references/security-vulnerability-watch.json": "3a67a8d877e09a3b",
     "orchestrator.agent.md": "cbd0d3ad0cd4ae32",
-    "navigator.agent.md": "4c750599ff03449a",
     "code-hygiene.agent.md": "5451ac7e2f3f7a99",
     "conflict-auditor.agent.md": "da86cd3a850bff57",
     "conflict-resolution.agent.md": "f0a781939fac8a64",
@@ -516,42 +499,37 @@
     "output-compiler.agent.md": "f06e6ece336992d5",
     "visual-designer.agent.md": "28f8eacb39e7b21b",
     "tool-doc-researcher.agent.md": "629071c1aedc6be2",
-    "references/ref-matplotlib-reference.md": "5f66a09b315a2fc3",
-    "references/ref-numpy-reference.md": "e0851ac27595e688",
-    "references/ref-pandas-reference.md": "8a12ecd685b2f8d9",
-    "references/ref-scipy-reference.md": "1c043f065f14e4f7",
-    "references/ref-statsmodels-reference.md": "5dadead296f60894",
     "references/framework-watch.reference.md": "6197ca5f6f237d8f",
     "references/adjacent-repos.md": "ebc316de06923363",
-    "ch1-essentials-expert.agent.md": "a74e6d7872f38276",
+    "ch1-essentials-expert.agent.md": "c05b71d5a28265cd",
     "ch2-lists-expert.agent.md": "3cd631f1ef34d08f",
     "ch3-numpy-pandas-expert.agent.md": "024b8d6e4db296a7",
     "ch4-functional-expert.agent.md": "a272feaf4da89340",
     "ch5-probability-expert.agent.md": "5a7a408b0ee0d385",
     "ch6-hypothesis-expert.agent.md": "c6ff1218da4fe1d9",
-    "ch7-ols-expert.agent.md": "e4e8bc7de27f9907",
+    "ch7-ols-expert.agent.md": "193b69f7c48fd197",
     "ch8-advanced-expert.agent.md": "bd4f553ee9af7fb4",
     "ch9-abm-expert.agent.md": "dc548950081cc998",
-    "../copilot-instructions.md": "8cb42c9d3febd1eb",
+    "../copilot-instructions.md": "79454e54cf51bc9d",
     "team-builder.agent.md": "2c0000df132d0101",
     "SETUP-REQUIRED.md": "47182160973143e3",
     "adversarial.agent.md": "280b5312af2e01d1",
     "agent-refactor.agent.md": "d9b1434b52e25d9e",
     "work-summarizer.agent.md": "86106ce1462f6c65",
     "cohesion-repairer.agent.md": "df8fc736cd9fd26f",
-    "references/ref-helipad-reference.md": "ad3bfd7445cd1403",
-    "references/ref-ipywidgets-reference.md": "e9c39992c5e37893",
     "references/ref-jupyter-reference.md": "ab8739c84c188392",
-    "references/ref-networkx-reference.md": "bf1415a238185681",
-    "references/ref-pandas-datareader-reference.md": "be9c92c5fdda46bc",
-    "references/ref-plotly-reference.md": "0e285dc234daf275",
-    "references/ref-seaborn-reference.md": "7fe96e6e3266f676",
+    "references/ref-numpy-reference.md": "e0851ac27595e688",
+    "references/ref-pandas-reference.md": "8a12ecd685b2f8d9",
+    "references/ref-matplotlib-reference.md": "5f66a09b315a2fc3",
+    "references/ref-scipy-reference.md": "1c043f065f14e4f7",
+    "references/ref-statsmodels-reference.md": "5dadead296f60894",
     "references/code-hygiene-rules.reference.md": "e494a6d4dd5e2409",
     "references/github-workflows-merge.reference.md": "af659d5abdf8a903",
     "references/work-summary-spec.reference.md": "96232231a1f7c6be",
     "references/work-summary-tooling.reference.md": "f3656972717153a9",
     "references/work-summary-backfill.reference.md": "a0543cde8916cedb",
     "references/parallelization.reference.md": "d2321bf5ac1ed2f8",
-    "content-enricher.agent.md": "421e39314d447305"
+    "content-enricher.agent.md": "421e39314d447305",
+    "references/pipeline-graph.md": "ed349451eb4877fc"
   }
 }
