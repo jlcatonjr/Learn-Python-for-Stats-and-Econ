@@ -24,12 +24,18 @@
     "ch8-advanced",
     "ch9-abm"
   ],
-  "files_written": [],
-  "manual_required": 57,
+  "files_written": [
+    ".github/agents/references/ref-geopandas-reference.md",
+    ".github/agents/references/ref-mpltoolkits-reference.md",
+    ".github/agents/references/ref-voila-reference.md",
+    ".github/agents/references/ref-pyarrow-reference.md",
+    ".vscode/tasks.json"
+  ],
+  "manual_required": 69,
   "template_hashes": {
     "universal/orchestrator.template.md": "ee34760e1f596c17",
-    "universal/navigator.template.md": "a0d0ac008e49068f",
-    "universal/security.template.md": "22e1e8b5bd521eaf",
+    "universal/navigator.template.md": "003a30ed545c0523",
+    "universal/security.template.md": "ae6475b6df0d1f4e",
     "universal/code-hygiene.template.md": "5212068c8a00a608",
     "universal/adversarial.template.md": "54bb7645fbc898a0",
     "universal/conflict-auditor.template.md": "e25b928260b0e41f",
@@ -53,6 +59,9 @@
     "domain/unix-philosophy-mapping-reference.template.md": "b086c16596a3030b",
     "universal/security-vulnerability-watch.reference.template.md": "1680e6cfd2a72275",
     "universal/security-vulnerability-watch.json.template": "ebcec1b04ad46caa",
+    "universal/security-linux-hardening.reference.template.md": "622535f7bfa41de6",
+    "universal/security-macos-hardening.reference.template.md": "1333cb343a3e33cf",
+    "universal/security-windows-hardening.reference.template.md": "ac81a0b5b583aa6d",
     "universal/ai-bad-habits-watch.reference.template.md": "690a289b3fdbdf9e",
     "universal/framework-watch.reference.template.md": "7e895e4a5ccc6540",
     "universal/adjacent-repos.reference.template.md": "d5f6783fe18f21c6",
@@ -278,6 +287,34 @@
       "tool_slug": "ref-statsmodels"
     },
     {
+      "path": "references/ref-geopandas-reference.md",
+      "template": "domain/tool-reference.template.md",
+      "type": "reference",
+      "component_slug": null,
+      "tool_slug": "ref-geopandas"
+    },
+    {
+      "path": "references/ref-mpltoolkits-reference.md",
+      "template": "domain/tool-reference.template.md",
+      "type": "reference",
+      "component_slug": null,
+      "tool_slug": "ref-mpltoolkits"
+    },
+    {
+      "path": "references/ref-voila-reference.md",
+      "template": "domain/tool-reference.template.md",
+      "type": "reference",
+      "component_slug": null,
+      "tool_slug": "ref-voila"
+    },
+    {
+      "path": "references/ref-pyarrow-reference.md",
+      "template": "domain/tool-reference.template.md",
+      "type": "reference",
+      "component_slug": null,
+      "tool_slug": "ref-pyarrow"
+    },
+    {
       "path": "references/code-hygiene-rules.reference.md",
       "template": "domain/code-hygiene-rules-reference.template.md",
       "type": "reference",
@@ -299,6 +336,24 @@
       "path": "references/security-vulnerability-watch.json",
       "template": "universal/security-vulnerability-watch.json.template",
       "type": "artifact",
+      "component_slug": null
+    },
+    {
+      "path": "references/security-linux-hardening.reference.md",
+      "template": "universal/security-linux-hardening.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/security-macos-hardening.reference.md",
+      "template": "universal/security-macos-hardening.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/security-windows-hardening.reference.md",
+      "template": "universal/security-windows-hardening.reference.template.md",
+      "type": "reference",
       "component_slug": null
     },
     {
@@ -491,17 +546,22 @@
     "repo-liaison",
     "git-operations"
   ],
-  "manifest_fingerprint": "c4f8f6ae4867a039",
+  "manifest_fingerprint": "8fff1d2ed07803f4",
   "fingerprint_algo_version": 1,
   "file_hashes": {
-    "security.agent.md": "e4de232f6514e559",
-    "references/security-vulnerability-watch.reference.md": "9381a76a02cd8bb1",
-    "references/security-vulnerability-watch.json": "7aa39b59ff95b0a4",
+    "references/ref-geopandas-reference.md": "adad408cac2ad394",
+    "references/ref-mpltoolkits-reference.md": "048fb21a66e854e7",
+    "references/ref-voila-reference.md": "3e2ad7487d2799e0",
+    "references/ref-pyarrow-reference.md": "caf4f4df39b23e3a",
+    "/private/tmp/claude-501/-Users-jamescaton-githubrepositories-lingoFriend/6a9baa52-8ab8-401f-949c-3e2ad21b6af2/scratchpad/fleet-worktrees/Learn-Python-for-Stats-and-Econ-20260720-213158/.vscode/tasks.json": "c2409a7c58cd2346",
+    "navigator.agent.md": "0e7baf0708eea3a3",
+    "security.agent.md": "208b0a3b9049e50d",
+    "references/security-vulnerability-watch.reference.md": "7ff8b7c4a99049b0",
+    "references/security-vulnerability-watch.json": "b6a8114f547589ee",
     "references/pipeline-graph.md": "1e68e0c785f9e2a0",
     "references/pipeline-graph.svg": "ce5cbec4f565ba64",
     "references/pipeline-handoffs.svg": "fb1213446499498b",
     "orchestrator.agent.md": "cbd0d3ad0cd4ae32",
-    "navigator.agent.md": "4c750599ff03449a",
     "code-hygiene.agent.md": "5451ac7e2f3f7a99",
     "conflict-auditor.agent.md": "da86cd3a850bff57",
     "conflict-resolution.agent.md": "f0a781939fac8a64",
@@ -521,6 +581,9 @@
     "references/ref-pandas-reference.md": "8a12ecd685b2f8d9",
     "references/ref-scipy-reference.md": "1c043f065f14e4f7",
     "references/ref-statsmodels-reference.md": "5dadead296f60894",
+    "references/security-linux-hardening.reference.md": "4f2ca17cf5536195",
+    "references/security-macos-hardening.reference.md": "4e272a417d26cae6",
+    "references/security-windows-hardening.reference.md": "e5e3fcc7fd4cb5e2",
     "references/framework-watch.reference.md": "6197ca5f6f237d8f",
     "references/adjacent-repos.md": "ebc316de06923363",
     "ch1-essentials-expert.agent.md": "a74e6d7872f38276",

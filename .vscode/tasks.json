@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "agentteams: update agents",
+      "type": "shell",
+      "command": "agentteams --update --merge",
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": [],
+      "detail": "AGENTTEAMS"
+    },
+    {
+      "label": "agentteams: dry-run check",
+      "type": "shell",
+      "command": "agentteams --update --dry-run",
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": [],
+      "detail": "AGENTTEAMS"
+    },
+    {
+      "label": "agentteams: fleet update (all)",
+      "type": "shell",
+      "command": "agentteams --fleet . --fleet-frameworks all --update --merge",
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": [],
+      "detail": "AGENTTEAMS"
+    }
+  ]
+}
