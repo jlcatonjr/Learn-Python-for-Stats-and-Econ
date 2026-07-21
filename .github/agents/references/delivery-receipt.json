@@ -1,11 +1,11 @@
 {
   "artifact_type": "delivery-receipt",
   "receipt_schema_version": "1.0",
-  "delivered_at": "2026-06-23T22:56:49Z",
+  "delivered_at": "2026-07-21T01:33:27Z",
   "project_name": "LearnPythonStatsEcon",
   "framework": "copilot-vscode",
-  "manifest_fingerprint": "cd5f0c7ad6c659c3",
+  "manifest_fingerprint": "8fff1d2ed07803f4",
   "fingerprint_algo_version": 1,
-  "output_dir": "/Users/jamescaton/githubrepositories/Learn-Python-for-Stats-and-Econ/.github/agents",
+  "output_dir": "/private/tmp/claude-501/-Users-jamescaton-githubrepositories-lingoFriend/6a9baa52-8ab8-401f-949c-3e2ad21b6af2/scratchpad/fleet-worktrees/Learn-Python-for-Stats-and-Econ-20260720-213158/.github/agents",
   "agentteams_version": "1.0.0rc6"
 }

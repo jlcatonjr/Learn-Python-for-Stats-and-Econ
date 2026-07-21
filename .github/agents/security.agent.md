@@ -74,11 +74,11 @@ Use the generated reference `references/security-vulnerability-watch.reference.m
 ### Current Threat Intelligence Snapshot
 
 <!-- AGENTTEAMS:BEGIN threat_intelligence v=1 -->
-Generated at: `2026-07-09T20:10:42Z`
+Generated at: `2026-07-21T01:32:50Z`
 
 **Sources:**
 
-- CISA KEV: ok (catalog 2026.07.07, items 1635) — https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
+- CISA KEV: ok (catalog 2026.07.16, items 1647) — https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
 - MITRE CVE: metadata_only — https://cveawg.mitre.org/api/cve/
 - FIRST EPSS: ok (items 15) — https://api.first.org/data/v1/epss
 - NVD (NIST): ok (items 5) — https://services.nvd.nist.gov/rest/json/cves/2.0
@@ -89,21 +89,21 @@ Generated at: `2026-07-09T20:10:42Z`
 
 **Current major vulnerabilities:**
 
-- `CVE-2026-48908` | JoomShaper SP Page Builder | JoomShaper SP Page Builder Unrestricted Upload of File with Dangerous Type Vulnerability | added 2026-07-07 | EPSS 0.015690000, percentile 0.724180000 | CVSS 9.8 CRITICAL
-- `CVE-2026-55255` | Langflow Langflow | Langflow Authorization Bypass Through User-Controlled Key Vulnerability | added 2026-07-07 | EPSS 0.004670000, percentile 0.372420000 | CVSS 8.4 HIGH
-- `CVE-2026-56290` | Joomlack Page Builder | Joomlack Page Builder Improper Access Control Vulnerability | added 2026-07-07 | EPSS 0.029120000, percentile 0.853510000 | CVSS 9.8 CRITICAL
-- `CVE-2026-48282` | Adobe ColdFusion | Adobe ColdFusion Path Traversal Vulnerability | added 2026-07-07 | EPSS 0.285830000, percentile 0.979040000 | CVSS 10.0 CRITICAL
-- `CVE-2026-45659` | Microsoft SharePoint Server | Microsoft SharePoint Server Deserialization of Untrusted Data Vulnerability | added 2026-07-01 | EPSS 0.032190000, percentile 0.867130000 | CVSS 8.8 HIGH
-- `CVE-2026-48558` | SimpleHelp  SimpleHelp | SimpleHelp Authentication Bypass Vulnerability | added 2026-06-29 | EPSS 0.011600000, percentile 0.633480000
-- `CVE-2026-12569` | PTC Windchill and FlexPLM | PTC Windchill and FlexPLM Improper Input Validation Vulnerability | added 2026-06-25 | EPSS 0.012470000, percentile 0.657880000
-- `CVE-2026-20230` | Cisco Unified Communications Manager | Cisco Unified Communications Manager Server-Side Request Forgery (SSRF) Vulnerability | added 2026-06-25 | EPSS 0.416940000, percentile 0.985170000
-- `CVE-2025-67038` | Lantronix EDS5000 | Lantronix EDS5000 Code Injection Vulnerability | added 2026-06-23 | EPSS 0.008890000, percentile 0.550640000
-- `CVE-2026-34910` | Ubiquiti UniFi OS | Ubiquiti UniFi OS Improper Input Validation Vulnerability | added 2026-06-23 | EPSS 0.785550000, percentile 0.995370000
-- `CVE-2026-34909` | Ubiquiti UniFi OS | Ubiquiti UniFi OS Path Traversal Vulnerability | added 2026-06-23 | EPSS 0.022690000, percentile 0.809730000
-- `CVE-2026-34908` | Ubiquiti UniFi OS | Ubiquiti UniFi OS Improper Access Control Vulnerability | added 2026-06-23 | EPSS 0.024520000, percentile 0.824660000
-- `CVE-2026-20253` | Splunk Enterprise | Splunk Enterprise Missing Authentication for Critical Function Vulnerability | added 2026-06-18 | EPSS 0.881710000, percentile 0.997490000
-- `CVE-2026-48907` | Widget Factory Joomla Content Editor  | Widget Factory Joomla Content Editor Improper Access Control Vulnerability | added 2026-06-16 | EPSS 0.804250000, percentile 0.995750000
-- `CVE-2026-54420` | LiteSpeed cPanel Plugin | LiteSpeed cPanel Plugin UNIX Symbolic Link (Symlink) Following Vulnerability | added 2026-06-15 | EPSS 0.012610000, percentile 0.661300000
+- `CVE-2026-58644` | Microsoft SharePoint | Microsoft SharePoint Deserialization of Untrusted Data Vulnerability | added 2026-07-16 | EPSS 0.014650000, percentile 0.707740000 | CVSS 9.8 CRITICAL
+- `CVE-2026-25089` | Fortinet FortiSandbox | Fortinet FortiSandbox OS Command Injection Vulnerability | added 2026-07-16 | EPSS 0.361350000, percentile 0.983090000 | CVSS 9.8 CRITICAL
+- `CVE-2026-39808` | Fortinet FortiSandbox | Fortinet FortiSandbox OS Command Injection Vulnerability | added 2026-07-16 | EPSS 0.841580000, percentile 0.996670000 | CVSS 9.8 CRITICAL
+- `CVE-2026-46817` | Oracle E-Business Suite | Oracle E-Business Suite Improper Privilege Management Vulnerability | added 2026-07-15 | EPSS 0.010450000, percentile 0.603520000 | CVSS 9.8 CRITICAL
+- `CVE-2023-4346` | KNX Association KNX Protocol Connection Authorization Option 1 | KNX Association KNX Protocol Connection Authorization Option 1 Overly Restrictive Account Lockout Mechanism Vulnerability | added 2026-07-15 | EPSS 0.008550000, percentile 0.543380000 | CVSS 7.5 HIGH
+- `CVE-2026-56155` | Microsoft Active Directory Federation Services | Microsoft Active Directory Federation Services Insufficient Granularity of Access Control Vulnerability  | added 2026-07-14 | EPSS 0.003790000, percentile 0.302780000
+- `CVE-2026-56164` | Microsoft SharePoint Server | Microsoft SharePoint Server Missing Authentication for Critical Function Vulnerability | added 2026-07-14 | EPSS 0.056010000, percentile 0.920510000
+- `CVE-2026-15409` | SonicWall SMA1000 Appliances | SonicWall SMA1000 Appliances Server-Side Request Forgery Vulnerability | added 2026-07-14 | EPSS 0.012660000, percentile 0.665210000
+- `CVE-2026-15410` | SonicWall SMA1000 Appliances | SonicWall SMA1000 Appliances Code Injection Vulnerability | added 2026-07-14 | EPSS 0.014860000, percentile 0.711820000
+- `CVE-2008-4128` | Cisco IOS | Cisco IOS Cross-Site Request Forgery Vulnerability | added 2026-07-13 | EPSS 0.238570000, percentile 0.975810000
+- `CVE-2026-56291` | Balbooa Forms | Balbooa Forms Unrestricted Upload of File with Dangerous Type Vulnerability | added 2026-07-10 | EPSS 0.086350000, percentile 0.945100000
+- `CVE-2026-48939` | iCagenda iCagenda | iCagenda Unrestricted Upload of File with Dangerous Type Vulnerability | added 2026-07-10 | EPSS 0.015050000, percentile 0.715350000
+- `CVE-2026-48908` | JoomShaper SP Page Builder | JoomShaper SP Page Builder Unrestricted Upload of File with Dangerous Type Vulnerability | added 2026-07-07 | EPSS 0.015690000, percentile 0.726290000
+- `CVE-2026-55255` | Langflow Langflow | Langflow Authorization Bypass Through User-Controlled Key Vulnerability | added 2026-07-07 | EPSS 0.005600000, percentile 0.429080000
+- `CVE-2026-56290` | Joomlack Page Builder | Joomlack Page Builder Improper Access Control Vulnerability | added 2026-07-07 | EPSS 0.029120000, percentile 0.854740000
 
 **Prevention and mitigation playbook:**
 
@@ -313,7 +313,7 @@ The classes above are web/service-tier. AI agents also emit **low-level** defect
 - **Type confusion (CWE-843)** — `unsafe.Pointer` / union / `reinterpret_cast` misuse. Fix: tagged unions; validated casts.
 - **TOCTOU file race (CWE-367)** — `access()`-then-`open()` on a path an attacker can swap. Fix: operate on file descriptors; `O_NOFOLLOW`.
 
-**Hardware / microarchitectural exploits — awareness and candidate-flagging only, NOT per-line proof.** In crypto/auth code, flag the reviewable patterns: **non-constant-time comparison or secret-dependent branch/table-lookup (CWE-208)** and the canonical **Spectre-v1 bounds-check gadget** (`if (x < len) y = a2[a1[x]*K]`), as **candidates to route to specialist tooling** (constant-time libraries, speculation-safe compilers, sanitizers). Full Spectre/Meltdown/Rowhammer/cache-timing/fault-injection analysis requires microarchitectural modeling and is **out of scope for this agent's per-line review** — flag awareness and route; do not claim detection.
+**Hardware / microarchitectural exploits — awareness and candidate-flagging only, NOT per-line proof.** In crypto/auth code, flag the reviewable patterns: **non-constant-time comparison or secret-dependent branch/table-lookup (CWE-208)** and the canonical **Spectre-v1 bounds-check gadget** (`if (x < len) y = a2[a1[x]*K]`), as **candidates to route to specialist tooling** (constant-time libraries, speculation-safe compilers, sanitizers). Full Spectre, Meltdown, Rowhammer, cache-timing, and fault-injection analysis requires microarchitectural modeling and is **out of scope for this agent's per-line review** — flag awareness and route; do not claim detection.
 
 **Platform hardening (OS-specific deployment targets).** When the project builds, deploys, runs, or is distributed for a specific operating system, screen the *platform* against the matching curated baseline — each covers system-integrity/boot, privilege escalation, mandatory access / application control, isolation & sandboxing, capability/process restriction, memory-protection build flags, service/daemon hardening, filesystem/disk-encryption/secrets, and auditing, with primary-authority sources (kernel.org, Apple, Microsoft, NSA/CISA, NIST/MITRE, CIS):
 - **Linux / native targets** — `references/security-linux-hardening.reference.md` (KSPP, LSM/SELinux/AppArmor, namespaces/containers, seccomp/capabilities, systemd).
