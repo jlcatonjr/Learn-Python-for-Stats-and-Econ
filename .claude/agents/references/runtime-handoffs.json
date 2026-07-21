@@ -1,0 +1,870 @@
+{
+  "schema_version": "1.0",
+  "framework": "claude",
+  "project_name": "LearnPythonStatsEcon",
+  "agents": [
+    {
+      "agent": "orchestrator",
+      "handoffs": [
+        {
+          "label": "Produce / Revise Deliverable",
+          "agent": "primary-producer",
+          "prompt": "A workstream is ready to produce or revise its deliverable. Provide the workstream name and any specific instructions.",
+          "send": false
+        },
+        {
+          "label": "Audit Quality",
+          "agent": "quality-auditor",
+          "prompt": "A deliverable is ready for quality audit. Provide the file path.",
+          "send": false
+        },
+        {
+          "label": "Repair Cohesion",
+          "agent": "cohesion-repairer",
+          "prompt": "A deliverable section has structural cohesion failures. Provide the file and section.",
+          "send": false
+        },
+        {
+          "label": "Enforce Style / Standards",
+          "agent": "style-guardian",
+          "prompt": "A deliverable is ready for style audit. Provide the file path.",
+          "send": false
+        },
+        {
+          "label": "Validate Technical Accuracy",
+          "agent": "technical-validator",
+          "prompt": "Audit technical accuracy of claims, code, or specifications in a deliverable. Provide the file path.",
+          "send": false
+        },
+        {
+          "label": "Convert / Transform Output",
+          "agent": "format-converter",
+          "prompt": "Convert a primary deliverable to its secondary format. Provide the source file.",
+          "send": false
+        },
+        {
+          "label": "Manage References / Dependencies",
+          "agent": "reference-manager",
+          "prompt": "Perform a reference operation: add, verify, deduplicate, or retire. Describe the operation.",
+          "send": false
+        },
+        {
+          "label": "Compile Final Output",
+          "agent": "output-compiler",
+          "prompt": "Assemble and compile the final deliverable from all sources.",
+          "send": false
+        },
+        {
+          "label": "Generate / Revise Diagram",
+          "agent": "visual-designer",
+          "prompt": "Generate or revise a diagram. Describe what is needed.",
+          "send": false
+        },
+        {
+          "label": "Navigate Project",
+          "agent": "navigator",
+          "prompt": "Locate files, answer structural questions, or regenerate the project map.",
+          "send": false
+        },
+        {
+          "label": "Security Review",
+          "agent": "security",
+          "prompt": "Review the planned action for credentials, destructive operations, or sensitive content.",
+          "send": false
+        },
+        {
+          "label": "Code Hygiene Audit",
+          "agent": "code-hygiene",
+          "prompt": "Run a code hygiene audit. Provide scope or 'full' for all rules.",
+          "send": false
+        },
+        {
+          "label": "Adversarial Review",
+          "agent": "adversarial",
+          "prompt": "Challenge the presuppositions underlying this plan before execution.",
+          "send": false
+        },
+        {
+          "label": "Conflict Audit",
+          "agent": "conflict-auditor",
+          "prompt": "Detect contradictions across project files. Provide scope if targeted.",
+          "send": false
+        },
+        {
+          "label": "Resolve Conflicts",
+          "agent": "conflict-resolution",
+          "prompt": "Make ACCEPT/REJECT/REVISE decisions on flagged conflicts.",
+          "send": false
+        },
+        {
+          "label": "Clean Up Artifacts",
+          "agent": "cleanup",
+          "prompt": "Remove stale build artifacts, orphaned files, or abandoned drafts.",
+          "send": false
+        },
+        {
+          "label": "Update Agent Docs",
+          "agent": "agent-updater",
+          "prompt": "Project structure or conventions have changed. Sync all affected agent files.",
+          "send": false
+        },
+        {
+          "label": "Refactor Agent Docs",
+          "agent": "agent-refactor",
+          "prompt": "Check agent docs for reference extraction opportunities and spec compliance.",
+          "send": false
+        },
+        {
+          "label": "Cross-Repository Liaison",
+          "agent": "repo-liaison",
+          "prompt": "Assess or communicate impact of this project's activity on adjacent repositories. Describe the change and list any known adjacent repos.",
+          "send": false
+        },
+        {
+          "label": "Summarize Work Period",
+          "agent": "work-summarizer",
+          "prompt": "Create daily, weekly, or monthly work summaries from planning artifacts and git diffs for the requested period.",
+          "send": false
+        },
+        {
+          "label": "Git Operations",
+          "agent": "git-operations",
+          "prompt": "Run a git operation: commit and push, pull/merge/rebase, resolve conflicts, or recover a file. Describe the operation needed.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "navigator",
+      "handoffs": [
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Navigation query is complete. Here are the structural findings.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "security",
+      "handoffs": [
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Security review is complete. Return to the orchestrator with findings.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "code-hygiene",
+      "handoffs": [
+        {
+          "label": "Security Clearance (for Deletions)",
+          "agent": "security",
+          "prompt": "Code hygiene review identified files for deletion. Requesting security clearance before delegating to cleanup.",
+          "send": false
+        },
+        {
+          "label": "Cleanup Agent",
+          "agent": "cleanup",
+          "prompt": "Code hygiene audit complete. Delegate removal of identified files (after @security clearance).",
+          "send": false
+        },
+        {
+          "label": "Agent Refactor (Structural Violations)",
+          "agent": "agent-refactor",
+          "prompt": "Code hygiene audit found inline reference data in agent files (CH-08/CH-14) or agent doc contradictions (CH-20) that may benefit from structural extraction. Requesting @agent-refactor to evaluate and apply reference extraction.",
+          "send": false
+        },
+        {
+          "label": "Log Conflict",
+          "agent": "conflict-auditor",
+          "prompt": "Code hygiene audit found agent documentation contradictions (CH-20). Logging as conflict.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Code hygiene review is complete. Returning findings to the orchestrator.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "adversarial",
+      "handoffs": [
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Adversarial review is complete. Return findings \u2014 validated presuppositions, challenged presuppositions, and cascade analysis \u2014 to the orchestrator for plan revision.",
+          "send": false
+        },
+        {
+          "label": "Audit for Conflicts",
+          "agent": "conflict-auditor",
+          "prompt": "Adversarial review surfaced assumptions that may conflict with documented facts. Run a targeted conflict audit on the identified areas.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "conflict-auditor",
+      "handoffs": [
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Conflict audit is complete. Review the findings.",
+          "send": false
+        },
+        {
+          "label": "Update Agent Docs",
+          "agent": "agent-updater",
+          "prompt": "Conflicts detected that require documentation updates.",
+          "send": false
+        },
+        {
+          "label": "Resolve Conflicts",
+          "agent": "conflict-resolution",
+          "prompt": "Conflicts have been identified and logged. Make ACCEPT/REJECT/REVISE decisions.",
+          "send": false
+        },
+        {
+          "label": "Verify Source Drift",
+          "agent": "technical-validator",
+          "prompt": "SOURCE_DRIFT conflict detected. Verify deliverable description against current source file on disk.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "conflict-resolution",
+      "handoffs": [
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Conflict resolution is complete. Review decisions and route corrections.",
+          "send": false
+        },
+        {
+          "label": "Update Agent Docs",
+          "agent": "agent-updater",
+          "prompt": "Conflict resolutions may require agent documentation updates.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "cleanup",
+      "handoffs": [
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Cleanup is complete. Review the removal report.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "agent-updater",
+      "handoffs": [
+        {
+          "label": "Refactor Agent Docs",
+          "agent": "agent-refactor",
+          "prompt": "Documentation has been updated. Check for reference extraction opportunities and spec compliance.",
+          "send": false
+        },
+        {
+          "label": "Run Adversarial Review",
+          "agent": "adversarial",
+          "prompt": "Documentation has been updated. Challenge the repository change census, docs/API impact decision, and any newly synchronized assumptions before closeout.",
+          "send": false
+        },
+        {
+          "label": "Run Conflict Audit",
+          "agent": "conflict-auditor",
+          "prompt": "Documentation has been updated. Run a conflict audit to verify consistency.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Agent documentation has been synchronized with project changes.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "agent-refactor",
+      "handoffs": [
+        {
+          "label": "Run Conflict Audit",
+          "agent": "conflict-auditor",
+          "prompt": "Agent documentation has been refactored. Run a conflict audit to verify consistency.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Agent refactoring is complete. Review the changes.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "repo-liaison",
+      "handoffs": [
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Cross-repository liaison work is complete. Summary of impacts, updates made, and any orchestrator coordination required.",
+          "send": false
+        },
+        {
+          "label": "Security Review for Cross-Repo Write",
+          "agent": "security",
+          "prompt": "A write operation targeting an adjacent repository requires security clearance. Provide the target repo, file path, and intended change.",
+          "send": false
+        },
+        {
+          "label": "Conflict Audit After Cross-Repo Change",
+          "agent": "conflict-auditor",
+          "prompt": "Adjacent repository documentation has been updated. Verify internal consistency with current project docs.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "git-operations",
+      "handoffs": [
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Git operation is complete. Return to orchestrator with outcome summary.",
+          "send": false
+        },
+        {
+          "label": "Security Review",
+          "agent": "security",
+          "prompt": "A git operation includes force-push, destructive history rewrite, or sensitive content exposure risk. Review before proceeding.",
+          "send": false
+        },
+        {
+          "label": "Conflict Resolution",
+          "agent": "conflict-resolution",
+          "prompt": "A merge or rebase conflict requires ACCEPT/REJECT/REVISE decisions beyond simple line merges.",
+          "send": false
+        },
+        {
+          "label": "Update Agent Docs",
+          "agent": "agent-updater",
+          "prompt": "Tracked repository content changed. Run repository change census and docs/API impact evaluation before closeout.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "work-summarizer",
+      "handoffs": [
+        {
+          "label": "Verify Summary Accuracy",
+          "agent": "technical-validator",
+          "prompt": "Work summary drafted. Verify factual claims (paths, hashes, counts) against on-disk state and git history.",
+          "send": false
+        },
+        {
+          "label": "Run Adversarial Audit",
+          "agent": "adversarial",
+          "prompt": "Work summary drafted. Run a presupposition and cascade-risk audit before finalization.",
+          "send": false
+        },
+        {
+          "label": "Run Conflict Audit",
+          "agent": "conflict-auditor",
+          "prompt": "Work summary drafted. Run a consistency audit against authority sources.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Work summary reporting complete. See workSummaries/.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "primary-producer",
+      "handoffs": [
+        {
+          "label": "Style Audit",
+          "agent": "style-guardian",
+          "prompt": "Draft is ready for style audit.",
+          "send": false
+        },
+        {
+          "label": "Cohesion Audit",
+          "agent": "cohesion-repairer",
+          "prompt": "Draft is ready for cohesion audit.",
+          "send": false
+        },
+        {
+          "label": "Quality Audit",
+          "agent": "quality-auditor",
+          "prompt": "Revised draft is ready for quality audit.",
+          "send": false
+        },
+        {
+          "label": "Conflict Audit",
+          "agent": "conflict-auditor",
+          "prompt": "New deliverable added. Run consistency check.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Deliverable production is complete.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "quality-auditor",
+      "handoffs": [
+        {
+          "label": "Route Corrections to Primary Producer",
+          "agent": "primary-producer",
+          "prompt": "Audit findings attached. Please correct flagged passages.",
+          "send": false
+        },
+        {
+          "label": "Route Cohesion Failures",
+          "agent": "cohesion-repairer",
+          "prompt": "Cohesion failures flagged in audit. Please repair.",
+          "send": false
+        },
+        {
+          "label": "Route Style Issues",
+          "agent": "style-guardian",
+          "prompt": "Style deviations flagged in audit.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Quality audit complete. See findings.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "cohesion-repairer",
+      "handoffs": [
+        {
+          "label": "Style Audit After Repairs",
+          "agent": "style-guardian",
+          "prompt": "Cohesion repairs complete. Run style audit on edited sections.",
+          "send": false
+        },
+        {
+          "label": "Quality Re-Check",
+          "agent": "quality-auditor",
+          "prompt": "Cohesion repairs applied. Re-check repaired sections.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Cohesion repairs complete.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "style-guardian",
+      "handoffs": [
+        {
+          "label": "Route Style Corrections",
+          "agent": "primary-producer",
+          "prompt": "Style audit findings attached. Please correct style deviations.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Style audit complete.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "technical-validator",
+      "handoffs": [
+        {
+          "label": "Route Corrections to Primary Producer",
+          "agent": "primary-producer",
+          "prompt": "Technical accuracy findings attached. Please correct flagged inaccuracies.",
+          "send": false
+        },
+        {
+          "label": "Route Reference Issues",
+          "agent": "reference-manager",
+          "prompt": "Reference accuracy issues found. Please verify.",
+          "send": false
+        },
+        {
+          "label": "Log Conflict",
+          "agent": "conflict-auditor",
+          "prompt": "Technical conflict detected. Logging and routing.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Technical validation complete. See findings.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "output-compiler",
+      "handoffs": [
+        {
+          "label": "Convert Missing Components",
+          "agent": "format-converter",
+          "prompt": "Component needs conversion before assembly. Convert first.",
+          "send": false
+        },
+        {
+          "label": "Validate Technical Accuracy",
+          "agent": "technical-validator",
+          "prompt": "Validate technical accuracy before final assembly.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Final output assembly complete.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "visual-designer",
+      "handoffs": [
+        {
+          "label": "Convert Figure Format",
+          "agent": "format-converter",
+          "prompt": "Diagram is ready for format conversion.",
+          "send": false
+        },
+        {
+          "label": "Quality Check Figure",
+          "agent": "quality-auditor",
+          "prompt": "New or revised figure ready for quality check.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Visual design work complete.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "tool-doc-researcher",
+      "handoffs": [
+        {
+          "label": "Update Brief and Generated Docs",
+          "agent": "agent-updater",
+          "prompt": "Tool documentation research complete. Populate findings into project brief and affected agent files.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Tool documentation research complete.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "ch1-essentials-expert",
+      "handoffs": [
+        {
+          "label": "Vet Brief Before Drafting",
+          "agent": "adversarial",
+          "prompt": "Component Brief prepared. Review for hidden presuppositions before drafting begins.",
+          "send": false
+        },
+        {
+          "label": "Send to Primary Producer",
+          "agent": "primary-producer",
+          "prompt": "Component Brief accepted. Ready for drafting.",
+          "send": false
+        },
+        {
+          "label": "Verify Citations",
+          "agent": "reference-manager",
+          "prompt": "Verify citation keys in Component Brief before drafting begins.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Chapter 1 \u2014 The Essentials has been reviewed and accepted.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "ch2-lists-expert",
+      "handoffs": [
+        {
+          "label": "Vet Brief Before Drafting",
+          "agent": "adversarial",
+          "prompt": "Component Brief prepared. Review for hidden presuppositions before drafting begins.",
+          "send": false
+        },
+        {
+          "label": "Send to Primary Producer",
+          "agent": "primary-producer",
+          "prompt": "Component Brief accepted. Ready for drafting.",
+          "send": false
+        },
+        {
+          "label": "Verify Citations",
+          "agent": "reference-manager",
+          "prompt": "Verify citation keys in Component Brief before drafting begins.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Chapter 2 \u2014 Working With Lists has been reviewed and accepted.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "ch3-numpy-pandas-expert",
+      "handoffs": [
+        {
+          "label": "Vet Brief Before Drafting",
+          "agent": "adversarial",
+          "prompt": "Component Brief prepared. Review for hidden presuppositions before drafting begins.",
+          "send": false
+        },
+        {
+          "label": "Send to Primary Producer",
+          "agent": "primary-producer",
+          "prompt": "Component Brief accepted. Ready for drafting.",
+          "send": false
+        },
+        {
+          "label": "Verify Citations",
+          "agent": "reference-manager",
+          "prompt": "Verify citation keys in Component Brief before drafting begins.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Chapter 3 \u2014 NumPy, Pandas, and Matplotlib has been reviewed and accepted.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "ch4-functional-expert",
+      "handoffs": [
+        {
+          "label": "Vet Brief Before Drafting",
+          "agent": "adversarial",
+          "prompt": "Component Brief prepared. Review for hidden presuppositions before drafting begins.",
+          "send": false
+        },
+        {
+          "label": "Send to Primary Producer",
+          "agent": "primary-producer",
+          "prompt": "Component Brief accepted. Ready for drafting.",
+          "send": false
+        },
+        {
+          "label": "Verify Citations",
+          "agent": "reference-manager",
+          "prompt": "Verify citation keys in Component Brief before drafting begins.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Chapter 4 \u2014 Functional Programming and Rudimentary Statistics has been reviewed and accepted.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "ch5-probability-expert",
+      "handoffs": [
+        {
+          "label": "Vet Brief Before Drafting",
+          "agent": "adversarial",
+          "prompt": "Component Brief prepared. Review for hidden presuppositions before drafting begins.",
+          "send": false
+        },
+        {
+          "label": "Send to Primary Producer",
+          "agent": "primary-producer",
+          "prompt": "Component Brief accepted. Ready for drafting.",
+          "send": false
+        },
+        {
+          "label": "Verify Citations",
+          "agent": "reference-manager",
+          "prompt": "Verify citation keys in Component Brief before drafting begins.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Chapter 5 \u2014 Probability Distributions has been reviewed and accepted.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "ch6-hypothesis-expert",
+      "handoffs": [
+        {
+          "label": "Vet Brief Before Drafting",
+          "agent": "adversarial",
+          "prompt": "Component Brief prepared. Review for hidden presuppositions before drafting begins.",
+          "send": false
+        },
+        {
+          "label": "Send to Primary Producer",
+          "agent": "primary-producer",
+          "prompt": "Component Brief accepted. Ready for drafting.",
+          "send": false
+        },
+        {
+          "label": "Verify Citations",
+          "agent": "reference-manager",
+          "prompt": "Verify citation keys in Component Brief before drafting begins.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Chapter 6 \u2014 Hypothesis Testing has been reviewed and accepted.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "ch7-ols-expert",
+      "handoffs": [
+        {
+          "label": "Vet Brief Before Drafting",
+          "agent": "adversarial",
+          "prompt": "Component Brief prepared. Review for hidden presuppositions before drafting begins.",
+          "send": false
+        },
+        {
+          "label": "Send to Primary Producer",
+          "agent": "primary-producer",
+          "prompt": "Component Brief accepted. Ready for drafting.",
+          "send": false
+        },
+        {
+          "label": "Verify Citations",
+          "agent": "reference-manager",
+          "prompt": "Verify citation keys in Component Brief before drafting begins.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Chapter 7 \u2014 Building an OLS Regression Model has been reviewed and accepted.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "ch8-advanced-expert",
+      "handoffs": [
+        {
+          "label": "Vet Brief Before Drafting",
+          "agent": "adversarial",
+          "prompt": "Component Brief prepared. Review for hidden presuppositions before drafting begins.",
+          "send": false
+        },
+        {
+          "label": "Send to Primary Producer",
+          "agent": "primary-producer",
+          "prompt": "Component Brief accepted. Ready for drafting.",
+          "send": false
+        },
+        {
+          "label": "Verify Citations",
+          "agent": "reference-manager",
+          "prompt": "Verify citation keys in Component Brief before drafting begins.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Chapter 8 \u2014 Advanced Data Analysis has been reviewed and accepted.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "ch9-abm-expert",
+      "handoffs": [
+        {
+          "label": "Vet Brief Before Drafting",
+          "agent": "adversarial",
+          "prompt": "Component Brief prepared. Review for hidden presuppositions before drafting begins.",
+          "send": false
+        },
+        {
+          "label": "Send to Primary Producer",
+          "agent": "primary-producer",
+          "prompt": "Component Brief accepted. Ready for drafting.",
+          "send": false
+        },
+        {
+          "label": "Verify Citations",
+          "agent": "reference-manager",
+          "prompt": "Verify citation keys in Component Brief before drafting begins.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Chapter 9 \u2014 Agent-Based Modeling has been reviewed and accepted.",
+          "send": false
+        }
+      ]
+    },
+    {
+      "agent": "content-enricher",
+      "handoffs": [
+        {
+          "label": "Validate Enriched Content",
+          "agent": "technical-validator",
+          "prompt": "Content enrichment complete. Verify that filled-in values are technically accurate against project source files.",
+          "send": false
+        },
+        {
+          "label": "Return to Orchestrator",
+          "agent": "orchestrator",
+          "prompt": "Content enrichment complete. All auto-fillable placeholders have been resolved.",
+          "send": false
+        }
+      ]
+    }
+  ]
+}

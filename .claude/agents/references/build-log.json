@@ -1,0 +1,641 @@
+{
+  "schema_version": "1.2",
+  "project_name": "LearnPythonStatsEcon",
+  "framework": "claude",
+  "project_type": "software",
+  "archetypes": [
+    "primary-producer",
+    "quality-auditor",
+    "cohesion-repairer",
+    "style-guardian",
+    "technical-validator",
+    "output-compiler",
+    "visual-designer",
+    "tool-doc-researcher"
+  ],
+  "components": [
+    "ch1-essentials",
+    "ch2-lists",
+    "ch3-numpy-pandas",
+    "ch4-functional",
+    "ch5-probability",
+    "ch6-hypothesis",
+    "ch7-ols",
+    "ch8-advanced",
+    "ch9-abm"
+  ],
+  "files_written": [
+    ".claude/agents/orchestrator.md",
+    ".claude/agents/navigator.md",
+    ".claude/agents/security.md",
+    ".claude/agents/code-hygiene.md",
+    ".claude/agents/adversarial.md",
+    ".claude/agents/conflict-auditor.md",
+    ".claude/agents/conflict-resolution.md",
+    ".claude/agents/cleanup.md",
+    ".claude/agents/agent-updater.md",
+    ".claude/agents/agent-refactor.md",
+    ".claude/agents/repo-liaison.md",
+    ".claude/agents/git-operations.md",
+    ".claude/agents/work-summarizer.md",
+    ".claude/agents/primary-producer.md",
+    ".claude/agents/quality-auditor.md",
+    ".claude/agents/cohesion-repairer.md",
+    ".claude/agents/style-guardian.md",
+    ".claude/agents/technical-validator.md",
+    ".claude/agents/output-compiler.md",
+    ".claude/agents/visual-designer.md",
+    ".claude/agents/tool-doc-researcher.md",
+    ".claude/agents/references/ref-jupyter-reference.md",
+    ".claude/agents/references/ref-numpy-reference.md",
+    ".claude/agents/references/ref-pandas-reference.md",
+    ".claude/agents/references/ref-matplotlib-reference.md",
+    ".claude/agents/references/ref-scipy-reference.md",
+    ".claude/agents/references/ref-statsmodels-reference.md",
+    ".claude/agents/references/ref-geopandas-reference.md",
+    ".claude/agents/references/ref-ipywidgets-reference.md",
+    ".claude/agents/references/ref-mpltoolkits-reference.md",
+    ".claude/agents/references/ref-voila-reference.md",
+    ".claude/agents/references/ref-pyarrow-reference.md",
+    ".claude/agents/references/code-hygiene-rules.reference.md",
+    ".claude/agents/references/unix-philosophy-mapping.reference.md",
+    ".claude/agents/references/security-vulnerability-watch.reference.md",
+    ".claude/agents/references/security-vulnerability-watch.json",
+    ".claude/agents/references/security-linux-hardening.reference.md",
+    ".claude/agents/references/security-macos-hardening.reference.md",
+    ".claude/agents/references/security-windows-hardening.reference.md",
+    ".claude/agents/references/ai-bad-habits-watch.reference.md",
+    ".claude/agents/references/framework-watch.reference.md",
+    ".claude/agents/references/adjacent-repos.md",
+    ".claude/agents/references/github-workflows-merge.reference.md",
+    ".claude/agents/references/work-summary-spec.reference.md",
+    ".claude/agents/references/work-summary-tooling.reference.md",
+    ".claude/agents/references/work-summary-backfill.reference.md",
+    ".claude/agents/references/parallelization.reference.md",
+    ".claude/agents/ch1-essentials-expert.md",
+    ".claude/agents/ch2-lists-expert.md",
+    ".claude/agents/ch3-numpy-pandas-expert.md",
+    ".claude/agents/ch4-functional-expert.md",
+    ".claude/agents/ch5-probability-expert.md",
+    ".claude/agents/ch6-hypothesis-expert.md",
+    ".claude/agents/ch7-ols-expert.md",
+    ".claude/agents/ch8-advanced-expert.md",
+    ".claude/agents/ch9-abm-expert.md",
+    ".claude/CLAUDE.md",
+    ".claude/agents/team-builder.md",
+    ".claude/agents/SETUP-REQUIRED.md",
+    ".claude/agents/content-enricher.md",
+    ".claude/agents/references/runtime-handoffs.json",
+    ".claude/agents/references/pipeline-graph.md",
+    ".claude/agents/references/pipeline-graph.svg",
+    ".claude/agents/references/pipeline-handoffs.svg"
+  ],
+  "manual_required": 58,
+  "template_hashes": {
+    "universal/orchestrator.template.md": "ee34760e1f596c17",
+    "universal/navigator.template.md": "003a30ed545c0523",
+    "universal/security.template.md": "ae6475b6df0d1f4e",
+    "universal/code-hygiene.template.md": "5212068c8a00a608",
+    "universal/adversarial.template.md": "54bb7645fbc898a0",
+    "universal/conflict-auditor.template.md": "e25b928260b0e41f",
+    "universal/conflict-resolution.template.md": "ca76a015485079e6",
+    "universal/cleanup.template.md": "bf795b64968349f6",
+    "universal/agent-updater.template.md": "c9636a2efa322a6d",
+    "universal/agent-refactor.template.md": "a9717cc56c35f4ac",
+    "universal/repo-liaison.template.md": "f3ab2dffbbbb29ff",
+    "universal/git-operations.template.md": "82546b5e807d9c98",
+    "domain/work-summarizer.template.md": "c8687de2c1c7761f",
+    "domain/primary-producer.template.md": "c128e8f2fb52885f",
+    "domain/quality-auditor.template.md": "ee64d85aeb76a593",
+    "domain/cohesion-repairer.template.md": "a2c3b4844110b04a",
+    "domain/style-guardian.template.md": "919e2e8d6cd90721",
+    "domain/technical-validator.template.md": "63e5171f48e91180",
+    "domain/output-compiler.template.md": "fd90f3a13765386a",
+    "domain/visual-designer.template.md": "cae39ee7b6d167f4",
+    "domain/tool-doc-researcher.template.md": "438a7b161ae728c0",
+    "domain/tool-reference.template.md": "5ce5638b7094cc86",
+    "domain/code-hygiene-rules-reference.template.md": "64dd0cd05107784f",
+    "domain/unix-philosophy-mapping-reference.template.md": "b086c16596a3030b",
+    "universal/security-vulnerability-watch.reference.template.md": "1680e6cfd2a72275",
+    "universal/security-vulnerability-watch.json.template": "ebcec1b04ad46caa",
+    "universal/security-linux-hardening.reference.template.md": "622535f7bfa41de6",
+    "universal/security-macos-hardening.reference.template.md": "1333cb343a3e33cf",
+    "universal/security-windows-hardening.reference.template.md": "ac81a0b5b583aa6d",
+    "universal/ai-bad-habits-watch.reference.template.md": "690a289b3fdbdf9e",
+    "universal/framework-watch.reference.template.md": "7e895e4a5ccc6540",
+    "universal/adjacent-repos.reference.template.md": "d5f6783fe18f21c6",
+    "universal/github-workflows-merge.reference.template.md": "4b5d6066a338ae74",
+    "universal/work-summary-spec.reference.template.md": "d29ca7e680ad715d",
+    "universal/work-summary-tooling.reference.template.md": "62e643b1a9711af6",
+    "universal/work-summary-backfill.reference.template.md": "5730bac043dc2874",
+    "universal/parallelization.reference.template.md": "2c872341050a7781",
+    "workstream-expert.template.md": "13161f3a3cdf1789",
+    "copilot-instructions.template.md": "9c56d724f06a9549",
+    "builder/team-builder-claude.template.md": "1fa8401d6258d9b7",
+    "domain/content-enricher.template.md": "d7e6e4a50dcef1c7"
+  },
+  "output_files_map": [
+    {
+      "path": "orchestrator.agent.md",
+      "template": "universal/orchestrator.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "navigator.agent.md",
+      "template": "universal/navigator.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "security.agent.md",
+      "template": "universal/security.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "code-hygiene.agent.md",
+      "template": "universal/code-hygiene.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "adversarial.agent.md",
+      "template": "universal/adversarial.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "conflict-auditor.agent.md",
+      "template": "universal/conflict-auditor.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "conflict-resolution.agent.md",
+      "template": "universal/conflict-resolution.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "cleanup.agent.md",
+      "template": "universal/cleanup.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "agent-updater.agent.md",
+      "template": "universal/agent-updater.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "agent-refactor.agent.md",
+      "template": "universal/agent-refactor.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "repo-liaison.agent.md",
+      "template": "universal/repo-liaison.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "git-operations.agent.md",
+      "template": "universal/git-operations.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "work-summarizer.agent.md",
+      "template": "domain/work-summarizer.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "primary-producer.agent.md",
+      "template": "domain/primary-producer.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "quality-auditor.agent.md",
+      "template": "domain/quality-auditor.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "cohesion-repairer.agent.md",
+      "template": "domain/cohesion-repairer.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "style-guardian.agent.md",
+      "template": "domain/style-guardian.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "technical-validator.agent.md",
+      "template": "domain/technical-validator.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "output-compiler.agent.md",
+      "template": "domain/output-compiler.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "visual-designer.agent.md",
+      "template": "domain/visual-designer.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "tool-doc-researcher.agent.md",
+      "template": "domain/tool-doc-researcher.template.md",
+      "type": "agent",
+      "component_slug": null
+    },
+    {
+      "path": "references/ref-jupyter-reference.md",
+      "template": "domain/tool-reference.template.md",
+      "type": "reference",
+      "component_slug": null,
+      "tool_slug": "ref-jupyter"
+    },
+    {
+      "path": "references/ref-numpy-reference.md",
+      "template": "domain/tool-reference.template.md",
+      "type": "reference",
+      "component_slug": null,
+      "tool_slug": "ref-numpy"
+    },
+    {
+      "path": "references/ref-pandas-reference.md",
+      "template": "domain/tool-reference.template.md",
+      "type": "reference",
+      "component_slug": null,
+      "tool_slug": "ref-pandas"
+    },
+    {
+      "path": "references/ref-matplotlib-reference.md",
+      "template": "domain/tool-reference.template.md",
+      "type": "reference",
+      "component_slug": null,
+      "tool_slug": "ref-matplotlib"
+    },
+    {
+      "path": "references/ref-scipy-reference.md",
+      "template": "domain/tool-reference.template.md",
+      "type": "reference",
+      "component_slug": null,
+      "tool_slug": "ref-scipy"
+    },
+    {
+      "path": "references/ref-statsmodels-reference.md",
+      "template": "domain/tool-reference.template.md",
+      "type": "reference",
+      "component_slug": null,
+      "tool_slug": "ref-statsmodels"
+    },
+    {
+      "path": "references/ref-geopandas-reference.md",
+      "template": "domain/tool-reference.template.md",
+      "type": "reference",
+      "component_slug": null,
+      "tool_slug": "ref-geopandas"
+    },
+    {
+      "path": "references/ref-ipywidgets-reference.md",
+      "template": "domain/tool-reference.template.md",
+      "type": "reference",
+      "component_slug": null,
+      "tool_slug": "ref-ipywidgets"
+    },
+    {
+      "path": "references/ref-mpltoolkits-reference.md",
+      "template": "domain/tool-reference.template.md",
+      "type": "reference",
+      "component_slug": null,
+      "tool_slug": "ref-mpltoolkits"
+    },
+    {
+      "path": "references/ref-voila-reference.md",
+      "template": "domain/tool-reference.template.md",
+      "type": "reference",
+      "component_slug": null,
+      "tool_slug": "ref-voila"
+    },
+    {
+      "path": "references/ref-pyarrow-reference.md",
+      "template": "domain/tool-reference.template.md",
+      "type": "reference",
+      "component_slug": null,
+      "tool_slug": "ref-pyarrow"
+    },
+    {
+      "path": "references/code-hygiene-rules.reference.md",
+      "template": "domain/code-hygiene-rules-reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/unix-philosophy-mapping.reference.md",
+      "template": "domain/unix-philosophy-mapping-reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/security-vulnerability-watch.reference.md",
+      "template": "universal/security-vulnerability-watch.reference.template.md",
+      "type": "artifact",
+      "component_slug": null
+    },
+    {
+      "path": "references/security-vulnerability-watch.json",
+      "template": "universal/security-vulnerability-watch.json.template",
+      "type": "artifact",
+      "component_slug": null
+    },
+    {
+      "path": "references/security-linux-hardening.reference.md",
+      "template": "universal/security-linux-hardening.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/security-macos-hardening.reference.md",
+      "template": "universal/security-macos-hardening.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/security-windows-hardening.reference.md",
+      "template": "universal/security-windows-hardening.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/ai-bad-habits-watch.reference.md",
+      "template": "universal/ai-bad-habits-watch.reference.template.md",
+      "type": "artifact",
+      "component_slug": null
+    },
+    {
+      "path": "references/framework-watch.reference.md",
+      "template": "universal/framework-watch.reference.template.md",
+      "type": "artifact",
+      "component_slug": null
+    },
+    {
+      "path": "references/adjacent-repos.md",
+      "template": "universal/adjacent-repos.reference.template.md",
+      "type": "artifact",
+      "component_slug": null
+    },
+    {
+      "path": "references/github-workflows-merge.reference.md",
+      "template": "universal/github-workflows-merge.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/work-summary-spec.reference.md",
+      "template": "universal/work-summary-spec.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/work-summary-tooling.reference.md",
+      "template": "universal/work-summary-tooling.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/work-summary-backfill.reference.md",
+      "template": "universal/work-summary-backfill.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/parallelization.reference.md",
+      "template": "universal/parallelization.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "ch1-essentials-expert.agent.md",
+      "template": "workstream-expert.template.md",
+      "type": "agent",
+      "component_slug": "ch1-essentials"
+    },
+    {
+      "path": "ch2-lists-expert.agent.md",
+      "template": "workstream-expert.template.md",
+      "type": "agent",
+      "component_slug": "ch2-lists"
+    },
+    {
+      "path": "ch3-numpy-pandas-expert.agent.md",
+      "template": "workstream-expert.template.md",
+      "type": "agent",
+      "component_slug": "ch3-numpy-pandas"
+    },
+    {
+      "path": "ch4-functional-expert.agent.md",
+      "template": "workstream-expert.template.md",
+      "type": "agent",
+      "component_slug": "ch4-functional"
+    },
+    {
+      "path": "ch5-probability-expert.agent.md",
+      "template": "workstream-expert.template.md",
+      "type": "agent",
+      "component_slug": "ch5-probability"
+    },
+    {
+      "path": "ch6-hypothesis-expert.agent.md",
+      "template": "workstream-expert.template.md",
+      "type": "agent",
+      "component_slug": "ch6-hypothesis"
+    },
+    {
+      "path": "ch7-ols-expert.agent.md",
+      "template": "workstream-expert.template.md",
+      "type": "agent",
+      "component_slug": "ch7-ols"
+    },
+    {
+      "path": "ch8-advanced-expert.agent.md",
+      "template": "workstream-expert.template.md",
+      "type": "agent",
+      "component_slug": "ch8-advanced"
+    },
+    {
+      "path": "ch9-abm-expert.agent.md",
+      "template": "workstream-expert.template.md",
+      "type": "agent",
+      "component_slug": "ch9-abm"
+    },
+    {
+      "path": "../CLAUDE.md",
+      "template": "copilot-instructions.template.md",
+      "type": "instructions",
+      "component_slug": null
+    },
+    {
+      "path": "team-builder.agent.md",
+      "template": "builder/team-builder-claude.template.md",
+      "type": "builder",
+      "component_slug": null
+    },
+    {
+      "path": "SETUP-REQUIRED.md",
+      "template": "",
+      "type": "setup-required",
+      "component_slug": null
+    },
+    {
+      "path": "references/pipeline-graph.md",
+      "template": "",
+      "type": "graph",
+      "component_slug": null
+    },
+    {
+      "path": "references/pipeline-graph.svg",
+      "template": "",
+      "type": "graph-svg",
+      "component_slug": null
+    },
+    {
+      "path": "references/pipeline-handoffs.svg",
+      "template": "",
+      "type": "graph-svg",
+      "component_slug": null
+    },
+    {
+      "path": "content-enricher.agent.md",
+      "template": "domain/content-enricher.template.md",
+      "type": "agent",
+      "component_slug": null
+    }
+  ],
+  "agent_slug_list": [
+    "orchestrator",
+    "navigator",
+    "security",
+    "code-hygiene",
+    "adversarial",
+    "conflict-auditor",
+    "conflict-resolution",
+    "cleanup",
+    "agent-updater",
+    "agent-refactor",
+    "repo-liaison",
+    "git-operations",
+    "work-summarizer",
+    "primary-producer",
+    "quality-auditor",
+    "cohesion-repairer",
+    "style-guardian",
+    "technical-validator",
+    "output-compiler",
+    "visual-designer",
+    "tool-doc-researcher",
+    "ch1-essentials-expert",
+    "ch2-lists-expert",
+    "ch3-numpy-pandas-expert",
+    "ch4-functional-expert",
+    "ch5-probability-expert",
+    "ch6-hypothesis-expert",
+    "ch7-ols-expert",
+    "ch8-advanced-expert",
+    "ch9-abm-expert"
+  ],
+  "governance_agents": [
+    "navigator",
+    "security",
+    "code-hygiene",
+    "adversarial",
+    "conflict-auditor",
+    "conflict-resolution",
+    "cleanup",
+    "agent-updater",
+    "agent-refactor",
+    "repo-liaison",
+    "git-operations"
+  ],
+  "manifest_fingerprint": "6b02874e715fb0cb",
+  "fingerprint_algo_version": 1,
+  "file_hashes": {
+    "orchestrator.md": "a1e15f9f9df00594",
+    "navigator.md": "79d154fe1ab88a5e",
+    "security.md": "adfe3a7cc17ba456",
+    "code-hygiene.md": "a898e108354679b4",
+    "adversarial.md": "6ba68cb7348715bd",
+    "conflict-auditor.md": "91363ba31aee4d04",
+    "conflict-resolution.md": "1d619c0cd34fe7f0",
+    "cleanup.md": "b718803380793d3c",
+    "agent-updater.md": "8cb14fade9a13b5f",
+    "agent-refactor.md": "54cfd6f31f0acc7d",
+    "repo-liaison.md": "b7b630cf35c82fdb",
+    "git-operations.md": "f4ea5551f6294541",
+    "work-summarizer.md": "d414d96eaf3b0595",
+    "primary-producer.md": "88a3829b4259b630",
+    "quality-auditor.md": "d7ad2ab26b11eb8b",
+    "cohesion-repairer.md": "3f5615c7296b57a1",
+    "style-guardian.md": "9623e2bbd67c41b4",
+    "technical-validator.md": "e0518a0a20f682f7",
+    "output-compiler.md": "d4dae444e0a10aef",
+    "visual-designer.md": "9b61cd14f1c92d4d",
+    "tool-doc-researcher.md": "0846dfde8bfd72c5",
+    "references/ref-jupyter-reference.md": "ab8739c84c188392",
+    "references/ref-numpy-reference.md": "e0851ac27595e688",
+    "references/ref-pandas-reference.md": "8a12ecd685b2f8d9",
+    "references/ref-matplotlib-reference.md": "5f66a09b315a2fc3",
+    "references/ref-scipy-reference.md": "1c043f065f14e4f7",
+    "references/ref-statsmodels-reference.md": "5dadead296f60894",
+    "references/ref-geopandas-reference.md": "adad408cac2ad394",
+    "references/ref-ipywidgets-reference.md": "e9c39992c5e37893",
+    "references/ref-mpltoolkits-reference.md": "048fb21a66e854e7",
+    "references/ref-voila-reference.md": "3e2ad7487d2799e0",
+    "references/ref-pyarrow-reference.md": "caf4f4df39b23e3a",
+    "references/code-hygiene-rules.reference.md": "e494a6d4dd5e2409",
+    "references/unix-philosophy-mapping.reference.md": "c3ae1b1024b3345d",
+    "references/security-vulnerability-watch.reference.md": "af6bde4670f5577c",
+    "references/security-vulnerability-watch.json": "b1203531befb0559",
+    "references/security-linux-hardening.reference.md": "4f2ca17cf5536195",
+    "references/security-macos-hardening.reference.md": "4e272a417d26cae6",
+    "references/security-windows-hardening.reference.md": "e5e3fcc7fd4cb5e2",
+    "references/ai-bad-habits-watch.reference.md": "05b4f2290dfec11e",
+    "references/framework-watch.reference.md": "6c7a6e11b92500cb",
+    "references/adjacent-repos.md": "540a4839ffb928ef",
+    "references/github-workflows-merge.reference.md": "af659d5abdf8a903",
+    "references/work-summary-spec.reference.md": "96232231a1f7c6be",
+    "references/work-summary-tooling.reference.md": "f3656972717153a9",
+    "references/work-summary-backfill.reference.md": "a0543cde8916cedb",
+    "references/parallelization.reference.md": "d2321bf5ac1ed2f8",
+    "ch1-essentials-expert.md": "60b9cf6f2dfd21a3",
+    "ch2-lists-expert.md": "32d34cdb0e8ea34d",
+    "ch3-numpy-pandas-expert.md": "9fd64da516808fea",
+    "ch4-functional-expert.md": "4fe44ce24aa87671",
+    "ch5-probability-expert.md": "4cb4f5b82518f2ff",
+    "ch6-hypothesis-expert.md": "6eb63481ee6028e7",
+    "ch7-ols-expert.md": "6ec023f2af51e675",
+    "ch8-advanced-expert.md": "88a8826e4f6dc47e",
+    "ch9-abm-expert.md": "ceaafd3920a620fb",
+    "../CLAUDE.md": "aebc4e76770d1d66",
+    "team-builder.md": "c84c12fc758a041d",
+    "SETUP-REQUIRED.md": "33f78db3bc9ef721",
+    "content-enricher.md": "0497d9d6ba0ced55",
+    "references/runtime-handoffs.json": "c8e38718b74c0f92",
+    "references/pipeline-graph.md": "01594a6584c41556",
+    "references/pipeline-graph.svg": "b6aa045340a3bce8",
+    "references/pipeline-handoffs.svg": "7b18459f4e0fae2f"
+  }
+}

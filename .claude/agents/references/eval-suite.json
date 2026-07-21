@@ -1,0 +1,175 @@
+{
+  "artifact_type": "eval-suite",
+  "eval_suite_schema_version": "1.0",
+  "project_name": "LearnPythonStatsEcon",
+  "framework": "claude",
+  "generated_from": "manifest",
+  "scenarios": [
+    {
+      "id": "routing-orchestrator-knows-all-experts",
+      "category": "routing",
+      "claim": "The orchestrator's agents: list includes every workstream expert, so it can route to each declared component.",
+      "predicate": {
+        "kind": "frontmatter-list-contains-all",
+        "file": "orchestrator.agent.md",
+        "field": "agents",
+        "values": [
+          "ch1-essentials-expert",
+          "ch2-lists-expert",
+          "ch3-numpy-pandas-expert",
+          "ch4-functional-expert",
+          "ch5-probability-expert",
+          "ch6-hypothesis-expert",
+          "ch7-ols-expert",
+          "ch8-advanced-expert",
+          "ch9-abm-expert"
+        ]
+      }
+    },
+    {
+      "id": "routing-expert-count-matches-components",
+      "category": "routing",
+      "claim": "Exactly 9 workstream-expert agent file(s) are emitted for 9 declared component(s).",
+      "predicate": {
+        "kind": "agent-count",
+        "suffix": "-expert.agent.md",
+        "count": 9
+      }
+    },
+    {
+      "id": "governance-ch1-essentials-triad-and-return",
+      "category": "governance",
+      "claim": "ch1-essentials-expert wires the worker-governance triad (primary-producer, adversarial, reference-manager) and includes a 'Return to Orchestrator' edge.",
+      "predicate": {
+        "kind": "frontmatter-and-body",
+        "file": "ch1-essentials-expert.agent.md",
+        "agents_contains_all": [
+          "primary-producer",
+          "adversarial",
+          "reference-manager"
+        ],
+        "body_contains": "Return to Orchestrator"
+      }
+    },
+    {
+      "id": "governance-ch2-lists-triad-and-return",
+      "category": "governance",
+      "claim": "ch2-lists-expert wires the worker-governance triad (primary-producer, adversarial, reference-manager) and includes a 'Return to Orchestrator' edge.",
+      "predicate": {
+        "kind": "frontmatter-and-body",
+        "file": "ch2-lists-expert.agent.md",
+        "agents_contains_all": [
+          "primary-producer",
+          "adversarial",
+          "reference-manager"
+        ],
+        "body_contains": "Return to Orchestrator"
+      }
+    },
+    {
+      "id": "governance-ch3-numpy-pandas-triad-and-return",
+      "category": "governance",
+      "claim": "ch3-numpy-pandas-expert wires the worker-governance triad (primary-producer, adversarial, reference-manager) and includes a 'Return to Orchestrator' edge.",
+      "predicate": {
+        "kind": "frontmatter-and-body",
+        "file": "ch3-numpy-pandas-expert.agent.md",
+        "agents_contains_all": [
+          "primary-producer",
+          "adversarial",
+          "reference-manager"
+        ],
+        "body_contains": "Return to Orchestrator"
+      }
+    },
+    {
+      "id": "governance-ch4-functional-triad-and-return",
+      "category": "governance",
+      "claim": "ch4-functional-expert wires the worker-governance triad (primary-producer, adversarial, reference-manager) and includes a 'Return to Orchestrator' edge.",
+      "predicate": {
+        "kind": "frontmatter-and-body",
+        "file": "ch4-functional-expert.agent.md",
+        "agents_contains_all": [
+          "primary-producer",
+          "adversarial",
+          "reference-manager"
+        ],
+        "body_contains": "Return to Orchestrator"
+      }
+    },
+    {
+      "id": "governance-ch5-probability-triad-and-return",
+      "category": "governance",
+      "claim": "ch5-probability-expert wires the worker-governance triad (primary-producer, adversarial, reference-manager) and includes a 'Return to Orchestrator' edge.",
+      "predicate": {
+        "kind": "frontmatter-and-body",
+        "file": "ch5-probability-expert.agent.md",
+        "agents_contains_all": [
+          "primary-producer",
+          "adversarial",
+          "reference-manager"
+        ],
+        "body_contains": "Return to Orchestrator"
+      }
+    },
+    {
+      "id": "governance-ch6-hypothesis-triad-and-return",
+      "category": "governance",
+      "claim": "ch6-hypothesis-expert wires the worker-governance triad (primary-producer, adversarial, reference-manager) and includes a 'Return to Orchestrator' edge.",
+      "predicate": {
+        "kind": "frontmatter-and-body",
+        "file": "ch6-hypothesis-expert.agent.md",
+        "agents_contains_all": [
+          "primary-producer",
+          "adversarial",
+          "reference-manager"
+        ],
+        "body_contains": "Return to Orchestrator"
+      }
+    },
+    {
+      "id": "governance-ch7-ols-triad-and-return",
+      "category": "governance",
+      "claim": "ch7-ols-expert wires the worker-governance triad (primary-producer, adversarial, reference-manager) and includes a 'Return to Orchestrator' edge.",
+      "predicate": {
+        "kind": "frontmatter-and-body",
+        "file": "ch7-ols-expert.agent.md",
+        "agents_contains_all": [
+          "primary-producer",
+          "adversarial",
+          "reference-manager"
+        ],
+        "body_contains": "Return to Orchestrator"
+      }
+    },
+    {
+      "id": "governance-ch8-advanced-triad-and-return",
+      "category": "governance",
+      "claim": "ch8-advanced-expert wires the worker-governance triad (primary-producer, adversarial, reference-manager) and includes a 'Return to Orchestrator' edge.",
+      "predicate": {
+        "kind": "frontmatter-and-body",
+        "file": "ch8-advanced-expert.agent.md",
+        "agents_contains_all": [
+          "primary-producer",
+          "adversarial",
+          "reference-manager"
+        ],
+        "body_contains": "Return to Orchestrator"
+      }
+    },
+    {
+      "id": "governance-ch9-abm-triad-and-return",
+      "category": "governance",
+      "claim": "ch9-abm-expert wires the worker-governance triad (primary-producer, adversarial, reference-manager) and includes a 'Return to Orchestrator' edge.",
+      "predicate": {
+        "kind": "frontmatter-and-body",
+        "file": "ch9-abm-expert.agent.md",
+        "agents_contains_all": [
+          "primary-producer",
+          "adversarial",
+          "reference-manager"
+        ],
+        "body_contains": "Return to Orchestrator"
+      }
+    }
+  ]
+}
