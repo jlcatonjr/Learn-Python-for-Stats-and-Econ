@@ -16,17 +16,17 @@
 
 ## Official Documentation
 
-{MANUAL:TOOL_DOCS_URL}
+https://docs.scipy.org/doc/scipy/reference/
 
 ## Key API Surface
 
-{MANUAL:TOOL_API_SURFACE}
+scipy.stats — probability distributions (norm, t, f, chi2, binom), hypothesis tests (ttest_ind, ttest_rel, mannwhitneyu, chi2_contingency, f_oneway), descriptive stats (describe, skew, kurtosis); scipy.optimize — minimize, curve_fit, root_scalar; scipy.linalg — solve, inv, det, eig
 
 <!-- Document the primary classes, functions, or APIs that project code depends on from SciPy. -->
 
 ## Common Patterns & Pitfalls
 
-{MANUAL:TOOL_COMMON_PATTERNS}
+scipy.stats.norm.cdf/ppf for z-score and critical-value lookups. ttest_ind(a, b, equal_var=False) (Welch t-test) unless variances are verified equal. f_oneway(*groups) for one-way ANOVA. Pitfall: most distribution objects use scale (not variance) as the second parameter.
 
 <!-- Document common usage patterns, best practices, and known issues for SciPy . -->
 

@@ -31,6 +31,7 @@ deliberately not catalogued here.
 |----|-----------|------------|--------------------|
 | BH-06 | Hallucinated or unresolvable dependencies / imports | — | Verify every import and package resolves against the real registry; pin + lockfile. (The supply-chain / slopsquatting SECURITY angle is @security's.) |
 | BH-07 | Model output forwarded without shape-validation | CH-23 | Validate/shape-check AI output and fail fast on unexpected shapes (CH-23). (The untrusted-sink injection angle is @security's.) |
+| BH-11 | A backstage/utility LLM call silently inherits a user-facing, dynamically-selectable model (or other generation parameter) choice, without accounting for that model's behavioral differences | CH-23 | Give utility calls (routing, extraction, summarization, auditing) their own default, independent of a user-facing picker — or explicitly account for the selected model's behavior (e.g. a reasoning model consuming its fixed token budget on internal thinking before any requested output). An ambiguous empty/degraded result from such a call must not be treated as a confident negative (see BH-07/CH-23). |
 
 ### Process
 

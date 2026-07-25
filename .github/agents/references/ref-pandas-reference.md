@@ -16,17 +16,17 @@
 
 ## Official Documentation
 
-https://pandas.pydata.org/docs/
+https://pandas.pydata.org/docs/reference/
 
 ## Key API Surface
 
-DataFrame, Series, read_csv, merge, groupby, pivot_table
+DataFrame/Series creation and I/O (pd.read_csv, pd.read_excel, to_csv); indexing (.loc, .iloc, boolean indexing); groupby, merge/join, pivot_table; time-series (DatetimeIndex, resample, rolling); string methods (.str.*); missing data (dropna, fillna, isna)
 
 <!-- Document the primary classes, functions, or APIs that project code depends on from Pandas. -->
 
 ## Common Patterns & Pitfalls
 
-Prefer vectorized operations, explicit dtypes, and merge or groupby pipelines over row-wise apply when possible.
+Always set index explicitly after loading CSVs when a natural key exists. Use .copy() when slicing to avoid SettingWithCopyWarning. groupby().agg() for multi-stat summaries. pd.to_datetime() + dt accessor for time-series manipulation. Pitfall: chained indexing silently creates copies — use .loc.
 
 <!-- Document common usage patterns, best practices, and known issues for Pandas . -->
 

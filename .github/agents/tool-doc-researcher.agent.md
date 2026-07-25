@@ -141,7 +141,7 @@ After completing all tools in the list, hand off to `@agent-updater` with these 
 2. Directly update the affected tool agent files and reference files in `.github/agents/` so the current generation is complete without requiring a full rerender.
 <!-- AGENTTEAMS:END content -->
 
-<!-- AGENTTEAMS:BEGIN memory_index_consultation v=1 -->
+<!-- AGENTTEAMS:BEGIN memory_index_consultation v=2 -->
 ## Memory-index consultation *(applies when `references/memory-index.json` is present)*
 
 Before opening external documentation tiers, check whether the team has already researched this tool — prior handoffs, work summaries, or tool reference files may already carry the `docs_url`, `api_surface`, or version-pinned `common_patterns` for the version listed in the project brief:
@@ -150,7 +150,9 @@ Before opening external documentation tiers, check whether the team has already 
 agentteams --query-index "<tool name> <version>" --query-strategy lexical --query-k 5 --description .agentteams/brief.json --project . --output .github/agents --no-scan --yes
 ```
 
-If a prior research artifact surfaces (top-1 ≥ 3.0 is a reliable hit; 1.0–3.0 is candidate-for-inspection, responsive snippet), open it and reuse the verified fields — re-verifying only the `docs_url` against the live site to confirm it has not moved. Cite the prior artifact in your output so `@agent-updater` knows the data was reused, not re-fetched. Never block on the index; if absent/empty, proceed to Tier 1 below.
+Fall back to `--query-strategy vector` when **either** (a) lexical returns zero hits, **or** (b) the lexical top-1 has no content-word overlap with the query (single-term false-positive guard).
+
+Each hit's `confidence` field (`reliable` / `candidate` / `weak`) is computed by `agentteams.memory_index.query_index()` from the same per-strategy thresholds this section used to restate by hand — treat `reliable` as an actionable hit, `candidate` as worth opening before relying on it. If your runtime can't read the structured field, fall back to: lexical top-1 ≥ 3.0 reliable / 1.0–3.0 candidate-for-inspection; vector top-1 ≥ 0.30 reliable / 0.20–0.30 candidate-for-inspection. If a prior research artifact surfaces at `reliable` or `candidate`, open it and reuse the verified fields — re-verifying only the `docs_url` against the live site to confirm it has not moved. Cite the prior artifact in your output so `@agent-updater` knows the data was reused, not re-fetched. Never block on the index; if absent/empty, proceed to Tier 1 below.
 <!-- AGENTTEAMS:END memory_index_consultation -->
 
 ## Project-Specific Notes

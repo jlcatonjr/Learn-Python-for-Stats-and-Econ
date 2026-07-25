@@ -72,7 +72,7 @@ Findings ranked by severity — HIGH first.
 - **No aesthetic judgments.** Raise structural, logical, or pattern defects only. Style deviations route to `@style-guardian`.
 <!-- AGENTTEAMS:END content -->
 
-<!-- AGENTTEAMS:BEGIN memory_index_consultation v=3 -->
+<!-- AGENTTEAMS:BEGIN memory_index_consultation v=4 -->
 ## Memory-index consultation *(applies when `references/memory-index.json` is present)*
 
 When a deliverable's defect shape looks recurrent — "have we flagged this LLM pattern / structural defect before?", or "did a prior audit on this deliverable's predecessor adjudicate this passage?" — consult the index before opening a new finding. Lexical-first when the query contains a quoted passage, file path, or specific terminology; vector for thematic recurrence questions.
@@ -86,9 +86,7 @@ agentteams --query-index "<defect description, quoted passage, or deliverable na
 
 Fall back to `--query-strategy vector` when **either** (a) lexical returns zero hits, **or** (b) the lexical top-1 has no content-word overlap with the query (single-term false-positive guard), **or** (c) the question is purely thematic ("structural defect," "filler phrases") with no concrete handle to lexical-match on.
 
-Per-strategy thresholds (the two scales are not comparable):
-- **Lexical:** top-1 ≥ 3.0 is a reliable hit; 1.0–3.0 is candidate-for-inspection.
-- **Vector:** top-1 ≥ 0.30 is reliable; 0.20–0.30 is candidate-for-inspection. These floors are corpus-specific guidance, not a mathematical cap — cosine ∈ [0,1] and high values (≥ 0.5, up to 1.0) are legitimate when query terms concentrate in a focused or short document, so do not treat ≥ 0.5 as anomalous.
+Each returned hit's `confidence` field (`reliable` / `candidate` / `weak`) is computed by `agentteams.memory_index.query_index()` from the same per-strategy thresholds this section used to restate by hand — treat `reliable` as an actionable hit, `candidate` as worth opening before relying on it, and `weak` as noise. If the affordance's output is text-only (no structured field visible), fall back to: lexical top-1 ≥ 3.0 reliable / 1.0–3.0 candidate-for-inspection; vector top-1 ≥ 0.30 reliable / 0.20–0.30 candidate-for-inspection (cosine ∈ [0,1]; high values ≥ 0.5 are legitimate on a focused/short document, not anomalous).
 
 If a prior audit's finding matches, cite that audit in the new finding's evidence so the producer sees the recurrence pattern. Never block on the index; if both strategies are inconclusive, proceed with the three-pass protocol below as the source of truth.
 <!-- AGENTTEAMS:END memory_index_consultation -->

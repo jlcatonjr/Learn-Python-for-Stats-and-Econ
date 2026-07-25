@@ -16,17 +16,17 @@
 
 ## Official Documentation
 
-https://matplotlib.org/stable/contents.html
+https://matplotlib.org/stable/api/
 
 ## Key API Surface
 
-pyplot.figure, pyplot.subplots, Axes.plot, Axes.bar, savefig
+Functional interface (plt.plot, plt.scatter, plt.hist, plt.bar, plt.show); object-oriented interface (fig, ax = plt.subplots()); axes labels/titles/legends (ax.set_xlabel, ax.set_title, ax.legend); multiple subplots (plt.subplots(nrows, ncols)); saving figures (plt.savefig)
 
 <!-- Document the primary classes, functions, or APIs that project code depends on from Matplotlib. -->
 
 ## Common Patterns & Pitfalls
 
-Create figures and axes explicitly, label every chart, and save deterministic output paths for reproducibility.
+Prefer the OO interface (fig, ax = plt.subplots()) for multi-panel figures. Always set fig.tight_layout() before savefig to avoid clipped labels. Use plt.style.use('seaborn-v0_8') for publication-ready aesthetics. Pitfall: plt.show() clears the figure — call savefig before show.
 
 <!-- Document common usage patterns, best practices, and known issues for Matplotlib . -->
 

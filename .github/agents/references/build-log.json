@@ -10,8 +10,7 @@
     "style-guardian",
     "technical-validator",
     "output-compiler",
-    "visual-designer",
-    "tool-doc-researcher"
+    "visual-designer"
   ],
   "components": [
     "ch1-essentials",
@@ -24,36 +23,29 @@
     "ch8-advanced",
     "ch9-abm"
   ],
-  "files_written": [
-    ".github/agents/references/ref-geopandas-reference.md",
-    ".github/agents/references/ref-mpltoolkits-reference.md",
-    ".github/agents/references/ref-voila-reference.md",
-    ".github/agents/references/ref-pyarrow-reference.md",
-    ".vscode/tasks.json"
-  ],
-  "manual_required": 69,
+  "files_written": [],
+  "manual_required": 37,
   "template_hashes": {
-    "universal/orchestrator.template.md": "ee34760e1f596c17",
+    "universal/orchestrator.template.md": "d97901a295889110",
     "universal/navigator.template.md": "003a30ed545c0523",
-    "universal/security.template.md": "ae6475b6df0d1f4e",
+    "universal/security.template.md": "84df1e9387585ac4",
     "universal/code-hygiene.template.md": "5212068c8a00a608",
-    "universal/adversarial.template.md": "54bb7645fbc898a0",
-    "universal/conflict-auditor.template.md": "e25b928260b0e41f",
-    "universal/conflict-resolution.template.md": "ca76a015485079e6",
+    "universal/adversarial.template.md": "ea4659f376567351",
+    "universal/conflict-auditor.template.md": "a8e9e710ea50cfb2",
+    "universal/conflict-resolution.template.md": "6f0d98f3ab01d420",
     "universal/cleanup.template.md": "bf795b64968349f6",
     "universal/agent-updater.template.md": "c9636a2efa322a6d",
     "universal/agent-refactor.template.md": "a9717cc56c35f4ac",
-    "universal/repo-liaison.template.md": "f3ab2dffbbbb29ff",
+    "universal/repo-liaison.template.md": "e0ce7bfccf6dafce",
     "universal/git-operations.template.md": "82546b5e807d9c98",
     "domain/work-summarizer.template.md": "c8687de2c1c7761f",
     "domain/primary-producer.template.md": "c128e8f2fb52885f",
-    "domain/quality-auditor.template.md": "ee64d85aeb76a593",
+    "domain/quality-auditor.template.md": "d8414b64b6db9fb7",
     "domain/cohesion-repairer.template.md": "a2c3b4844110b04a",
     "domain/style-guardian.template.md": "919e2e8d6cd90721",
-    "domain/technical-validator.template.md": "63e5171f48e91180",
+    "domain/technical-validator.template.md": "bf48db2ccc132397",
     "domain/output-compiler.template.md": "fd90f3a13765386a",
     "domain/visual-designer.template.md": "cae39ee7b6d167f4",
-    "domain/tool-doc-researcher.template.md": "438a7b161ae728c0",
     "domain/tool-reference.template.md": "5ce5638b7094cc86",
     "domain/code-hygiene-rules-reference.template.md": "64dd0cd05107784f",
     "domain/unix-philosophy-mapping-reference.template.md": "b086c16596a3030b",
@@ -70,10 +62,14 @@
     "universal/work-summary-tooling.reference.template.md": "62e643b1a9711af6",
     "universal/work-summary-backfill.reference.template.md": "5730bac043dc2874",
     "universal/parallelization.reference.template.md": "2c872341050a7781",
+    "universal/retrospective-remediation.reference.template.md": "b1802f5e1ab294ad",
+    "universal/cli-tool-discovery.reference.template.md": "203004e771c8b2fd",
+    "universal/skill-generation.reference.template.md": "47bcf76ed8f69a80",
+    "universal/external-retrieval-quality-gate.reference.template.md": "961ec24da248b289",
     "workstream-expert.template.md": "13161f3a3cdf1789",
     "copilot-instructions.template.md": "9c56d724f06a9549",
     "builder/team-builder-copilot-vscode.template.md": "5708c3fd29801a3d",
-    "domain/content-enricher.template.md": "d7e6e4a50dcef1c7"
+    "domain/content-enricher.template.md": "8176cebe85aace8f"
   },
   "output_files_map": [
     {
@@ -197,45 +193,11 @@
       "component_slug": null
     },
     {
-      "path": "tool-doc-researcher.agent.md",
-      "template": "domain/tool-doc-researcher.template.md",
-      "type": "agent",
-      "component_slug": null
-    },
-    {
-      "path": "references/ref-helipad-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-helipad"
-    },
-    {
-      "path": "references/ref-ipywidgets-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-ipywidgets"
-    },
-    {
       "path": "references/ref-jupyter-reference.md",
       "template": "domain/tool-reference.template.md",
       "type": "reference",
       "component_slug": null,
       "tool_slug": "ref-jupyter"
-    },
-    {
-      "path": "references/ref-matplotlib-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-matplotlib"
-    },
-    {
-      "path": "references/ref-networkx-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-networkx"
     },
     {
       "path": "references/ref-numpy-reference.md",
@@ -252,18 +214,11 @@
       "tool_slug": "ref-pandas"
     },
     {
-      "path": "references/ref-pandas-datareader-reference.md",
+      "path": "references/ref-matplotlib-reference.md",
       "template": "domain/tool-reference.template.md",
       "type": "reference",
       "component_slug": null,
-      "tool_slug": "ref-pandas-datareader"
-    },
-    {
-      "path": "references/ref-plotly-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-plotly"
+      "tool_slug": "ref-matplotlib"
     },
     {
       "path": "references/ref-scipy-reference.md",
@@ -273,46 +228,11 @@
       "tool_slug": "ref-scipy"
     },
     {
-      "path": "references/ref-seaborn-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-seaborn"
-    },
-    {
       "path": "references/ref-statsmodels-reference.md",
       "template": "domain/tool-reference.template.md",
       "type": "reference",
       "component_slug": null,
       "tool_slug": "ref-statsmodels"
-    },
-    {
-      "path": "references/ref-geopandas-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-geopandas"
-    },
-    {
-      "path": "references/ref-mpltoolkits-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-mpltoolkits"
-    },
-    {
-      "path": "references/ref-voila-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-voila"
-    },
-    {
-      "path": "references/ref-pyarrow-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-pyarrow"
     },
     {
       "path": "references/code-hygiene-rules.reference.md",
@@ -401,6 +321,30 @@
     {
       "path": "references/parallelization.reference.md",
       "template": "universal/parallelization.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/retrospective-remediation.reference.md",
+      "template": "universal/retrospective-remediation.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/cli-tool-discovery.reference.md",
+      "template": "universal/cli-tool-discovery.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/skill-generation.reference.md",
+      "template": "universal/skill-generation.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/external-retrieval-quality-gate.reference.md",
+      "template": "universal/external-retrieval-quality-gate.reference.template.md",
       "type": "reference",
       "component_slug": null
     },
@@ -522,7 +466,6 @@
     "technical-validator",
     "output-compiler",
     "visual-designer",
-    "tool-doc-researcher",
     "ch1-essentials-expert",
     "ch2-lists-expert",
     "ch3-numpy-pandas-expert",
@@ -546,75 +489,64 @@
     "repo-liaison",
     "git-operations"
   ],
-  "manifest_fingerprint": "8fff1d2ed07803f4",
+  "manifest_fingerprint": "54d59294650b5715",
   "fingerprint_algo_version": 1,
   "file_hashes": {
-    "references/ref-geopandas-reference.md": "adad408cac2ad394",
-    "references/ref-mpltoolkits-reference.md": "048fb21a66e854e7",
-    "references/ref-voila-reference.md": "3e2ad7487d2799e0",
-    "references/ref-pyarrow-reference.md": "caf4f4df39b23e3a",
-    "/private/tmp/claude-501/-Users-jamescaton-githubrepositories-lingoFriend/6a9baa52-8ab8-401f-949c-3e2ad21b6af2/scratchpad/fleet-worktrees/Learn-Python-for-Stats-and-Econ-20260720-213158/.vscode/tasks.json": "c2409a7c58cd2346",
+    "security.agent.md": "06b2e31e544e25c1",
+    "references/security-vulnerability-watch.reference.md": "4738cd57804418cd",
+    "references/security-vulnerability-watch.json": "c56a022ce1758205",
+    "references/pipeline-graph.md": "26acca10df02d7dc",
+    "references/pipeline-graph.svg": "1a98d8127f3d32d4",
+    "references/pipeline-handoffs.svg": "82b4bd2ff6ea2c84",
+    "orchestrator.agent.md": "60fa2c3156c3dd23",
     "navigator.agent.md": "0e7baf0708eea3a3",
-    "security.agent.md": "208b0a3b9049e50d",
-    "references/security-vulnerability-watch.reference.md": "7ff8b7c4a99049b0",
-    "references/security-vulnerability-watch.json": "b6a8114f547589ee",
-    "references/pipeline-graph.md": "1e68e0c785f9e2a0",
-    "references/pipeline-graph.svg": "ce5cbec4f565ba64",
-    "references/pipeline-handoffs.svg": "fb1213446499498b",
-    "orchestrator.agent.md": "cbd0d3ad0cd4ae32",
     "code-hygiene.agent.md": "5451ac7e2f3f7a99",
-    "conflict-auditor.agent.md": "da86cd3a850bff57",
-    "conflict-resolution.agent.md": "f0a781939fac8a64",
+    "conflict-auditor.agent.md": "48f31b9d8154a4ce",
+    "conflict-resolution.agent.md": "48519605be6dcfd2",
     "cleanup.agent.md": "e5438f6de5f8f279",
     "agent-updater.agent.md": "228193b3f249f7e8",
-    "repo-liaison.agent.md": "5f9501cb1f2ea2bd",
+    "repo-liaison.agent.md": "2f06e5a2f36d907e",
     "git-operations.agent.md": "f181c7d056cf703a",
     "primary-producer.agent.md": "ceffd881511b0c02",
-    "quality-auditor.agent.md": "3c921762a2c04443",
+    "quality-auditor.agent.md": "dafae7e7b4b81b73",
     "style-guardian.agent.md": "d0fe0721b37011da",
     "technical-validator.agent.md": "ec5f482ca1b65ff2",
     "output-compiler.agent.md": "f06e6ece336992d5",
     "visual-designer.agent.md": "28f8eacb39e7b21b",
-    "tool-doc-researcher.agent.md": "629071c1aedc6be2",
-    "references/ref-matplotlib-reference.md": "5f66a09b315a2fc3",
-    "references/ref-numpy-reference.md": "e0851ac27595e688",
-    "references/ref-pandas-reference.md": "8a12ecd685b2f8d9",
-    "references/ref-scipy-reference.md": "1c043f065f14e4f7",
-    "references/ref-statsmodels-reference.md": "5dadead296f60894",
-    "references/security-linux-hardening.reference.md": "4f2ca17cf5536195",
-    "references/security-macos-hardening.reference.md": "4e272a417d26cae6",
-    "references/security-windows-hardening.reference.md": "e5e3fcc7fd4cb5e2",
     "references/framework-watch.reference.md": "6197ca5f6f237d8f",
     "references/adjacent-repos.md": "ebc316de06923363",
-    "ch1-essentials-expert.agent.md": "a74e6d7872f38276",
+    "ch1-essentials-expert.agent.md": "c05b71d5a28265cd",
     "ch2-lists-expert.agent.md": "3cd631f1ef34d08f",
     "ch3-numpy-pandas-expert.agent.md": "024b8d6e4db296a7",
     "ch4-functional-expert.agent.md": "a272feaf4da89340",
     "ch5-probability-expert.agent.md": "5a7a408b0ee0d385",
     "ch6-hypothesis-expert.agent.md": "c6ff1218da4fe1d9",
-    "ch7-ols-expert.agent.md": "e4e8bc7de27f9907",
+    "ch7-ols-expert.agent.md": "193b69f7c48fd197",
     "ch8-advanced-expert.agent.md": "bd4f553ee9af7fb4",
     "ch9-abm-expert.agent.md": "dc548950081cc998",
-    "../copilot-instructions.md": "8cb42c9d3febd1eb",
+    "../copilot-instructions.md": "79454e54cf51bc9d",
     "team-builder.agent.md": "2c0000df132d0101",
     "SETUP-REQUIRED.md": "47182160973143e3",
-    "adversarial.agent.md": "280b5312af2e01d1",
+    "content-enricher.agent.md": "b6e342b10f3854f9",
+    "adversarial.agent.md": "c6ab960d68bd666c",
     "agent-refactor.agent.md": "d9b1434b52e25d9e",
     "work-summarizer.agent.md": "86106ce1462f6c65",
     "cohesion-repairer.agent.md": "df8fc736cd9fd26f",
-    "references/ref-helipad-reference.md": "ad3bfd7445cd1403",
-    "references/ref-ipywidgets-reference.md": "e9c39992c5e37893",
-    "references/ref-jupyter-reference.md": "ab8739c84c188392",
-    "references/ref-networkx-reference.md": "bf1415a238185681",
-    "references/ref-pandas-datareader-reference.md": "be9c92c5fdda46bc",
-    "references/ref-plotly-reference.md": "0e285dc234daf275",
-    "references/ref-seaborn-reference.md": "7fe96e6e3266f676",
+    "references/ref-jupyter-reference.md": "7fab21b30424739b",
+    "references/ref-numpy-reference.md": "daab373a9a35449d",
+    "references/ref-pandas-reference.md": "5ab936d86fa0bcc5",
+    "references/ref-matplotlib-reference.md": "cc3db5c214dde0a9",
+    "references/ref-scipy-reference.md": "03716690a7487b2e",
+    "references/ref-statsmodels-reference.md": "c705cce29e74b731",
     "references/code-hygiene-rules.reference.md": "e494a6d4dd5e2409",
     "references/github-workflows-merge.reference.md": "af659d5abdf8a903",
     "references/work-summary-spec.reference.md": "96232231a1f7c6be",
     "references/work-summary-tooling.reference.md": "f3656972717153a9",
     "references/work-summary-backfill.reference.md": "a0543cde8916cedb",
     "references/parallelization.reference.md": "d2321bf5ac1ed2f8",
-    "content-enricher.agent.md": "421e39314d447305"
+    "references/retrospective-remediation.reference.md": "edf66845f6ff4a16",
+    "references/cli-tool-discovery.reference.md": "25542cccc7cb88eb",
+    "references/skill-generation.reference.md": "5afe8c28e86bce98",
+    "references/external-retrieval-quality-gate.reference.md": "fbfe4aae2f0a2c24"
   }
 }

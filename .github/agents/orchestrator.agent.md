@@ -324,11 +324,13 @@ The plan slug is a lowercase-hyphenated name derived from the workflow trigger (
 Before invoking any workflow-specific trigger path (Workflows 1–10C), execute the following sequence:
 
 1. Identify the domain of the problem/request using Domain Agent Routing indicators
-2. Investigate and produce a findings report describing the problem and its domain relationship
-3. Invoke `@adversarial` and `@conflict-auditor` on the findings report; revise findings if required
-4. Prepare an implementation plan based on the revised findings report
-5. Invoke `@adversarial` and `@conflict-auditor` on the implementation plan; revise plan if required
-6. Proceed with end-to-end implementation according to the audited plan
+2. Investigate and produce a findings report describing the problem and its domain relationship (if the investigation includes a live/dynamic reproduction, first confirm the harness matches the real production composition root — a mis-wired harness can silently mimic a real bug's absence of expected output)
+3. **Capability gap check.** If fulfilling the request needs a resource this team cannot already reliably access, don't conclude it's impossible before working the gap: try existing capability first — `references/cli-tool-discovery.reference.md` covers discovering and expanding what's actually available (checking `$PATH`, reading `--help`/`man`, installing a missing tool) — and if that still doesn't reach it, apply the capability-gap protocol in `references/skill-generation.reference.md` (attempt-then-build-infrastructure, not a bare refusal)
+4. Invoke `@adversarial` and `@conflict-auditor` on the findings report; revise findings if required
+5. Prepare an implementation plan based on the revised findings report
+6. Invoke `@adversarial` and `@conflict-auditor` on the implementation plan; revise plan if required
+7. If the plan has two or more steps, run **Workflow 0A (Parallelization Analysis)** on the audited plan to compute its wave schedule
+8. Proceed with end-to-end implementation according to the audited plan and its wave schedule
 
 This mandatory intake lifecycle complements (and does not replace) the per-step reassessment rule: after each completed plan step, remaining steps must still be re-reviewed by `@adversarial` and `@conflict-auditor` before proceeding.
 
@@ -340,11 +342,31 @@ Before executing Step 1 of any such plan:
 
 1. Determine the target ISO week (`YYYY-Www`) and create `tmp/by-week/YYYY-Www/` if it does not already exist
 2. Write `tmp/by-week/YYYY-Www/<plan-slug>.plan.md` — a summary containing: plan name, trigger, goal, agent sequence, success criteria, and rollback notes
-3. Write `tmp/by-week/YYYY-Www/<plan-slug>.steps.csv` — a row per step with columns: `step,agent,action,inputs,outputs,status,notes`; set all `status` values to `pending`
-4. As each step completes: mark its `status` `done`, then pass the remaining `pending` steps through `@adversarial` and `@conflict-auditor` in light of any learning from the completed step; revise affected rows before proceeding to the next step
-5. Mark steps `blocked` with a note if they cannot proceed; surface blocked steps to the user
+3. Write `tmp/by-week/YYYY-Www/<plan-slug>.steps.csv` — a row per step with required columns `step,agent,action,inputs,outputs,status,notes` **and an optional `depends_on` column** (space- or comma-separated `step` ids each row depends on; leave empty for a step with no prerequisites). Populate `inputs`/`outputs` with concrete repo-relative paths where possible — the parallelization analyzer derives independence from these footprints. Set all `status` values to `pending`. A 7-column CSV without `depends_on` remains valid (every step is then treated conservatively).
+4. **Run Workflow 0A (Parallelization Analysis)** on the freshly written plan to compute the wave schedule before executing Step 1 (see Workflow 0A for the per-wave audit cadence).
+5. As each step completes: mark its `status` `done`, then pass the remaining `pending` steps through `@adversarial` and `@conflict-auditor` in light of any learning from the completed step; revise affected rows (including `depends_on`) before proceeding to the next step or wave
+6. Mark steps `blocked` with a note if they cannot proceed; surface blocked steps to the user
 
 The plan slug is a lowercase-hyphenated name derived from the workflow trigger (e.g., `produce-chapter-3`, `dependency-audit-2026-04`). Legacy undated plans already present in `tmp/` remain readable and should be considered fallback inputs during review and summary workflows.
+
+Prefer generating or editing `.steps.csv`/`.github/agents/references/conflict-log.csv` rows programmatically (`csv.writer` or equivalent) over manual text edits. When a manual edit is unavoidable, re-parse the file with `agentteams.plan_steps.read_steps()` (or an equivalent real CSV parser) before considering it final — an unquoted embedded comma or a stray quote can silently shift every subsequent column in a way visual inspection won't reliably catch.
+
+---
+
+### Workflow 0A: Parallelization Analysis (Mandatory before executing a multi-step plan)
+
+**Trigger:** A `*.steps.csv` exists and Step 1 has not executed yet; also re-run whenever the remaining `pending` steps are revised, and during Workflow 10 plan reviews.
+
+**Premise:** Independent work should be identified and advanced together instead of strictly one step at a time — but only under a conservative, fail-safe heuristic that never weakens the per-step effect audit.
+
+1. **Compute the wave schedule.** Run `python -m agentteams.parallel_plan tmp/by-week/YYYY-Www/<plan-slug>.steps.csv` (on Claude, the `parallelize-plan` skill wraps this). It reads the optional `depends_on` plus the `inputs`/`outputs` footprints and emits ordered **waves** — each wave a set of steps whose read/write footprints are disjoint and that touch no shared mutable state.
+2. **Cycle = stop.** If the analyzer reports a dependency cycle, the plan's `depends_on` is inconsistent: fix the CSV and re-run before executing anything.
+3. **Per wave, in order:**
+   a. **Dispatch.** If the host runtime supports concurrent subagents (e.g. the Claude `agent` tool), dispatch the wave's members concurrently. Otherwise present the wave as a "may be done in any order" set and execute its members sequentially. Off-Claude hosts get a recommendation, not guaranteed concurrency.
+   b. **Audit at wave join.** After each member completes, run `@conflict-auditor` on that member's deliverable. Because wave members have disjoint footprints, these per-member audits are independent and order-free — they *commute* — so this preserves Rule 10's per-step effect-audit guarantee without serializing the dispatch. Then run `@adversarial` once on the remaining (not-yet-started) plan before opening the next wave.
+   c. **Revise & re-analyze.** Update each member's `status` (and `depends_on`, if learning changed the dependency structure) and re-run this analysis on the remaining `pending` steps before the next wave.
+4. **Singleton carve-outs (never batched).** A step that is destructive (file deletion, bulk edit ≥3 files), cross-repository, or an `agentteams … --bridge-refresh` is forced to its own singleton wave and routed through its full per-step clearance first (`@security` per Rule 1; `@repo-liaison` + `@security` per Rule 11; the `references/bridge-refresh-safety.md` Pre-Flight per Rule 14) — regardless of footprint analysis. The analyzer likewise isolates any step touching shared mutable state (git, databases, locks, network, servers, migrations) or lacking a parseable footprint.
+5. **Fail-safe.** Independence here is a heuristic, not a proof. When in doubt, run sequentially. Full contract: `references/parallelization.reference.md`.
 
 ---
 
@@ -363,6 +385,65 @@ Before executing any such step:
 
 ---
 
+### Post-Deliverable Retrospective
+
+**Applies to:** the terminal acceptance step of Workflow 1 (Produce a Deliverable), Workflow 2
+(Revise a Deliverable), and Workflow 3's "corrections were made" branch (Technical Accuracy
+Audit) — run once the deliverable has passed its full audit chain and immediately before
+**Standard Doc-Sync Closeout**. **Does not apply** to Workflow 4 (Compile Final Output) — it
+assembles deliverables that were each already retrospected at their own Workflow 1/2 production
+point, and has no audit chain of its own to gate on; retrospecting again there would
+double-count. Also does not apply to Workflows 5–10 — consistency review, doc maintenance,
+cleanup, hygiene audit, cross-repository coordination, and plan review are governance/
+maintenance/coordination actions, not primary-deliverable production or revision, even where
+several of them also terminate via Standard Doc-Sync Closeout. **Reachability:** also runs at
+the close of any session that produced or materially revised a primary deliverable even when
+handled ad-hoc, without literally entering Workflow 1/2/3's numbered steps — the same
+standing-checklist principle Workflow 11 already applies to its own closeout gates.
+
+1. Enumerate two lists, each starting empty: (a) **repository-infrastructure lessons** —
+   generalizable gaps in this project's own agent docs/rules/routing that this session's work
+   exposed; (b) **AgentTeamsModule remediation items** — gaps in the agentteams tool itself
+   (template library, `analyze`/`render`/`emit` pipeline, `agentteams --update`/`--init`
+   behavior, schemas, or CLI) that this session's work exposed. Full category definitions and
+   worked qualify/don't-qualify examples: `references/retrospective-remediation.reference.md`.
+2. If both lists are empty → note "No retrospective items this session" → proceed directly to
+   Standard Doc-Sync Closeout.
+3. Invoke `@adversarial` → challenge every surviving item in both lists: is it truly
+   generalizable (not a one-off content fix), truly novel (not already covered), and
+   proportionate?
+4. Invoke `@conflict-auditor` → verify surviving list (a) items do not contradict existing
+   agent docs; deduplicate list (b) items against existing `open` rows in
+   `references/agentteams-remediation-log.csv`; additionally reject or sanitize (do not append
+   verbatim) any item whose `summary` or `proposed_touch_points` text begins with a
+   formula-injection character (`=`, `+`, `-`, `@`) or reads as credential/secret-like —
+   escalate to `@security` only for that specific case.
+5. Surviving list (a) items → hand to the `@agent-updater` step of the immediately-following
+   Standard Doc-Sync Closeout as extra instructions (its existing "a workflow step may attach a
+   workflow-specific instruction" convention).
+6. Surviving list (b) items → invoke `@repo-liaison` → append one row per item to
+   `references/agentteams-remediation-log.csv` (`status` always starts `open`; never edit an
+   existing row). Destination and self-referential exception:
+   `references/retrospective-remediation.reference.md`.
+7. → **Standard Doc-Sync Closeout**.
+
+---
+
+### Standard Doc-Sync Closeout
+
+**Applies to:** Workflows that end by synchronizing documentation and auditing that synchronization.
+
+Where a workflow step below reads "→ **Standard Doc-Sync Closeout**", execute these steps in order:
+
+1. Invoke `@agent-updater` → sync agent documentation with the session's changes, run the repository change census, and evaluate docs/API impact
+2. Invoke `@adversarial` → challenge the repository change census, the docs/API impact decision, and any newly synchronized assumptions before closeout
+3. Invoke `@conflict-auditor` → verify the synchronized docs and closeout decisions remain consistent
+4. → **Invoke Workflow 11: Final Check**
+
+A workflow step may attach a workflow-specific instruction to its closeout reference (for example, an extra file to update during the `@agent-updater` step); apply that instruction as part of the sequence above.
+
+---
+
 ### Workflow 1: Produce a Deliverable
 
 **Trigger:** "Produce [component]" / "Work on [workstream]"
@@ -375,10 +456,7 @@ Before executing any such step:
 6. *(If `@cohesion-repairer` in team)* Invoke `@cohesion-repairer` → repair within-section cohesion failures
 7. *(If `@style-guardian` in team)* Invoke `@style-guardian` → three-priority style audit
 8. Invoke `@conflict-auditor` → verify consistency with existing deliverables
-9. Invoke `@agent-updater` → run the repository change census and docs/API impact evaluation; surface any required site or API doc updates before closeout
-10. Invoke `@adversarial` → challenge the repository change census, docs/API impact decision, and any newly synchronized assumptions before closeout
-11. Invoke `@conflict-auditor` → verify the synchronized docs and closeout decisions remain consistent
-12. → **Invoke Workflow 11: Final Check** (always; after all conditional branches above complete)
+9. → **Post-Deliverable Retrospective**
 
 ### Workflow 2: Revise a Deliverable
 
@@ -391,10 +469,7 @@ Before executing any such step:
 5. *(If `@style-guardian` in team)* Invoke `@style-guardian` → audit style consistency
 6. Invoke `@conflict-auditor` → verify no new contradictions introduced
 7. *(If `@reference-manager` in team)* Invoke `@reference-manager` → verify all references still resolve
-8. Invoke `@agent-updater` → run the repository change census and docs/API impact evaluation; sync agent documentation to reflect revised deliverable state
-9. Invoke `@adversarial` → challenge the revised documentation sync and any remaining closeout assumptions before completion
-10. Invoke `@conflict-auditor` → verify the synchronized docs remain consistent with the revised deliverable state
-11. → **Invoke Workflow 11: Final Check** (always; after all conditional branches above complete)
+8. → **Post-Deliverable Retrospective**
 
 ### Workflow 3: Technical Accuracy Audit
 
@@ -405,10 +480,7 @@ Before executing any such step:
 3. If corrections needed → invoke `@primary-producer` to update deliverable
 4. If deliverable edited → invoke `@quality-auditor`; also `@cohesion-repairer`, `@style-guardian` if in team
 5. Invoke `@conflict-auditor` → verify consistency
-6. If any corrections were made → invoke `@agent-updater` → run the repository change census and docs/API impact evaluation; sync agent documentation to reflect corrected state
-7. If any corrections were made → invoke `@adversarial` → challenge the correction-driven documentation sync and any remaining assumptions before closeout
-8. If any corrections were made → invoke `@conflict-auditor` → verify the synchronized docs remain consistent with the corrected state
-9. → **Invoke Workflow 11: Final Check** (always; after all conditional branches above complete)
+6. If any corrections were made → **Post-Deliverable Retrospective**; otherwise → **Invoke Workflow 11: Final Check**
 
 ### Workflow 4: Compile Final Output
 
@@ -430,19 +502,13 @@ Before executing any such step:
 4. *(If `@reference-manager` in team)* Invoke `@reference-manager` → verify every reference resolves
 5. *(If `@style-guardian` in team)* Invoke `@style-guardian` → style audit
 6. Consolidate findings → present to user
-7. If any issues found → invoke `@agent-updater` → run the repository change census and docs/API impact evaluation; sync agent documentation to reflect corrected state
-8. If any issues found → invoke `@adversarial` → challenge the documentation-impact decision and any synchronized assumptions before closeout
-9. If any issues found → invoke `@conflict-auditor` → verify the synchronized docs remain consistent with the audit findings
-10. → **Invoke Workflow 11: Final Check** (always; after all conditional branches above complete)
+7. If any issues found → **Standard Doc-Sync Closeout**; otherwise → **Invoke Workflow 11: Final Check**
 
 ### Workflow 6: Documentation Maintenance
 
 **Trigger:** "Update agent docs" / "Agent documentation changed" / "Project structure changed" / "Repository updated"
 
-1. Invoke `@agent-updater` → sync docs with changes, run the repository change census, and evaluate docs/API impact
-2. Invoke `@adversarial` → challenge the repository change census, docs/API impact decision, and synchronized workflow assumptions before closeout
-3. Invoke `@conflict-auditor` → verify consistency after documentation synchronization
-4. → **Invoke Workflow 11: Final Check** (always; after all conditional branches above complete)
+1. → **Standard Doc-Sync Closeout**
 
 ### Workflow 7: Cleanup
 
@@ -452,10 +518,7 @@ Before executing any such step:
 2. Invoke `@adversarial` → review deletion plan for dependency or scope assumptions
 3. Invoke `@security` for clearance
 4. Invoke `@cleanup` → remove approved files
-5. Invoke `@agent-updater` → run the repository change census and docs/API impact evaluation; update docs
-6. Invoke `@adversarial` → challenge the cleanup-driven documentation sync and any remaining closeout assumptions
-7. Invoke `@conflict-auditor` → verify the synchronized docs remain consistent after cleanup
-8. → **Invoke Workflow 11: Final Check** (always; after all conditional branches above complete)
+5. → **Standard Doc-Sync Closeout**
 
 ### Workflow 8: Code Hygiene Audit
 
@@ -467,10 +530,7 @@ Before executing any such step:
 4. If deletions needed (CH-01, CH-15, CH-16, CH-18, CH-19) → invoke `@security` for clearance → invoke `@cleanup`
 5. If structural extraction needed (CH-08, CH-14) → invoke `@agent-refactor`
 6. If agent doc contradictions found (CH-20) → invoke `@conflict-auditor`
-7. Invoke `@agent-updater` → run the repository change census and docs/API impact evaluation; update docs if changes were made
-8. Invoke `@adversarial` → challenge the hygiene-driven documentation sync and any remaining assumptions before closeout
-9. Invoke `@conflict-auditor` → verify the synchronized docs remain consistent with the hygiene findings
-10. → **Invoke Workflow 11: Final Check** (always; after all conditional branches above complete)
+7. → **Standard Doc-Sync Closeout**
 
 ### Workflow 9: Cross-Repository Coordination
 
@@ -481,10 +541,7 @@ Before executing any such step:
 3. If approved updates exist → invoke `@repo-liaison` → Protocol 2 (Update Adjacent Repo Docs); requires `@security` clearance on each write
 4. If the adjacent repository has its own orchestrator → invoke `@repo-liaison` → Protocol 3 (Orchestrator-to-Orchestrator Coordination); surface Coordination Request to user
 5. After all updates: invoke `@conflict-auditor` → verify internal consistency
-6. Invoke `@agent-updater` → run the repository change census and docs/API impact evaluation; update `references/adjacent-repos.md` with changelog entries
-7. Invoke `@adversarial` → challenge the cross-repository documentation sync and any remaining coordination assumptions before closeout
-8. Invoke `@conflict-auditor` → verify the synchronized docs and coordination notes remain consistent
-9. → **Invoke Workflow 11: Final Check** (always; after all conditional branches above complete)
+6. → **Standard Doc-Sync Closeout** — during its `@agent-updater` step, also update `references/adjacent-repos.md` with changelog entries
 
 ### Workflow 10: Plan Documentation and Review
 
@@ -492,6 +549,7 @@ Before executing any such step:
 
 1. Read `tmp/by-week/` and legacy `tmp/` → list all `.plan.md` and `.steps.csv` files
 2. For each plan: summarize current `status` column distribution across steps (pending / in_progress / done / blocked)
+2a. **Cross-plan parallelization scan (recurring independence check)** — run `python -m agentteams.parallel_plan <all open .steps.csv>` to (a) report which open plans are mutually **non-blocking** (disjoint footprints — safe to advance in any order) and (b) recompute each plan's wave schedule over its remaining `pending` steps (per Workflow 0A). Surface to the user any independent work that could be advanced together. This is a scheduling/independence report, not a claim of simultaneous cross-plan execution.
 3. **Pre-execution truth check** — before marking any step `in_progress`, invoke `@technical-validator` to verify the factual claims stated in that step's `inputs`, `outputs`, and `notes` fields against current on-disk state; flag any UNVERIFIED facts to the user before proceeding
 4. Surface any `blocked` steps with their `notes` to the user
 5. If plan is complete → mark all rows `done` and append completion date to `.plan.md`
@@ -527,7 +585,7 @@ Before executing any such step:
 
 ### Workflow 11: Final Check
 
-**Trigger:** Terminal step of Workflows 1–10 and optional extension workflows (for example 10B/10C/10D). Do not invoke Workflow 11 from within Workflow 11 (no recursion — identify this workflow by name: "Final Check").
+**Trigger:** Terminal step of Workflows 1–10 and optional extension workflows (for example 10B/10C/10D), **and the close of *any* session that executed work — including a direct/ad-hoc request that did not enter a numbered workflow.** Final Check (and its closeout gates below) is the standing close-of-session checklist: run it before declaring **any** session complete, not only when a numbered workflow routes here. Do not invoke Workflow 11 from within Workflow 11 (no recursion — identify this workflow by name: "Final Check").
 
 #### Part A — Within-Plan Issues
 *(Skip Part A if no plan was active for the current session.)*
@@ -545,16 +603,19 @@ Before executing any such step:
 #### Part B — Repo At-Large Issues
 *(Always execute Part B.)*
 
-1. Scan issue sources:
+1. Scan issue sources. `agentteams.session_scan.scan_repo_issues(repo_root, exclude_steps_paths={<this plan's .steps.csv>}, known_output_paths=<this plan's declared outputs>)` (or `python -m agentteams.session_scan` for a shell-only runtime) computes the first three sources below in one call — invoke it instead of re-deriving each by hand when engineering integration is available:
    - `CHANGELOG.md` → any heading matching `Known Issues` (regex)
-  - `tmp/by-week/` and legacy `tmp/` → any `.steps.csv` files with `pending` or `blocked` rows (excluding the current plan)
+   - `tmp/by-week/` and legacy `tmp/` → any `.steps.csv` files with `pending` or `blocked` rows (excluding the current plan)
    - `git status --short` in the current repo → untracked files in `tmp/` or modified files outside the current plan's known output set; present as repo-relative paths only (never absolute filesystem paths)
-2. For each at-large issue found: write a one-paragraph summary — what it is, why it matters, which files or commits are involved
-3. Invoke `@adversarial` → audit the summaries for false assumptions (e.g., "this is truly unresolved", "this git status entry is not legitimately in-progress work")
-4. Invoke `@conflict-auditor` → verify summaries do not contradict authority sources
+   - `.github/agents/references/conflict-log.csv` → any row with `status=open` lacking a `resolution` — handled separately by step 2 below, not part of `scan_repo_issues`
+2. For each at-large issue found: write a one-paragraph summary — what it is, why it matters, which files or commits are involved. **Exception:** for issues found via `.github/agents/references/conflict-log.csv`, invoke `@conflict-resolution`'s ACCEPT/REJECT/REVISE decision instead — unlike the other three sources (summarized and presented only), "was it actually fixed already?" has a concrete, checkable answer available at closeout time
+3. Invoke `@adversarial` → audit the summaries and conflict-log decisions for false assumptions (e.g., "this is truly unresolved", "this git status entry is not legitimately in-progress work", "this conflict-log row was genuinely fixed on disk")
+4. Invoke `@conflict-auditor` → verify summaries and conflict-log decisions do not contradict authority sources
 5. Present audited summaries as a numbered list to the user
 6. If no at-large issues are found: note "No at-large issues detected"
-7. If a plan reached all `done` during this session: invoke `@work-summarizer` to append/update `workSummaries/daily/YYYY-MM-DD.md` before closeout
+7. **CI/CD deployment verification (closeout gate).** *Only when this session pushed or merged to a repository that has GitHub Actions (`.github/workflows/`) and run status is reachable (GitHub REST API, or `gh` if installed) — otherwise skip.* Confirm via `@git-operations` (which prefers the `git` CLI and the GitHub REST API over `gh`) that the run(s) the push/merge **triggered** on the updated branch completed with `conclusion == success` (CI **and** any deployment/Pages/release workflow) before declaring the session complete. A failing triggered deployment **blocks closeout** and routes back to `@git-operations` to diagnose and fix until green (or escalate); a cross-repo re-push during the fix re-enters Rule 11 (`@repo-liaison` + `@security`). This is distinct from the pre-merge required status checks that gated the merge. Procedure: `references/github-workflows-merge.reference.md` → *Post-Merge / Post-Push CI/CD Deployment Verification*.
+8. **Daily work-summary capture (closeout gate).** When this session produced executed work — git commits/merges, applied scripts/migrations, data mutations, or adjacent-repository activity (a plan reaching all `done` also qualifies) — invoke `@work-summarizer` to append/update `workSummaries/daily/YYYY-MM-DD.md` for **today**. **This blocks closeout: the session is not complete until today's summary records the executed work.** Run it as the **terminal** closeout act — *after* step 7's CI/CD gate reports green — so any fix-commits produced during CI/CD remediation are captured. A read-only / no-execution session skips this cleanly. **Git history is the authoritative executed-work signal**: a session with commits is never "planning-only", even when no plan file exists or the plan lives outside `tmp/by-week/`. (Rule 12, today-capture.)
+9. **Past-day backfill (Past-Day Backfill Obligation).** If step 8's executed-work condition held, also invoke `@work-summarizer` **Workflow D — Automatic Backfill Sweep** to detect and fill *recent past active-day* daily gaps (strictly-prior dates only — disjoint from step 8's "today"). Semantics (window, `AUTO_BACKFILL_LOOKBACK_CAP_DAYS` cap, create-only scope, honor-prior-skip fail-safe, mandatory audit gate, recommend-only beyond the cap) are defined once in `references/work-summary-backfill.reference.md` → *Automatic Trigger (session-close sweep)*; Workflow D runs at most once per session and is not re-entrant. Surface the sweep result to the user.
 <!-- AGENTTEAMS:END available_workflows -->
 
 ## Project-Specific Notes

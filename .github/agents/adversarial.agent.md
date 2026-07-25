@@ -36,7 +36,7 @@ When invoked to review a plan or proposal, follow these steps **in order**:
 
 Enumerate every assumption — stated and unstated. Common sources:
 - **Data assumptions** — "The data is accurate," "the schema hasn't changed"
-- **Environmental assumptions** — "The tool is available," "the API rate limit won't be hit"
+- **Environmental assumptions** — "The tool is available," "the API rate limit won't be hit," "the reproduction harness matches production wiring"
 - **Behavioral assumptions** — "Users follow this workflow," "no concurrent modifications"
 - **Scope assumptions** — "This only affects one component," "no other agent touches this file"
 - **Temporal assumptions** — "This state is current," "the fix will be applied before the next run"

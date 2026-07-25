@@ -74,11 +74,11 @@ Use the generated reference `references/security-vulnerability-watch.reference.m
 ### Current Threat Intelligence Snapshot
 
 <!-- AGENTTEAMS:BEGIN threat_intelligence v=1 -->
-Generated at: `2026-07-21T01:32:50Z`
+Generated at: `2026-07-25T11:42:36Z`
 
 **Sources:**
 
-- CISA KEV: ok (catalog 2026.07.16, items 1647) — https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
+- CISA KEV: ok (catalog 2026.07.24, items 1653) — https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
 - MITRE CVE: metadata_only — https://cveawg.mitre.org/api/cve/
 - FIRST EPSS: ok (items 15) — https://api.first.org/data/v1/epss
 - NVD (NIST): ok (items 5) — https://services.nvd.nist.gov/rest/json/cves/2.0
@@ -89,21 +89,21 @@ Generated at: `2026-07-21T01:32:50Z`
 
 **Current major vulnerabilities:**
 
-- `CVE-2026-58644` | Microsoft SharePoint | Microsoft SharePoint Deserialization of Untrusted Data Vulnerability | added 2026-07-16 | EPSS 0.014650000, percentile 0.707740000 | CVSS 9.8 CRITICAL
-- `CVE-2026-25089` | Fortinet FortiSandbox | Fortinet FortiSandbox OS Command Injection Vulnerability | added 2026-07-16 | EPSS 0.361350000, percentile 0.983090000 | CVSS 9.8 CRITICAL
-- `CVE-2026-39808` | Fortinet FortiSandbox | Fortinet FortiSandbox OS Command Injection Vulnerability | added 2026-07-16 | EPSS 0.841580000, percentile 0.996670000 | CVSS 9.8 CRITICAL
-- `CVE-2026-46817` | Oracle E-Business Suite | Oracle E-Business Suite Improper Privilege Management Vulnerability | added 2026-07-15 | EPSS 0.010450000, percentile 0.603520000 | CVSS 9.8 CRITICAL
-- `CVE-2023-4346` | KNX Association KNX Protocol Connection Authorization Option 1 | KNX Association KNX Protocol Connection Authorization Option 1 Overly Restrictive Account Lockout Mechanism Vulnerability | added 2026-07-15 | EPSS 0.008550000, percentile 0.543380000 | CVSS 7.5 HIGH
-- `CVE-2026-56155` | Microsoft Active Directory Federation Services | Microsoft Active Directory Federation Services Insufficient Granularity of Access Control Vulnerability  | added 2026-07-14 | EPSS 0.003790000, percentile 0.302780000
-- `CVE-2026-56164` | Microsoft SharePoint Server | Microsoft SharePoint Server Missing Authentication for Critical Function Vulnerability | added 2026-07-14 | EPSS 0.056010000, percentile 0.920510000
-- `CVE-2026-15409` | SonicWall SMA1000 Appliances | SonicWall SMA1000 Appliances Server-Side Request Forgery Vulnerability | added 2026-07-14 | EPSS 0.012660000, percentile 0.665210000
-- `CVE-2026-15410` | SonicWall SMA1000 Appliances | SonicWall SMA1000 Appliances Code Injection Vulnerability | added 2026-07-14 | EPSS 0.014860000, percentile 0.711820000
-- `CVE-2008-4128` | Cisco IOS | Cisco IOS Cross-Site Request Forgery Vulnerability | added 2026-07-13 | EPSS 0.238570000, percentile 0.975810000
-- `CVE-2026-56291` | Balbooa Forms | Balbooa Forms Unrestricted Upload of File with Dangerous Type Vulnerability | added 2026-07-10 | EPSS 0.086350000, percentile 0.945100000
-- `CVE-2026-48939` | iCagenda iCagenda | iCagenda Unrestricted Upload of File with Dangerous Type Vulnerability | added 2026-07-10 | EPSS 0.015050000, percentile 0.715350000
-- `CVE-2026-48908` | JoomShaper SP Page Builder | JoomShaper SP Page Builder Unrestricted Upload of File with Dangerous Type Vulnerability | added 2026-07-07 | EPSS 0.015690000, percentile 0.726290000
-- `CVE-2026-55255` | Langflow Langflow | Langflow Authorization Bypass Through User-Controlled Key Vulnerability | added 2026-07-07 | EPSS 0.005600000, percentile 0.429080000
-- `CVE-2026-56290` | Joomlack Page Builder | Joomlack Page Builder Improper Access Control Vulnerability | added 2026-07-07 | EPSS 0.029120000, percentile 0.854740000
+- `CVE-2026-16232` | Check Point SmartConsole | Check Point SmartConsole Improper Authentication Vulnerability | added 2026-07-22 | EPSS 0.126850000, percentile 0.958370000 | CVSS 9.1 CRITICAL
+- `CVE-2026-50522` | Microsoft SharePoint | Microsoft SharePoint Deserialization of Untrusted Data Vulnerability  | added 2026-07-22 | EPSS 0.571010000, percentile 0.989700000 | CVSS 9.8 CRITICAL
+- `CVE-2026-60137` | WordPress Core | WordPress Core SQL Injection Vulnerability | added 2026-07-21 | EPSS 0.779740000, percentile 0.995250000 | CVSS 5.9 MEDIUM
+- `CVE-2026-63030` | WordPress Core | WordPress Core Interpretation Conflict Vulnerability | added 2026-07-21 | EPSS 0.979230000, percentile 0.999040000 | CVSS 9.8 CRITICAL
+- `CVE-2026-0770` | Langflow Langflow | Langflow Inclusion of Functionality from Untrusted Control Sphere Vulnerability | added 2026-07-21 | EPSS 0.534610000, percentile 0.988780000 | CVSS 9.8 CRITICAL
+- `CVE-2021-27137` | DD-WRT DD-WRT | DD-WRT Stack-Based Buffer Overflow Vulnerability | added 2026-07-21 | EPSS 0.164880000, percentile 0.966490000
+- `CVE-2026-58644` | Microsoft SharePoint | Microsoft SharePoint Deserialization of Untrusted Data Vulnerability | added 2026-07-16 | EPSS 0.050580000, percentile 0.914100000
+- `CVE-2026-25089` | Fortinet FortiSandbox | Fortinet FortiSandbox OS Command Injection Vulnerability | added 2026-07-16 | EPSS 0.698270000, percentile 0.993000000
+- `CVE-2026-39808` | Fortinet FortiSandbox | Fortinet FortiSandbox OS Command Injection Vulnerability | added 2026-07-16 | EPSS 0.896910000, percentile 0.997740000
+- `CVE-2026-46817` | Oracle E-Business Suite | Oracle E-Business Suite Improper Privilege Management Vulnerability | added 2026-07-15 | EPSS 0.133090000, percentile 0.959860000
+- `CVE-2023-4346` | KNX Association KNX Protocol Connection Authorization Option 1 | KNX Association KNX Protocol Connection Authorization Option 1 Overly Restrictive Account Lockout Mechanism Vulnerability | added 2026-07-15 | EPSS 0.009070000, percentile 0.561410000
+- `CVE-2026-56155` | Microsoft Active Directory Federation Services | Microsoft Active Directory Federation Services Insufficient Granularity of Access Control Vulnerability  | added 2026-07-14 | EPSS 0.023330000, percentile 0.817560000
+- `CVE-2026-56164` | Microsoft SharePoint Server | Microsoft SharePoint Server Missing Authentication for Critical Function Vulnerability | added 2026-07-14 | EPSS 0.183950000, percentile 0.969240000
+- `CVE-2026-15409` | SonicWall SMA1000 Appliances | SonicWall SMA1000 Appliances Server-Side Request Forgery Vulnerability | added 2026-07-14 | EPSS 0.784400000, percentile 0.995380000
+- `CVE-2026-15410` | SonicWall SMA1000 Appliances | SonicWall SMA1000 Appliances Code Injection Vulnerability | added 2026-07-14 | EPSS 0.763470000, percentile 0.994830000
 
 **Prevention and mitigation playbook:**
 
@@ -178,7 +178,7 @@ Cleared for: [specific action cleared, or NONE if HALT]
 
 > **HALT is final.** If this agent returns HALT, the operation must stop. The orchestrator must surface the finding to the user before any alternative path is attempted.
 
-<!-- AGENTTEAMS:BEGIN security_rules_invariant v=1 -->
+<!-- AGENTTEAMS:BEGIN security_rules_invariant v=3 -->
 ### Mandatory Review Triggers
 
 | Trigger | Risk Category |
@@ -200,6 +200,7 @@ Cleared for: [specific action cleared, or NONE if HALT]
 | Any modification to a vector store, embeddings index, or RAG data source | Vector/embedding attack surface (LLM08) |
 | Any agent loop or external API call without a declared rate limit or termination condition | Unbounded consumption (LLM10) |
 | Any AI-authored change to native or unsafe-memory code (C/C++/Objective-C, Rust `unsafe`, Zig, cgo, ctypes/cffi/PyO3/N-API/JNI, inline assembly, manual allocation, or raw pointer arithmetic) | Memory-safety exploit surface (low-level) |
+| A capability pathway (command sequence, install/build step, URL/API fetch pattern, or generated script) matching any Rule S-9 risk criterion, about to be used to produce output or recorded into a reference/skill file for future automated reuse | Unverified-pathway execution risk (injection / supply chain / credential exposure) |
 
 ### Security Rules
 
@@ -210,6 +211,8 @@ Cleared for: [specific action cleared, or NONE if HALT]
 - ✅ Apply OPSEC to **all committed files**, not only deliverables — sanitize absolute home-directory paths (`/Users/<name>/`, `/home/<name>/`) in infrastructure artifacts (`tmp/*.csv`, scripts, config files) to `~/`-relative or repo-relative forms before committing
 - ❌ Never include actual API keys, tokens, SSH keys, or passwords in any file
 - ❌ Do not commit infrastructure artifacts retaining full absolute home-directory paths
+
+These patterns are also checked deterministically by `agentteams.scan.scan_content(text)` (or `python -m agentteams.scan <path>` for a shell-only runtime) — if engineering integration is available, run it over the reviewed content and treat any `high`-severity finding as this rule's HALT trigger instead of re-deriving the regex match by eye. Falls back to manual pattern review (the bullets above) when it isn't.
 
 **Rule S-2: Read-Only Access to External Repos**
 - ✅ Read source files from external repositories as reference material
@@ -255,6 +258,64 @@ Machine-specific information uniquely identifies the local development machine, 
 
 This rule is stricter than S-1 in one key respect: **any match triggers HALT** (not CONDITIONAL PASS) because machine-specific data in version-controlled files risks OPSEC exposure in perpetuity through git history, forks, and cached views.
 
+These patterns are also checked deterministically by `agentteams.scan.scan_content(text)` (or `python -m agentteams.scan <path>` for a shell-only runtime) — if engineering integration is available, run it over the reviewed content and treat any `high`-severity finding as this rule's HALT trigger instead of re-deriving the regex match by eye. Falls back to manual pattern review (the bullets above) when it isn't.
+
+**Rule S-9: Pathway Safety Verification**
+
+Applies to any capability pathway — a command sequence, install/build step, URL/API fetch
+pattern, or generated script — that an agent is about to (a) use to produce output for the
+user, or (b) record into any reference or skill file for future **automated, unattended**
+reuse. Gated only when the pathway matches at least one of the following; a pathway matching
+none of them is out of scope for this rule entirely, regardless of how novel it is:
+
+1. ❌ Executes content fetched from a non-official / unverified source (not a package's own
+   official registry, nor the vendor's own domain) — **or** resolves to a package/artifact
+   name that hasn't been verified as the real, intended one, even on an official registry
+   (slopsquatting/typosquatting: an official-looking source is not the same as a verified
+   identity — this is the same check the existing Supply-chain/slopsquatting guidance below
+   already requires, applied here to a pathway rather than a dependency)
+2. ❌ Pipes remote content directly into a shell/interpreter with no inspectable intermediate
+   step (`curl ... | sh`, `iwr ... | iex`, and equivalents)
+3. ❌ Would require embedding a live credential/secret value in the persisted text — this
+   criterion routes to the existing Rule S-1 / HALT-table credential row, not a separate
+   verdict
+4. ❌ Performs a destructive or hard-to-reverse action, **including privilege escalation or
+   persistence mechanisms specifically** (`sudo`, editing `sudoers`, installing a `cron`/
+   `launchd`/service-manager entry, disabling an OS security control) — these escalate or
+   survive beyond the current session and are treated as criterion-4 matches even when
+   nothing else about the pathway looks risky. Cross-references Rule S-4's existing
+   run-clearance requirement; S-9 separately governs whether the *pattern* is safe to
+   memorialize for reuse, it does not replace or duplicate S-4's clearance to run it once
+5. ❌ Reaches an external or shared system in a way that is privileged or stateful —
+   authenticates, writes, submits, or otherwise changes something on that system, or carries
+   credentials/session state beyond the local/sandboxed environment. **Explicitly does not
+   cover a routine, read-only fetch of public data** (checking sports scores, weather, public
+   documentation, a public API's published results) — that is the ordinary, encouraged case
+   this team's own `cli-tool-discovery.reference.md` exists to promote, not something Rule S-9
+   should gate. If a fetch is read-only and the source is public, it is out of scope for this
+   criterion regardless of being "external"
+
+- ✅ Prefer an official package registry or the vendor's own documented install method over an
+  ad hoc third-party script
+- ✅ Download and allow inspection before executing anything that would otherwise pipe
+  directly into a shell
+- ✅ Evaluate a multi-step pathway by its net effect, not step-by-step in isolation — a fetch
+  step and an exec step that are individually unremarkable can still jointly match criterion 2
+  or 4 once combined; a sequence that would fail a criterion if done in one step doesn't pass
+  by being split across several
+- ✅ Log the verdict to `references/security-decisions.log.csv` (current schema:
+  `date,plan_slug,step,decision,status,conditions,conditions_verified,evidence,owner`) — the
+  same log every other `@security` verdict already uses, not a separate mechanism
+- ✅ Before granting a fresh CONDITIONAL PASS, check that log for a prior verdict on a matching
+  pathway signature (same command/URL/package shape). A never-persisted pathway does not get
+  to re-roll "one-time use" indefinitely, request after request — a repeat match escalates to
+  requiring a clean PASS (verified source, criterion 1 satisfied) or a HALT, not another
+  CONDITIONAL PASS
+- ❌ Never let a pathway that hasn't cleared this rule become something a future session reads
+  and executes unattended
+
+These patterns are not reducible to a deterministic scanner the way Rules S-1/S-8 partly are — evaluating source trust and blast radius is a judgment call, so this stays procedural like Rule S-4.
+
 ---
 
 ### HALT vs. CONDITIONAL PASS Escalation Criteria
@@ -269,7 +330,13 @@ Use this table to determine the verdict. **Criteria are deterministic** — mode
 | Bulk destructive operation with no backup confirmed | **HALT** |
 | Agent-initiated write to external repository | **HALT** |
 | PII in a public-facing file without a consent or anonymization basis | **HALT** |
+| Pathway matching Rule S-9 criterion 2 (blind remote-content-to-shell pipe) | **HALT** |
+| Pathway matching Rule S-9 criterion 3 (would require persisting a credential/secret) | **HALT** — apply the existing credential row above, not a separate verdict |
+| Pathway matching Rule S-9 criterion 4 specifically via privilege escalation or a persistence mechanism (`sudoers` edit, `cron`/`launchd`/service-manager entry, disabling an OS security control) | **HALT** — outlives the current session; a one-off destructive-op confirmation is not sufficient |
+| Pathway matching Rule S-9 criterion 1 via an unverified package/artifact identity (slopsquatting/typosquatting risk) on an otherwise-official registry | **HALT** — resolve and verify the real intended artifact first; an official registry does not itself establish identity |
+| Repeat CONDITIONAL PASS request for a pathway signature already logged as CONDITIONAL PASS in `references/security-decisions.log.csv` | **HALT** — escalate to a clean PASS or a full HALT, "one-time use" does not renew on request |
 | Bulk operation with backup verified and diff analysis clean | **CONDITIONAL PASS** |
+| Pathway matching Rule S-9 criterion 1 or 5 only (untrusted source, or a privileged/stateful external interaction) with no other red flag | **CONDITIONAL PASS** — mitigation: prefer an official source where one exists; one-time use permitted under stated conditions, persistence blocked until `conditions_verified` |
 | Infrastructure batch write satisfying all four Exception Pathway conditions (Rule S-2) | **CONDITIONAL PASS** |
 | Absolute paths with usernames in non-committed local scratch files (e.g., untracked `tmp/` content confirmed not staged) | **CONDITIONAL PASS** — mitigation: add to `.gitignore` and confirm not staged |
 | External API call without declared rate limit or termination condition | **CONDITIONAL PASS** — mitigation: add explicit limit before executing |
@@ -278,6 +345,8 @@ Use this table to determine the verdict. **Criteria are deterministic** — mode
 | No security-relevant findings | **PASS** |
 
 > **Precedence rule:** If a finding matches multiple rows, apply the **most restrictive** verdict (HALT > CONDITIONAL PASS > PASS).
+
+The Credential and Machine-specific-information rows above are exactly `scan.py`'s scan-derivable categories — `agentteams.scan.verdict_for_findings()` computes HALT/CONDITIONAL PASS/PASS for that subset mechanically from `ScanFinding.severity`. The remaining rows (destructive-op confirmation, external writes, injection attempts, scope violations) are procedural and stay a judgment call.
 
 ### AI-Authored Code Is Insecure By Default
 

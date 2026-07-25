@@ -137,7 +137,7 @@ When `references/eval-suite.json` exists, treat its `scenarios[].predicate` entr
 If `eval-suite.json` is absent or empty (older team): skip this section silently — do not fabricate findings against a missing artifact.
 <!-- AGENTTEAMS:END behavioral_spec_cross_check -->
 
-<!-- AGENTTEAMS:BEGIN memory_index_consultation v=2 -->
+<!-- AGENTTEAMS:BEGIN memory_index_consultation v=3 -->
 ### Memory-index consultation *(applies when `references/memory-index.json` is present)*
 
 Before adjudicating a conflict whose shape is **"has this been decided / accepted / rejected before?"** — typically `HC` (Hierarchy Conflict), `SR` (Stale Reference), and ambiguous `CC` (Claim Conflict) cases — query the index. Lexical-first because conflict-log questions usually carry precise identifiers (BBB IDs, file paths, terminology):
@@ -148,9 +148,7 @@ agentteams --query-index "<conflict identifiers, file paths, or terminology>" --
 
 Fall back to `--query-strategy vector` when **either** (a) lexical returns zero hits, **or** (b) the lexical top-1 has no content-word overlap with the query (high score on a wrong document via a single rare term match — protects against single-term false positives).
 
-Per-strategy thresholds (the two scales are not comparable):
-- **Lexical:** top-1 ≥ 3.0 is a reliable hit; 1.0–3.0 is candidate-for-inspection.
-- **Vector:** top-1 ≥ 0.30 is reliable; 0.20–0.30 is candidate-for-inspection. These floors are corpus-specific guidance, not a mathematical cap — cosine ∈ [0,1] and high values (≥ 0.5, up to 1.0) are legitimate when query terms concentrate in a focused or short document, so do not treat ≥ 0.5 as anomalous.
+Each hit's `confidence` field (`reliable` / `candidate` / `weak`) is computed by `agentteams.memory_index.query_index()` from the same per-strategy thresholds this section used to restate by hand — treat `reliable` as an actionable hit, `candidate` as worth opening before relying on it, and `weak` as noise. If your runtime can't read the structured field (text-only CLI output), fall back to: lexical top-1 ≥ 3.0 reliable / 1.0–3.0 candidate-for-inspection; vector top-1 ≥ 0.30 reliable / 0.20–0.30 candidate-for-inspection (cosine ∈ [0,1]; high values ≥ 0.5 are legitimate on a focused/short document, not anomalous).
 
 Open the cited file and reference its decision in the conflict log. The index is a history layer, **not authoritative** — when it conflicts with current state on disk, trust disk and queue an `SR` finding. Never block on the index; if both strategies are inconclusive, fall back to filesystem search + `git log`.
 <!-- AGENTTEAMS:END memory_index_consultation -->

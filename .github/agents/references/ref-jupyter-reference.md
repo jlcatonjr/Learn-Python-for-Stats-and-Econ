@@ -20,13 +20,13 @@ https://docs.jupyter.org/en/latest/
 
 ## Key API Surface
 
-Notebook and Lab workflows, kernels, markdown cells, magics, nbconvert
+IPython display API (display, HTML, Markdown, Image); magic commands (%matplotlib inline, %run, %%time, %who); Jupyter widgets (ipywidgets); nbformat for programmatic notebook I/O
 
 <!-- Document the primary classes, functions, or APIs that project code depends on from Jupyter. -->
 
 ## Common Patterns & Pitfalls
 
-Keep notebooks reproducible: restart and run all, move reusable logic into modules, and avoid hidden state between cells.
+Use %matplotlib inline or %matplotlib widget at notebook top. Cell execution order matters — restart kernel and run all before submitting. Use display(df) instead of print(df) for formatted DataFrame rendering. Pitfall: hidden state from out-of-order execution causes hard-to-reproduce bugs.
 
 <!-- Document common usage patterns, best practices, and known issues for Jupyter . -->
 
