@@ -489,12 +489,12 @@
     "repo-liaison",
     "git-operations"
   ],
-  "manifest_fingerprint": "54d59294650b5715",
+  "manifest_fingerprint": "b961705fb3c3659b",
   "fingerprint_algo_version": 1,
   "file_hashes": {
-    "security.agent.md": "06b2e31e544e25c1",
-    "references/security-vulnerability-watch.reference.md": "4738cd57804418cd",
-    "references/security-vulnerability-watch.json": "c56a022ce1758205",
+    "security.agent.md": "c2324f4300790b8c",
+    "references/security-vulnerability-watch.reference.md": "9e380d64ca6e1ae6",
+    "references/security-vulnerability-watch.json": "8eac8b380d96f993",
     "references/pipeline-graph.md": "26acca10df02d7dc",
     "references/pipeline-graph.svg": "1a98d8127f3d32d4",
     "references/pipeline-handoffs.svg": "82b4bd2ff6ea2c84",
