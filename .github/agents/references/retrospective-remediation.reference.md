@@ -115,12 +115,15 @@ git-tracked, the same as this project's other agent governance logs.
 **Self-referential exception — when this project *is* the AgentTeamsModule repository itself:**
 append to the repository's **top-level** `references/agentteams-remediation-log.csv` instead
 (alongside its other hand-maintained meta-docs, e.g. `systematic-update-lessons.md`,
-`adjacent-repos.md`) — **not** the generic `<output_dir>/references/` path. Reason: AgentTeamsModule's
-own `.github/agents/` tree (its dogfood output directory) is a **gitignored, locally-regenerable
-build artifact** in its own repository, not a tracked deliverable — a choice specific to how that
-one repository manages its own example/dogfood output, not a general property of generated teams.
-Appending to the generic path there would silently write to an untracked file and defeat the
-entire purpose of this log (surviving past the session). Do not "fix" this exception by routing it
+`adjacent-repos.md`) — **not** the generic `<output_dir>/references/` path. Reason: AgentTeamsModule
+has **two** dogfood output trees, and both are **locally-regenerable build artifacts** rather than
+authored deliverables. `.github/agents/` is additionally gitignored; `.claude/agents/` *is*
+git-tracked, but only because Claude Code needs it resolvable on disk — tracking it does not make
+it authored. Either way a row appended there is overwritten by the next regeneration, which is the
+property that matters. Do not read the gitignore status as the reason: it is true of one tree only,
+and the exception holds for both. Appending to the generic path would write into a file that either
+is untracked or will be regenerated over, and would defeat the entire purpose of this log
+(surviving past the session). Do not "fix" this exception by routing it
 through the generic path — that would re-introduce the exact bug it exists to avoid.
 
 ## Failure Modes To Avoid
@@ -131,7 +134,7 @@ through the generic path — that would re-introduce the exact bug it exists to 
 | Silent, soft, easily-skipped step (the original work-summarizer-trigger failure mode) | The subroutine is a named, numbered step inside Workflows 1/2/3, not a buried closeout footnote, and carries an explicit ad-hoc reachability clause |
 | CSV/formula injection or secret leakage into a tracked file | Content-safety rule; escalate to `@security` only for that case |
 | Duplicate rows for the same underlying gap | Dedup rule, checked twice (subroutine + Protocol 5) |
-| Self-referential seed data landing in a gitignored path, silently "lost" | Destination Rule's explicit exception; do not route the self-referential case through the generic mechanism |
+| Self-referential seed data landing in a regenerable dogfood tree, silently "lost" | Destination Rule's explicit exception; do not route the self-referential case through the generic mechanism, and do not narrow the exception to the gitignored tree — it applies to every regenerable output tree |
 | Treating this as a second `@security`-gated cross-repo write | It is a local, same-repo append — Protocol 5 cites Protocol 3 as precedent |
 
 ## Related References

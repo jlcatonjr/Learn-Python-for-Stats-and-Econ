@@ -42,6 +42,26 @@ Mode precedence:
 - orchestrator completion-capture requirement (`append`)
 - default `create` behavior when the target file is absent
 
+### `append` idempotency — required
+
+`append` is the mode that actually runs on a repeat firing, and it is the one where duplicates
+accumulate. Before appending, **fingerprint the block you are about to write** — its heading plus
+the set of evidence items it cites (commits, PR numbers, plan slugs, file paths). Then:
+
+- **No new evidence since the last block of the same kind** → do not append. Update that block in
+  place (refresh its timestamp, extend its evidence list) or do nothing and say so.
+- **New evidence** → append normally.
+
+A "session" is **not** a reliable bound for this path and must not be used as one. The
+once-per-session guard documented under Workflow D is scoped to that workflow's automatic backfill
+sweep only; completion-capture can fire several times within one conversation, and does. Bound the
+decision on *evidence*, which is observable in the file, rather than on session identity, which is
+not.
+
+This exists because it was measured: one `workSummaries/daily/` file accumulated twenty
+`Session Stop` / `Workflow D` headings across 1,594 lines, with "No Gaps Detected" repeated
+verbatim three times and no new evidence between the repeats.
+
 ## Invariant Core
 
 > ⛔ **Do not modify or omit.** Output locations, evidence rules, and audit requirements are the immutable contract.

@@ -16,17 +16,17 @@
 
 ## Official Documentation
 
-{MANUAL:TOOL_DOCS_URL}
+https://ipywidgets.readthedocs.io/en/stable/
 
 ## Key API Surface
 
-{MANUAL:TOOL_API_SURFACE}
+widgets.IntSlider / FloatSlider(value, min, max, step) — numeric sliders; widgets.Dropdown(options, value) — dropdown selector; widgets.Checkbox(value) — boolean toggle; widgets.Output() — capture display output; widgets.HBox / VBox(*children) — layout containers; interact(fn, **kwargs) / interactive(fn, **kwargs) — auto-generate UI from function signature; widgets.observe(handler, names) — react to value changes; display(widget) — render widget in notebook
 
 <!-- Document the primary classes, functions, or APIs that project code depends on from ipywidgets. -->
 
 ## Common Patterns & Pitfalls
 
-{MANUAL:TOOL_COMMON_PATTERNS}
+Use interact() or @interact decorator for quick exploratory UIs — pass slider ranges as (min, max) or (min, max, step) tuples. For more control use interactive() and display its .widget attribute. Combine multiple widgets with HBox/VBox for layout. Use widgets.Output() context manager to capture prints/plots inside callbacks. Pitfall: widgets only render in a live Jupyter kernel — use Voilà to serve them as standalone apps or nbconvert --to html for static export. Pitfall: observe callbacks fire on every keystroke for Text widgets — debounce with a submit Button or use continuous_update=False on sliders.
 
 <!-- Document common usage patterns, best practices, and known issues for ipywidgets . -->
 

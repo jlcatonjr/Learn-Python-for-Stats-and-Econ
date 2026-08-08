@@ -59,3 +59,23 @@ Maintained by `@repo-liaison`. Every cross-repository update must be recorded he
 
 > **Merge-safe:** This file uses AGENTTEAMS fencing on the header only. All content below the header (Active Entries, Coordination Log, Retired Entries) is user-authored and is preserved automatically on `--merge` runs.
 <!-- AGENTTEAMS:END registry_header -->
+
+<!-- AGENTTEAMS:BEGIN cross_orchestrator_coordination_log v=1 -->
+## Cross-Orchestrator Coordination Log
+
+Coordination requests exchanged with adjacent orchestrators are saved as individual artifacts in `references/cross-orchestrator-requests/`.
+
+If you maintain a tabular log, store it in `adjacent-repos-coordination-log.csv`.
+Append one row per coordination: `date,adjacent_repo,direction,outcome`
+
+---
+<!-- AGENTTEAMS:END cross_orchestrator_coordination_log -->
+
+<!-- AGENTTEAMS:BEGIN retired_entries v=1 -->
+## Retired Entries
+
+Entries for repositories whose agent infrastructure no longer exists at the registered path, or whose relationship to this project has ended.
+
+*No retired entries.*
+<!-- AGENTTEAMS:END retired_entries -->
+

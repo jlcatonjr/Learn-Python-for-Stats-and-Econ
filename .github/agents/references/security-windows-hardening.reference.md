@@ -218,6 +218,15 @@ client-side apps / bot-blocked; their URLs are canonical and load in a browser.
 | Catalog | KEV | CISA | <https://www.cisa.gov/known-exploited-vulnerabilities-catalog> |
 <!-- AGENTTEAMS:END windows_hardening -->
 
+<!-- AGENTTEAMS:BEGIN operational_integration v=1 -->
+## Operational integration
+
+1. Refresh judgement against these primary sources during security reviews of Windows targets; the URLs are the current-truth authorities, not this file.
+2. Route high-priority platform gaps into `@security` review gates before execution.
+3. Tie remediation to owners, controls (Security Baselines / CIS), and verification (Event Log / Sysmon / Defender).
+4. Escalate unresolved, exploitation-likely gaps to `@orchestrator` with a HALT recommendation.
+<!-- AGENTTEAMS:END operational_integration -->
+
 ## Operational integration
 
 1. Refresh judgement against these primary sources during security reviews of Windows targets; the URLs are the current-truth authorities, not this file.

@@ -290,6 +290,41 @@ deletion. It is not mechanically counted — its enforcement check is illustrati
 # refactor. No automated metric.
 ```
 
+### CH-30 — No Exemption Without Provenance
+
+**Category:** security / anti-sprawl
+**Severity:** high
+
+Every suppression, allowlist, or skip inside a security control keys on **provenance**:
+
+```
+provenance = who authored this / is it module-owned / is it in the manifest /
+             is it the artifact THIS run produced
+shape      = a filename, a directory name, a delimiter, a formatting convention
+```
+
+A shape is something an attacker can adopt; provenance is not.
+
+A shape is something an attacker can adopt. A 2026-08-06 red-team audit found five independent
+instances in one scanner, every one of them added for a good reason:
+
+| Exemption | Keyed on | How it was worn |
+|---|---|---|
+| Rule S-5 override phrases inside a code span | backticks | payload wrapped in backticks (probe B1) |
+| credential/PII detection skipped on comment lines | `<!--` prefix | key written inside an HTML comment (probe B7) |
+| PII/entropy suppressed for operational JSON | basename, matched via `rglob` | payload written to any file named `memory-index.json` (probe B9) |
+| backup directory skipped | directory *name*, at any depth | attacker-created directory of that name (probe B10) |
+| unmanifested `.agent.md` skipped as an orphan | absence from the manifest | injected agent files are exactly what is not in a manifest (probe B11) |
+
+The remediation in each case was the same move — replace the shape test with a provenance test:
+module-owned path, resolved backup root for *this run*, canonical relative path, report-instead-
+of-skip. None of them needed a cleverer pattern.
+
+**Enforcement check.** Judgment-based. When reviewing a new or modified suppression in a
+security control, ask: *can the thing being exempted choose to look like this?* If yes, the
+exemption is a bypass. Prefer reporting at low/medium severity over skipping entirely — a
+non-blocking finding preserves the signal that a skip destroys.
+
 <!-- Example:
 ### CH-21 — Project-Specific Rule Name
 
