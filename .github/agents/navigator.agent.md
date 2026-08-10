@@ -153,6 +153,8 @@ The **code index** is the structural retrieval layer over *code* — the reposit
 agentteams --query-code "<function, class, API symbol, or capability>" --code-kind all --description .agentteams/brief.json --output .github/agents
 ```
 
+> **Self-maintained repos (agentteams itself):** `.agentteams/brief.json` does not exist there. Use `--self` instead of `--description ... --project . --output ...`; it resolves the brief and the output root together. Everywhere else the form above is correct.
+
 - Filter by label: `--code-kind local` (repo scripts) / `api` (external API modules) / `doc` (API docs). Each hit is tagged `[local-script]` / `[api-module]` / `[api-doc]`.
 - Default strategy is `lexical` (best for identifiers); add `--code-query-strategy vector` for thematic queries.
 - **Nested fallback:** consult the index → open the referenced file for detail → fall back to the project map / filesystem. Like the memory index it is additive and may be stale between `--update` runs — **never block on it**; if `references/code-index/` is absent or a hit is weak, grep.

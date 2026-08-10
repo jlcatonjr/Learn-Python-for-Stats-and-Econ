@@ -10,8 +10,7 @@
     "style-guardian",
     "technical-validator",
     "output-compiler",
-    "visual-designer",
-    "tool-doc-researcher"
+    "visual-designer"
   ],
   "components": [
     "ch1-essentials",
@@ -24,33 +23,34 @@
     "ch8-advanced",
     "ch9-abm"
   ],
-  "files_written": [],
-  "manual_required": 46,
+  "files_written": [
+    ".github/agents/references/redteam-methodology.reference.md"
+  ],
+  "manual_required": 37,
   "template_hashes": {
-    "universal/orchestrator.template.md": "86260a63063e5c6a",
-    "universal/navigator.template.md": "44761c1fbeac7fab",
-    "universal/security.template.md": "c24f0288ba86c1d3",
+    "universal/orchestrator.template.md": "a2e46ef24984366c",
+    "universal/navigator.template.md": "be2f562228ea5e1f",
+    "universal/security.template.md": "f0903dbb0ec12bbb",
     "universal/code-hygiene.template.md": "7b1eae41ef75358d",
-    "universal/adversarial.template.md": "ea4659f376567351",
-    "universal/conflict-auditor.template.md": "8646f491cdc44d02",
-    "universal/conflict-resolution.template.md": "fc8a741d01b40572",
+    "universal/adversarial.template.md": "3923a13f4fb1ae6a",
+    "universal/conflict-auditor.template.md": "371d5304d8a0f5fe",
+    "universal/conflict-resolution.template.md": "ff21ac7e7e1fc63c",
     "universal/cleanup.template.md": "bf795b64968349f6",
     "universal/agent-updater.template.md": "c9636a2efa322a6d",
     "universal/agent-refactor.template.md": "a9717cc56c35f4ac",
     "universal/repo-liaison.template.md": "a41269c1204528f3",
     "universal/git-operations.template.md": "82546b5e807d9c98",
     "domain/work-summarizer.template.md": "893bc7338f0336a6",
-    "domain/primary-producer.template.md": "c128e8f2fb52885f",
-    "domain/quality-auditor.template.md": "9f8489d342199598",
+    "domain/primary-producer.template.md": "35bf874350a29a94",
+    "domain/quality-auditor.template.md": "bc44c5742a92d831",
     "domain/cohesion-repairer.template.md": "a2c3b4844110b04a",
     "domain/style-guardian.template.md": "919e2e8d6cd90721",
-    "domain/technical-validator.template.md": "b5605b7aba24259f",
+    "domain/technical-validator.template.md": "8cc603acf4b577e6",
     "domain/output-compiler.template.md": "fd90f3a13765386a",
     "domain/visual-designer.template.md": "cae39ee7b6d167f4",
-    "domain/tool-doc-researcher.template.md": "8a6872d2dba18f54",
     "domain/tool-reference.template.md": "5ce5638b7094cc86",
-    "domain/code-hygiene-rules-reference.template.md": "5ada4506462eef31",
-    "domain/unix-philosophy-mapping-reference.template.md": "abd9e9e89f925b48",
+    "domain/code-hygiene-rules-reference.template.md": "cf49b61dc45e4ca4",
+    "domain/unix-philosophy-mapping-reference.template.md": "702af6b4e9e2b952",
     "universal/security-vulnerability-watch.reference.template.md": "269cdacb3d94fdfa",
     "universal/security-vulnerability-watch.json.template": "ebcec1b04ad46caa",
     "universal/security-linux-hardening.reference.template.md": "4845cf83b84615f4",
@@ -65,6 +65,7 @@
     "universal/work-summary-backfill.reference.template.md": "5730bac043dc2874",
     "universal/parallelization.reference.template.md": "2c872341050a7781",
     "universal/instruction-authority.reference.template.md": "72149ab5244f9be3",
+    "universal/redteam-methodology.reference.template.md": "a0443337a9796294",
     "universal/retrospective-remediation.reference.template.md": "2ee97598dca23e68",
     "universal/cli-tool-discovery.reference.template.md": "203004e771c8b2fd",
     "universal/skill-generation.reference.template.md": "47bcf76ed8f69a80",
@@ -196,12 +197,6 @@
       "component_slug": null
     },
     {
-      "path": "tool-doc-researcher.agent.md",
-      "template": "domain/tool-doc-researcher.template.md",
-      "type": "agent",
-      "component_slug": null
-    },
-    {
       "path": "references/ref-jupyter-reference.md",
       "template": "domain/tool-reference.template.md",
       "type": "reference",
@@ -242,41 +237,6 @@
       "type": "reference",
       "component_slug": null,
       "tool_slug": "ref-statsmodels"
-    },
-    {
-      "path": "references/ref-geopandas-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-geopandas"
-    },
-    {
-      "path": "references/ref-ipywidgets-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-ipywidgets"
-    },
-    {
-      "path": "references/ref-mpltoolkits-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-mpltoolkits"
-    },
-    {
-      "path": "references/ref-voila-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-voila"
-    },
-    {
-      "path": "references/ref-pyarrow-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-pyarrow"
     },
     {
       "path": "references/code-hygiene-rules.reference.md",
@@ -371,6 +331,12 @@
     {
       "path": "references/instruction-authority.reference.md",
       "template": "universal/instruction-authority.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/redteam-methodology.reference.md",
+      "template": "universal/redteam-methodology.reference.template.md",
       "type": "reference",
       "component_slug": null
     },
@@ -516,7 +482,6 @@
     "technical-validator",
     "output-compiler",
     "visual-designer",
-    "tool-doc-researcher",
     "ch1-essentials-expert",
     "ch2-lists-expert",
     "ch3-numpy-pandas-expert",
@@ -540,22 +505,24 @@
     "repo-liaison",
     "git-operations"
   ],
-  "manifest_fingerprint": "41dbf4a7293eceb6",
+  "manifest_fingerprint": "50aa92880fd92325",
   "fingerprint_algo_version": 1,
   "file_hashes": {
-    "security.agent.md": "2c24aecfa6282fe5",
-    "references/security-vulnerability-watch.json": "4e551d8fa901d5b4",
-    "ch1-essentials-expert.agent.md": "ab46f5a133bdb710",
-    "ch7-ols-expert.agent.md": "ceb876788f1ab69a",
-    "../copilot-instructions.md": "4e6daad8ad1985a7",
-    "references/pipeline-graph.md": "ac06e6560572aa82",
-    "references/pipeline-graph.svg": "5a933832fa91654a",
+    "references/redteam-methodology.reference.md": "488084b1bebf95ef",
+    "navigator.agent.md": "4fcfbbb0bffa883b",
+    "security.agent.md": "bc335cb55417aa7c",
+    "conflict-auditor.agent.md": "6f5ef74a495b2844",
+    "conflict-resolution.agent.md": "d6fc051cf781dbf3",
+    "references/code-hygiene-rules.reference.md": "9116985da4ff5a06",
+    "references/unix-philosophy-mapping.reference.md": "e2638da04b571290",
+    "references/security-vulnerability-watch.reference.md": "594f11a945e4e495",
+    "references/security-vulnerability-watch.json": "82adc525e902e2de",
+    "references/pipeline-graph.md": "26acca10df02d7dc",
+    "references/pipeline-graph.svg": "1a98d8127f3d32d4",
     "references/pipeline-handoffs.svg": "82b4bd2ff6ea2c84",
     "orchestrator.agent.md": "66275a4c22e6100b",
-    "navigator.agent.md": "a6261cc914eb9505",
     "code-hygiene.agent.md": "5451ac7e2f3f7a99",
-    "conflict-auditor.agent.md": "7490687d567170d8",
-    "conflict-resolution.agent.md": "23c6ba436fdcf74e",
+    "adversarial.agent.md": "c6ab960d68bd666c",
     "cleanup.agent.md": "e5438f6de5f8f279",
     "agent-updater.agent.md": "228193b3f249f7e8",
     "repo-liaison.agent.md": "de0e653c9f7787fe",
@@ -566,26 +533,25 @@
     "technical-validator.agent.md": "49c6ca1dfd594095",
     "output-compiler.agent.md": "f06e6ece336992d5",
     "visual-designer.agent.md": "28f8eacb39e7b21b",
-    "tool-doc-researcher.agent.md": "33cf44acd7616be6",
-    "references/unix-philosophy-mapping.reference.md": "c3ae1b1024b3345d",
-    "references/security-vulnerability-watch.reference.md": "7607d56b7d2cab32",
     "references/security-linux-hardening.reference.md": "fbc824595f0cca73",
     "references/security-macos-hardening.reference.md": "59d45d4ea942955d",
     "references/security-windows-hardening.reference.md": "78698ec86ced5ce6",
     "references/ai-bad-habits-watch.reference.md": "030b52121b9fcce6",
     "references/framework-watch.reference.md": "5f8854c6f9e85dce",
     "references/adjacent-repos.md": "adf7acfa769e8cfa",
+    "ch1-essentials-expert.agent.md": "ab46f5a133bdb710",
     "ch2-lists-expert.agent.md": "428a6e1db8e4f946",
     "ch3-numpy-pandas-expert.agent.md": "54a69e8e485b6542",
     "ch4-functional-expert.agent.md": "eefee2a3fea980f6",
     "ch5-probability-expert.agent.md": "a71c9e6ad7f82bb7",
     "ch6-hypothesis-expert.agent.md": "99fbf591a6876ed2",
+    "ch7-ols-expert.agent.md": "ceb876788f1ab69a",
     "ch8-advanced-expert.agent.md": "67926b088f46fc32",
     "ch9-abm-expert.agent.md": "8652e3492fa6b333",
+    "../copilot-instructions.md": "4e6daad8ad1985a7",
     "team-builder.agent.md": "2c0000df132d0101",
     "SETUP-REQUIRED.md": "47182160973143e3",
     "content-enricher.agent.md": "b6e342b10f3854f9",
-    "adversarial.agent.md": "c6ab960d68bd666c",
     "agent-refactor.agent.md": "d9b1434b52e25d9e",
     "work-summarizer.agent.md": "ffaacd9cee1ca7d4",
     "cohesion-repairer.agent.md": "df8fc736cd9fd26f",
@@ -595,12 +561,6 @@
     "references/ref-matplotlib-reference.md": "cc3db5c214dde0a9",
     "references/ref-scipy-reference.md": "03716690a7487b2e",
     "references/ref-statsmodels-reference.md": "c705cce29e74b731",
-    "references/ref-geopandas-reference.md": "adad408cac2ad394",
-    "references/ref-ipywidgets-reference.md": "227a53594178f06b",
-    "references/ref-mpltoolkits-reference.md": "048fb21a66e854e7",
-    "references/ref-voila-reference.md": "dc5ceb1262513014",
-    "references/ref-pyarrow-reference.md": "caf4f4df39b23e3a",
-    "references/code-hygiene-rules.reference.md": "a8ddc4aafb22abaa",
     "references/github-workflows-merge.reference.md": "af659d5abdf8a903",
     "references/work-summary-spec.reference.md": "96232231a1f7c6be",
     "references/work-summary-tooling.reference.md": "f3656972717153a9",
@@ -613,41 +573,6 @@
     "references/external-retrieval-quality-gate.reference.md": "3c5d82da1bdb0fe3"
   },
   "front_matter_baseline": {
-    "security.agent.md": {
-      "name": "Security \u2014 LearnPythonStatsEcon",
-      "description": "\"Top-priority security sentinel: reviews actions for credential exposure, destructive operations, sensitive content leakage, and reference integrity before any sensitive action proceeds\"",
-      "user-invokable": "false",
-      "tools": "['read', 'search']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "ch1-essentials-expert.agent.md": {
-      "name": "\"Chapter 1 \u2014 The Essentials Expert \u2014 LearnPythonStatsEcon\"",
-      "description": "\"Component expert for Chapter 1 \u2014 The Essentials in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
-      "user-invokable": "false",
-      "tools": "['read', 'search', 'agent']",
-      "agents": "['primary-producer', 'adversarial']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "ch7-ols-expert.agent.md": {
-      "name": "\"Chapter 7 \u2014 Building an OLS Regression Model Expert \u2014 LearnPythonStatsEcon\"",
-      "description": "\"Component expert for Chapter 7 \u2014 Building an OLS Regression Model in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
-      "user-invokable": "false",
-      "tools": "['read', 'search', 'agent']",
-      "agents": "['primary-producer', 'adversarial']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "orchestrator.agent.md": {
-      "name": "Orchestrator \u2014 LearnPythonStatsEcon",
-      "description": "\"Coordinates all agent operations for LearnPythonStatsEcon: routes work to domain agents, enforces constitutional rules, and closes every multi-file session with a consistency check.\"",
-      "user-invokable": "true",
-      "tools": "['read', 'edit', 'search', 'execute', 'todo', 'agent']",
-      "agents": "",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
     "navigator.agent.md": {
       "name": "Navigator \u2014 LearnPythonStatsEcon",
       "description": "\"Repository structure navigation, project map maintenance, file location lookups, and dependency queries for LearnPythonStatsEcon\"",
@@ -656,9 +581,9 @@
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
       "handoffs": ""
     },
-    "code-hygiene.agent.md": {
-      "name": "Code Hygiene \u2014 LearnPythonStatsEcon",
-      "description": "\"Read-only auditor that enforces modular architecture, file hygiene, script lifecycle, anti-sprawl rules, and agent documentation quality. Delegates removals to @cleanup; delegates structural extraction to @agent-refactor.\"",
+    "security.agent.md": {
+      "name": "Security \u2014 LearnPythonStatsEcon",
+      "description": "\"Top-priority security sentinel: reviews actions for credential exposure, destructive operations, sensitive content leakage, and reference integrity before any sensitive action proceeds\"",
       "user-invokable": "false",
       "tools": "['read', 'search']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
@@ -678,6 +603,31 @@
       "description": "\"Makes ACCEPT/REJECT/REVISE decisions on conflicts flagged by the conflict auditor in LearnPythonStatsEcon\"",
       "user-invokable": "false",
       "tools": "['edit', 'search', 'read']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": ""
+    },
+    "orchestrator.agent.md": {
+      "name": "Orchestrator \u2014 LearnPythonStatsEcon",
+      "description": "\"Coordinates all agent operations for LearnPythonStatsEcon: routes work to domain agents, enforces constitutional rules, and closes every multi-file session with a consistency check.\"",
+      "user-invokable": "true",
+      "tools": "['read', 'edit', 'search', 'execute', 'todo', 'agent']",
+      "agents": "",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": ""
+    },
+    "code-hygiene.agent.md": {
+      "name": "Code Hygiene \u2014 LearnPythonStatsEcon",
+      "description": "\"Read-only auditor that enforces modular architecture, file hygiene, script lifecycle, anti-sprawl rules, and agent documentation quality. Delegates removals to @cleanup; delegates structural extraction to @agent-refactor.\"",
+      "user-invokable": "false",
+      "tools": "['read', 'search']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": ""
+    },
+    "adversarial.agent.md": {
+      "name": "Adversarial \u2014 LearnPythonStatsEcon",
+      "description": "\"Presupposition critic: challenges the assumptions underlying any plan, proposal, or diagnosis produced by the agent team. Traces how justified changes in presuppositions cascade through dependent logic.\"",
+      "user-invokable": "true",
+      "tools": "['read', 'search']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
       "handoffs": ""
     },
@@ -768,11 +718,12 @@
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
       "handoffs": ""
     },
-    "tool-doc-researcher.agent.md": {
-      "name": "Tool Documentation Researcher \u2014 LearnPythonStatsEcon",
-      "description": "\"Locates and verifies official documentation, API surfaces, and usage patterns for tools in LearnPythonStatsEcon that are missing metadata\"",
+    "ch1-essentials-expert.agent.md": {
+      "name": "\"Chapter 1 \u2014 The Essentials Expert \u2014 LearnPythonStatsEcon\"",
+      "description": "\"Component expert for Chapter 1 \u2014 The Essentials in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
       "user-invokable": "false",
-      "tools": "['read', 'search']",
+      "tools": "['read', 'search', 'agent']",
+      "agents": "['primary-producer', 'adversarial']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
       "handoffs": ""
     },
@@ -821,6 +772,15 @@
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
       "handoffs": ""
     },
+    "ch7-ols-expert.agent.md": {
+      "name": "\"Chapter 7 \u2014 Building an OLS Regression Model Expert \u2014 LearnPythonStatsEcon\"",
+      "description": "\"Component expert for Chapter 7 \u2014 Building an OLS Regression Model in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
+      "user-invokable": "false",
+      "tools": "['read', 'search', 'agent']",
+      "agents": "['primary-producer', 'adversarial']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": ""
+    },
     "ch8-advanced-expert.agent.md": {
       "name": "\"Chapter 8 \u2014 Advanced Data Analysis Expert \u2014 LearnPythonStatsEcon\"",
       "description": "\"Component expert for Chapter 8 \u2014 Advanced Data Analysis in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
@@ -852,14 +812,6 @@
       "user-invokable": "true",
       "tools": "['read', 'edit', 'search']",
       "agents": "['primary-producer', 'technical-validator']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "adversarial.agent.md": {
-      "name": "Adversarial \u2014 LearnPythonStatsEcon",
-      "description": "\"Presupposition critic: challenges the assumptions underlying any plan, proposal, or diagnosis produced by the agent team. Traces how justified changes in presuppositions cascade through dependent logic.\"",
-      "user-invokable": "true",
-      "tools": "['read', 'search']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
       "handoffs": ""
     },

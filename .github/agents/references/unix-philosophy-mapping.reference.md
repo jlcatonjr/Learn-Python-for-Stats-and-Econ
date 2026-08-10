@@ -2,7 +2,7 @@
 # Unix Philosophy — Code Hygiene Mapping (LearnPythonStatsEcon)
 
 > **Purpose:** Document how code-hygiene rules align with principles from Unix system design and software architecture
-> **Applies to:** CH-01 through CH-28 rule interpretations
+> **Applies to:** CH-01 through CH-29 rule interpretations
 > **Relationship:** This is a *reference for reasoning*, not the authoritative source of rules. See `code-hygiene-rules.reference.md` for the complete enforcement catalog.
 > **Authority Position:** Complements (not supersedes) the authority hierarchy defined in orchestrator.agent.md
 > **Maintenance:** Updated by `@agent-updater` when code-hygiene-rules.reference.md changes AND when interpretations of Unix principles need clarification
@@ -111,10 +111,10 @@ This principle insists on **discoverability and explicitness**. Hidden behaviors
 
 ## Extension Rules (CH-21+) and Design Principles
 
-The repository adds eight enforcement rules (CH-21 through CH-28). CH-21–CH-26 are
+The repository adds nine enforcement rules (CH-21 through CH-29). CH-21–CH-26 are
 largely **project-specific operational requirements** complementary to Unix
-philosophy; CH-27 and CH-28 align *directly* with it (Software Tools and the Rule
-of Simplicity, respectively):
+philosophy; CH-27, CH-28, and CH-29 align *directly* with it (Software Tools, the
+Rule of Simplicity, and Software Tools again, respectively):
 
 | Rule | Tier | Principle Connection |
 |------|------|---------------------|
@@ -126,6 +126,7 @@ of Simplicity, respectively):
 | **CH-26** — Agent Tool Declarations Follow Least Authority (PoLA) | 2 | **Make Programs That Work Together.** Minimal authority mirrors minimal, well-scoped interfaces — an agent granted only what it needs is easier to reason about and compose. (Governance mandate.) |
 | **CH-27** — Prefer Long-Lived Utilities Over Ad-Hoc Scripts | 1 | **Software Tools / "Make each program do one thing well."** Recurring work belongs in durable, reusable tools, not throwaway scripts. Directly expresses the Unix "build reusable tools" ethos. |
 | **CH-28** — Prefer Minimal, Scoped Edits | 1 | **Rule of Simplicity / Rule of Economy ("Design for Simplicity").** The smallest change that satisfies the task keeps intent and program state legible; gratuitous churn is the complexity Unix philosophy warns against. (Advisory; never overrides required changes or sanctioned refactors.) |
+| **CH-29** — Script-First Output Discipline: Build and Reuse Reference Files | 1 | **Software Tools / "Write programs to work together" via durable reference artifacts.** Choosing a script over manual, one-off work — and capturing what was learned about each language/library in a reusable reference file — is the same "build reusable tools" ethos as [[CH-27]], applied at the moment of output production rather than after recurrence is observed. |
 
 ---
 
