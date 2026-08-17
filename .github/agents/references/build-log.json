@@ -23,9 +23,7 @@
     "ch8-advanced",
     "ch9-abm"
   ],
-  "files_written": [
-    ".github/agents/references/redteam-methodology.reference.md"
-  ],
+  "files_written": [],
   "manual_required": 37,
   "template_hashes": {
     "universal/orchestrator.template.md": "a2e46ef24984366c",
@@ -505,24 +503,21 @@
     "repo-liaison",
     "git-operations"
   ],
-  "manifest_fingerprint": "50aa92880fd92325",
+  "manifest_fingerprint": "ad4d4a3a322296f2",
   "fingerprint_algo_version": 1,
   "file_hashes": {
-    "references/redteam-methodology.reference.md": "488084b1bebf95ef",
-    "navigator.agent.md": "4fcfbbb0bffa883b",
-    "security.agent.md": "bc335cb55417aa7c",
-    "conflict-auditor.agent.md": "6f5ef74a495b2844",
-    "conflict-resolution.agent.md": "d6fc051cf781dbf3",
-    "references/code-hygiene-rules.reference.md": "9116985da4ff5a06",
-    "references/unix-philosophy-mapping.reference.md": "e2638da04b571290",
-    "references/security-vulnerability-watch.reference.md": "594f11a945e4e495",
-    "references/security-vulnerability-watch.json": "82adc525e902e2de",
+    "security.agent.md": "75ed9c08652249fc",
+    "references/security-vulnerability-watch.reference.md": "7b3958dc5269765f",
+    "references/security-vulnerability-watch.json": "35432006c2136d92",
     "references/pipeline-graph.md": "26acca10df02d7dc",
     "references/pipeline-graph.svg": "1a98d8127f3d32d4",
     "references/pipeline-handoffs.svg": "82b4bd2ff6ea2c84",
     "orchestrator.agent.md": "66275a4c22e6100b",
+    "navigator.agent.md": "4fcfbbb0bffa883b",
     "code-hygiene.agent.md": "5451ac7e2f3f7a99",
     "adversarial.agent.md": "c6ab960d68bd666c",
+    "conflict-auditor.agent.md": "6f5ef74a495b2844",
+    "conflict-resolution.agent.md": "d6fc051cf781dbf3",
     "cleanup.agent.md": "e5438f6de5f8f279",
     "agent-updater.agent.md": "228193b3f249f7e8",
     "repo-liaison.agent.md": "de0e653c9f7787fe",
@@ -533,6 +528,7 @@
     "technical-validator.agent.md": "49c6ca1dfd594095",
     "output-compiler.agent.md": "f06e6ece336992d5",
     "visual-designer.agent.md": "28f8eacb39e7b21b",
+    "references/unix-philosophy-mapping.reference.md": "e2638da04b571290",
     "references/security-linux-hardening.reference.md": "fbc824595f0cca73",
     "references/security-macos-hardening.reference.md": "59d45d4ea942955d",
     "references/security-windows-hardening.reference.md": "78698ec86ced5ce6",
@@ -561,6 +557,7 @@
     "references/ref-matplotlib-reference.md": "cc3db5c214dde0a9",
     "references/ref-scipy-reference.md": "03716690a7487b2e",
     "references/ref-statsmodels-reference.md": "c705cce29e74b731",
+    "references/code-hygiene-rules.reference.md": "9116985da4ff5a06",
     "references/github-workflows-merge.reference.md": "af659d5abdf8a903",
     "references/work-summary-spec.reference.md": "96232231a1f7c6be",
     "references/work-summary-tooling.reference.md": "f3656972717153a9",
@@ -573,6 +570,23 @@
     "references/external-retrieval-quality-gate.reference.md": "3c5d82da1bdb0fe3"
   },
   "front_matter_baseline": {
+    "security.agent.md": {
+      "name": "Security \u2014 LearnPythonStatsEcon",
+      "description": "\"Top-priority security sentinel: reviews actions for credential exposure, destructive operations, sensitive content leakage, and reference integrity before any sensitive action proceeds\"",
+      "user-invokable": "false",
+      "tools": "['read', 'search']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": ""
+    },
+    "orchestrator.agent.md": {
+      "name": "Orchestrator \u2014 LearnPythonStatsEcon",
+      "description": "\"Coordinates all agent operations for LearnPythonStatsEcon: routes work to domain agents, enforces constitutional rules, and closes every multi-file session with a consistency check.\"",
+      "user-invokable": "true",
+      "tools": "['read', 'edit', 'search', 'execute', 'todo', 'agent']",
+      "agents": "",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": ""
+    },
     "navigator.agent.md": {
       "name": "Navigator \u2014 LearnPythonStatsEcon",
       "description": "\"Repository structure navigation, project map maintenance, file location lookups, and dependency queries for LearnPythonStatsEcon\"",
@@ -581,10 +595,18 @@
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
       "handoffs": ""
     },
-    "security.agent.md": {
-      "name": "Security \u2014 LearnPythonStatsEcon",
-      "description": "\"Top-priority security sentinel: reviews actions for credential exposure, destructive operations, sensitive content leakage, and reference integrity before any sensitive action proceeds\"",
+    "code-hygiene.agent.md": {
+      "name": "Code Hygiene \u2014 LearnPythonStatsEcon",
+      "description": "\"Read-only auditor that enforces modular architecture, file hygiene, script lifecycle, anti-sprawl rules, and agent documentation quality. Delegates removals to @cleanup; delegates structural extraction to @agent-refactor.\"",
       "user-invokable": "false",
+      "tools": "['read', 'search']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": ""
+    },
+    "adversarial.agent.md": {
+      "name": "Adversarial \u2014 LearnPythonStatsEcon",
+      "description": "\"Presupposition critic: challenges the assumptions underlying any plan, proposal, or diagnosis produced by the agent team. Traces how justified changes in presuppositions cascade through dependent logic.\"",
+      "user-invokable": "true",
       "tools": "['read', 'search']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
       "handoffs": ""
@@ -603,31 +625,6 @@
       "description": "\"Makes ACCEPT/REJECT/REVISE decisions on conflicts flagged by the conflict auditor in LearnPythonStatsEcon\"",
       "user-invokable": "false",
       "tools": "['edit', 'search', 'read']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "orchestrator.agent.md": {
-      "name": "Orchestrator \u2014 LearnPythonStatsEcon",
-      "description": "\"Coordinates all agent operations for LearnPythonStatsEcon: routes work to domain agents, enforces constitutional rules, and closes every multi-file session with a consistency check.\"",
-      "user-invokable": "true",
-      "tools": "['read', 'edit', 'search', 'execute', 'todo', 'agent']",
-      "agents": "",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "code-hygiene.agent.md": {
-      "name": "Code Hygiene \u2014 LearnPythonStatsEcon",
-      "description": "\"Read-only auditor that enforces modular architecture, file hygiene, script lifecycle, anti-sprawl rules, and agent documentation quality. Delegates removals to @cleanup; delegates structural extraction to @agent-refactor.\"",
-      "user-invokable": "false",
-      "tools": "['read', 'search']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "adversarial.agent.md": {
-      "name": "Adversarial \u2014 LearnPythonStatsEcon",
-      "description": "\"Presupposition critic: challenges the assumptions underlying any plan, proposal, or diagnosis produced by the agent team. Traces how justified changes in presuppositions cascade through dependent logic.\"",
-      "user-invokable": "true",
-      "tools": "['read', 'search']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
       "handoffs": ""
     },
