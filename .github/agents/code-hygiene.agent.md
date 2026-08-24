@@ -1,30 +1,10 @@
 ---
 name: Code Hygiene — LearnPythonStatsEcon
 description: "Read-only auditor that enforces modular architecture, file hygiene, script lifecycle, anti-sprawl rules, and agent documentation quality. Delegates removals to @cleanup; delegates structural extraction to @agent-refactor."
-user-invokable: false
 tools: ['read', 'search']
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs:
-  - label: Security Clearance (for Deletions)
-    agent: security
-    prompt: "Code hygiene review identified files for deletion. Requesting security clearance before delegating to cleanup."
-    send: false
-  - label: Cleanup Agent
-    agent: cleanup
-    prompt: "Code hygiene audit complete. Delegate removal of identified files (after @security clearance)."
-    send: false
-  - label: Agent Refactor (Structural Violations)
-    agent: agent-refactor
-    prompt: "Code hygiene audit found inline reference data in agent files (CH-08/CH-14) or agent doc contradictions (CH-20) that may benefit from structural extraction. Requesting @agent-refactor to evaluate and apply reference extraction."
-    send: false
-  - label: Log Conflict
-    agent: conflict-auditor
-    prompt: "Code hygiene audit found agent documentation contradictions (CH-20). Logging as conflict."
-    send: false
-  - label: Return to Orchestrator
-    agent: orchestrator
-    prompt: "Code hygiene review is complete. Returning findings to the orchestrator."
-    send: false
+handoffs: 
+user-invocable: false
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->
 

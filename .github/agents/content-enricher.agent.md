@@ -1,19 +1,11 @@
 ---
 name: Content Enricher — LearnPythonStatsEcon
 description: "Fills in default template placeholders and underdeveloped sections in generated agent files for LearnPythonStatsEcon using the project's source materials"
-user-invokable: true
 tools: ['read', 'edit', 'search']
 agents: ['primary-producer', 'technical-validator']
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs:
-  - label: Validate Enriched Content
-    agent: technical-validator
-    prompt: "Content enrichment complete. Verify that filled-in values are technically accurate against project source files."
-    send: false
-  - label: Return to Orchestrator
-    agent: orchestrator
-    prompt: "Content enrichment complete. All auto-fillable placeholders have been resolved."
-    send: false
+handoffs: 
+user-invocable: true
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->
 

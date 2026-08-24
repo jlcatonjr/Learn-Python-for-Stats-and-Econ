@@ -1,23 +1,11 @@
 ---
 name: "Chapter 2 — Working With Lists Expert — LearnPythonStatsEcon"
 description: "Component expert for Chapter 2 — Working With Lists in LearnPythonStatsEcon — prepares Component Briefs, reviews drafts against brief checklist, approves deliverables"
-user-invokable: false
 tools: ['read', 'search', 'agent']
 agents: ['primary-producer', 'adversarial']
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs:
-  - label: Vet Brief Before Drafting
-    agent: adversarial
-    prompt: "Component Brief prepared. Review for hidden presuppositions before drafting begins."
-    send: false
-  - label: Send to Primary Producer
-    agent: primary-producer
-    prompt: "Component Brief accepted. Ready for drafting."
-    send: false
-  - label: Return to Orchestrator
-    agent: orchestrator
-    prompt: "Chapter 2 — Working With Lists has been reviewed and accepted."
-    send: false
+handoffs: 
+user-invocable: false
 ---
 <!--
 SECTION MANIFEST — workstream-expert.template.md

@@ -26,26 +26,26 @@
   "files_written": [],
   "manual_required": 37,
   "template_hashes": {
-    "universal/orchestrator.template.md": "a2e46ef24984366c",
-    "universal/navigator.template.md": "be2f562228ea5e1f",
-    "universal/security.template.md": "f0903dbb0ec12bbb",
-    "universal/code-hygiene.template.md": "7b1eae41ef75358d",
-    "universal/adversarial.template.md": "3923a13f4fb1ae6a",
-    "universal/conflict-auditor.template.md": "371d5304d8a0f5fe",
-    "universal/conflict-resolution.template.md": "ff21ac7e7e1fc63c",
-    "universal/cleanup.template.md": "bf795b64968349f6",
-    "universal/agent-updater.template.md": "c9636a2efa322a6d",
-    "universal/agent-refactor.template.md": "a9717cc56c35f4ac",
-    "universal/repo-liaison.template.md": "a41269c1204528f3",
-    "universal/git-operations.template.md": "82546b5e807d9c98",
-    "domain/work-summarizer.template.md": "893bc7338f0336a6",
-    "domain/primary-producer.template.md": "35bf874350a29a94",
-    "domain/quality-auditor.template.md": "bc44c5742a92d831",
-    "domain/cohesion-repairer.template.md": "a2c3b4844110b04a",
-    "domain/style-guardian.template.md": "919e2e8d6cd90721",
-    "domain/technical-validator.template.md": "8cc603acf4b577e6",
-    "domain/output-compiler.template.md": "fd90f3a13765386a",
-    "domain/visual-designer.template.md": "cae39ee7b6d167f4",
+    "universal/orchestrator.template.md": "7cb6cc382bcde9ca",
+    "universal/navigator.template.md": "5a0d707a9f3f5cec",
+    "universal/security.template.md": "9b38b7d5eab9c6ef",
+    "universal/code-hygiene.template.md": "72e2a1f9ec316852",
+    "universal/adversarial.template.md": "0dbc3c4284139780",
+    "universal/conflict-auditor.template.md": "d0e6ed3e98ba1f86",
+    "universal/conflict-resolution.template.md": "fd74ccfd546065c4",
+    "universal/cleanup.template.md": "dd3c78f2548c4686",
+    "universal/agent-updater.template.md": "1462c430bf7051c7",
+    "universal/agent-refactor.template.md": "fb1956da5b1140a2",
+    "universal/repo-liaison.template.md": "57b1c8654c320d59",
+    "universal/git-operations.template.md": "c000c51feb44ad64",
+    "domain/work-summarizer.template.md": "90b19b91ff48a953",
+    "domain/primary-producer.template.md": "e02c72f74753e2a3",
+    "domain/quality-auditor.template.md": "6ce15b22e2a72237",
+    "domain/cohesion-repairer.template.md": "58bee448f014dfde",
+    "domain/style-guardian.template.md": "31631c26f16811ea",
+    "domain/technical-validator.template.md": "a8ebdc034168749f",
+    "domain/output-compiler.template.md": "c08d60a4578e90a4",
+    "domain/visual-designer.template.md": "afb9a69f6972c7ec",
     "domain/tool-reference.template.md": "5ce5638b7094cc86",
     "domain/code-hygiene-rules-reference.template.md": "cf49b61dc45e4ca4",
     "domain/unix-philosophy-mapping-reference.template.md": "702af6b4e9e2b952",
@@ -64,14 +64,14 @@
     "universal/parallelization.reference.template.md": "2c872341050a7781",
     "universal/instruction-authority.reference.template.md": "72149ab5244f9be3",
     "universal/redteam-methodology.reference.template.md": "a0443337a9796294",
-    "universal/retrospective-remediation.reference.template.md": "2ee97598dca23e68",
+    "universal/retrospective-remediation.reference.template.md": "f79be49ac31f6266",
     "universal/cli-tool-discovery.reference.template.md": "203004e771c8b2fd",
     "universal/skill-generation.reference.template.md": "47bcf76ed8f69a80",
     "universal/external-retrieval-quality-gate.reference.template.md": "3922b0a2e99e75a3",
-    "workstream-expert.template.md": "95f33fe5d05d80e7",
-    "copilot-instructions.template.md": "a7835a86e5366798",
-    "builder/team-builder-copilot-vscode.template.md": "5708c3fd29801a3d",
-    "domain/content-enricher.template.md": "8176cebe85aace8f"
+    "workstream-expert.template.md": "145061461736b92b",
+    "copilot-instructions.template.md": "bc94e8e32a6b2cff",
+    "builder/team-builder-copilot-vscode.template.md": "044c1314c4e98a9d",
+    "domain/content-enricher.template.md": "79ddbbf48720bcc7"
   },
   "output_files_map": [
     {
@@ -503,31 +503,46 @@
     "repo-liaison",
     "git-operations"
   ],
-  "manifest_fingerprint": "ad4d4a3a322296f2",
+  "manifest_fingerprint": "e186d04fc155a1da",
   "fingerprint_algo_version": 1,
   "file_hashes": {
-    "security.agent.md": "75ed9c08652249fc",
-    "references/security-vulnerability-watch.reference.md": "7b3958dc5269765f",
-    "references/security-vulnerability-watch.json": "35432006c2136d92",
+    "orchestrator.agent.md": "a07af47b323a26b5",
+    "navigator.agent.md": "5184115ce7d5f57b",
+    "security.agent.md": "db97c28d627595db",
+    "code-hygiene.agent.md": "cecc6112e3c68d19",
+    "adversarial.agent.md": "e97a72d3b00a8478",
+    "conflict-auditor.agent.md": "ac86d50bf5431be8",
+    "conflict-resolution.agent.md": "8d983867c7b83881",
+    "cleanup.agent.md": "3d3f495fad050135",
+    "agent-updater.agent.md": "fdcaba309b90505e",
+    "agent-refactor.agent.md": "fd70803eb13f64c0",
+    "repo-liaison.agent.md": "d2027043b003b9c4",
+    "git-operations.agent.md": "85a4b9fe45678c3e",
+    "work-summarizer.agent.md": "3fd29eafccf82d2d",
+    "primary-producer.agent.md": "23cc66f95eeaa6d9",
+    "quality-auditor.agent.md": "4cd2ba2333b10f3b",
+    "cohesion-repairer.agent.md": "5239b437f86c71f4",
+    "style-guardian.agent.md": "d6c62bc93683a134",
+    "technical-validator.agent.md": "fe1c2791a23b4486",
+    "output-compiler.agent.md": "6b4664e1a2d5870b",
+    "visual-designer.agent.md": "9d8b8d1c375efb24",
+    "references/security-vulnerability-watch.reference.md": "706027319e6c7598",
+    "references/security-vulnerability-watch.json": "e66e265c06654f04",
+    "references/retrospective-remediation.reference.md": "ad2e6855ecf03605",
+    "ch1-essentials-expert.agent.md": "2396a0724c796b53",
+    "ch2-lists-expert.agent.md": "4ddc00af79ba2d2a",
+    "ch3-numpy-pandas-expert.agent.md": "7a15c656cbb6d0e3",
+    "ch4-functional-expert.agent.md": "14f036657ed6739c",
+    "ch5-probability-expert.agent.md": "8c56dcf1b19325ce",
+    "ch6-hypothesis-expert.agent.md": "24fd7ba67b3e47e8",
+    "ch7-ols-expert.agent.md": "2f8b412c1225f82e",
+    "ch8-advanced-expert.agent.md": "d2ca666c916c32da",
+    "ch9-abm-expert.agent.md": "f24d23dd86226dce",
+    "team-builder.agent.md": "9d29aab02681c08c",
+    "content-enricher.agent.md": "ccd43037c9ae1bb0",
     "references/pipeline-graph.md": "26acca10df02d7dc",
     "references/pipeline-graph.svg": "1a98d8127f3d32d4",
     "references/pipeline-handoffs.svg": "82b4bd2ff6ea2c84",
-    "orchestrator.agent.md": "66275a4c22e6100b",
-    "navigator.agent.md": "4fcfbbb0bffa883b",
-    "code-hygiene.agent.md": "5451ac7e2f3f7a99",
-    "adversarial.agent.md": "c6ab960d68bd666c",
-    "conflict-auditor.agent.md": "6f5ef74a495b2844",
-    "conflict-resolution.agent.md": "d6fc051cf781dbf3",
-    "cleanup.agent.md": "e5438f6de5f8f279",
-    "agent-updater.agent.md": "228193b3f249f7e8",
-    "repo-liaison.agent.md": "de0e653c9f7787fe",
-    "git-operations.agent.md": "f181c7d056cf703a",
-    "primary-producer.agent.md": "ceffd881511b0c02",
-    "quality-auditor.agent.md": "287da0ee0d7a3a7f",
-    "style-guardian.agent.md": "d0fe0721b37011da",
-    "technical-validator.agent.md": "49c6ca1dfd594095",
-    "output-compiler.agent.md": "f06e6ece336992d5",
-    "visual-designer.agent.md": "28f8eacb39e7b21b",
     "references/unix-philosophy-mapping.reference.md": "e2638da04b571290",
     "references/security-linux-hardening.reference.md": "fbc824595f0cca73",
     "references/security-macos-hardening.reference.md": "59d45d4ea942955d",
@@ -535,22 +550,8 @@
     "references/ai-bad-habits-watch.reference.md": "030b52121b9fcce6",
     "references/framework-watch.reference.md": "5f8854c6f9e85dce",
     "references/adjacent-repos.md": "adf7acfa769e8cfa",
-    "ch1-essentials-expert.agent.md": "ab46f5a133bdb710",
-    "ch2-lists-expert.agent.md": "428a6e1db8e4f946",
-    "ch3-numpy-pandas-expert.agent.md": "54a69e8e485b6542",
-    "ch4-functional-expert.agent.md": "eefee2a3fea980f6",
-    "ch5-probability-expert.agent.md": "a71c9e6ad7f82bb7",
-    "ch6-hypothesis-expert.agent.md": "99fbf591a6876ed2",
-    "ch7-ols-expert.agent.md": "ceb876788f1ab69a",
-    "ch8-advanced-expert.agent.md": "67926b088f46fc32",
-    "ch9-abm-expert.agent.md": "8652e3492fa6b333",
     "../copilot-instructions.md": "4e6daad8ad1985a7",
-    "team-builder.agent.md": "2c0000df132d0101",
     "SETUP-REQUIRED.md": "47182160973143e3",
-    "content-enricher.agent.md": "b6e342b10f3854f9",
-    "agent-refactor.agent.md": "d9b1434b52e25d9e",
-    "work-summarizer.agent.md": "ffaacd9cee1ca7d4",
-    "cohesion-repairer.agent.md": "df8fc736cd9fd26f",
     "references/ref-jupyter-reference.md": "7fab21b30424739b",
     "references/ref-numpy-reference.md": "daab373a9a35449d",
     "references/ref-pandas-reference.md": "5ab936d86fa0bcc5",
@@ -564,280 +565,279 @@
     "references/work-summary-backfill.reference.md": "a0543cde8916cedb",
     "references/parallelization.reference.md": "d2321bf5ac1ed2f8",
     "references/instruction-authority.reference.md": "ef966c1ddd32b770",
-    "references/retrospective-remediation.reference.md": "b9c2fd978b0a0605",
     "references/cli-tool-discovery.reference.md": "25542cccc7cb88eb",
     "references/skill-generation.reference.md": "5afe8c28e86bce98",
     "references/external-retrieval-quality-gate.reference.md": "3c5d82da1bdb0fe3"
   },
   "front_matter_baseline": {
-    "security.agent.md": {
-      "name": "Security \u2014 LearnPythonStatsEcon",
-      "description": "\"Top-priority security sentinel: reviews actions for credential exposure, destructive operations, sensitive content leakage, and reference integrity before any sensitive action proceeds\"",
-      "user-invokable": "false",
-      "tools": "['read', 'search']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
     "orchestrator.agent.md": {
       "name": "Orchestrator \u2014 LearnPythonStatsEcon",
       "description": "\"Coordinates all agent operations for LearnPythonStatsEcon: routes work to domain agents, enforces constitutional rules, and closes every multi-file session with a consistency check.\"",
-      "user-invokable": "true",
       "tools": "['read', 'edit', 'search', 'execute', 'todo', 'agent']",
       "agents": "",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
+      "handoffs": "",
+      "user-invocable": "true"
     },
     "navigator.agent.md": {
       "name": "Navigator \u2014 LearnPythonStatsEcon",
       "description": "\"Repository structure navigation, project map maintenance, file location lookups, and dependency queries for LearnPythonStatsEcon\"",
-      "user-invokable": "false",
       "tools": "['read', 'search', 'execute']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
+      "handoffs": "",
+      "user-invocable": "false"
+    },
+    "security.agent.md": {
+      "name": "Security \u2014 LearnPythonStatsEcon",
+      "description": "\"Top-priority security sentinel: reviews actions for credential exposure, destructive operations, sensitive content leakage, and reference integrity before any sensitive action proceeds\"",
+      "tools": "['read', 'search']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "",
+      "user-invocable": "false"
     },
     "code-hygiene.agent.md": {
       "name": "Code Hygiene \u2014 LearnPythonStatsEcon",
       "description": "\"Read-only auditor that enforces modular architecture, file hygiene, script lifecycle, anti-sprawl rules, and agent documentation quality. Delegates removals to @cleanup; delegates structural extraction to @agent-refactor.\"",
-      "user-invokable": "false",
       "tools": "['read', 'search']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
+      "handoffs": "",
+      "user-invocable": "false"
     },
     "adversarial.agent.md": {
       "name": "Adversarial \u2014 LearnPythonStatsEcon",
       "description": "\"Presupposition critic: challenges the assumptions underlying any plan, proposal, or diagnosis produced by the agent team. Traces how justified changes in presuppositions cascade through dependent logic.\"",
-      "user-invokable": "true",
       "tools": "['read', 'search']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
+      "handoffs": "",
+      "user-invocable": "true"
     },
     "conflict-auditor.agent.md": {
       "name": "Conflict Auditor \u2014 LearnPythonStatsEcon",
       "description": "\"Detects logical conflicts across deliverables, agent documentation, reference files, and source material in LearnPythonStatsEcon\"",
-      "user-invokable": "false",
       "tools": "['read', 'search']",
       "agents": "['conflict-resolution', 'agent-updater', 'technical-validator']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
+      "handoffs": "",
+      "user-invocable": "false"
     },
     "conflict-resolution.agent.md": {
       "name": "Conflict Resolution \u2014 LearnPythonStatsEcon",
       "description": "\"Makes ACCEPT/REJECT/REVISE decisions on conflicts flagged by the conflict auditor in LearnPythonStatsEcon\"",
-      "user-invokable": "false",
       "tools": "['edit', 'search', 'read']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
+      "handoffs": "",
+      "user-invocable": "false"
     },
     "cleanup.agent.md": {
       "name": "Cleanup \u2014 LearnPythonStatsEcon",
       "description": "\"Removes stale drafts, build artifacts, and orphaned files from LearnPythonStatsEcon with mandatory safety checks\"",
-      "user-invokable": "false",
       "tools": "['edit', 'search', 'execute']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
+      "handoffs": "",
+      "user-invocable": "false"
     },
     "agent-updater.agent.md": {
       "name": "Agent Updater \u2014 LearnPythonStatsEcon",
       "description": "\"Synchronizes agent documentation after project structure, deliverable, or reference changes in LearnPythonStatsEcon\"",
-      "user-invokable": "false",
       "tools": "['edit', 'search', 'execute', 'agent']",
       "agents": "['conflict-auditor', 'agent-refactor']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "repo-liaison.agent.md": {
-      "name": "Repo Liaison \u2014 LearnPythonStatsEcon",
-      "description": "\"Tracks agent documentation in repositories adjacent to LearnPythonStatsEcon, communicates cross-repository impacts, maintains the adjacent-repos registry, and coordinates between orchestrators when this project's activity affects neighboring agent infrastructures.\"",
-      "user-invokable": "false",
-      "tools": "['read', 'edit', 'search', 'execute', 'agent']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "git-operations.agent.md": {
-      "name": "Git Operations \u2014 LearnPythonStatsEcon",
-      "description": "\"Executes and governs Git and GitHub operations in LearnPythonStatsEcon, including commit/push, pull/merge/rebase, conflict handling, and recovery workflows.\"",
-      "user-invokable": "true",
-      "tools": "['read', 'execute', 'search']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "primary-producer.agent.md": {
-      "name": "Primary Producer \u2014 LearnPythonStatsEcon",
-      "description": "\"Drafts and revises deliverables in LearnPythonStatsEcon from Component Briefs provided by workstream expert agents\"",
-      "user-invokable": "false",
-      "tools": "['read', 'edit', 'search']",
-      "agents": "['style-guardian', 'cohesion-repairer', 'quality-auditor', 'conflict-auditor']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "quality-auditor.agent.md": {
-      "name": "Quality Auditor \u2014 LearnPythonStatsEcon",
-      "description": "\"Read-only audit agent that inspects deliverables in LearnPythonStatsEcon for structural defects, logical inconsistencies, and LLM-generated prose patterns; does not rewrite\"",
-      "user-invokable": "false",
-      "tools": "['read', 'search']",
-      "agents": "['primary-producer', 'cohesion-repairer', 'style-guardian']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "style-guardian.agent.md": {
-      "name": "Style Guardian \u2014 LearnPythonStatsEcon",
-      "description": "\"Enforces voice and style fidelity in LearnPythonStatsEcon deliverables using calibrated voice samples; sole arbiter of style deviation rulings\"",
-      "user-invokable": "false",
-      "tools": "['read', 'edit', 'search']",
-      "agents": "['primary-producer']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "technical-validator.agent.md": {
-      "name": "Technical Validator \u2014 LearnPythonStatsEcon",
-      "description": "\"Read-only audit agent that verifies technical accuracy in LearnPythonStatsEcon \u2014 code examples, file excerpts, API references, and tool invocations match what exists on disk\"",
-      "user-invokable": "false",
-      "tools": "['read', 'search']",
-      "agents": "['primary-producer', 'conflict-auditor']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "output-compiler.agent.md": {
-      "name": "Output Compiler \u2014 LearnPythonStatsEcon",
-      "description": "\"Assembles all converted components into a final deliverable package for LearnPythonStatsEcon \u2014 dependency check, ordering, build manifest\"",
-      "user-invokable": "false",
-      "tools": "['read', 'edit', 'execute']",
-      "agents": "['technical-validator']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "visual-designer.agent.md": {
-      "name": "Visual Designer \u2014 LearnPythonStatsEcon",
-      "description": "\"Creates and revises diagrams and figures for LearnPythonStatsEcon using the approved diagram toolchain\"",
-      "user-invokable": "false",
-      "tools": "['read', 'edit', 'execute', 'search']",
-      "agents": "['quality-auditor']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "ch1-essentials-expert.agent.md": {
-      "name": "\"Chapter 1 \u2014 The Essentials Expert \u2014 LearnPythonStatsEcon\"",
-      "description": "\"Component expert for Chapter 1 \u2014 The Essentials in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
-      "user-invokable": "false",
-      "tools": "['read', 'search', 'agent']",
-      "agents": "['primary-producer', 'adversarial']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "ch2-lists-expert.agent.md": {
-      "name": "\"Chapter 2 \u2014 Working With Lists Expert \u2014 LearnPythonStatsEcon\"",
-      "description": "\"Component expert for Chapter 2 \u2014 Working With Lists in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
-      "user-invokable": "false",
-      "tools": "['read', 'search', 'agent']",
-      "agents": "['primary-producer', 'adversarial']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "ch3-numpy-pandas-expert.agent.md": {
-      "name": "\"Chapter 3 \u2014 NumPy, Pandas, and Matplotlib Expert \u2014 LearnPythonStatsEcon\"",
-      "description": "\"Component expert for Chapter 3 \u2014 NumPy, Pandas, and Matplotlib in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
-      "user-invokable": "false",
-      "tools": "['read', 'search', 'agent']",
-      "agents": "['primary-producer', 'adversarial']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "ch4-functional-expert.agent.md": {
-      "name": "\"Chapter 4 \u2014 Functional Programming and Rudimentary Statistics Expert \u2014 LearnPythonStatsEcon\"",
-      "description": "\"Component expert for Chapter 4 \u2014 Functional Programming and Rudimentary Statistics in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
-      "user-invokable": "false",
-      "tools": "['read', 'search', 'agent']",
-      "agents": "['primary-producer', 'adversarial']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "ch5-probability-expert.agent.md": {
-      "name": "\"Chapter 5 \u2014 Probability Distributions Expert \u2014 LearnPythonStatsEcon\"",
-      "description": "\"Component expert for Chapter 5 \u2014 Probability Distributions in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
-      "user-invokable": "false",
-      "tools": "['read', 'search', 'agent']",
-      "agents": "['primary-producer', 'adversarial']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "ch6-hypothesis-expert.agent.md": {
-      "name": "\"Chapter 6 \u2014 Hypothesis Testing Expert \u2014 LearnPythonStatsEcon\"",
-      "description": "\"Component expert for Chapter 6 \u2014 Hypothesis Testing in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
-      "user-invokable": "false",
-      "tools": "['read', 'search', 'agent']",
-      "agents": "['primary-producer', 'adversarial']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "ch7-ols-expert.agent.md": {
-      "name": "\"Chapter 7 \u2014 Building an OLS Regression Model Expert \u2014 LearnPythonStatsEcon\"",
-      "description": "\"Component expert for Chapter 7 \u2014 Building an OLS Regression Model in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
-      "user-invokable": "false",
-      "tools": "['read', 'search', 'agent']",
-      "agents": "['primary-producer', 'adversarial']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "ch8-advanced-expert.agent.md": {
-      "name": "\"Chapter 8 \u2014 Advanced Data Analysis Expert \u2014 LearnPythonStatsEcon\"",
-      "description": "\"Component expert for Chapter 8 \u2014 Advanced Data Analysis in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
-      "user-invokable": "false",
-      "tools": "['read', 'search', 'agent']",
-      "agents": "['primary-producer', 'adversarial']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "ch9-abm-expert.agent.md": {
-      "name": "\"Chapter 9 \u2014 Agent-Based Modeling Expert \u2014 LearnPythonStatsEcon\"",
-      "description": "\"Component expert for Chapter 9 \u2014 Agent-Based Modeling in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
-      "user-invokable": "false",
-      "tools": "['read', 'search', 'agent']",
-      "agents": "['primary-producer', 'adversarial']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
-    },
-    "team-builder.agent.md": {
-      "name": "Team Builder \u2014 Agent Teams Module",
-      "description": "\"Interactively constructs a complete agent team for a new or existing VS Code Copilot project by conducting an intake interview and invoking the build_team pipeline\"",
-      "user-invokable": "true",
-      "tools": "['read', 'edit', 'search', 'execute', 'todo']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]"
-    },
-    "content-enricher.agent.md": {
-      "name": "Content Enricher \u2014 LearnPythonStatsEcon",
-      "description": "\"Fills in default template placeholders and underdeveloped sections in generated agent files for LearnPythonStatsEcon using the project's source materials\"",
-      "user-invokable": "true",
-      "tools": "['read', 'edit', 'search']",
-      "agents": "['primary-producer', 'technical-validator']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
+      "handoffs": "",
+      "user-invocable": "false"
     },
     "agent-refactor.agent.md": {
       "name": "Agent Refactor \u2014 LearnPythonStatsEcon",
       "description": "\"Extracts shared data to reference files and enforces spec compliance across all agent documentation in LearnPythonStatsEcon\"",
-      "user-invokable": "false",
       "tools": "['edit', 'search', 'agent']",
       "agents": "['conflict-auditor']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
+      "handoffs": "",
+      "user-invocable": "false"
+    },
+    "repo-liaison.agent.md": {
+      "name": "Repo Liaison \u2014 LearnPythonStatsEcon",
+      "description": "\"Tracks agent documentation in repositories adjacent to LearnPythonStatsEcon, communicates cross-repository impacts, maintains the adjacent-repos registry, and coordinates between orchestrators when this project's activity affects neighboring agent infrastructures.\"",
+      "tools": "['read', 'edit', 'search', 'execute', 'agent']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "",
+      "user-invocable": "false"
+    },
+    "git-operations.agent.md": {
+      "name": "Git Operations \u2014 LearnPythonStatsEcon",
+      "description": "\"Executes and governs Git and GitHub operations in LearnPythonStatsEcon, including commit/push, pull/merge/rebase, conflict handling, and recovery workflows.\"",
+      "tools": "['read', 'execute', 'search']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "",
+      "user-invocable": "true"
     },
     "work-summarizer.agent.md": {
       "name": "Work Summarizer \u2014 LearnPythonStatsEcon",
       "description": "\"Synthesizes daily, weekly, and monthly work summaries from canonical plan artifacts and git evidence for LearnPythonStatsEcon; supports append-first daily capture, legacy tmp/ fallback, and required adversarial/conflict audits\"",
-      "user-invokable": "true",
       "tools": "['read', 'search', 'execute', 'edit', 'agent']",
       "agents": "['technical-validator', 'adversarial', 'conflict-auditor']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
+      "handoffs": "",
+      "user-invocable": "true"
+    },
+    "primary-producer.agent.md": {
+      "name": "Primary Producer \u2014 LearnPythonStatsEcon",
+      "description": "\"Drafts and revises deliverables in LearnPythonStatsEcon from Component Briefs provided by workstream expert agents\"",
+      "tools": "['read', 'edit', 'search']",
+      "agents": "['style-guardian', 'cohesion-repairer', 'quality-auditor', 'conflict-auditor']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "",
+      "user-invocable": "false"
+    },
+    "quality-auditor.agent.md": {
+      "name": "Quality Auditor \u2014 LearnPythonStatsEcon",
+      "description": "\"Read-only audit agent that inspects deliverables in LearnPythonStatsEcon for structural defects, logical inconsistencies, and LLM-generated prose patterns; does not rewrite\"",
+      "tools": "['read', 'search']",
+      "agents": "['primary-producer', 'cohesion-repairer', 'style-guardian']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "",
+      "user-invocable": "false"
     },
     "cohesion-repairer.agent.md": {
       "name": "Cohesion Repairer \u2014 LearnPythonStatsEcon",
       "description": "\"Repairs within-section cohesion failures in LearnPythonStatsEcon deliverables \u2014 disjointedness, broken transitions, and missing argumentative spine; does not reorganize across sections\"",
-      "user-invokable": "false",
       "tools": "['read', 'edit']",
       "agents": "['style-guardian', 'quality-auditor']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": ""
+      "handoffs": "",
+      "user-invocable": "false"
+    },
+    "style-guardian.agent.md": {
+      "name": "Style Guardian \u2014 LearnPythonStatsEcon",
+      "description": "\"Enforces voice and style fidelity in LearnPythonStatsEcon deliverables using calibrated voice samples; sole arbiter of style deviation rulings\"",
+      "tools": "['read', 'edit', 'search']",
+      "agents": "['primary-producer']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "",
+      "user-invocable": "false"
+    },
+    "technical-validator.agent.md": {
+      "name": "Technical Validator \u2014 LearnPythonStatsEcon",
+      "description": "\"Read-only audit agent that verifies technical accuracy in LearnPythonStatsEcon \u2014 code examples, file excerpts, API references, and tool invocations match what exists on disk\"",
+      "tools": "['read', 'search']",
+      "agents": "['primary-producer', 'conflict-auditor']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "",
+      "user-invocable": "false"
+    },
+    "output-compiler.agent.md": {
+      "name": "Output Compiler \u2014 LearnPythonStatsEcon",
+      "description": "\"Assembles all converted components into a final deliverable package for LearnPythonStatsEcon \u2014 dependency check, ordering, build manifest\"",
+      "tools": "['read', 'edit', 'execute']",
+      "agents": "['technical-validator']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "",
+      "user-invocable": "false"
+    },
+    "visual-designer.agent.md": {
+      "name": "Visual Designer \u2014 LearnPythonStatsEcon",
+      "description": "\"Creates and revises diagrams and figures for LearnPythonStatsEcon using the approved diagram toolchain\"",
+      "tools": "['read', 'edit', 'execute', 'search']",
+      "agents": "['quality-auditor']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "",
+      "user-invocable": "false"
+    },
+    "ch1-essentials-expert.agent.md": {
+      "name": "\"Chapter 1 \u2014 The Essentials Expert \u2014 LearnPythonStatsEcon\"",
+      "description": "\"Component expert for Chapter 1 \u2014 The Essentials in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
+      "tools": "['read', 'search', 'agent']",
+      "agents": "['primary-producer', 'adversarial']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "",
+      "user-invocable": "false"
+    },
+    "ch2-lists-expert.agent.md": {
+      "name": "\"Chapter 2 \u2014 Working With Lists Expert \u2014 LearnPythonStatsEcon\"",
+      "description": "\"Component expert for Chapter 2 \u2014 Working With Lists in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
+      "tools": "['read', 'search', 'agent']",
+      "agents": "['primary-producer', 'adversarial']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "",
+      "user-invocable": "false"
+    },
+    "ch3-numpy-pandas-expert.agent.md": {
+      "name": "\"Chapter 3 \u2014 NumPy, Pandas, and Matplotlib Expert \u2014 LearnPythonStatsEcon\"",
+      "description": "\"Component expert for Chapter 3 \u2014 NumPy, Pandas, and Matplotlib in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
+      "tools": "['read', 'search', 'agent']",
+      "agents": "['primary-producer', 'adversarial']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "",
+      "user-invocable": "false"
+    },
+    "ch4-functional-expert.agent.md": {
+      "name": "\"Chapter 4 \u2014 Functional Programming and Rudimentary Statistics Expert \u2014 LearnPythonStatsEcon\"",
+      "description": "\"Component expert for Chapter 4 \u2014 Functional Programming and Rudimentary Statistics in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
+      "tools": "['read', 'search', 'agent']",
+      "agents": "['primary-producer', 'adversarial']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "",
+      "user-invocable": "false"
+    },
+    "ch5-probability-expert.agent.md": {
+      "name": "\"Chapter 5 \u2014 Probability Distributions Expert \u2014 LearnPythonStatsEcon\"",
+      "description": "\"Component expert for Chapter 5 \u2014 Probability Distributions in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
+      "tools": "['read', 'search', 'agent']",
+      "agents": "['primary-producer', 'adversarial']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "",
+      "user-invocable": "false"
+    },
+    "ch6-hypothesis-expert.agent.md": {
+      "name": "\"Chapter 6 \u2014 Hypothesis Testing Expert \u2014 LearnPythonStatsEcon\"",
+      "description": "\"Component expert for Chapter 6 \u2014 Hypothesis Testing in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
+      "tools": "['read', 'search', 'agent']",
+      "agents": "['primary-producer', 'adversarial']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "",
+      "user-invocable": "false"
+    },
+    "ch7-ols-expert.agent.md": {
+      "name": "\"Chapter 7 \u2014 Building an OLS Regression Model Expert \u2014 LearnPythonStatsEcon\"",
+      "description": "\"Component expert for Chapter 7 \u2014 Building an OLS Regression Model in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
+      "tools": "['read', 'search', 'agent']",
+      "agents": "['primary-producer', 'adversarial']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "",
+      "user-invocable": "false"
+    },
+    "ch8-advanced-expert.agent.md": {
+      "name": "\"Chapter 8 \u2014 Advanced Data Analysis Expert \u2014 LearnPythonStatsEcon\"",
+      "description": "\"Component expert for Chapter 8 \u2014 Advanced Data Analysis in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
+      "tools": "['read', 'search', 'agent']",
+      "agents": "['primary-producer', 'adversarial']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "",
+      "user-invocable": "false"
+    },
+    "ch9-abm-expert.agent.md": {
+      "name": "\"Chapter 9 \u2014 Agent-Based Modeling Expert \u2014 LearnPythonStatsEcon\"",
+      "description": "\"Component expert for Chapter 9 \u2014 Agent-Based Modeling in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
+      "tools": "['read', 'search', 'agent']",
+      "agents": "['primary-producer', 'adversarial']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "",
+      "user-invocable": "false"
+    },
+    "team-builder.agent.md": {
+      "name": "Team Builder \u2014 Agent Teams Module",
+      "description": "\"Interactively constructs a complete agent team for a new or existing VS Code Copilot project by conducting an intake interview and invoking the build_team pipeline\"",
+      "tools": "['read', 'edit', 'search', 'execute', 'todo']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "user-invocable": "true"
+    },
+    "content-enricher.agent.md": {
+      "name": "Content Enricher \u2014 LearnPythonStatsEcon",
+      "description": "\"Fills in default template placeholders and underdeveloped sections in generated agent files for LearnPythonStatsEcon using the project's source materials\"",
+      "tools": "['read', 'edit', 'search']",
+      "agents": "['primary-producer', 'technical-validator']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "",
+      "user-invocable": "true"
     }
   }
 }

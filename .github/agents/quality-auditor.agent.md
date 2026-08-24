@@ -1,27 +1,11 @@
 ---
 name: Quality Auditor — LearnPythonStatsEcon
 description: "Read-only audit agent that inspects deliverables in LearnPythonStatsEcon for structural defects, logical inconsistencies, and LLM-generated prose patterns; does not rewrite"
-user-invokable: false
 tools: ['read', 'search']
 agents: ['primary-producer', 'cohesion-repairer', 'style-guardian']
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs:
-  - label: Route Corrections to Primary Producer
-    agent: primary-producer
-    prompt: "Audit findings attached. Please correct flagged passages."
-    send: false
-  - label: Route Cohesion Failures
-    agent: cohesion-repairer
-    prompt: "Cohesion failures flagged in audit. Please repair."
-    send: false
-  - label: Route Style Issues
-    agent: style-guardian
-    prompt: "Style deviations flagged in audit."
-    send: false
-  - label: Return to Orchestrator
-    agent: orchestrator
-    prompt: "Quality audit complete. See findings."
-    send: false
+handoffs: 
+user-invocable: false
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->
 

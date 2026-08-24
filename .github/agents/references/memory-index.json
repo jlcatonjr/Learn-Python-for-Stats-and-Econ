@@ -2,7 +2,7 @@
   "artifact_type": "memory-index",
   "memory_index_schema_version": "1.3",
   "index_format_version": "json-bm25-postings-v2",
-  "index_build_id": "ef472fecd1f075429b969cc7a05e90e3ee7d917c0d593cbd072e1e47dd0172c2",
+  "index_build_id": "4932beb6263d5bcff8b755a4da6e122257a36945ae0ee8a2ddda5cf6643d033b",
   "index_write_owner": "agentteams.build_team",
   "vector_runtime_mode": "sparse-tfidf-cosine",
   "vector_model_id": null,
@@ -11,7 +11,7 @@
   "source_fingerprint": "552f8670bfab464c55bdb13dcc23ac53cabddfe8abebee23e647337489010650",
   "project_name": "LearnPythonStatsEcon",
   "framework": "copilot-vscode",
-  "built_at": "2026-08-10T13:32:28.331573Z",
+  "built_at": "2026-08-17T13:33:06.800107Z",
   "source_count": 1,
   "documents": [
     {

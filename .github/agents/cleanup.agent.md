@@ -1,14 +1,10 @@
 ---
 name: Cleanup — LearnPythonStatsEcon
 description: "Removes stale drafts, build artifacts, and orphaned files from LearnPythonStatsEcon with mandatory safety checks"
-user-invokable: false
 tools: ['edit', 'search', 'execute']
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs:
-  - label: Return to Orchestrator
-    agent: orchestrator
-    prompt: "Cleanup is complete. Review the removal report."
-    send: false
+handoffs: 
+user-invocable: false
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->
 

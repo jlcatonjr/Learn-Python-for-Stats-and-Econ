@@ -1,19 +1,11 @@
 ---
 name: Output Compiler — LearnPythonStatsEcon
 description: "Assembles all converted components into a final deliverable package for LearnPythonStatsEcon — dependency check, ordering, build manifest"
-user-invokable: false
 tools: ['read', 'edit', 'execute']
 agents: ['technical-validator']
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs:
-  - label: Validate Technical Accuracy
-    agent: technical-validator
-    prompt: "Validate technical accuracy before final assembly."
-    send: false
-  - label: Return to Orchestrator
-    agent: orchestrator
-    prompt: "Final output assembly complete."
-    send: false
+handoffs: 
+user-invocable: false
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->
 

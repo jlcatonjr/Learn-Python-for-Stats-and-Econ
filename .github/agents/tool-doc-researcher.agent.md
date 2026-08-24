@@ -1,7 +1,7 @@
 ---
 name: Tool Documentation Researcher — LearnPythonStatsEcon
 description: "Locates and verifies official documentation, API surfaces, and usage patterns for tools in LearnPythonStatsEcon that are missing metadata"
-user-invokable: false
+user-invocable: false
 tools: ['read', 'search']
 model: ["Claude Sonnet 4.6 (copilot)"]
 handoffs:

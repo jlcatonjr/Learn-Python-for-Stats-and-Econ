@@ -1,26 +1,10 @@
 ---
 name: Git Operations — LearnPythonStatsEcon
 description: "Executes and governs Git and GitHub operations in LearnPythonStatsEcon, including commit/push, pull/merge/rebase, conflict handling, and recovery workflows."
-user-invokable: true
 tools: ['read', 'execute', 'search']
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs:
-  - label: Return to Orchestrator
-    agent: orchestrator
-    prompt: "Git operation is complete. Return to orchestrator with outcome summary."
-    send: false
-  - label: Security Review
-    agent: security
-    prompt: "A git operation includes force-push, destructive history rewrite, or sensitive content exposure risk. Review before proceeding."
-    send: false
-  - label: Conflict Resolution
-    agent: conflict-resolution
-    prompt: "A merge or rebase conflict requires ACCEPT/REJECT/REVISE decisions beyond simple line merges."
-    send: false
-  - label: Update Agent Docs
-    agent: agent-updater
-    prompt: "Tracked repository content changed. Run repository change census and docs/API impact evaluation before closeout."
-    send: false
+handoffs: 
+user-invocable: true
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->
 

@@ -1,23 +1,11 @@
 ---
 name: Technical Validator — LearnPythonStatsEcon
 description: "Read-only audit agent that verifies technical accuracy in LearnPythonStatsEcon — code examples, file excerpts, API references, and tool invocations match what exists on disk"
-user-invokable: false
 tools: ['read', 'search']
 agents: ['primary-producer', 'conflict-auditor']
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs:
-  - label: Route Corrections to Primary Producer
-    agent: primary-producer
-    prompt: "Technical accuracy findings attached. Please correct flagged inaccuracies."
-    send: false
-  - label: Log Conflict
-    agent: conflict-auditor
-    prompt: "Technical conflict detected. Logging and routing."
-    send: false
-  - label: Return to Orchestrator
-    agent: orchestrator
-    prompt: "Technical validation complete. See findings."
-    send: false
+handoffs: 
+user-invocable: false
 ---
 <!--
 SECTION MANIFEST — technical-validator.template.md

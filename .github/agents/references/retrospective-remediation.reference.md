@@ -136,6 +136,7 @@ through the generic path — that would re-introduce the exact bug it exists to 
 | Duplicate rows for the same underlying gap | Dedup rule, checked twice (subroutine + Protocol 5) |
 | Self-referential seed data landing in a regenerable dogfood tree, silently "lost" | Destination Rule's explicit exception; do not route the self-referential case through the generic mechanism, and do not narrow the exception to the gitignored tree — it applies to every regenerable output tree |
 | Treating this as a second `@security`-gated cross-repo write | It is a local, same-repo append — Protocol 5 cites Protocol 3 as precedent |
+| Hand-edited Constitutional Rules or a roster in one framework's output silently drift out of sync with the project's other pinned frameworks (R4, 2026-08-15) | If this session hand-edited Constitutional Rules or a team roster directly in any framework's rendered output (not through the template pipeline), run `--sync` before closing out — a pinned multi-framework project only stays reconciled across `copilot-vscode`/`claude`/`goose`/etc. through that command; a hand-edit that never syncs is invisible to every other framework's next render |
 
 ## Related References
 

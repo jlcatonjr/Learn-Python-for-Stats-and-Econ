@@ -1,9 +1,9 @@
 ---
 name: Team Builder — Agent Teams Module
 description: "Interactively constructs a complete agent team for a new or existing VS Code Copilot project by conducting an intake interview and invoking the build_team pipeline"
-user-invokable: true
 tools: ['read', 'edit', 'search', 'execute', 'todo']
 model: ["Claude Sonnet 4.6 (copilot)"]
+user-invocable: true
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->
 

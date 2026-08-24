@@ -1,22 +1,10 @@
 ---
 name: Repo Liaison — LearnPythonStatsEcon
 description: "Tracks agent documentation in repositories adjacent to LearnPythonStatsEcon, communicates cross-repository impacts, maintains the adjacent-repos registry, and coordinates between orchestrators when this project's activity affects neighboring agent infrastructures."
-user-invokable: false
 tools: ['read', 'edit', 'search', 'execute', 'agent']
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs:
-  - label: Return to Orchestrator
-    agent: orchestrator
-    prompt: "Cross-repository liaison work is complete. Summary of impacts, updates made, and any orchestrator coordination required."
-    send: false
-  - label: Security Review for Cross-Repo Write
-    agent: security
-    prompt: "A write operation targeting an adjacent repository requires security clearance. Provide the target repo, file path, and intended change."
-    send: false
-  - label: Conflict Audit After Cross-Repo Change
-    agent: conflict-auditor
-    prompt: "Adjacent repository documentation has been updated. Verify internal consistency with current project docs."
-    send: false
+handoffs: 
+user-invocable: false
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->
 
