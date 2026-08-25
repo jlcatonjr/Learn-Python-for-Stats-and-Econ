@@ -3,7 +3,11 @@ name: Navigator — LearnPythonStatsEcon
 description: "Repository structure navigation, project map maintenance, file location lookups, and dependency queries for LearnPythonStatsEcon"
 tools: ['read', 'search', 'execute']
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs: 
+handoffs:
+  - label: Return to Orchestrator
+    agent: orchestrator
+    prompt: "Navigation query is complete. Here are the structural findings."
+    send: false
 user-invocable: false
 ---
 

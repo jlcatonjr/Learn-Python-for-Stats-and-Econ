@@ -4,7 +4,16 @@ description: "Assembles all converted components into a final deliverable packag
 tools: ['read', 'edit', 'execute']
 agents: ['technical-validator']
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs: 
+handoffs:
+  - label: Validate Technical Accuracy
+    agent: technical-validator
+    prompt: "Validate technical accuracy before final assembly."
+    send: false
+  - label: Return to Orchestrator
+    agent: orchestrator
+    prompt: "Final output assembly complete."
+    send: false
+
 user-invocable: false
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->

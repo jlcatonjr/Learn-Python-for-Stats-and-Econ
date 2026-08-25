@@ -4,7 +4,15 @@ description: "Extracts shared data to reference files and enforces spec complian
 tools: ['edit', 'search', 'agent']
 agents: ['conflict-auditor']
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs: 
+handoffs:
+  - label: Run Conflict Audit
+    agent: conflict-auditor
+    prompt: "Agent documentation has been refactored. Run a conflict audit to verify consistency."
+    send: false
+  - label: Return to Orchestrator
+    agent: orchestrator
+    prompt: "Agent refactoring is complete. Review the changes."
+    send: false
 user-invocable: false
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->

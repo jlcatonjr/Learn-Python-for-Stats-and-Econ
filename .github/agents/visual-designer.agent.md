@@ -4,7 +4,16 @@ description: "Creates and revises diagrams and figures for LearnPythonStatsEcon 
 tools: ['read', 'edit', 'execute', 'search']
 agents: ['quality-auditor']
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs: 
+handoffs:
+  - label: Quality Check Figure
+    agent: quality-auditor
+    prompt: "New or revised figure ready for quality check."
+    send: false
+  - label: Return to Orchestrator
+    agent: orchestrator
+    prompt: "Visual design work complete."
+    send: false
+
 user-invocable: false
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->

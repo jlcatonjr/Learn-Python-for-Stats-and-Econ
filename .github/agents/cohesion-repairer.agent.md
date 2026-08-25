@@ -4,7 +4,19 @@ description: "Repairs within-section cohesion failures in LearnPythonStatsEcon d
 tools: ['read', 'edit']
 agents: ['style-guardian', 'quality-auditor']
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs: 
+handoffs:
+  - label: Style Audit After Repairs
+    agent: style-guardian
+    prompt: "Cohesion repairs complete. Run style audit on edited sections."
+    send: false
+  - label: Quality Re-Check
+    agent: quality-auditor
+    prompt: "Cohesion repairs applied. Re-check repaired sections."
+    send: false
+  - label: Return to Orchestrator
+    agent: orchestrator
+    prompt: "Cohesion repairs complete."
+    send: false
 user-invocable: false
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->

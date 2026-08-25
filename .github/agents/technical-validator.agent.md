@@ -4,7 +4,20 @@ description: "Read-only audit agent that verifies technical accuracy in LearnPyt
 tools: ['read', 'search']
 agents: ['primary-producer', 'conflict-auditor']
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs: 
+handoffs:
+  - label: Route Corrections to Primary Producer
+    agent: primary-producer
+    prompt: "Technical accuracy findings attached. Please correct flagged inaccuracies."
+    send: false
+  - label: Log Conflict
+    agent: conflict-auditor
+    prompt: "Technical conflict detected. Logging and routing."
+    send: false
+  - label: Return to Orchestrator
+    agent: orchestrator
+    prompt: "Technical validation complete. See findings."
+    send: false
+
 user-invocable: false
 ---
 <!--

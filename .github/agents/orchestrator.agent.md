@@ -4,7 +4,84 @@ description: "Coordinates all agent operations for LearnPythonStatsEcon: routes 
 tools: ['read', 'edit', 'search', 'execute', 'todo', 'agent']
 agents: 
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs: 
+handoffs:
+  - label: Produce / Revise Deliverable
+    agent: primary-producer
+    prompt: "A workstream is ready to produce or revise its deliverable. Provide the workstream name and any specific instructions."
+    send: false
+  - label: Audit Quality
+    agent: quality-auditor
+    prompt: "A deliverable is ready for quality audit. Provide the file path."
+    send: false
+  - label: Repair Cohesion
+    agent: cohesion-repairer
+    prompt: "A deliverable section has structural cohesion failures. Provide the file and section."
+    send: false
+  - label: Enforce Style / Standards
+    agent: style-guardian
+    prompt: "A deliverable is ready for style audit. Provide the file path."
+    send: false
+  - label: Validate Technical Accuracy
+    agent: technical-validator
+    prompt: "Audit technical accuracy of claims, code, or specifications in a deliverable. Provide the file path."
+    send: false
+  - label: Compile Final Output
+    agent: output-compiler
+    prompt: "Assemble and compile the final deliverable from all sources."
+    send: false
+  - label: Generate / Revise Diagram
+    agent: visual-designer
+    prompt: "Generate or revise a diagram. Describe what is needed."
+    send: false
+  - label: Navigate Project
+    agent: navigator
+    prompt: "Locate files, answer structural questions, or regenerate the project map."
+    send: false
+  - label: Security Review
+    agent: security
+    prompt: "Review the planned action for credentials, destructive operations, or sensitive content."
+    send: false
+  - label: Code Hygiene Audit
+    agent: code-hygiene
+    prompt: "Run a code hygiene audit. Provide scope or 'full' for all rules."
+    send: false
+  - label: Adversarial Review
+    agent: adversarial
+    prompt: "Challenge the presuppositions underlying this plan before execution."
+    send: false
+  - label: Conflict Audit
+    agent: conflict-auditor
+    prompt: "Detect contradictions across project files. Provide scope if targeted."
+    send: false
+  - label: Resolve Conflicts
+    agent: conflict-resolution
+    prompt: "Make ACCEPT/REJECT/REVISE decisions on flagged conflicts."
+    send: false
+  - label: Clean Up Artifacts
+    agent: cleanup
+    prompt: "Remove stale build artifacts, orphaned files, or abandoned drafts."
+    send: false
+  - label: Update Agent Docs
+    agent: agent-updater
+    prompt: "Project structure or conventions have changed. Sync all affected agent files."
+    send: false
+  - label: Refactor Agent Docs
+    agent: agent-refactor
+    prompt: "Check agent docs for reference extraction opportunities and spec compliance."
+    send: false
+  - label: Cross-Repository Liaison
+    agent: repo-liaison
+    prompt: "Assess or communicate impact of this project's activity on adjacent repositories. Describe the change and list any known adjacent repos."
+    send: false
+  - label: Summarize Work Period
+    agent: work-summarizer
+    prompt: "Create daily, weekly, or monthly work summaries from planning artifacts and git diffs for the requested period."
+    send: false
+  - label: Git Operations
+    agent: git-operations
+    prompt: "Run a git operation: commit and push, pull/merge/rebase, resolve conflicts, or recover a file. Describe the operation needed."
+    send: false
+
 user-invocable: true
 ---
 <!--

@@ -4,7 +4,27 @@ description: "Drafts and revises deliverables in LearnPythonStatsEcon from Compo
 tools: ['read', 'edit', 'search']
 agents: ['style-guardian', 'cohesion-repairer', 'quality-auditor', 'conflict-auditor']
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs: 
+handoffs:
+  - label: Style Audit
+    agent: style-guardian
+    prompt: "Draft is ready for style audit."
+    send: false
+  - label: Cohesion Audit
+    agent: cohesion-repairer
+    prompt: "Draft is ready for cohesion audit."
+    send: false
+  - label: Quality Audit
+    agent: quality-auditor
+    prompt: "Revised draft is ready for quality audit."
+    send: false
+  - label: Conflict Audit
+    agent: conflict-auditor
+    prompt: "New deliverable added. Run consistency check."
+    send: false
+  - label: Return to Orchestrator
+    agent: orchestrator
+    prompt: "Deliverable production is complete."
+    send: false
 user-invocable: false
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->

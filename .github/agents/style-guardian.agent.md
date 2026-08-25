@@ -4,7 +4,15 @@ description: "Enforces voice and style fidelity in LearnPythonStatsEcon delivera
 tools: ['read', 'edit', 'search']
 agents: ['primary-producer']
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs: 
+handoffs:
+  - label: Route Style Corrections
+    agent: primary-producer
+    prompt: "Style audit findings attached. Please correct style deviations."
+    send: false
+  - label: Return to Orchestrator
+    agent: orchestrator
+    prompt: "Style audit complete."
+    send: false
 user-invocable: false
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->

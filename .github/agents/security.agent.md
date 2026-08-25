@@ -3,7 +3,11 @@ name: Security — LearnPythonStatsEcon
 description: "Top-priority security sentinel: reviews actions for credential exposure, destructive operations, sensitive content leakage, and reference integrity before any sensitive action proceeds"
 tools: ['read', 'search']
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs: 
+handoffs:
+  - label: Return to Orchestrator
+    agent: orchestrator
+    prompt: "Security review is complete. Return to the orchestrator with findings."
+    send: false
 user-invocable: false
 ---
 
@@ -70,11 +74,11 @@ Use the generated reference `references/security-vulnerability-watch.reference.m
 ### Current Threat Intelligence Snapshot
 
 <!-- AGENTTEAMS:BEGIN threat_intelligence v=1 -->
-Generated at: `2026-08-17T13:32:18Z`
+Generated at: `2026-08-24T13:31:52Z`
 
 **Sources:**
 
-- CISA KEV: ok (catalog 2026.08.14, items 1665) — https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
+- CISA KEV: ok (catalog 2026.08.21, items 1674) — https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
 - MITRE CVE: metadata_only — https://cveawg.mitre.org/api/cve/
 - FIRST EPSS: ok (items 15) — https://api.first.org/data/v1/epss
 - NVD (NIST): ok (items 5) — https://services.nvd.nist.gov/rest/json/cves/2.0
@@ -87,21 +91,21 @@ Generated at: `2026-08-17T13:32:18Z`
 
 **Current major vulnerabilities:**
 
-- `CVE-2026-20349` | Cisco Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD) | Cisco Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD) Heap Inspection Vulnerability | added 2026-08-11 | EPSS 0.008740000, percentile 0.559360000 | CVSS 8.6 HIGH
-- `CVE-2026-68820` | Microsoft Windows Ancillary Function Driver for WinSock | Microsoft Windows Ancillary Function Driver for WinSock Use-After-Free Vulnerability | added 2026-08-11 | EPSS 0.003320000, percentile 0.261490000 | CVSS 7.0 HIGH
-- `CVE-2026-72898` | Metabase Metabase | Metabase SQL Injection Vulnerability | added 2026-08-11 | EPSS 0.104000000, percentile 0.953300000 | CVSS 10.0 CRITICAL
-- `CVE-2026-8037` | Progress LoadMaster | Progress LoadMaster Command Injection Vulnerability | added 2026-08-07 | EPSS 0.993110000, percentile 0.999360000 | CVSS 9.6 CRITICAL
-- `CVE-2026-63077` | JetBrains TeamCity | JetBrains TeamCity Deserialization of Untrusted Data Vulnerability | added 2026-08-05 | EPSS 0.107220000, percentile 0.954310000 | CVSS 9.8 CRITICAL
-- `CVE-2026-18556` | N-able N-central | N-able N-central Authentication Bypass Using an Alternate Path or Channel Vulnerability | added 2026-08-04 | EPSS 0.004920000, percentile 0.401120000
-- `CVE-2026-34486` | Apache Tomcat | Apache Tomcat Missing Encryption of Sensitive Data Vulnerability | added 2026-08-04 | EPSS 0.829330000, percentile 0.996460000
-- `CVE-2026-9198` | IBM Langflow | IBM Langflow Code Injection Vulnerability | added 2026-08-04 | EPSS 0.173520000, percentile 0.968490000
-- `CVE-2026-18577` | N-able N-central | N-able N-central Authentication Bypass Using an Alternate Path or Channel Vulnerability | added 2026-08-03 | EPSS 0.041030000, percentile 0.898870000
-- `CVE-2026-20316` | Cisco Secure Firewall Management Center (FMC) | Cisco Secure Firewall Management Center Use of Hard-coded Password Vulnerability | added 2026-07-29 | EPSS 0.007880000, percentile 0.531760000
-- `CVE-2025-68686` | Fortinet FortiOS | Fortinet FortiOS Exposure of Sensitive Information to an Unauthorized Actor Vulnerability | added 2026-07-27 | EPSS 0.012640000, percentile 0.672140000
-- `CVE-2026-16812` | Arista VeloCloud Orchestrator | Arista VeloCloud Orchestrator On-Prem OS Command Injection Vulnerability | added 2026-07-27 | EPSS 0.008840000, percentile 0.562090000
-- `CVE-2026-16232` | Check Point SmartConsole | Check Point SmartConsole Improper Authentication Vulnerability | added 2026-07-22 | EPSS 0.732960000, percentile 0.994140000
-- `CVE-2026-50522` | Microsoft SharePoint | Microsoft SharePoint Deserialization of Untrusted Data Vulnerability | added 2026-07-22 | EPSS 0.769810000, percentile 0.995090000
-- `CVE-2026-60137` | WordPress Core | WordPress Core SQL Injection Vulnerability | added 2026-07-21 | EPSS 0.731000000, percentile 0.994090000
+- `CVE-2026-73570` | Synacor Zimbra Collaboration Suite (ZCS) | Zimbra Collaboration Suite (ZCS) OS Command Injection Vulnerability | added 2026-08-21 | EPSS 0.010420000, percentile 0.609710000 | CVSS 8.9 HIGH
+- `CVE-2026-72530` | TrueConf Server | TrueConf Server Code Injection Vulnerability | added 2026-08-20 | EPSS 0.009740000, percentile 0.589120000 | CVSS 9.0 CRITICAL
+- `CVE-2026-72529` | TrueConf Server | TrueConf Server Missing Authentication for Critical Function Vulnerability | added 2026-08-20 | EPSS 0.007850000, percentile 0.529550000 | CVSS 9.8 CRITICAL
+- `CVE-2026-64849` | MLflow MLflow | MLflow Server-Side Request Forgery Vulnerability | added 2026-08-19 | EPSS 0.081540000, percentile 0.945010000 | CVSS 9.3 CRITICAL
+- `CVE-2026-33824` | Microsoft Internet Key Exchange (IKE) Service Extensions | Microsoft Internet Key Exchange (IKE) Service Extensions Double Free Vulnerability | added 2026-08-18 | EPSS 0.778980000, percentile 0.995510000 | CVSS 9.8 CRITICAL
+- `CVE-2026-59310` | Broadcom VMware vCenter | Broadcom VMware vCenter Path Traversal Vulnerability | added 2026-08-18 | EPSS 0.024050000, percentile 0.826700000
+- `CVE-2026-55040` | Microsoft SharePoint | Microsoft SharePoint Weak Authentication Vulnerability | added 2026-08-18 | EPSS 0.054890000, percentile 0.922300000
+- `CVE-2026-65400` | Apple macOS | Apple macOS Improper Authentication Vulnerability | added 2026-08-18 | EPSS 0.007510000, percentile 0.518420000
+- `CVE-2025-62593` | Ray-Project Ray | Ray-Project Ray Code Injection Vulnerability | added 2026-08-17 | EPSS 0.010000000, percentile 0.597030000
+- `CVE-2026-20349` | Cisco Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD) | Cisco Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD) Heap Inspection Vulnerability | added 2026-08-11 | EPSS 0.010200000, percentile 0.602870000
+- `CVE-2026-68820` | Microsoft Windows Ancillary Function Driver for WinSock | Microsoft Windows Ancillary Function Driver for WinSock Use-After-Free Vulnerability | added 2026-08-11 | EPSS 0.003320000, percentile 0.262340000
+- `CVE-2026-72898` | Metabase Metabase | Metabase SQL Injection Vulnerability | added 2026-08-11 | EPSS 0.104000000, percentile 0.954480000
+- `CVE-2026-8037` | Progress LoadMaster | Progress LoadMaster Command Injection Vulnerability | added 2026-08-07 | EPSS 0.993110000, percentile 0.999370000
+- `CVE-2026-63077` | JetBrains TeamCity | JetBrains TeamCity Deserialization of Untrusted Data Vulnerability | added 2026-08-05 | EPSS 0.120380000, percentile 0.958850000
+- `CVE-2026-18556` | N-able N-central | N-able N-central Authentication Bypass Using an Alternate Path or Channel Vulnerability | added 2026-08-04 | EPSS 0.004920000, percentile 0.403070000
 
 **Prevention and mitigation playbook:**
 
@@ -221,7 +225,7 @@ Runtime enforcement also consumes machine-readable freshness metadata from the s
 > ⛔ **Do not modify or omit.** All triggers, rules, the HALT directive, and the AI-authored-code screening guidance carried in this file's fenced sections are the immutable contract for this agent. Sections are referenced by name, never by position: the merge engine places a fenced region relative to whichever fences already exist on disk, so a deployed file may carry them in a different order than this template.
 <!-- AGENTTEAMS:END invariant_core -->
 
-<!-- AGENTTEAMS:BEGIN security_rules_invariant v=6 -->
+<!-- AGENTTEAMS:BEGIN security_rules_invariant v=7 -->
 ### Mandatory Review Triggers
 
 | Trigger | Risk Category |
@@ -496,6 +500,8 @@ The classes above are web/service-tier. AI agents also emit **low-level** defect
 - **Windows targets** — `references/security-windows-hardening.reference.md` (Secure Boot/VBS/HVCI, UAC/Credential Guard, WDAC/AppLocker, AppContainer/Windows Sandbox, CFG/CET/ACG, BitLocker/DPAPI).
 
 Apply only the baseline(s) matching the actual deployment target(s); skip this gate for pure managed-runtime projects with no OS-specific surface.
+
+**Infrastructure security (the deployed system) — distinct from the agentic triggers above.** The triggers and rules in this Invariant Core govern the *agentic / build process* (destructive operations, leaked secrets in deliverables, prompt injection, install vetting). They do **not** cover the security of the program, server, or service this project *builds and operates* — its identity, cryptography, network, application/supply-chain, detection, and resilience posture. When the project deploys such a system, review it against the eight-layer model in `references/security-infrastructure-layers.reference.md`, which enumerates each layer's controls and the verified open-source tools that implement them. **Ownership:** those controls are *built by the producing and workstream agents* and *verified by `@technical-validator`*; `@security` reviews against the reference (read-only) and flags a missing layer as a finding — it does not build the controls. Do not collapse the two surfaces: hardening the agent team does not harden the production server, and vice versa.
 <!-- AGENTTEAMS:END security_rules_invariant -->
 
 ## Project-Specific Notes

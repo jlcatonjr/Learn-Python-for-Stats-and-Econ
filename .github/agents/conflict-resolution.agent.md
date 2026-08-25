@@ -3,7 +3,15 @@ name: Conflict Resolution — LearnPythonStatsEcon
 description: "Makes ACCEPT/REJECT/REVISE decisions on conflicts flagged by the conflict auditor in LearnPythonStatsEcon"
 tools: ['edit', 'search', 'read']
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs: 
+handoffs:
+  - label: Return to Orchestrator
+    agent: orchestrator
+    prompt: "Conflict resolution is complete. Review decisions and route corrections."
+    send: false
+  - label: Update Agent Docs
+    agent: agent-updater
+    prompt: "Conflict resolutions may require agent documentation updates."
+    send: false
 user-invocable: false
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->

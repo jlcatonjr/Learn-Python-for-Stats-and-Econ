@@ -4,7 +4,23 @@ description: "Synthesizes daily, weekly, and monthly work summaries from canonic
 tools: ['read', 'search', 'execute', 'edit', 'agent']
 agents: ['technical-validator', 'adversarial', 'conflict-auditor']
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs: 
+handoffs:
+  - label: Verify Summary Accuracy
+    agent: technical-validator
+    prompt: "Work summary drafted. Verify factual claims (paths, hashes, counts) against on-disk state and git history."
+    send: false
+  - label: Run Adversarial Audit
+    agent: adversarial
+    prompt: "Work summary drafted. Run a presupposition and cascade-risk audit before finalization."
+    send: false
+  - label: Run Conflict Audit
+    agent: conflict-auditor
+    prompt: "Work summary drafted. Run a consistency audit against authority sources."
+    send: false
+  - label: Return to Orchestrator
+    agent: orchestrator
+    prompt: "Work summary reporting complete. See workSummaries/."
+    send: false
 user-invocable: true
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->

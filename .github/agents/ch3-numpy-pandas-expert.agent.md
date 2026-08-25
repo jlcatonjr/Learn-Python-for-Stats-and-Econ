@@ -4,7 +4,20 @@ description: "Component expert for Chapter 3 — NumPy, Pandas, and Matplotlib i
 tools: ['read', 'search', 'agent']
 agents: ['primary-producer', 'adversarial']
 model: ["Claude Sonnet 4.6 (copilot)"]
-handoffs: 
+handoffs:
+  - label: Vet Brief Before Drafting
+    agent: adversarial
+    prompt: "Component Brief prepared. Review for hidden presuppositions before drafting begins."
+    send: false
+  - label: Send to Primary Producer
+    agent: primary-producer
+    prompt: "Component Brief accepted. Ready for drafting."
+    send: false
+  - label: Return to Orchestrator
+    agent: orchestrator
+    prompt: "Chapter 3 — NumPy, Pandas, and Matplotlib has been reviewed and accepted."
+    send: false
+
 user-invocable: false
 ---
 <!--

@@ -70,38 +70,38 @@ The handoff-only control-flow backbone (agents-list edges omitted):
 
 | Agent | Receives from | Hands off to |
 | --- | --- | --- |
-| `adversarial` | `ch1-essentials-expert`, `ch2-lists-expert`, `ch3-numpy-pandas-expert`, `ch4-functional-expert`, `ch5-probability-expert`, `ch6-hypothesis-expert`, `ch7-ols-expert`, `ch8-advanced-expert`, `ch9-abm-expert`, `work-summarizer` | — |
-| `agent-refactor` | `agent-updater` | `conflict-auditor` |
-| `agent-updater` | `conflict-auditor`, `tool-doc-researcher` | `agent-refactor`, `conflict-auditor` |
-| `ch1-essentials-expert` | — | `adversarial`, `primary-producer` |
-| `ch2-lists-expert` | — | `adversarial`, `primary-producer` |
-| `ch3-numpy-pandas-expert` | — | `adversarial`, `primary-producer` |
-| `ch4-functional-expert` | — | `adversarial`, `primary-producer` |
-| `ch5-probability-expert` | — | `adversarial`, `primary-producer` |
-| `ch6-hypothesis-expert` | — | `adversarial`, `primary-producer` |
-| `ch7-ols-expert` | — | `adversarial`, `primary-producer` |
-| `ch8-advanced-expert` | — | `adversarial`, `primary-producer` |
-| `ch9-abm-expert` | — | `adversarial`, `primary-producer` |
-| `cleanup` | — | — |
-| `code-hygiene` | — | — |
-| `cohesion-repairer` | `primary-producer`, `quality-auditor` | `quality-auditor`, `style-guardian` |
-| `conflict-auditor` | `agent-refactor`, `agent-updater`, `primary-producer`, `technical-validator`, `work-summarizer` | `agent-updater`, `conflict-resolution`, `technical-validator` |
-| `conflict-resolution` | `conflict-auditor` | — |
-| `content-enricher` | — | `primary-producer`, `technical-validator` |
-| `git-operations` | — | — |
-| `navigator` | — | — |
-| `orchestrator` | `tool-doc-researcher` | — |
-| `output-compiler` | — | `technical-validator` |
-| `primary-producer` | `ch1-essentials-expert`, `ch2-lists-expert`, `ch3-numpy-pandas-expert`, `ch4-functional-expert`, `ch5-probability-expert`, `ch6-hypothesis-expert`, `ch7-ols-expert`, `ch8-advanced-expert`, `ch9-abm-expert`, `content-enricher`, `quality-auditor`, `style-guardian`, `technical-validator` | `cohesion-repairer`, `conflict-auditor`, `quality-auditor`, `style-guardian` |
-| `quality-auditor` | `cohesion-repairer`, `primary-producer`, `visual-designer` | `cohesion-repairer`, `primary-producer`, `style-guardian` |
-| `repo-liaison` | — | — |
-| `security` | — | — |
-| `style-guardian` | `cohesion-repairer`, `primary-producer`, `quality-auditor` | `primary-producer` |
+| `adversarial` | `agent-updater`, `ch1-essentials-expert`, `ch2-lists-expert`, `ch3-numpy-pandas-expert`, `ch4-functional-expert`, `ch5-probability-expert`, `ch6-hypothesis-expert`, `ch7-ols-expert`, `ch8-advanced-expert`, `ch9-abm-expert`, `orchestrator`, `work-summarizer` | `conflict-auditor`, `orchestrator` |
+| `agent-refactor` | `agent-updater`, `code-hygiene`, `orchestrator` | `conflict-auditor`, `orchestrator` |
+| `agent-updater` | `conflict-auditor`, `conflict-resolution`, `git-operations`, `orchestrator`, `tool-doc-researcher` | `adversarial`, `agent-refactor`, `conflict-auditor`, `orchestrator` |
+| `ch1-essentials-expert` | — | `adversarial`, `orchestrator`, `primary-producer` |
+| `ch2-lists-expert` | — | `adversarial`, `orchestrator`, `primary-producer` |
+| `ch3-numpy-pandas-expert` | — | `adversarial`, `orchestrator`, `primary-producer` |
+| `ch4-functional-expert` | — | `adversarial`, `orchestrator`, `primary-producer` |
+| `ch5-probability-expert` | — | `adversarial`, `orchestrator`, `primary-producer` |
+| `ch6-hypothesis-expert` | — | `adversarial`, `orchestrator`, `primary-producer` |
+| `ch7-ols-expert` | — | `adversarial`, `orchestrator`, `primary-producer` |
+| `ch8-advanced-expert` | — | `adversarial`, `orchestrator`, `primary-producer` |
+| `ch9-abm-expert` | — | `adversarial`, `orchestrator`, `primary-producer` |
+| `cleanup` | `code-hygiene`, `orchestrator` | `orchestrator` |
+| `code-hygiene` | `orchestrator` | `agent-refactor`, `cleanup`, `conflict-auditor`, `orchestrator`, `security` |
+| `cohesion-repairer` | `orchestrator`, `primary-producer`, `quality-auditor` | `orchestrator`, `quality-auditor`, `style-guardian` |
+| `conflict-auditor` | `adversarial`, `agent-refactor`, `agent-updater`, `code-hygiene`, `orchestrator`, `primary-producer`, `repo-liaison`, `technical-validator`, `work-summarizer` | `agent-updater`, `conflict-resolution`, `orchestrator`, `technical-validator` |
+| `conflict-resolution` | `conflict-auditor`, `git-operations`, `orchestrator` | `agent-updater`, `orchestrator` |
+| `content-enricher` | — | `orchestrator`, `primary-producer`, `technical-validator` |
+| `git-operations` | `orchestrator` | `agent-updater`, `conflict-resolution`, `orchestrator`, `security` |
+| `navigator` | `orchestrator` | `orchestrator` |
+| `orchestrator` | `adversarial`, `agent-refactor`, `agent-updater`, `ch1-essentials-expert`, `ch2-lists-expert`, `ch3-numpy-pandas-expert`, `ch4-functional-expert`, `ch5-probability-expert`, `ch6-hypothesis-expert`, `ch7-ols-expert`, `ch8-advanced-expert`, `ch9-abm-expert`, `cleanup`, `code-hygiene`, `cohesion-repairer`, `conflict-auditor`, `conflict-resolution`, `content-enricher`, `git-operations`, `navigator`, `output-compiler`, `primary-producer`, `quality-auditor`, `repo-liaison`, `security`, `style-guardian`, `technical-validator`, `tool-doc-researcher`, `visual-designer`, `work-summarizer` | `adversarial`, `agent-refactor`, `agent-updater`, `cleanup`, `code-hygiene`, `cohesion-repairer`, `conflict-auditor`, `conflict-resolution`, `git-operations`, `navigator`, `output-compiler`, `primary-producer`, `quality-auditor`, `repo-liaison`, `security`, `style-guardian`, `technical-validator`, `visual-designer`, `work-summarizer` |
+| `output-compiler` | `orchestrator` | `orchestrator`, `technical-validator` |
+| `primary-producer` | `ch1-essentials-expert`, `ch2-lists-expert`, `ch3-numpy-pandas-expert`, `ch4-functional-expert`, `ch5-probability-expert`, `ch6-hypothesis-expert`, `ch7-ols-expert`, `ch8-advanced-expert`, `ch9-abm-expert`, `content-enricher`, `orchestrator`, `quality-auditor`, `style-guardian`, `technical-validator` | `cohesion-repairer`, `conflict-auditor`, `orchestrator`, `quality-auditor`, `style-guardian` |
+| `quality-auditor` | `cohesion-repairer`, `orchestrator`, `primary-producer`, `visual-designer` | `cohesion-repairer`, `orchestrator`, `primary-producer`, `style-guardian` |
+| `repo-liaison` | `orchestrator` | `conflict-auditor`, `orchestrator`, `security` |
+| `security` | `code-hygiene`, `git-operations`, `orchestrator`, `repo-liaison` | `orchestrator` |
+| `style-guardian` | `cohesion-repairer`, `orchestrator`, `primary-producer`, `quality-auditor` | `orchestrator`, `primary-producer` |
 | `team-builder` | — | — |
-| `technical-validator` | `conflict-auditor`, `content-enricher`, `output-compiler`, `work-summarizer` | `conflict-auditor`, `primary-producer` |
+| `technical-validator` | `conflict-auditor`, `content-enricher`, `orchestrator`, `output-compiler`, `work-summarizer` | `conflict-auditor`, `orchestrator`, `primary-producer` |
 | `tool-doc-researcher` | — | `agent-updater`, `orchestrator` |
-| `visual-designer` | — | `quality-auditor` |
-| `work-summarizer` | — | `adversarial`, `conflict-auditor`, `technical-validator` |
+| `visual-designer` | `orchestrator` | `orchestrator`, `quality-auditor` |
+| `work-summarizer` | `orchestrator` | `adversarial`, `conflict-auditor`, `orchestrator`, `technical-validator` |
 
 ---
 
@@ -181,48 +181,150 @@ flowchart LR
     class visual_designer domain
     work_summarizer["Work Summarizer"]
     class work_summarizer domain
+    adversarial -->|"Audit for Conflicts"| conflict_auditor
+    adversarial -->|"Return to Orchestrator"| orchestrator
+    agent_refactor -->|"Run Conflict Audit"| conflict_auditor
+    agent_refactor -->|"Return to Orchestrator"| orchestrator
     agent_refactor -.-> conflict_auditor
+    agent_updater -->|"Run Adversarial Review"| adversarial
+    agent_updater -->|"Refactor Agent Docs"| agent_refactor
+    agent_updater -->|"Run Conflict Audit"| conflict_auditor
+    agent_updater -->|"Return to Orchestrator"| orchestrator
     agent_updater -.-> agent_refactor
     agent_updater -.-> conflict_auditor
+    ch1_essentials_expert -->|"Vet Brief Before Drafting"| adversarial
+    ch1_essentials_expert -->|"Return to Orchestrator"| orchestrator
+    ch1_essentials_expert -->|"Send to Primary Producer"| primary_producer
     ch1_essentials_expert -.-> adversarial
     ch1_essentials_expert -.-> primary_producer
+    ch2_lists_expert -->|"Vet Brief Before Drafting"| adversarial
+    ch2_lists_expert -->|"Return to Orchestrator"| orchestrator
+    ch2_lists_expert -->|"Send to Primary Producer"| primary_producer
     ch2_lists_expert -.-> adversarial
     ch2_lists_expert -.-> primary_producer
+    ch3_numpy_pandas_expert -->|"Vet Brief Before Drafting"| adversarial
+    ch3_numpy_pandas_expert -->|"Return to Orchestrator"| orchestrator
+    ch3_numpy_pandas_expert -->|"Send to Primary Producer"| primary_producer
     ch3_numpy_pandas_expert -.-> adversarial
     ch3_numpy_pandas_expert -.-> primary_producer
+    ch4_functional_expert -->|"Vet Brief Before Drafting"| adversarial
+    ch4_functional_expert -->|"Return to Orchestrator"| orchestrator
+    ch4_functional_expert -->|"Send to Primary Producer"| primary_producer
     ch4_functional_expert -.-> adversarial
     ch4_functional_expert -.-> primary_producer
+    ch5_probability_expert -->|"Vet Brief Before Drafting"| adversarial
+    ch5_probability_expert -->|"Return to Orchestrator"| orchestrator
+    ch5_probability_expert -->|"Send to Primary Producer"| primary_producer
     ch5_probability_expert -.-> adversarial
     ch5_probability_expert -.-> primary_producer
+    ch6_hypothesis_expert -->|"Vet Brief Before Drafting"| adversarial
+    ch6_hypothesis_expert -->|"Return to Orchestrator"| orchestrator
+    ch6_hypothesis_expert -->|"Send to Primary Producer"| primary_producer
     ch6_hypothesis_expert -.-> adversarial
     ch6_hypothesis_expert -.-> primary_producer
+    ch7_ols_expert -->|"Vet Brief Before Drafting"| adversarial
+    ch7_ols_expert -->|"Return to Orchestrator"| orchestrator
+    ch7_ols_expert -->|"Send to Primary Producer"| primary_producer
     ch7_ols_expert -.-> adversarial
     ch7_ols_expert -.-> primary_producer
+    ch8_advanced_expert -->|"Vet Brief Before Drafting"| adversarial
+    ch8_advanced_expert -->|"Return to Orchestrator"| orchestrator
+    ch8_advanced_expert -->|"Send to Primary Producer"| primary_producer
     ch8_advanced_expert -.-> adversarial
     ch8_advanced_expert -.-> primary_producer
+    ch9_abm_expert -->|"Vet Brief Before Drafting"| adversarial
+    ch9_abm_expert -->|"Return to Orchestrator"| orchestrator
+    ch9_abm_expert -->|"Send to Primary Producer"| primary_producer
     ch9_abm_expert -.-> adversarial
     ch9_abm_expert -.-> primary_producer
+    cleanup -->|"Return to Orchestrator"| orchestrator
+    code_hygiene -->|"Agent Refactor (Structural Violations)"| agent_refactor
+    code_hygiene -->|"Cleanup Agent"| cleanup
+    code_hygiene -->|"Log Conflict"| conflict_auditor
+    code_hygiene -->|"Return to Orchestrator"| orchestrator
+    code_hygiene -->|"Security Clearance (for Deletions)"| security
+    cohesion_repairer -->|"Return to Orchestrator"| orchestrator
+    cohesion_repairer -->|"Quality Re-Check"| quality_auditor
+    cohesion_repairer -->|"Style Audit After Repairs"| style_guardian
     cohesion_repairer -.-> quality_auditor
     cohesion_repairer -.-> style_guardian
+    conflict_auditor -->|"Update Agent Docs"| agent_updater
+    conflict_auditor -->|"Resolve Conflicts"| conflict_resolution
+    conflict_auditor -->|"Return to Orchestrator"| orchestrator
+    conflict_auditor -->|"Verify Source Drift"| technical_validator
     conflict_auditor -.-> agent_updater
     conflict_auditor -.-> conflict_resolution
     conflict_auditor -.-> technical_validator
+    conflict_resolution -->|"Update Agent Docs"| agent_updater
+    conflict_resolution -->|"Return to Orchestrator"| orchestrator
+    content_enricher -->|"Return to Orchestrator"| orchestrator
+    content_enricher -->|"Validate Enriched Content"| technical_validator
     content_enricher -.-> primary_producer
     content_enricher -.-> technical_validator
+    git_operations -->|"Update Agent Docs"| agent_updater
+    git_operations -->|"Conflict Resolution"| conflict_resolution
+    git_operations -->|"Return to Orchestrator"| orchestrator
+    git_operations -->|"Security Review"| security
+    navigator -->|"Return to Orchestrator"| orchestrator
+    orchestrator -->|"Adversarial Review"| adversarial
+    orchestrator -->|"Refactor Agent Docs"| agent_refactor
+    orchestrator -->|"Update Agent Docs"| agent_updater
+    orchestrator -->|"Clean Up Artifacts"| cleanup
+    orchestrator -->|"Code Hygiene Audit"| code_hygiene
+    orchestrator -->|"Repair Cohesion"| cohesion_repairer
+    orchestrator -->|"Conflict Audit"| conflict_auditor
+    orchestrator -->|"Resolve Conflicts"| conflict_resolution
+    orchestrator -->|"Git Operations"| git_operations
+    orchestrator -->|"Navigate Project"| navigator
+    orchestrator -->|"Compile Final Output"| output_compiler
+    orchestrator -->|"Produce / Revise Deliverable"| primary_producer
+    orchestrator -->|"Audit Quality"| quality_auditor
+    orchestrator -->|"Cross-Repository Liaison"| repo_liaison
+    orchestrator -->|"Security Review"| security
+    orchestrator -->|"Enforce Style / Standards"| style_guardian
+    orchestrator -->|"Validate Technical Accuracy"| technical_validator
+    orchestrator -->|"Generate / Revise Diagram"| visual_designer
+    orchestrator -->|"Summarize Work Period"| work_summarizer
+    output_compiler -->|"Return to Orchestrator"| orchestrator
+    output_compiler -->|"Validate Technical Accuracy"| technical_validator
     output_compiler -.-> technical_validator
+    primary_producer -->|"Cohesion Audit"| cohesion_repairer
+    primary_producer -->|"Conflict Audit"| conflict_auditor
+    primary_producer -->|"Return to Orchestrator"| orchestrator
+    primary_producer -->|"Quality Audit"| quality_auditor
+    primary_producer -->|"Style Audit"| style_guardian
     primary_producer -.-> cohesion_repairer
     primary_producer -.-> conflict_auditor
     primary_producer -.-> quality_auditor
     primary_producer -.-> style_guardian
+    quality_auditor -->|"Route Cohesion Failures"| cohesion_repairer
+    quality_auditor -->|"Return to Orchestrator"| orchestrator
+    quality_auditor -->|"Route Corrections to Primary Producer"| primary_producer
+    quality_auditor -->|"Route Style Issues"| style_guardian
     quality_auditor -.-> cohesion_repairer
     quality_auditor -.-> primary_producer
     quality_auditor -.-> style_guardian
+    repo_liaison -->|"Conflict Audit After Cross-Repo Change"| conflict_auditor
+    repo_liaison -->|"Return to Orchestrator"| orchestrator
+    repo_liaison -->|"Security Review for Cross-Repo Write"| security
+    security -->|"Return to Orchestrator"| orchestrator
+    style_guardian -->|"Return to Orchestrator"| orchestrator
+    style_guardian -->|"Route Style Corrections"| primary_producer
     style_guardian -.-> primary_producer
+    technical_validator -->|"Log Conflict"| conflict_auditor
+    technical_validator -->|"Return to Orchestrator"| orchestrator
+    technical_validator -->|"Route Corrections to Primary Producer"| primary_producer
     technical_validator -.-> conflict_auditor
     technical_validator -.-> primary_producer
     tool_doc_researcher -->|"Update Brief and Generated Docs"| agent_updater
     tool_doc_researcher -->|"Return to Orchestrator"| orchestrator
+    visual_designer -->|"Return to Orchestrator"| orchestrator
+    visual_designer -->|"Quality Check Figure"| quality_auditor
     visual_designer -.-> quality_auditor
+    work_summarizer -->|"Run Adversarial Audit"| adversarial
+    work_summarizer -->|"Run Conflict Audit"| conflict_auditor
+    work_summarizer -->|"Return to Orchestrator"| orchestrator
+    work_summarizer -->|"Verify Summary Accuracy"| technical_validator
     work_summarizer -.-> adversarial
     work_summarizer -.-> conflict_auditor
     work_summarizer -.-> technical_validator
@@ -265,51 +367,111 @@ digraph "LearnPythonStatsEcon Agent Team" {
     "tool-doc-researcher" [label="Tool Documentation Researcher", fillcolor="#ffe8e8"];
     "visual-designer" [label="Visual Designer", fillcolor="#e8ffe8"];
     "work-summarizer" [label="Work Summarizer", fillcolor="#e8ffe8"];
-    "agent-refactor" -> "conflict-auditor" [style=dashed];
-    "agent-updater" -> "agent-refactor" [style=dashed];
-    "agent-updater" -> "conflict-auditor" [style=dashed];
-    "ch1-essentials-expert" -> "adversarial" [style=dashed];
-    "ch1-essentials-expert" -> "primary-producer" [style=dashed];
-    "ch2-lists-expert" -> "adversarial" [style=dashed];
-    "ch2-lists-expert" -> "primary-producer" [style=dashed];
-    "ch3-numpy-pandas-expert" -> "adversarial" [style=dashed];
-    "ch3-numpy-pandas-expert" -> "primary-producer" [style=dashed];
-    "ch4-functional-expert" -> "adversarial" [style=dashed];
-    "ch4-functional-expert" -> "primary-producer" [style=dashed];
-    "ch5-probability-expert" -> "adversarial" [style=dashed];
-    "ch5-probability-expert" -> "primary-producer" [style=dashed];
-    "ch6-hypothesis-expert" -> "adversarial" [style=dashed];
-    "ch6-hypothesis-expert" -> "primary-producer" [style=dashed];
-    "ch7-ols-expert" -> "adversarial" [style=dashed];
-    "ch7-ols-expert" -> "primary-producer" [style=dashed];
-    "ch8-advanced-expert" -> "adversarial" [style=dashed];
-    "ch8-advanced-expert" -> "primary-producer" [style=dashed];
-    "ch9-abm-expert" -> "adversarial" [style=dashed];
-    "ch9-abm-expert" -> "primary-producer" [style=dashed];
-    "cohesion-repairer" -> "quality-auditor" [style=dashed];
-    "cohesion-repairer" -> "style-guardian" [style=dashed];
-    "conflict-auditor" -> "agent-updater" [style=dashed];
-    "conflict-auditor" -> "conflict-resolution" [style=dashed];
-    "conflict-auditor" -> "technical-validator" [style=dashed];
+    "adversarial" -> "conflict-auditor" [style=solid, label="Audit for Conflicts"];
+    "adversarial" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "agent-refactor" -> "conflict-auditor" [style=solid, label="Run Conflict Audit"];
+    "agent-refactor" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "agent-updater" -> "adversarial" [style=solid, label="Run Adversarial Review"];
+    "agent-updater" -> "agent-refactor" [style=solid, label="Refactor Agent Docs"];
+    "agent-updater" -> "conflict-auditor" [style=solid, label="Run Conflict Audit"];
+    "agent-updater" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "ch1-essentials-expert" -> "adversarial" [style=solid, label="Vet Brief Before Drafting"];
+    "ch1-essentials-expert" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "ch1-essentials-expert" -> "primary-producer" [style=solid, label="Send to Primary Producer"];
+    "ch2-lists-expert" -> "adversarial" [style=solid, label="Vet Brief Before Drafting"];
+    "ch2-lists-expert" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "ch2-lists-expert" -> "primary-producer" [style=solid, label="Send to Primary Producer"];
+    "ch3-numpy-pandas-expert" -> "adversarial" [style=solid, label="Vet Brief Before Drafting"];
+    "ch3-numpy-pandas-expert" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "ch3-numpy-pandas-expert" -> "primary-producer" [style=solid, label="Send to Primary Producer"];
+    "ch4-functional-expert" -> "adversarial" [style=solid, label="Vet Brief Before Drafting"];
+    "ch4-functional-expert" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "ch4-functional-expert" -> "primary-producer" [style=solid, label="Send to Primary Producer"];
+    "ch5-probability-expert" -> "adversarial" [style=solid, label="Vet Brief Before Drafting"];
+    "ch5-probability-expert" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "ch5-probability-expert" -> "primary-producer" [style=solid, label="Send to Primary Producer"];
+    "ch6-hypothesis-expert" -> "adversarial" [style=solid, label="Vet Brief Before Drafting"];
+    "ch6-hypothesis-expert" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "ch6-hypothesis-expert" -> "primary-producer" [style=solid, label="Send to Primary Producer"];
+    "ch7-ols-expert" -> "adversarial" [style=solid, label="Vet Brief Before Drafting"];
+    "ch7-ols-expert" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "ch7-ols-expert" -> "primary-producer" [style=solid, label="Send to Primary Producer"];
+    "ch8-advanced-expert" -> "adversarial" [style=solid, label="Vet Brief Before Drafting"];
+    "ch8-advanced-expert" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "ch8-advanced-expert" -> "primary-producer" [style=solid, label="Send to Primary Producer"];
+    "ch9-abm-expert" -> "adversarial" [style=solid, label="Vet Brief Before Drafting"];
+    "ch9-abm-expert" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "ch9-abm-expert" -> "primary-producer" [style=solid, label="Send to Primary Producer"];
+    "cleanup" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "code-hygiene" -> "agent-refactor" [style=solid, label="Agent Refactor (Structural Violations)"];
+    "code-hygiene" -> "cleanup" [style=solid, label="Cleanup Agent"];
+    "code-hygiene" -> "conflict-auditor" [style=solid, label="Log Conflict"];
+    "code-hygiene" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "code-hygiene" -> "security" [style=solid, label="Security Clearance (for Deletions)"];
+    "cohesion-repairer" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "cohesion-repairer" -> "quality-auditor" [style=solid, label="Quality Re-Check"];
+    "cohesion-repairer" -> "style-guardian" [style=solid, label="Style Audit After Repairs"];
+    "conflict-auditor" -> "agent-updater" [style=solid, label="Update Agent Docs"];
+    "conflict-auditor" -> "conflict-resolution" [style=solid, label="Resolve Conflicts"];
+    "conflict-auditor" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "conflict-auditor" -> "technical-validator" [style=solid, label="Verify Source Drift"];
+    "conflict-resolution" -> "agent-updater" [style=solid, label="Update Agent Docs"];
+    "conflict-resolution" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "content-enricher" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "content-enricher" -> "technical-validator" [style=solid, label="Validate Enriched Content"];
     "content-enricher" -> "primary-producer" [style=dashed];
-    "content-enricher" -> "technical-validator" [style=dashed];
-    "output-compiler" -> "technical-validator" [style=dashed];
-    "primary-producer" -> "cohesion-repairer" [style=dashed];
-    "primary-producer" -> "conflict-auditor" [style=dashed];
-    "primary-producer" -> "quality-auditor" [style=dashed];
-    "primary-producer" -> "style-guardian" [style=dashed];
-    "quality-auditor" -> "cohesion-repairer" [style=dashed];
-    "quality-auditor" -> "primary-producer" [style=dashed];
-    "quality-auditor" -> "style-guardian" [style=dashed];
-    "style-guardian" -> "primary-producer" [style=dashed];
-    "technical-validator" -> "conflict-auditor" [style=dashed];
-    "technical-validator" -> "primary-producer" [style=dashed];
+    "git-operations" -> "agent-updater" [style=solid, label="Update Agent Docs"];
+    "git-operations" -> "conflict-resolution" [style=solid, label="Conflict Resolution"];
+    "git-operations" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "git-operations" -> "security" [style=solid, label="Security Review"];
+    "navigator" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "orchestrator" -> "adversarial" [style=solid, label="Adversarial Review"];
+    "orchestrator" -> "agent-refactor" [style=solid, label="Refactor Agent Docs"];
+    "orchestrator" -> "agent-updater" [style=solid, label="Update Agent Docs"];
+    "orchestrator" -> "cleanup" [style=solid, label="Clean Up Artifacts"];
+    "orchestrator" -> "code-hygiene" [style=solid, label="Code Hygiene Audit"];
+    "orchestrator" -> "cohesion-repairer" [style=solid, label="Repair Cohesion"];
+    "orchestrator" -> "conflict-auditor" [style=solid, label="Conflict Audit"];
+    "orchestrator" -> "conflict-resolution" [style=solid, label="Resolve Conflicts"];
+    "orchestrator" -> "git-operations" [style=solid, label="Git Operations"];
+    "orchestrator" -> "navigator" [style=solid, label="Navigate Project"];
+    "orchestrator" -> "output-compiler" [style=solid, label="Compile Final Output"];
+    "orchestrator" -> "primary-producer" [style=solid, label="Produce / Revise Deliverable"];
+    "orchestrator" -> "quality-auditor" [style=solid, label="Audit Quality"];
+    "orchestrator" -> "repo-liaison" [style=solid, label="Cross-Repository Liaison"];
+    "orchestrator" -> "security" [style=solid, label="Security Review"];
+    "orchestrator" -> "style-guardian" [style=solid, label="Enforce Style / Standards"];
+    "orchestrator" -> "technical-validator" [style=solid, label="Validate Technical Accuracy"];
+    "orchestrator" -> "visual-designer" [style=solid, label="Generate / Revise Diagram"];
+    "orchestrator" -> "work-summarizer" [style=solid, label="Summarize Work Period"];
+    "output-compiler" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "output-compiler" -> "technical-validator" [style=solid, label="Validate Technical Accuracy"];
+    "primary-producer" -> "cohesion-repairer" [style=solid, label="Cohesion Audit"];
+    "primary-producer" -> "conflict-auditor" [style=solid, label="Conflict Audit"];
+    "primary-producer" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "primary-producer" -> "quality-auditor" [style=solid, label="Quality Audit"];
+    "primary-producer" -> "style-guardian" [style=solid, label="Style Audit"];
+    "quality-auditor" -> "cohesion-repairer" [style=solid, label="Route Cohesion Failures"];
+    "quality-auditor" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "quality-auditor" -> "primary-producer" [style=solid, label="Route Corrections to Primary Producer"];
+    "quality-auditor" -> "style-guardian" [style=solid, label="Route Style Issues"];
+    "repo-liaison" -> "conflict-auditor" [style=solid, label="Conflict Audit After Cross-Repo Change"];
+    "repo-liaison" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "repo-liaison" -> "security" [style=solid, label="Security Review for Cross-Repo Write"];
+    "security" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "style-guardian" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "style-guardian" -> "primary-producer" [style=solid, label="Route Style Corrections"];
+    "technical-validator" -> "conflict-auditor" [style=solid, label="Log Conflict"];
+    "technical-validator" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "technical-validator" -> "primary-producer" [style=solid, label="Route Corrections to Primary Producer"];
     "tool-doc-researcher" -> "agent-updater" [style=solid, label="Update Brief and Generated Docs"];
     "tool-doc-researcher" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
-    "visual-designer" -> "quality-auditor" [style=dashed];
-    "work-summarizer" -> "adversarial" [style=dashed];
-    "work-summarizer" -> "conflict-auditor" [style=dashed];
-    "work-summarizer" -> "technical-validator" [style=dashed];
+    "visual-designer" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "visual-designer" -> "quality-auditor" [style=solid, label="Quality Check Figure"];
+    "work-summarizer" -> "adversarial" [style=solid, label="Run Adversarial Audit"];
+    "work-summarizer" -> "conflict-auditor" [style=solid, label="Run Conflict Audit"];
+    "work-summarizer" -> "orchestrator" [style=solid, label="Return to Orchestrator"];
+    "work-summarizer" -> "technical-validator" [style=solid, label="Verify Summary Accuracy"];
 }
 ```
 
@@ -649,10 +811,58 @@ digraph "LearnPythonStatsEcon Agent Team" {
   },
   "edges": [
     {
+      "source": "adversarial",
+      "target": "conflict-auditor",
+      "edge_type": "handoff",
+      "label": "Audit for Conflicts"
+    },
+    {
+      "source": "adversarial",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "agent-refactor",
+      "target": "conflict-auditor",
+      "edge_type": "handoff",
+      "label": "Run Conflict Audit"
+    },
+    {
+      "source": "agent-refactor",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
       "source": "agent-refactor",
       "target": "conflict-auditor",
       "edge_type": "agents-list",
       "label": null
+    },
+    {
+      "source": "agent-updater",
+      "target": "adversarial",
+      "edge_type": "handoff",
+      "label": "Run Adversarial Review"
+    },
+    {
+      "source": "agent-updater",
+      "target": "agent-refactor",
+      "edge_type": "handoff",
+      "label": "Refactor Agent Docs"
+    },
+    {
+      "source": "agent-updater",
+      "target": "conflict-auditor",
+      "edge_type": "handoff",
+      "label": "Run Conflict Audit"
+    },
+    {
+      "source": "agent-updater",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
     },
     {
       "source": "agent-updater",
@@ -669,6 +879,24 @@ digraph "LearnPythonStatsEcon Agent Team" {
     {
       "source": "ch1-essentials-expert",
       "target": "adversarial",
+      "edge_type": "handoff",
+      "label": "Vet Brief Before Drafting"
+    },
+    {
+      "source": "ch1-essentials-expert",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "ch1-essentials-expert",
+      "target": "primary-producer",
+      "edge_type": "handoff",
+      "label": "Send to Primary Producer"
+    },
+    {
+      "source": "ch1-essentials-expert",
+      "target": "adversarial",
       "edge_type": "agents-list",
       "label": null
     },
@@ -681,6 +909,24 @@ digraph "LearnPythonStatsEcon Agent Team" {
     {
       "source": "ch2-lists-expert",
       "target": "adversarial",
+      "edge_type": "handoff",
+      "label": "Vet Brief Before Drafting"
+    },
+    {
+      "source": "ch2-lists-expert",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "ch2-lists-expert",
+      "target": "primary-producer",
+      "edge_type": "handoff",
+      "label": "Send to Primary Producer"
+    },
+    {
+      "source": "ch2-lists-expert",
+      "target": "adversarial",
       "edge_type": "agents-list",
       "label": null
     },
@@ -693,6 +939,24 @@ digraph "LearnPythonStatsEcon Agent Team" {
     {
       "source": "ch3-numpy-pandas-expert",
       "target": "adversarial",
+      "edge_type": "handoff",
+      "label": "Vet Brief Before Drafting"
+    },
+    {
+      "source": "ch3-numpy-pandas-expert",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "ch3-numpy-pandas-expert",
+      "target": "primary-producer",
+      "edge_type": "handoff",
+      "label": "Send to Primary Producer"
+    },
+    {
+      "source": "ch3-numpy-pandas-expert",
+      "target": "adversarial",
       "edge_type": "agents-list",
       "label": null
     },
@@ -705,6 +969,24 @@ digraph "LearnPythonStatsEcon Agent Team" {
     {
       "source": "ch4-functional-expert",
       "target": "adversarial",
+      "edge_type": "handoff",
+      "label": "Vet Brief Before Drafting"
+    },
+    {
+      "source": "ch4-functional-expert",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "ch4-functional-expert",
+      "target": "primary-producer",
+      "edge_type": "handoff",
+      "label": "Send to Primary Producer"
+    },
+    {
+      "source": "ch4-functional-expert",
+      "target": "adversarial",
       "edge_type": "agents-list",
       "label": null
     },
@@ -717,6 +999,24 @@ digraph "LearnPythonStatsEcon Agent Team" {
     {
       "source": "ch5-probability-expert",
       "target": "adversarial",
+      "edge_type": "handoff",
+      "label": "Vet Brief Before Drafting"
+    },
+    {
+      "source": "ch5-probability-expert",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "ch5-probability-expert",
+      "target": "primary-producer",
+      "edge_type": "handoff",
+      "label": "Send to Primary Producer"
+    },
+    {
+      "source": "ch5-probability-expert",
+      "target": "adversarial",
       "edge_type": "agents-list",
       "label": null
     },
@@ -729,6 +1029,24 @@ digraph "LearnPythonStatsEcon Agent Team" {
     {
       "source": "ch6-hypothesis-expert",
       "target": "adversarial",
+      "edge_type": "handoff",
+      "label": "Vet Brief Before Drafting"
+    },
+    {
+      "source": "ch6-hypothesis-expert",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "ch6-hypothesis-expert",
+      "target": "primary-producer",
+      "edge_type": "handoff",
+      "label": "Send to Primary Producer"
+    },
+    {
+      "source": "ch6-hypothesis-expert",
+      "target": "adversarial",
       "edge_type": "agents-list",
       "label": null
     },
@@ -741,6 +1059,24 @@ digraph "LearnPythonStatsEcon Agent Team" {
     {
       "source": "ch7-ols-expert",
       "target": "adversarial",
+      "edge_type": "handoff",
+      "label": "Vet Brief Before Drafting"
+    },
+    {
+      "source": "ch7-ols-expert",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "ch7-ols-expert",
+      "target": "primary-producer",
+      "edge_type": "handoff",
+      "label": "Send to Primary Producer"
+    },
+    {
+      "source": "ch7-ols-expert",
+      "target": "adversarial",
       "edge_type": "agents-list",
       "label": null
     },
@@ -753,6 +1089,24 @@ digraph "LearnPythonStatsEcon Agent Team" {
     {
       "source": "ch8-advanced-expert",
       "target": "adversarial",
+      "edge_type": "handoff",
+      "label": "Vet Brief Before Drafting"
+    },
+    {
+      "source": "ch8-advanced-expert",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "ch8-advanced-expert",
+      "target": "primary-producer",
+      "edge_type": "handoff",
+      "label": "Send to Primary Producer"
+    },
+    {
+      "source": "ch8-advanced-expert",
+      "target": "adversarial",
       "edge_type": "agents-list",
       "label": null
     },
@@ -761,6 +1115,24 @@ digraph "LearnPythonStatsEcon Agent Team" {
       "target": "primary-producer",
       "edge_type": "agents-list",
       "label": null
+    },
+    {
+      "source": "ch9-abm-expert",
+      "target": "adversarial",
+      "edge_type": "handoff",
+      "label": "Vet Brief Before Drafting"
+    },
+    {
+      "source": "ch9-abm-expert",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "ch9-abm-expert",
+      "target": "primary-producer",
+      "edge_type": "handoff",
+      "label": "Send to Primary Producer"
     },
     {
       "source": "ch9-abm-expert",
@@ -775,6 +1147,60 @@ digraph "LearnPythonStatsEcon Agent Team" {
       "label": null
     },
     {
+      "source": "cleanup",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "code-hygiene",
+      "target": "agent-refactor",
+      "edge_type": "handoff",
+      "label": "Agent Refactor (Structural Violations)"
+    },
+    {
+      "source": "code-hygiene",
+      "target": "cleanup",
+      "edge_type": "handoff",
+      "label": "Cleanup Agent"
+    },
+    {
+      "source": "code-hygiene",
+      "target": "conflict-auditor",
+      "edge_type": "handoff",
+      "label": "Log Conflict"
+    },
+    {
+      "source": "code-hygiene",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "code-hygiene",
+      "target": "security",
+      "edge_type": "handoff",
+      "label": "Security Clearance (for Deletions)"
+    },
+    {
+      "source": "cohesion-repairer",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "cohesion-repairer",
+      "target": "quality-auditor",
+      "edge_type": "handoff",
+      "label": "Quality Re-Check"
+    },
+    {
+      "source": "cohesion-repairer",
+      "target": "style-guardian",
+      "edge_type": "handoff",
+      "label": "Style Audit After Repairs"
+    },
+    {
       "source": "cohesion-repairer",
       "target": "quality-auditor",
       "edge_type": "agents-list",
@@ -785,6 +1211,30 @@ digraph "LearnPythonStatsEcon Agent Team" {
       "target": "style-guardian",
       "edge_type": "agents-list",
       "label": null
+    },
+    {
+      "source": "conflict-auditor",
+      "target": "agent-updater",
+      "edge_type": "handoff",
+      "label": "Update Agent Docs"
+    },
+    {
+      "source": "conflict-auditor",
+      "target": "conflict-resolution",
+      "edge_type": "handoff",
+      "label": "Resolve Conflicts"
+    },
+    {
+      "source": "conflict-auditor",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "conflict-auditor",
+      "target": "technical-validator",
+      "edge_type": "handoff",
+      "label": "Verify Source Drift"
     },
     {
       "source": "conflict-auditor",
@@ -805,6 +1255,30 @@ digraph "LearnPythonStatsEcon Agent Team" {
       "label": null
     },
     {
+      "source": "conflict-resolution",
+      "target": "agent-updater",
+      "edge_type": "handoff",
+      "label": "Update Agent Docs"
+    },
+    {
+      "source": "conflict-resolution",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "content-enricher",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "content-enricher",
+      "target": "technical-validator",
+      "edge_type": "handoff",
+      "label": "Validate Enriched Content"
+    },
+    {
       "source": "content-enricher",
       "target": "primary-producer",
       "edge_type": "agents-list",
@@ -817,10 +1291,196 @@ digraph "LearnPythonStatsEcon Agent Team" {
       "label": null
     },
     {
+      "source": "git-operations",
+      "target": "agent-updater",
+      "edge_type": "handoff",
+      "label": "Update Agent Docs"
+    },
+    {
+      "source": "git-operations",
+      "target": "conflict-resolution",
+      "edge_type": "handoff",
+      "label": "Conflict Resolution"
+    },
+    {
+      "source": "git-operations",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "git-operations",
+      "target": "security",
+      "edge_type": "handoff",
+      "label": "Security Review"
+    },
+    {
+      "source": "navigator",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "orchestrator",
+      "target": "adversarial",
+      "edge_type": "handoff",
+      "label": "Adversarial Review"
+    },
+    {
+      "source": "orchestrator",
+      "target": "agent-refactor",
+      "edge_type": "handoff",
+      "label": "Refactor Agent Docs"
+    },
+    {
+      "source": "orchestrator",
+      "target": "agent-updater",
+      "edge_type": "handoff",
+      "label": "Update Agent Docs"
+    },
+    {
+      "source": "orchestrator",
+      "target": "cleanup",
+      "edge_type": "handoff",
+      "label": "Clean Up Artifacts"
+    },
+    {
+      "source": "orchestrator",
+      "target": "code-hygiene",
+      "edge_type": "handoff",
+      "label": "Code Hygiene Audit"
+    },
+    {
+      "source": "orchestrator",
+      "target": "cohesion-repairer",
+      "edge_type": "handoff",
+      "label": "Repair Cohesion"
+    },
+    {
+      "source": "orchestrator",
+      "target": "conflict-auditor",
+      "edge_type": "handoff",
+      "label": "Conflict Audit"
+    },
+    {
+      "source": "orchestrator",
+      "target": "conflict-resolution",
+      "edge_type": "handoff",
+      "label": "Resolve Conflicts"
+    },
+    {
+      "source": "orchestrator",
+      "target": "git-operations",
+      "edge_type": "handoff",
+      "label": "Git Operations"
+    },
+    {
+      "source": "orchestrator",
+      "target": "navigator",
+      "edge_type": "handoff",
+      "label": "Navigate Project"
+    },
+    {
+      "source": "orchestrator",
+      "target": "output-compiler",
+      "edge_type": "handoff",
+      "label": "Compile Final Output"
+    },
+    {
+      "source": "orchestrator",
+      "target": "primary-producer",
+      "edge_type": "handoff",
+      "label": "Produce / Revise Deliverable"
+    },
+    {
+      "source": "orchestrator",
+      "target": "quality-auditor",
+      "edge_type": "handoff",
+      "label": "Audit Quality"
+    },
+    {
+      "source": "orchestrator",
+      "target": "repo-liaison",
+      "edge_type": "handoff",
+      "label": "Cross-Repository Liaison"
+    },
+    {
+      "source": "orchestrator",
+      "target": "security",
+      "edge_type": "handoff",
+      "label": "Security Review"
+    },
+    {
+      "source": "orchestrator",
+      "target": "style-guardian",
+      "edge_type": "handoff",
+      "label": "Enforce Style / Standards"
+    },
+    {
+      "source": "orchestrator",
+      "target": "technical-validator",
+      "edge_type": "handoff",
+      "label": "Validate Technical Accuracy"
+    },
+    {
+      "source": "orchestrator",
+      "target": "visual-designer",
+      "edge_type": "handoff",
+      "label": "Generate / Revise Diagram"
+    },
+    {
+      "source": "orchestrator",
+      "target": "work-summarizer",
+      "edge_type": "handoff",
+      "label": "Summarize Work Period"
+    },
+    {
+      "source": "output-compiler",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "output-compiler",
+      "target": "technical-validator",
+      "edge_type": "handoff",
+      "label": "Validate Technical Accuracy"
+    },
+    {
       "source": "output-compiler",
       "target": "technical-validator",
       "edge_type": "agents-list",
       "label": null
+    },
+    {
+      "source": "primary-producer",
+      "target": "cohesion-repairer",
+      "edge_type": "handoff",
+      "label": "Cohesion Audit"
+    },
+    {
+      "source": "primary-producer",
+      "target": "conflict-auditor",
+      "edge_type": "handoff",
+      "label": "Conflict Audit"
+    },
+    {
+      "source": "primary-producer",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "primary-producer",
+      "target": "quality-auditor",
+      "edge_type": "handoff",
+      "label": "Quality Audit"
+    },
+    {
+      "source": "primary-producer",
+      "target": "style-guardian",
+      "edge_type": "handoff",
+      "label": "Style Audit"
     },
     {
       "source": "primary-producer",
@@ -849,6 +1509,30 @@ digraph "LearnPythonStatsEcon Agent Team" {
     {
       "source": "quality-auditor",
       "target": "cohesion-repairer",
+      "edge_type": "handoff",
+      "label": "Route Cohesion Failures"
+    },
+    {
+      "source": "quality-auditor",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "quality-auditor",
+      "target": "primary-producer",
+      "edge_type": "handoff",
+      "label": "Route Corrections to Primary Producer"
+    },
+    {
+      "source": "quality-auditor",
+      "target": "style-guardian",
+      "edge_type": "handoff",
+      "label": "Route Style Issues"
+    },
+    {
+      "source": "quality-auditor",
+      "target": "cohesion-repairer",
       "edge_type": "agents-list",
       "label": null
     },
@@ -865,10 +1549,64 @@ digraph "LearnPythonStatsEcon Agent Team" {
       "label": null
     },
     {
+      "source": "repo-liaison",
+      "target": "conflict-auditor",
+      "edge_type": "handoff",
+      "label": "Conflict Audit After Cross-Repo Change"
+    },
+    {
+      "source": "repo-liaison",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "repo-liaison",
+      "target": "security",
+      "edge_type": "handoff",
+      "label": "Security Review for Cross-Repo Write"
+    },
+    {
+      "source": "security",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "style-guardian",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "style-guardian",
+      "target": "primary-producer",
+      "edge_type": "handoff",
+      "label": "Route Style Corrections"
+    },
+    {
       "source": "style-guardian",
       "target": "primary-producer",
       "edge_type": "agents-list",
       "label": null
+    },
+    {
+      "source": "technical-validator",
+      "target": "conflict-auditor",
+      "edge_type": "handoff",
+      "label": "Log Conflict"
+    },
+    {
+      "source": "technical-validator",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "technical-validator",
+      "target": "primary-producer",
+      "edge_type": "handoff",
+      "label": "Route Corrections to Primary Producer"
     },
     {
       "source": "technical-validator",
@@ -896,9 +1634,45 @@ digraph "LearnPythonStatsEcon Agent Team" {
     },
     {
       "source": "visual-designer",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "visual-designer",
+      "target": "quality-auditor",
+      "edge_type": "handoff",
+      "label": "Quality Check Figure"
+    },
+    {
+      "source": "visual-designer",
       "target": "quality-auditor",
       "edge_type": "agents-list",
       "label": null
+    },
+    {
+      "source": "work-summarizer",
+      "target": "adversarial",
+      "edge_type": "handoff",
+      "label": "Run Adversarial Audit"
+    },
+    {
+      "source": "work-summarizer",
+      "target": "conflict-auditor",
+      "edge_type": "handoff",
+      "label": "Run Conflict Audit"
+    },
+    {
+      "source": "work-summarizer",
+      "target": "orchestrator",
+      "edge_type": "handoff",
+      "label": "Return to Orchestrator"
+    },
+    {
+      "source": "work-summarizer",
+      "target": "technical-validator",
+      "edge_type": "handoff",
+      "label": "Verify Summary Accuracy"
     },
     {
       "source": "work-summarizer",
@@ -920,91 +1694,158 @@ digraph "LearnPythonStatsEcon Agent Team" {
     }
   ],
   "adjacency": {
-    "adversarial": [],
+    "adversarial": [
+      "conflict-auditor",
+      "orchestrator"
+    ],
     "agent-refactor": [
-      "conflict-auditor"
+      "conflict-auditor",
+      "orchestrator"
     ],
     "agent-updater": [
+      "adversarial",
       "agent-refactor",
-      "conflict-auditor"
+      "conflict-auditor",
+      "orchestrator"
     ],
     "ch1-essentials-expert": [
       "adversarial",
+      "orchestrator",
       "primary-producer"
     ],
     "ch2-lists-expert": [
       "adversarial",
+      "orchestrator",
       "primary-producer"
     ],
     "ch3-numpy-pandas-expert": [
       "adversarial",
+      "orchestrator",
       "primary-producer"
     ],
     "ch4-functional-expert": [
       "adversarial",
+      "orchestrator",
       "primary-producer"
     ],
     "ch5-probability-expert": [
       "adversarial",
+      "orchestrator",
       "primary-producer"
     ],
     "ch6-hypothesis-expert": [
       "adversarial",
+      "orchestrator",
       "primary-producer"
     ],
     "ch7-ols-expert": [
       "adversarial",
+      "orchestrator",
       "primary-producer"
     ],
     "ch8-advanced-expert": [
       "adversarial",
+      "orchestrator",
       "primary-producer"
     ],
     "ch9-abm-expert": [
       "adversarial",
+      "orchestrator",
       "primary-producer"
     ],
-    "cleanup": [],
-    "code-hygiene": [],
+    "cleanup": [
+      "orchestrator"
+    ],
+    "code-hygiene": [
+      "agent-refactor",
+      "cleanup",
+      "conflict-auditor",
+      "orchestrator",
+      "security"
+    ],
     "cohesion-repairer": [
+      "orchestrator",
       "quality-auditor",
       "style-guardian"
     ],
     "conflict-auditor": [
       "agent-updater",
       "conflict-resolution",
+      "orchestrator",
       "technical-validator"
     ],
-    "conflict-resolution": [],
+    "conflict-resolution": [
+      "agent-updater",
+      "orchestrator"
+    ],
     "content-enricher": [
+      "orchestrator",
       "primary-producer",
       "technical-validator"
     ],
-    "git-operations": [],
-    "navigator": [],
-    "orchestrator": [],
+    "git-operations": [
+      "agent-updater",
+      "conflict-resolution",
+      "orchestrator",
+      "security"
+    ],
+    "navigator": [
+      "orchestrator"
+    ],
+    "orchestrator": [
+      "adversarial",
+      "agent-refactor",
+      "agent-updater",
+      "cleanup",
+      "code-hygiene",
+      "cohesion-repairer",
+      "conflict-auditor",
+      "conflict-resolution",
+      "git-operations",
+      "navigator",
+      "output-compiler",
+      "primary-producer",
+      "quality-auditor",
+      "repo-liaison",
+      "security",
+      "style-guardian",
+      "technical-validator",
+      "visual-designer",
+      "work-summarizer"
+    ],
     "output-compiler": [
+      "orchestrator",
       "technical-validator"
     ],
     "primary-producer": [
       "cohesion-repairer",
       "conflict-auditor",
+      "orchestrator",
       "quality-auditor",
       "style-guardian"
     ],
     "quality-auditor": [
       "cohesion-repairer",
+      "orchestrator",
       "primary-producer",
       "style-guardian"
     ],
-    "repo-liaison": [],
-    "security": [],
+    "repo-liaison": [
+      "conflict-auditor",
+      "orchestrator",
+      "security"
+    ],
+    "security": [
+      "orchestrator"
+    ],
     "style-guardian": [
+      "orchestrator",
       "primary-producer"
     ],
     "team-builder": [],
     "technical-validator": [
       "conflict-auditor",
+      "orchestrator",
       "primary-producer"
     ],
     "tool-doc-researcher": [
@@ -1012,11 +1853,13 @@ digraph "LearnPythonStatsEcon Agent Team" {
       "orchestrator"
     ],
     "visual-designer": [
+      "orchestrator",
       "quality-auditor"
     ],
     "work-summarizer": [
       "adversarial",
       "conflict-auditor",
+      "orchestrator",
       "technical-validator"
     ]
   }

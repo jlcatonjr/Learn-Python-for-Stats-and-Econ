@@ -23,12 +23,14 @@
     "ch8-advanced",
     "ch9-abm"
   ],
-  "files_written": [],
+  "files_written": [
+    ".github/agents/references/security-infrastructure-layers.reference.md"
+  ],
   "manual_required": 37,
   "template_hashes": {
     "universal/orchestrator.template.md": "7cb6cc382bcde9ca",
     "universal/navigator.template.md": "5a0d707a9f3f5cec",
-    "universal/security.template.md": "9b38b7d5eab9c6ef",
+    "universal/security.template.md": "85349869800ccdd2",
     "universal/code-hygiene.template.md": "72e2a1f9ec316852",
     "universal/adversarial.template.md": "0dbc3c4284139780",
     "universal/conflict-auditor.template.md": "d0e6ed3e98ba1f86",
@@ -54,9 +56,10 @@
     "universal/security-linux-hardening.reference.template.md": "4845cf83b84615f4",
     "universal/security-macos-hardening.reference.template.md": "78fd2835ec2d8869",
     "universal/security-windows-hardening.reference.template.md": "5885668f48e4c295",
+    "universal/security-infrastructure-layers.reference.template.md": "5c4c67f28d67149b",
     "universal/ai-bad-habits-watch.reference.template.md": "3265a4ef0b7e5f7a",
     "universal/framework-watch.reference.template.md": "5232925f7a649199",
-    "universal/adjacent-repos.reference.template.md": "8020816d05c1df44",
+    "universal/adjacent-repos.reference.template.md": "e66157a91f72492a",
     "universal/github-workflows-merge.reference.template.md": "4b5d6066a338ae74",
     "universal/work-summary-spec.reference.template.md": "d29ca7e680ad715d",
     "universal/work-summary-tooling.reference.template.md": "62e643b1a9711af6",
@@ -275,6 +278,12 @@
     {
       "path": "references/security-windows-hardening.reference.md",
       "template": "universal/security-windows-hardening.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/security-infrastructure-layers.reference.md",
+      "template": "universal/security-infrastructure-layers.reference.template.md",
       "type": "reference",
       "component_slug": null
     },
@@ -503,43 +512,43 @@
     "repo-liaison",
     "git-operations"
   ],
-  "manifest_fingerprint": "e186d04fc155a1da",
+  "manifest_fingerprint": "f85395d6a8dd37e2",
   "fingerprint_algo_version": 1,
   "file_hashes": {
-    "orchestrator.agent.md": "a07af47b323a26b5",
-    "navigator.agent.md": "5184115ce7d5f57b",
-    "security.agent.md": "db97c28d627595db",
-    "code-hygiene.agent.md": "cecc6112e3c68d19",
-    "adversarial.agent.md": "e97a72d3b00a8478",
-    "conflict-auditor.agent.md": "ac86d50bf5431be8",
-    "conflict-resolution.agent.md": "8d983867c7b83881",
-    "cleanup.agent.md": "3d3f495fad050135",
-    "agent-updater.agent.md": "fdcaba309b90505e",
-    "agent-refactor.agent.md": "fd70803eb13f64c0",
-    "repo-liaison.agent.md": "d2027043b003b9c4",
-    "git-operations.agent.md": "85a4b9fe45678c3e",
-    "work-summarizer.agent.md": "3fd29eafccf82d2d",
-    "primary-producer.agent.md": "23cc66f95eeaa6d9",
-    "quality-auditor.agent.md": "4cd2ba2333b10f3b",
-    "cohesion-repairer.agent.md": "5239b437f86c71f4",
-    "style-guardian.agent.md": "d6c62bc93683a134",
-    "technical-validator.agent.md": "fe1c2791a23b4486",
-    "output-compiler.agent.md": "6b4664e1a2d5870b",
-    "visual-designer.agent.md": "9d8b8d1c375efb24",
-    "references/security-vulnerability-watch.reference.md": "706027319e6c7598",
-    "references/security-vulnerability-watch.json": "e66e265c06654f04",
-    "references/retrospective-remediation.reference.md": "ad2e6855ecf03605",
-    "ch1-essentials-expert.agent.md": "2396a0724c796b53",
-    "ch2-lists-expert.agent.md": "4ddc00af79ba2d2a",
-    "ch3-numpy-pandas-expert.agent.md": "7a15c656cbb6d0e3",
-    "ch4-functional-expert.agent.md": "14f036657ed6739c",
-    "ch5-probability-expert.agent.md": "8c56dcf1b19325ce",
-    "ch6-hypothesis-expert.agent.md": "24fd7ba67b3e47e8",
-    "ch7-ols-expert.agent.md": "2f8b412c1225f82e",
-    "ch8-advanced-expert.agent.md": "d2ca666c916c32da",
-    "ch9-abm-expert.agent.md": "f24d23dd86226dce",
-    "team-builder.agent.md": "9d29aab02681c08c",
-    "content-enricher.agent.md": "ccd43037c9ae1bb0",
+    "references/security-infrastructure-layers.reference.md": "0d9a6bcfffb38b98",
+    "orchestrator.agent.md": "98bc8fb47f7d5096",
+    "navigator.agent.md": "f24d932cca8db7c5",
+    "security.agent.md": "bbbddf643c3cf19e",
+    "code-hygiene.agent.md": "696cc827892ad664",
+    "adversarial.agent.md": "9e95accb5505d1d2",
+    "conflict-auditor.agent.md": "b2c3a7d024b51ed6",
+    "conflict-resolution.agent.md": "00a5a19255809537",
+    "cleanup.agent.md": "ff9b81f4b04ff2cd",
+    "agent-updater.agent.md": "c3fa3563a4119904",
+    "agent-refactor.agent.md": "7cd98488694226a1",
+    "repo-liaison.agent.md": "03dbcc90f15a0fca",
+    "git-operations.agent.md": "85728b461be29861",
+    "work-summarizer.agent.md": "f9bfec69bee32d8c",
+    "primary-producer.agent.md": "7f33c651279738d3",
+    "quality-auditor.agent.md": "262a89f43d91ca73",
+    "cohesion-repairer.agent.md": "be716e28c90bdcf4",
+    "style-guardian.agent.md": "9956c22d1022df17",
+    "technical-validator.agent.md": "71fd608c47620cfb",
+    "output-compiler.agent.md": "f2e412783a341ed9",
+    "visual-designer.agent.md": "c2a4792e111721ba",
+    "references/security-vulnerability-watch.reference.md": "921a2f524aafb9f4",
+    "references/security-vulnerability-watch.json": "a9380f6562ad8845",
+    "references/adjacent-repos.md": "77feeed765a1e18a",
+    "ch1-essentials-expert.agent.md": "b170aa6948837aef",
+    "ch2-lists-expert.agent.md": "874e6e598b2d4083",
+    "ch3-numpy-pandas-expert.agent.md": "00d13e66205b5382",
+    "ch4-functional-expert.agent.md": "0521a9b08b9c1c0d",
+    "ch5-probability-expert.agent.md": "87d8324d024eb4b4",
+    "ch6-hypothesis-expert.agent.md": "82e8ad217335ddb4",
+    "ch7-ols-expert.agent.md": "17fd41912cad68ca",
+    "ch8-advanced-expert.agent.md": "6086acd83b751603",
+    "ch9-abm-expert.agent.md": "cc18b0b6e5dd7b70",
+    "content-enricher.agent.md": "03bfe37b4e43eee7",
     "references/pipeline-graph.md": "26acca10df02d7dc",
     "references/pipeline-graph.svg": "1a98d8127f3d32d4",
     "references/pipeline-handoffs.svg": "82b4bd2ff6ea2c84",
@@ -549,8 +558,8 @@
     "references/security-windows-hardening.reference.md": "78698ec86ced5ce6",
     "references/ai-bad-habits-watch.reference.md": "030b52121b9fcce6",
     "references/framework-watch.reference.md": "5f8854c6f9e85dce",
-    "references/adjacent-repos.md": "adf7acfa769e8cfa",
     "../copilot-instructions.md": "4e6daad8ad1985a7",
+    "team-builder.agent.md": "9d29aab02681c08c",
     "SETUP-REQUIRED.md": "47182160973143e3",
     "references/ref-jupyter-reference.md": "7fab21b30424739b",
     "references/ref-numpy-reference.md": "daab373a9a35449d",
@@ -565,6 +574,7 @@
     "references/work-summary-backfill.reference.md": "a0543cde8916cedb",
     "references/parallelization.reference.md": "d2321bf5ac1ed2f8",
     "references/instruction-authority.reference.md": "ef966c1ddd32b770",
+    "references/retrospective-remediation.reference.md": "ad2e6855ecf03605",
     "references/cli-tool-discovery.reference.md": "25542cccc7cb88eb",
     "references/skill-generation.reference.md": "5afe8c28e86bce98",
     "references/external-retrieval-quality-gate.reference.md": "3c5d82da1bdb0fe3"
@@ -576,7 +586,7 @@
       "tools": "['read', 'edit', 'search', 'execute', 'todo', 'agent']",
       "agents": "",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Produce / Revise Deliverable\n    agent: primary-producer\n    prompt: \"A workstream is ready to produce or revise its deliverable. Provide the workstream name and any specific instructions.\"\n    send: false\n  - label: Audit Quality\n    agent: quality-auditor\n    prompt: \"A deliverable is ready for quality audit. Provide the file path.\"\n    send: false\n  - label: Repair Cohesion\n    agent: cohesion-repairer\n    prompt: \"A deliverable section has structural cohesion failures. Provide the file and section.\"\n    send: false\n  - label: Enforce Style / Standards\n    agent: style-guardian\n    prompt: \"A deliverable is ready for style audit. Provide the file path.\"\n    send: false\n  - label: Validate Technical Accuracy\n    agent: technical-validator\n    prompt: \"Audit technical accuracy of claims, code, or specifications in a deliverable. Provide the file path.\"\n    send: false\n  - label: Compile Final Output\n    agent: output-compiler\n    prompt: \"Assemble and compile the final deliverable from all sources.\"\n    send: false\n  - label: Generate / Revise Diagram\n    agent: visual-designer\n    prompt: \"Generate or revise a diagram. Describe what is needed.\"\n    send: false\n  - label: Navigate Project\n    agent: navigator\n    prompt: \"Locate files, answer structural questions, or regenerate the project map.\"\n    send: false\n  - label: Security Review\n    agent: security\n    prompt: \"Review the planned action for credentials, destructive operations, or sensitive content.\"\n    send: false\n  - label: Code Hygiene Audit\n    agent: code-hygiene\n    prompt: \"Run a code hygiene audit. Provide scope or 'full' for all rules.\"\n    send: false\n  - label: Adversarial Review\n    agent: adversarial\n    prompt: \"Challenge the presuppositions underlying this plan before execution.\"\n    send: false\n  - label: Conflict Audit\n    agent: conflict-auditor\n    prompt: \"Detect contradictions across project files. Provide scope if targeted.\"\n    send: false\n  - label: Resolve Conflicts\n    agent: conflict-resolution\n    prompt: \"Make ACCEPT/REJECT/REVISE decisions on flagged conflicts.\"\n    send: false\n  - label: Clean Up Artifacts\n    agent: cleanup\n    prompt: \"Remove stale build artifacts, orphaned files, or abandoned drafts.\"\n    send: false\n  - label: Update Agent Docs\n    agent: agent-updater\n    prompt: \"Project structure or conventions have changed. Sync all affected agent files.\"\n    send: false\n  - label: Refactor Agent Docs\n    agent: agent-refactor\n    prompt: \"Check agent docs for reference extraction opportunities and spec compliance.\"\n    send: false\n  - label: Cross-Repository Liaison\n    agent: repo-liaison\n    prompt: \"Assess or communicate impact of this project's activity on adjacent repositories. Describe the change and list any known adjacent repos.\"\n    send: false\n  - label: Summarize Work Period\n    agent: work-summarizer\n    prompt: \"Create daily, weekly, or monthly work summaries from planning artifacts and git diffs for the requested period.\"\n    send: false\n  - label: Git Operations\n    agent: git-operations\n    prompt: \"Run a git operation: commit and push, pull/merge/rebase, resolve conflicts, or recover a file. Describe the operation needed.\"\n    send: false\n",
       "user-invocable": "true"
     },
     "navigator.agent.md": {
@@ -584,7 +594,7 @@
       "description": "\"Repository structure navigation, project map maintenance, file location lookups, and dependency queries for LearnPythonStatsEcon\"",
       "tools": "['read', 'search', 'execute']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Navigation query is complete. Here are the structural findings.\"\n    send: false",
       "user-invocable": "false"
     },
     "security.agent.md": {
@@ -592,7 +602,7 @@
       "description": "\"Top-priority security sentinel: reviews actions for credential exposure, destructive operations, sensitive content leakage, and reference integrity before any sensitive action proceeds\"",
       "tools": "['read', 'search']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Security review is complete. Return to the orchestrator with findings.\"\n    send: false",
       "user-invocable": "false"
     },
     "code-hygiene.agent.md": {
@@ -600,7 +610,7 @@
       "description": "\"Read-only auditor that enforces modular architecture, file hygiene, script lifecycle, anti-sprawl rules, and agent documentation quality. Delegates removals to @cleanup; delegates structural extraction to @agent-refactor.\"",
       "tools": "['read', 'search']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Security Clearance (for Deletions)\n    agent: security\n    prompt: \"Code hygiene review identified files for deletion. Requesting security clearance before delegating to cleanup.\"\n    send: false\n  - label: Cleanup Agent\n    agent: cleanup\n    prompt: \"Code hygiene audit complete. Delegate removal of identified files (after @security clearance).\"\n    send: false\n  - label: Agent Refactor (Structural Violations)\n    agent: agent-refactor\n    prompt: \"Code hygiene audit found inline reference data in agent files (CH-08/CH-14) or agent doc contradictions (CH-20) that may benefit from structural extraction. Requesting @agent-refactor to evaluate and apply reference extraction.\"\n    send: false\n  - label: Log Conflict\n    agent: conflict-auditor\n    prompt: \"Code hygiene audit found agent documentation contradictions (CH-20). Logging as conflict.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Code hygiene review is complete. Returning findings to the orchestrator.\"\n    send: false",
       "user-invocable": "false"
     },
     "adversarial.agent.md": {
@@ -608,7 +618,7 @@
       "description": "\"Presupposition critic: challenges the assumptions underlying any plan, proposal, or diagnosis produced by the agent team. Traces how justified changes in presuppositions cascade through dependent logic.\"",
       "tools": "['read', 'search']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Adversarial review is complete. Return findings \u2014 validated presuppositions, challenged presuppositions, and cascade analysis \u2014 to the orchestrator for plan revision.\"\n    send: false\n  - label: Audit for Conflicts\n    agent: conflict-auditor\n    prompt: \"Adversarial review surfaced assumptions that may conflict with documented facts. Run a targeted conflict audit on the identified areas.\"\n    send: false",
       "user-invocable": "true"
     },
     "conflict-auditor.agent.md": {
@@ -617,7 +627,7 @@
       "tools": "['read', 'search']",
       "agents": "['conflict-resolution', 'agent-updater', 'technical-validator']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Conflict audit is complete. Review the findings.\"\n    send: false\n  - label: Update Agent Docs\n    agent: agent-updater\n    prompt: \"Conflicts detected that require documentation updates.\"\n    send: false\n  - label: Resolve Conflicts\n    agent: conflict-resolution\n    prompt: \"Conflicts have been identified and logged. Make ACCEPT/REJECT/REVISE decisions.\"\n    send: false\n  - label: Verify Source Drift\n    agent: technical-validator\n    prompt: \"SOURCE_DRIFT conflict detected. Verify deliverable description against current source file on disk.\"\n    send: false",
       "user-invocable": "false"
     },
     "conflict-resolution.agent.md": {
@@ -625,7 +635,7 @@
       "description": "\"Makes ACCEPT/REJECT/REVISE decisions on conflicts flagged by the conflict auditor in LearnPythonStatsEcon\"",
       "tools": "['edit', 'search', 'read']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Conflict resolution is complete. Review decisions and route corrections.\"\n    send: false\n  - label: Update Agent Docs\n    agent: agent-updater\n    prompt: \"Conflict resolutions may require agent documentation updates.\"\n    send: false",
       "user-invocable": "false"
     },
     "cleanup.agent.md": {
@@ -633,7 +643,7 @@
       "description": "\"Removes stale drafts, build artifacts, and orphaned files from LearnPythonStatsEcon with mandatory safety checks\"",
       "tools": "['edit', 'search', 'execute']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Cleanup is complete. Review the removal report.\"\n    send: false",
       "user-invocable": "false"
     },
     "agent-updater.agent.md": {
@@ -642,7 +652,7 @@
       "tools": "['edit', 'search', 'execute', 'agent']",
       "agents": "['conflict-auditor', 'agent-refactor']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Refactor Agent Docs\n    agent: agent-refactor\n    prompt: \"Documentation has been updated. Check for reference extraction opportunities and spec compliance.\"\n    send: false\n  - label: Run Adversarial Review\n    agent: adversarial\n    prompt: \"Documentation has been updated. Challenge the repository change census, docs/API impact decision, and any newly synchronized assumptions before closeout.\"\n    send: false\n  - label: Run Conflict Audit\n    agent: conflict-auditor\n    prompt: \"Documentation has been updated. Run a conflict audit to verify consistency.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Agent documentation has been synchronized with project changes.\"\n    send: false",
       "user-invocable": "false"
     },
     "agent-refactor.agent.md": {
@@ -651,7 +661,7 @@
       "tools": "['edit', 'search', 'agent']",
       "agents": "['conflict-auditor']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Run Conflict Audit\n    agent: conflict-auditor\n    prompt: \"Agent documentation has been refactored. Run a conflict audit to verify consistency.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Agent refactoring is complete. Review the changes.\"\n    send: false",
       "user-invocable": "false"
     },
     "repo-liaison.agent.md": {
@@ -659,7 +669,7 @@
       "description": "\"Tracks agent documentation in repositories adjacent to LearnPythonStatsEcon, communicates cross-repository impacts, maintains the adjacent-repos registry, and coordinates between orchestrators when this project's activity affects neighboring agent infrastructures.\"",
       "tools": "['read', 'edit', 'search', 'execute', 'agent']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Cross-repository liaison work is complete. Summary of impacts, updates made, and any orchestrator coordination required.\"\n    send: false\n  - label: Security Review for Cross-Repo Write\n    agent: security\n    prompt: \"A write operation targeting an adjacent repository requires security clearance. Provide the target repo, file path, and intended change.\"\n    send: false\n  - label: Conflict Audit After Cross-Repo Change\n    agent: conflict-auditor\n    prompt: \"Adjacent repository documentation has been updated. Verify internal consistency with current project docs.\"\n    send: false",
       "user-invocable": "false"
     },
     "git-operations.agent.md": {
@@ -667,7 +677,7 @@
       "description": "\"Executes and governs Git and GitHub operations in LearnPythonStatsEcon, including commit/push, pull/merge/rebase, conflict handling, and recovery workflows.\"",
       "tools": "['read', 'execute', 'search']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Git operation is complete. Return to orchestrator with outcome summary.\"\n    send: false\n  - label: Security Review\n    agent: security\n    prompt: \"A git operation includes force-push, destructive history rewrite, or sensitive content exposure risk. Review before proceeding.\"\n    send: false\n  - label: Conflict Resolution\n    agent: conflict-resolution\n    prompt: \"A merge or rebase conflict requires ACCEPT/REJECT/REVISE decisions beyond simple line merges.\"\n    send: false\n  - label: Update Agent Docs\n    agent: agent-updater\n    prompt: \"Tracked repository content changed. Run repository change census and docs/API impact evaluation before closeout.\"\n    send: false",
       "user-invocable": "true"
     },
     "work-summarizer.agent.md": {
@@ -676,7 +686,7 @@
       "tools": "['read', 'search', 'execute', 'edit', 'agent']",
       "agents": "['technical-validator', 'adversarial', 'conflict-auditor']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Verify Summary Accuracy\n    agent: technical-validator\n    prompt: \"Work summary drafted. Verify factual claims (paths, hashes, counts) against on-disk state and git history.\"\n    send: false\n  - label: Run Adversarial Audit\n    agent: adversarial\n    prompt: \"Work summary drafted. Run a presupposition and cascade-risk audit before finalization.\"\n    send: false\n  - label: Run Conflict Audit\n    agent: conflict-auditor\n    prompt: \"Work summary drafted. Run a consistency audit against authority sources.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Work summary reporting complete. See workSummaries/.\"\n    send: false",
       "user-invocable": "true"
     },
     "primary-producer.agent.md": {
@@ -685,7 +695,7 @@
       "tools": "['read', 'edit', 'search']",
       "agents": "['style-guardian', 'cohesion-repairer', 'quality-auditor', 'conflict-auditor']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Style Audit\n    agent: style-guardian\n    prompt: \"Draft is ready for style audit.\"\n    send: false\n  - label: Cohesion Audit\n    agent: cohesion-repairer\n    prompt: \"Draft is ready for cohesion audit.\"\n    send: false\n  - label: Quality Audit\n    agent: quality-auditor\n    prompt: \"Revised draft is ready for quality audit.\"\n    send: false\n  - label: Conflict Audit\n    agent: conflict-auditor\n    prompt: \"New deliverable added. Run consistency check.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Deliverable production is complete.\"\n    send: false",
       "user-invocable": "false"
     },
     "quality-auditor.agent.md": {
@@ -694,7 +704,7 @@
       "tools": "['read', 'search']",
       "agents": "['primary-producer', 'cohesion-repairer', 'style-guardian']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Route Corrections to Primary Producer\n    agent: primary-producer\n    prompt: \"Audit findings attached. Please correct flagged passages.\"\n    send: false\n  - label: Route Cohesion Failures\n    agent: cohesion-repairer\n    prompt: \"Cohesion failures flagged in audit. Please repair.\"\n    send: false\n  - label: Route Style Issues\n    agent: style-guardian\n    prompt: \"Style deviations flagged in audit.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Quality audit complete. See findings.\"\n    send: false",
       "user-invocable": "false"
     },
     "cohesion-repairer.agent.md": {
@@ -703,7 +713,7 @@
       "tools": "['read', 'edit']",
       "agents": "['style-guardian', 'quality-auditor']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Style Audit After Repairs\n    agent: style-guardian\n    prompt: \"Cohesion repairs complete. Run style audit on edited sections.\"\n    send: false\n  - label: Quality Re-Check\n    agent: quality-auditor\n    prompt: \"Cohesion repairs applied. Re-check repaired sections.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Cohesion repairs complete.\"\n    send: false",
       "user-invocable": "false"
     },
     "style-guardian.agent.md": {
@@ -712,7 +722,7 @@
       "tools": "['read', 'edit', 'search']",
       "agents": "['primary-producer']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Route Style Corrections\n    agent: primary-producer\n    prompt: \"Style audit findings attached. Please correct style deviations.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Style audit complete.\"\n    send: false",
       "user-invocable": "false"
     },
     "technical-validator.agent.md": {
@@ -721,7 +731,7 @@
       "tools": "['read', 'search']",
       "agents": "['primary-producer', 'conflict-auditor']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Route Corrections to Primary Producer\n    agent: primary-producer\n    prompt: \"Technical accuracy findings attached. Please correct flagged inaccuracies.\"\n    send: false\n  - label: Log Conflict\n    agent: conflict-auditor\n    prompt: \"Technical conflict detected. Logging and routing.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Technical validation complete. See findings.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "output-compiler.agent.md": {
@@ -730,7 +740,7 @@
       "tools": "['read', 'edit', 'execute']",
       "agents": "['technical-validator']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Validate Technical Accuracy\n    agent: technical-validator\n    prompt: \"Validate technical accuracy before final assembly.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Final output assembly complete.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "visual-designer.agent.md": {
@@ -739,7 +749,7 @@
       "tools": "['read', 'edit', 'execute', 'search']",
       "agents": "['quality-auditor']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Quality Check Figure\n    agent: quality-auditor\n    prompt: \"New or revised figure ready for quality check.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Visual design work complete.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "ch1-essentials-expert.agent.md": {
@@ -748,7 +758,7 @@
       "tools": "['read', 'search', 'agent']",
       "agents": "['primary-producer', 'adversarial']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 1 \u2014 The Essentials has been reviewed and accepted.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "ch2-lists-expert.agent.md": {
@@ -757,7 +767,7 @@
       "tools": "['read', 'search', 'agent']",
       "agents": "['primary-producer', 'adversarial']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 2 \u2014 Working With Lists has been reviewed and accepted.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "ch3-numpy-pandas-expert.agent.md": {
@@ -766,7 +776,7 @@
       "tools": "['read', 'search', 'agent']",
       "agents": "['primary-producer', 'adversarial']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 3 \u2014 NumPy, Pandas, and Matplotlib has been reviewed and accepted.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "ch4-functional-expert.agent.md": {
@@ -775,7 +785,7 @@
       "tools": "['read', 'search', 'agent']",
       "agents": "['primary-producer', 'adversarial']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 4 \u2014 Functional Programming and Rudimentary Statistics has been reviewed and accepted.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "ch5-probability-expert.agent.md": {
@@ -784,7 +794,7 @@
       "tools": "['read', 'search', 'agent']",
       "agents": "['primary-producer', 'adversarial']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 5 \u2014 Probability Distributions has been reviewed and accepted.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "ch6-hypothesis-expert.agent.md": {
@@ -793,7 +803,7 @@
       "tools": "['read', 'search', 'agent']",
       "agents": "['primary-producer', 'adversarial']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 6 \u2014 Hypothesis Testing has been reviewed and accepted.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "ch7-ols-expert.agent.md": {
@@ -802,7 +812,7 @@
       "tools": "['read', 'search', 'agent']",
       "agents": "['primary-producer', 'adversarial']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 7 \u2014 Building an OLS Regression Model has been reviewed and accepted.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "ch8-advanced-expert.agent.md": {
@@ -811,7 +821,7 @@
       "tools": "['read', 'search', 'agent']",
       "agents": "['primary-producer', 'adversarial']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 8 \u2014 Advanced Data Analysis has been reviewed and accepted.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "ch9-abm-expert.agent.md": {
@@ -820,15 +830,8 @@
       "tools": "['read', 'search', 'agent']",
       "agents": "['primary-producer', 'adversarial']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 9 \u2014 Agent-Based Modeling has been reviewed and accepted.\"\n    send: false\n",
       "user-invocable": "false"
-    },
-    "team-builder.agent.md": {
-      "name": "Team Builder \u2014 Agent Teams Module",
-      "description": "\"Interactively constructs a complete agent team for a new or existing VS Code Copilot project by conducting an intake interview and invoking the build_team pipeline\"",
-      "tools": "['read', 'edit', 'search', 'execute', 'todo']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "user-invocable": "true"
     },
     "content-enricher.agent.md": {
       "name": "Content Enricher \u2014 LearnPythonStatsEcon",
@@ -836,7 +839,14 @@
       "tools": "['read', 'edit', 'search']",
       "agents": "['primary-producer', 'technical-validator']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "",
+      "handoffs": "\n  - label: Validate Enriched Content\n    agent: technical-validator\n    prompt: \"Content enrichment complete. Verify that filled-in values are technically accurate against project source files.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Content enrichment complete. All auto-fillable placeholders have been resolved.\"\n    send: false",
+      "user-invocable": "true"
+    },
+    "team-builder.agent.md": {
+      "name": "Team Builder \u2014 Agent Teams Module",
+      "description": "\"Interactively constructs a complete agent team for a new or existing VS Code Copilot project by conducting an intake interview and invoking the build_team pipeline\"",
+      "tools": "['read', 'edit', 'search', 'execute', 'todo']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
       "user-invocable": "true"
     }
   }
