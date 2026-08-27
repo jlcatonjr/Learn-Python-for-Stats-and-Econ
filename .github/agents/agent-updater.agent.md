@@ -1,7 +1,6 @@
 ---
 name: Agent Updater — LearnPythonStatsEcon
 description: "Synchronizes agent documentation after project structure, deliverable, or reference changes in LearnPythonStatsEcon"
-user-invokable: false
 tools: ['edit', 'search', 'execute', 'agent']
 agents: ['conflict-auditor', 'agent-refactor']
 model: ["Claude Sonnet 4.6 (copilot)"]
@@ -9,6 +8,10 @@ handoffs:
   - label: Refactor Agent Docs
     agent: agent-refactor
     prompt: "Documentation has been updated. Check for reference extraction opportunities and spec compliance."
+    send: false
+  - label: Run Adversarial Review
+    agent: adversarial
+    prompt: "Documentation has been updated. Challenge the repository change census, docs/API impact decision, and any newly synchronized assumptions before closeout."
     send: false
   - label: Run Conflict Audit
     agent: conflict-auditor
@@ -18,6 +21,7 @@ handoffs:
     agent: orchestrator
     prompt: "Agent documentation has been synchronized with project changes."
     send: false
+user-invocable: false
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->
 

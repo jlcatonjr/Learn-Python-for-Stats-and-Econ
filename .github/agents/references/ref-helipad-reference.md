@@ -16,17 +16,17 @@
 
 ## Official Documentation
 
-{MANUAL:TOOL_DOCS_URL}
+https://helipad.dev/apidocs/
 
 ## Key API Surface
 
-{MANUAL:TOOL_API_SURFACE}
+Model class — main simulation container; model.addPrimitive(name, cls) — register agent type; model.addParam(name, title, type, dflt) — add adjustable parameter; model.addPlot(name, title) / model.addSeries() — define visualisation; model.start() / model.launchGUI() — run simulation; Agent base class with step() method; match() function for pairwise agent interactions
 
 <!-- Document the primary classes, functions, or APIs that project code depends on from Helipad. -->
 
 ## Common Patterns & Pitfalls
 
-{MANUAL:TOOL_COMMON_PATTERNS}
+Define agent behaviour by subclassing Agent and overriding step(). Use model.addPrimitive() to register each agent class before calling start(). Parameters added with addParam() appear as GUI sliders — set dflt for the default value. Collect time-series data via model.addPlot() and model.addSeries(). Pitfall: helipad's interactive GUI requires a Tkinter event loop — in Jupyter use model.start() rather than model.launchGUI().
 
 <!-- Document common usage patterns, best practices, and known issues for Helipad . -->
 

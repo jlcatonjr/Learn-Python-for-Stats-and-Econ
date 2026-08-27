@@ -21,9 +21,41 @@ one duplicated on top.
 agent's own procedure, not an optional follow-up a human clicks. A summary that skipped this gate
 is not a completed deliverable — it is a draft.
 
+## Retrieval provenance (state it before the gate runs)
+
+Every externally-sourced claim must carry, alongside its URL, **how that URL was obtained**.
+A citation with no provenance cannot be audited: the auditor cannot tell a live first-hit
+result from a cached one, or a result the primary search endpoint returned from one a fallback
+backend produced after the primary refused the request.
+
+`python -m agentteams.research search` prints this on stderr for every query:
+
+```
+provenance: backend=<name> cached=<true|false> query_used='<query>' tried=<backend,backend>
+```
+
+Three of those fields change what a claim is worth, and each must be carried forward:
+
+- **`backend`** — which provider actually answered. Not all backends index the same corpus.
+- **`cached`** — `true` means the result was served from the local TTL cache and may be up to
+  six hours old. For any time-sensitive claim, re-run with `AGENTTEAMS_RESEARCH_NO_CACHE=1`
+  before presenting it as current.
+- **`query_used`** — when this differs from the query you issued, the search endpoint
+  challenged the original and the tool retried with a **broader** one. Broader queries return
+  less precise results. Treat a hit obtained this way as weaker evidence, and say so.
+
+An **empty result set is not evidence of absence.** When the note on stderr reports a
+challenge, the honest report is "could not retrieve", never "no such information exists."
+
+For a scholarly lookup (`python -m agentteams.research scholar`), the same rule applies with
+one addition: a hit in a scholarly index establishes that a work exists and where it was
+published. It says nothing about whether the work is correct, replicated, or **un-retracted**
+— retraction status is not checked. Never present an index hit as endorsement.
+
 ## The gate
 
-1. **Hand off the complete draft** — every claim and every link/citation it rests on — to
+1. **Hand off the complete draft** — every claim and every link/citation it rests on, each with
+   the provenance recorded above — to
    `@adversarial`. Ask it to challenge each claim's sourcing specifically: is this an unsupported
    assertion dressed as fact, an overstated certainty (a retrieval hit restated as proof, a
    "survived" verdict restated as "verified" — the honest-ceiling failure mode), or a link that

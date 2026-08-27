@@ -1,8 +1,7 @@
 ---
 name: Conflict Auditor — LearnPythonStatsEcon
 description: "Detects logical conflicts across deliverables, agent documentation, reference files, and source material in LearnPythonStatsEcon"
-user-invokable: false
-tools: ['read', 'edit', 'search', 'execute']
+tools: ['read', 'search']
 agents: ['conflict-resolution', 'agent-updater', 'technical-validator']
 model: ["Claude Sonnet 4.6 (copilot)"]
 handoffs:
@@ -22,6 +21,7 @@ handoffs:
     agent: technical-validator
     prompt: "SOURCE_DRIFT conflict detected. Verify deliverable description against current source file on disk."
     send: false
+user-invocable: false
 ---
 
 <!--
@@ -92,6 +92,22 @@ Append to `.github/agents/references/conflict-log.csv` with columns:
 - `ECON 411 611 Syllabus.docx` — general
 <!-- AGENTTEAMS:END authority_sources_list -->
 
+<!-- AGENTTEAMS:BEGIN rules v=1 -->
+## Rules
+
+1. Log every finding — do not silently accept or resolve
+2. *(If `@reference-manager` in team)* Route `REFERENCE_MISSING` and `REFERENCE_MISMATCH` to `@reference-manager`
+3. Route `SOURCE_DRIFT` to `@technical-validator` for verification
+4. Call `@conflict-resolution` for decisions on all other conflicts
+5. A clean audit (no findings) must still produce an entry in the log
+
+---
+<!-- AGENTTEAMS:END rules -->
+
+<!-- AGENTTEAMS:BEGIN handoff_payload_conflict_codes v=1 -->
+## Handoff Payload Conflict Codes
+<!-- AGENTTEAMS:END handoff_payload_conflict_codes -->
+
 ---
 
 ## Rules
@@ -112,6 +128,38 @@ When auditing `.steps.csv` artifacts that declare `payload_schema_in` / `payload
 
 Severity for `PAYLOAD_UNTYPED` is enforced mechanically by `PAYLOAD_UNTYPED_HARD_DATE = 2026-07-01` in `agentteams/handoff_payloads.py`. Do not soften by editorial judgment.
 <!-- AGENTTEAMS:END handoff_payload_codes -->
+
+<!-- AGENTTEAMS:BEGIN invariant_core v=1 -->
+## Invariant Core
+
+> ⛔ **Do not modify or omit.**
+
+### Core Responsibilities
+
+1. **Intra-deliverable conflicts** — Contradictions within a single deliverable
+2. **Cross-deliverable conflicts** — Contradictions between deliverables (terminology, claims, counts)
+3. **Deliverable-to-source drift** — Deliverable descriptions that no longer match actual source files on disk
+4. **Agent-doc-to-deliverable drift** — Agent documentation claims that contradict deliverable claims
+5. **Reference-to-deliverable drift** — References in deliverables that don't match the reference database
+6. **Conflict tracking** — Log all findings to `.github/agents/references/conflict-log.csv`
+
+### Conflict Categories
+
+| Category | Code | Description |
+|----------|------|-------------|
+| `TERM_MISMATCH` | TM | Same concept with different terminology across deliverables |
+| `CLAIM_CONFLICT` | CC | Contradictory factual claims between deliverables |
+| `ATTRIBUTION_ERROR` | AE | Claim attributed to wrong source |
+| `SOURCE_DRIFT` | SD | Deliverable description doesn't match current source file on disk, or cites a plan/report path never written |
+| `REFERENCE_MISSING` | RM | *(If `@reference-manager` in team)* Reference in deliverable has no database entry; forward to `@reference-manager` |
+| `REFERENCE_MISMATCH` | RX | *(If `@reference-manager` in team)* Reference details don't match database; forward to `@reference-manager` |
+| `COUNT_MISMATCH` | CN | Stated count doesn't match actual count |
+| `HIERARCHY_CONFLICT` | HC | Authority hierarchy stated differently in different locations |
+| `STALE_REFERENCE` | SR | Reference to removed or renamed file |
+| `PHANTOM_ENTRY` | PE | Entry in reference file with no corresponding source |
+| `PAYLOAD_MISMATCH` | PM | Typed-handoff audit: an adjacent step pair's `payload_schema_out` (step N) does not equal the next step's `payload_schema_in` (step N+1) |
+| `PAYLOAD_UNTYPED` | PU | Typed-handoff audit: a plan step is missing `payload_schema_in` or `payload_schema_out` (severity follows `agentteams.handoff_payloads.PAYLOAD_UNTYPED_HARD_DATE`) |
+<!-- AGENTTEAMS:END invariant_core -->
 
 <!-- AGENTTEAMS:BEGIN typed_handoff_audit v=1 -->
 ### Typed-handoff audit *(applies when a plan `.steps.csv` carries `payload_schema_in/out` columns)*
@@ -145,6 +193,8 @@ Before adjudicating a conflict whose shape is **"has this been decided / accepte
 ```bash
 agentteams --query-index "<conflict identifiers, file paths, or terminology>" --query-strategy lexical --query-k 5 --description .agentteams/brief.json --project . --output .github/agents --no-scan --yes
 ```
+
+> **Self-maintained repos (agentteams itself):** `.agentteams/brief.json` does not exist there. Use `--self` instead of `--description ... --project . --output ...`; it resolves the brief and the output root together. Everywhere else the form above is correct.
 
 Fall back to `--query-strategy vector` when **either** (a) lexical returns zero hits, **or** (b) the lexical top-1 has no content-word overlap with the query (high score on a wrong document via a single rare term match — protects against single-term false positives).
 

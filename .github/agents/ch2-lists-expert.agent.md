@@ -1,7 +1,6 @@
 ---
 name: "Chapter 2 — Working With Lists Expert — LearnPythonStatsEcon"
 description: "Component expert for Chapter 2 — Working With Lists in LearnPythonStatsEcon — prepares Component Briefs, reviews drafts against brief checklist, approves deliverables"
-user-invokable: false
 tools: ['read', 'search', 'agent']
 agents: ['primary-producer', 'adversarial']
 model: ["Claude Sonnet 4.6 (copilot)"]
@@ -18,6 +17,8 @@ handoffs:
     agent: orchestrator
     prompt: "Chapter 2 — Working With Lists has been reviewed and accepted."
     send: false
+
+user-invocable: false
 ---
 <!--
 SECTION MANIFEST — workstream-expert.template.md
@@ -40,6 +41,12 @@ You are the domain expert for **Chapter 2 — Working With Lists** (component 2)
 ## Invariant Core
 
 > ⛔ **Do not modify or omit.**
+
+<!-- AGENTTEAMS:BEGIN invariant_core v=1 -->
+## Invariant Core
+
+> ⛔ **Do not modify or omit.**
+<!-- AGENTTEAMS:END invariant_core -->
 
 <!-- AGENTTEAMS:BEGIN component_spec v=1 -->
 ## Component Specification
@@ -66,6 +73,16 @@ None specified.
 
 No tool-specific dependencies.
 <!-- AGENTTEAMS:END component_spec -->
+
+<!-- AGENTTEAMS:BEGIN review_protocol v=1 -->
+## Review Protocol
+
+After `@primary-producer` returns a draft:
+1. Check every item in the Quality Checklist — PASS or FAIL
+2. If all PASS → issue **ACCEPT** and hand off to orchestrator
+3. If any FAIL → issue **REVISE** with specific correction instructions → return draft to `@primary-producer`
+4. Maximum 3 revision cycles before escalating to orchestrator
+<!-- AGENTTEAMS:END review_protocol -->
 
 ---
 

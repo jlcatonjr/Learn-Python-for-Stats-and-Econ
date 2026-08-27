@@ -1,7 +1,6 @@
 ---
 name: Style Guardian — LearnPythonStatsEcon
 description: "Enforces voice and style fidelity in LearnPythonStatsEcon deliverables using calibrated voice samples; sole arbiter of style deviation rulings"
-user-invokable: false
 tools: ['read', 'edit', 'search']
 agents: ['primary-producer']
 model: ["Claude Sonnet 4.6 (copilot)"]
@@ -14,6 +13,7 @@ handoffs:
     agent: orchestrator
     prompt: "Style audit complete."
     send: false
+user-invocable: false
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->
 

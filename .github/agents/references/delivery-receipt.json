@@ -1,10 +1,10 @@
 {
   "artifact_type": "delivery-receipt",
   "receipt_schema_version": "1.0",
-  "delivered_at": "2026-07-25T11:43:13Z",
+  "delivered_at": "2026-08-24T13:32:31Z",
   "project_name": "LearnPythonStatsEcon",
   "framework": "copilot-vscode",
-  "manifest_fingerprint": "54d59294650b5715",
+  "manifest_fingerprint": "f85395d6a8dd37e2",
   "fingerprint_algo_version": 1,
   "output_dir": ".github/agents",
   "agentteams_version": "1.0.0rc6"

@@ -1,7 +1,6 @@
 ---
 name: Conflict Resolution — LearnPythonStatsEcon
 description: "Makes ACCEPT/REJECT/REVISE decisions on conflicts flagged by the conflict auditor in LearnPythonStatsEcon"
-user-invokable: false
 tools: ['edit', 'search', 'read']
 model: ["Claude Sonnet 4.6 (copilot)"]
 handoffs:
@@ -13,6 +12,7 @@ handoffs:
     agent: agent-updater
     prompt: "Conflict resolutions may require agent documentation updates."
     send: false
+user-invocable: false
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->
 
@@ -70,6 +70,12 @@ Update `.github/agents/references/conflict-log.csv`: change `status` to `resolve
 4. Update the conflict log for every decision, including ACCEPT
 <!-- AGENTTEAMS:END content -->
 
+<!-- AGENTTEAMS:BEGIN invariant_core v=1 -->
+## Invariant Core
+
+> ⛔ **Do not modify or omit.**
+<!-- AGENTTEAMS:END invariant_core -->
+
 <!-- AGENTTEAMS:BEGIN memory_index_consultation v=3 -->
 ### Memory-index consultation *(applies when `references/memory-index.json` is present)*
 
@@ -79,12 +85,23 @@ Before deciding, check whether a structurally similar conflict has been resolved
 agentteams --query-index "<conflict claim, terminology, or identifiers>" --query-strategy lexical --query-k 5 --description .agentteams/brief.json --project . --output .github/agents --no-scan --yes
 ```
 
+> **Self-maintained repos (agentteams itself):** `.agentteams/brief.json` does not exist there. Use `--self` instead of `--description ... --project . --output ...`; it resolves the brief and the output root together. Everywhere else the form above is correct.
+
 Fall back to `--query-strategy vector` when **either** (a) lexical returns zero hits, **or** (b) the lexical top-1 has no content-word overlap with the query (single-term false-positive guard).
 
 Each hit's `confidence` field (`reliable` / `candidate` / `weak`) is computed by `agentteams.memory_index.query_index()` from the same per-strategy thresholds this section used to restate by hand — treat `reliable` as a binding precedent, `candidate` as worth opening before relying on it, and `weak` as noise. If your runtime can't read the structured field (text-only CLI output), fall back to: lexical top-1 ≥ 3.0 reliable / 1.0–3.0 candidate-for-inspection; vector top-1 ≥ 0.30 reliable / 0.20–0.30 candidate-for-inspection (cosine ∈ [0,1]; high values ≥ 0.5 are legitimate on a focused/short document, not anomalous).
 
 If a prior resolution surfaces, open the cited resolution log entry and apply the same outcome; record the precedent in the new log entry's `resolution` field. Never block on the index — if no precedent is found, proceed with the hierarchy-based rules below.
 <!-- AGENTTEAMS:END memory_index_consultation -->
+
+<!-- AGENTTEAMS:BEGIN rules v=1 -->
+## Rules
+
+1. Never resolve a conflict without reading both source files
+2. Authority hierarchy (from `copilot-instructions.md`) is the tiebreaker — always
+3. ESCALATE only when genuinely unresolvable by the hierarchy
+4. Update the conflict log for every decision, including ACCEPT
+<!-- AGENTTEAMS:END rules -->
 
 ## Project-Specific Notes
 

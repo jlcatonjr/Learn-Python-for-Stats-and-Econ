@@ -290,6 +290,87 @@ deletion. It is not mechanically counted — its enforcement check is illustrati
 # refactor. No automated metric.
 ```
 
+### CH-29 — Script-First Output Discipline: Build and Reuse Reference Files
+
+**Category:** Modularity / Reuse
+**Severity:** Medium (advisory)
+
+Before producing any non-trivial output, an agent must ask whether a script or
+program would produce that output more efficiently and effectively than manual,
+ad-hoc work. If so:
+
+1. Enumerate the languages/libraries/modules best suited to the task before writing
+   any code.
+2. Build the script/program.
+3. For every language and library used, create or update a reference file
+   (`references/ref-<library>-reference.md`, following the `tool-reference`
+   structure: version, configuration, key API surface, common patterns/pitfalls,
+   conventions) — check first (`--query-index` / `--query-code`) whether one
+   already exists and extend it rather than duplicating it.
+4. Reuse that reference file for the current task, and prefer it as the starting
+   point for any similar future task instead of re-deriving language/library
+   knowledge from scratch.
+
+**Boundary vs. [[CH-27]]:** CH-27 governs whether recurring *operational logic* is
+promoted to a durable utility once recurrence is foreseeable. CH-29 fires earlier
+and more broadly — at the moment of producing ANY output, recurring or not — and
+governs the *research artifact* (the reference file), not the code path. A
+one-off script that CH-27 would not require promoting to a shared utility still
+triggers CH-29's reference-file duty if it draws on a language/library not yet
+documented.
+
+**Boundary vs. the tool-reference system:** `@tool-doc-researcher` and
+`detect_reference_tools()` populate `references/ref-*.md` files for tools
+*declared in `.agentteams/brief.json`*. CH-29 extends the same discipline to any
+language/library an agent reaches for organically while producing output, whether
+or not it was pre-declared.
+
+**Report-only.** Like CH-27, CH-29 is reported by `@code-hygiene`; it does not
+trigger `@cleanup` deletion.
+
+**Enforcement check (illustrative):**
+```
+# Flag scripts/programs added to the tree whose languages/libraries have no
+# corresponding references/ref-<lib>-reference.md file, or whose reference file
+# exists but was not consulted (no memory/code-index hit) before the script was
+# authored.
+```
+
+### CH-30 — No Exemption Without Provenance
+
+**Category:** security / anti-sprawl
+**Severity:** high
+
+Every suppression, allowlist, or skip inside a security control keys on **provenance**:
+
+```
+provenance = who authored this / is it module-owned / is it in the manifest /
+             is it the artifact THIS run produced
+shape      = a filename, a directory name, a delimiter, a formatting convention
+```
+
+A shape is something an attacker can adopt; provenance is not.
+
+A shape is something an attacker can adopt. A 2026-08-06 red-team audit found five independent
+instances in one scanner, every one of them added for a good reason:
+
+| Exemption | Keyed on | How it was worn |
+|---|---|---|
+| Rule S-5 override phrases inside a code span | backticks | payload wrapped in backticks (probe B1) |
+| credential/PII detection skipped on comment lines | `<!--` prefix | key written inside an HTML comment (probe B7) |
+| PII/entropy suppressed for operational JSON | basename, matched via `rglob` | payload written to any file named `memory-index.json` (probe B9) |
+| backup directory skipped | directory *name*, at any depth | attacker-created directory of that name (probe B10) |
+| unmanifested `.agent.md` skipped as an orphan | absence from the manifest | injected agent files are exactly what is not in a manifest (probe B11) |
+
+The remediation in each case was the same move — replace the shape test with a provenance test:
+module-owned path, resolved backup root for *this run*, canonical relative path, report-instead-
+of-skip. None of them needed a cleverer pattern.
+
+**Enforcement check.** Judgment-based. When reviewing a new or modified suppression in a
+security control, ask: *can the thing being exempted choose to look like this?* If yes, the
+exemption is a bypass. Prefer reporting at low/medium severity over skipping entirely — a
+non-blocking finding preserves the signal that a skip destroys.
+
 <!-- Example:
 ### CH-21 — Project-Specific Rule Name
 

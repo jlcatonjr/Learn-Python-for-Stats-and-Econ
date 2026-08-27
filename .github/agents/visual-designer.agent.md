@@ -1,7 +1,6 @@
 ---
 name: Visual Designer — LearnPythonStatsEcon
 description: "Creates and revises diagrams and figures for LearnPythonStatsEcon using the approved diagram toolchain"
-user-invokable: false
 tools: ['read', 'edit', 'execute', 'search']
 agents: ['quality-auditor']
 model: ["Claude Sonnet 4.6 (copilot)"]
@@ -14,6 +13,8 @@ handoffs:
     agent: orchestrator
     prompt: "Visual design work complete."
     send: false
+
+user-invocable: false
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->
 

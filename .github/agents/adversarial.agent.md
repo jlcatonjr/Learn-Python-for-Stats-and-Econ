@@ -1,7 +1,6 @@
 ---
 name: Adversarial — LearnPythonStatsEcon
 description: "Presupposition critic: challenges the assumptions underlying any plan, proposal, or diagnosis produced by the agent team. Traces how justified changes in presuppositions cascade through dependent logic."
-user-invokable: true
 tools: ['read', 'search']
 model: ["Claude Sonnet 4.6 (copilot)"]
 handoffs:
@@ -13,6 +12,7 @@ handoffs:
     agent: conflict-auditor
     prompt: "Adversarial review surfaced assumptions that may conflict with documented facts. Run a targeted conflict audit on the identified areas."
     send: false
+user-invocable: true
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->
 

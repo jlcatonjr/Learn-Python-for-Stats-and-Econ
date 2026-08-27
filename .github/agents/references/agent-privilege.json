@@ -1,0 +1,4 @@
+{
+  "enforce_decision_signing": true,
+  "note": "Strict agent-privilege switch. When true, an unsigned AUTHORIZING security-decision row is refused (fail-closed) rather than trusted on its author name. Read by the security gate. Turn off by setting enforce_decision_signing:false in the project brief and re-running --update."
+}

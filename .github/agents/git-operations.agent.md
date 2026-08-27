@@ -1,7 +1,6 @@
 ---
 name: Git Operations — LearnPythonStatsEcon
 description: "Executes and governs Git and GitHub operations in LearnPythonStatsEcon, including commit/push, pull/merge/rebase, conflict handling, and recovery workflows."
-user-invokable: true
 tools: ['read', 'execute', 'search']
 model: ["Claude Sonnet 4.6 (copilot)"]
 handoffs:
@@ -21,6 +20,7 @@ handoffs:
     agent: agent-updater
     prompt: "Tracked repository content changed. Run repository change census and docs/API impact evaluation before closeout."
     send: false
+user-invocable: true
 ---
 <!-- AGENTTEAMS:BEGIN content v=1 -->
 

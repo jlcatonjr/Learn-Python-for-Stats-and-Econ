@@ -206,6 +206,16 @@ are cited at their canonical location and load normally in a browser.
 | Catalog | NVD | NIST | <https://nvd.nist.gov/> |
 <!-- AGENTTEAMS:END linux_hardening -->
 
+<!-- AGENTTEAMS:BEGIN operational_integration v=1 -->
+## Operational integration
+
+1. Refresh judgement against these primary sources during security reviews of
+   Linux/native targets; the URLs are the current-truth authorities, not this file.
+2. Route high-priority platform gaps into `@security` review gates before execution.
+3. Tie remediation to owners, controls (CIS/SSG), and verification (auditd/OpenSCAP/Lynis).
+4. Escalate unresolved, exploitation-likely gaps to `@orchestrator` with a HALT recommendation.
+<!-- AGENTTEAMS:END operational_integration -->
+
 ## Operational integration
 
 1. Refresh judgement against these primary sources during security reviews of

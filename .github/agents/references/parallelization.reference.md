@@ -88,3 +88,114 @@ order). In a single orchestrator session this is a *scheduling note*, not
 simultaneous execution; genuine cross-plan concurrency needs a separate substrate
 and is out of scope.
 <!-- AGENTTEAMS:END content -->
+
+## Coordinated concurrency for overlapping work
+
+This section **inverts** Workflow 0A's "overlap → serialize" default — but only
+inside a narrow, opt-in envelope. Workflow 0A serializes every footprint overlap on
+purpose, because an *undeclared* overlap can be a forgotten data dependency and
+serializing the ambiguous case is the safe default. Coordinated Concurrency does not
+weaken that default. It activates **only** for steps the operator has **explicitly
+tagged with a shared `coordinate` group label**; it does not promote an untagged
+overlap. For a tagged group whose members must share files, it dispatches concurrent
+conversations that each claim **disjoint sub-regions** of the shared file-set so they
+coordinate instead of stepping on each other. This **reduces** collision risk; it is
+not a lock and does not prevent clobbering — the disjoint-sub-region discipline plus
+the serialize fallback are the actual safety.
+
+The mechanism is **framework-neutral**: the coordination ledger (below) is a plain
+file that any host reads and appends with the read/edit capabilities every adapter
+already declares, so coordination works on any agentic system (Claude, goose,
+copilot, codex, agents-md, …). Native inter-agent messaging is an **optional**
+enhancement layered on top — **Claude first** (agent-to-agent messaging /
+ListAgents + SendMessage), **then goose** — with the ledger as the durable source of
+truth. Where a host lacks messaging, the ledger alone coordinates and the feature
+still works.
+
+### When NOT to coordinate
+
+Serialize (do not coordinate) whenever any of these hold — this is the discriminator:
+
+- **Untagged footprint overlap.** Overlap without a shared `coordinate` label keeps
+  serializing exactly as Workflow 0A does today — this is the fail-safe default.
+- **Any shared mutable state** — the denylist (git / git index, databases, locks,
+  network, running servers, ports, deployments, migrations).
+- **Destructive, cross-repository, or `--bridge-refresh`** steps.
+- **A genuine data dependency** — a declared `depends_on` among members → serialize.
+
+A **missing `depends_on` is NOT a coordination signal.** Coordination is strictly
+opt-in via the `coordinate` label; the analyzer does not infer coordination from the
+absence of a dependency, because a footprint-overlap-without-`depends_on` is the
+exact population Workflow 0A's fail-safe serializes on purpose (an under-declared
+real dependency looks identical to legitimate co-editing).
+
+### The coordination ledger
+
+The coordination channel is an append-only CSV at
+`tmp/by-week/YYYY-Www/<plan-slug>.coord.csv` with columns
+`entry,agent,region,action,status,note`:
+
+- `entry` — monotonically increasing integer, one per event.
+- `agent` — the agent/conversation appending the row.
+- `region` — a repo-relative `path`, or `path#section`, naming the **disjoint
+  sub-region** being worked (distinct files, or distinct named sections/functions).
+- `action` — one of `claim` | `release` | `update` | `handoff` | `block` | `done`.
+- `status` — `open` | `resolved`.
+- `note` — short free text.
+
+The ledger is **append-only** — prior rows are immutable (append, do not rewrite). It
+**reduces**, does not prevent, same-region clobbering — final safety is the
+disjoint-sub-region discipline plus the serialize fallback. It is not a lock.
+
+### Coordination cadence
+
+Each member follows this cadence:
+
+1. **Partition first.** Before dispatch, split the shared file-set into disjoint
+   sub-regions and assign one per member; concurrency is safe because members write
+   **different** sub-regions.
+2. **Read before write.** Re-read the ledger before touching any region, and again at
+   each sub-task boundary.
+3. **`claim`** your assigned sub-region (append a `claim` row) before writing it.
+4. **`release`/`done`** after finishing the sub-region.
+
+Where the host provides native inter-agent messaging (**Claude first, then goose**),
+members also message peers directly, but the **ledger remains the durable source of
+truth**.
+
+### Resolving contention (not stepping on each other)
+
+If two members claim the **same** region, the **lower `entry` wins** it; the other
+**re-scopes to a disjoint sub-region or serializes behind the winner**. Unresolved
+contention escalates to `@orchestrator`. This is the mechanism that keeps concurrent
+members from stepping on each other: contested regions collapse back to serialized
+ordering rather than racing.
+
+### Audit cadence for coordinated groups
+
+Because members write **disjoint sub-regions**, per-member audits largely commute:
+
+- Run `@conflict-auditor` on **each member's output as it completes**.
+- Then run **one combined consistency audit over the shared file-set at group join**,
+  to catch cross-member interactions.
+- Then run `@adversarial` once on the remaining plan.
+
+This is stronger than a single combined audit and preserves Workflow 0A's per-step
+effect-audit guarantee.
+
+### Excluded from coordination (carve-outs)
+
+Destructive (file deletion, bulk edit ≥3 files), cross-repository,
+`agentteams … --bridge-refresh`, and shared-mutable-state steps are **excluded from**
+coordination. They stay singleton and go through their full per-step clearance — the
+**same denylist as Workflow 0A** — regardless of any `coordinate` tag.
+
+### The analyzer surface
+
+`coordination_candidates()` keys off the opt-in `coordinate` column only, and the
+`--json` output exposes a top-level `coordination_candidates` key. Its groups are
+**advisory** candidates: the orchestrator makes the final call and still applies the
+singleton carve-outs above. The analyzer does not promote an untagged overlap to a
+coordination group, and it flags any tagged group whose members also declare a mutual
+`depends_on` (a real dependency → serialize, do not coordinate).
+<!-- AGENTTEAMS:END content -->
