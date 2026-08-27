@@ -146,16 +146,14 @@ including where operator instructions and read content sit: `references/instruct
 <!-- AGENTTEAMS:BEGIN authority_hierarchy v=1 -->
 ### Authority Hierarchy
 
-1. **Textbook/Chapter 1 - The Essentials.ipynb** (`Textbook/Chapter 1 - The Essentials.ipynb`) — general
-2. **Textbook/Chapter 7 - Building an OLS Regression Model.ipynb** (`Textbook/Chapter 7 - Building an OLS Regression Model.ipynb`) — general
-3. **ECON 411 611 Syllabus.docx** (`ECON 411 611 Syllabus.docx`) — general
+1. **Project source files** — ground truth for all technical claims
 <!-- AGENTTEAMS:END authority_hierarchy -->
 
 ### Domain Agent Routing
 
 | Content Area | Agent | Key Indicators |
 |---|---|---|
-<!-- AGENTTEAMS:BEGIN routing_table_rows v=1 -->
+<!-- AGENTTEAMS:BEGIN routing_table_rows v=2 -->
 | Creating or revising primary Jupyter notebooks, tutorial notebooks, in-class demonstration notebooks and student project notebooks | `@primary-producer` | New work or revision in `Textbook/` |
 | Architecture and file hygiene | `@code-hygiene` | Backup files, script lifecycle, duplication, agent doc consistency |
 | Quality and structural defects | `@quality-auditor` | Purposeless content, structural weakness, pattern violations |
@@ -170,6 +168,7 @@ including where operator instructions and read content sit: `references/instruct
 | Daily/weekly/monthly work summary reporting | `@work-summarizer` | Synthesize `tmp/by-week/` plan artifacts, legacy `tmp/` fallbacks, and git history into `workSummaries/` |
 | Commit and push, pull/merge/rebase from main, conflict resolution, file recovery (git diff, revert, restore) | `@git-operations` | "Commit", "push", "pull main", "merge", "rebase", "recover file", "revert", "what changed", "restore old version" |
 | Parallel dispatch of independent plan steps | `@orchestrator` → Workflow 0A | Plan steps with disjoint domains; "run these in parallel"; a `*.steps.csv` carrying `depends_on` |
+| Coordinated concurrent dispatch of overlapping plan steps | `@orchestrator` → Workflow 0B | Overlapping footprints without shared mutable state; "work these together"; steps that would otherwise serialize on file overlap |
 <!-- AGENTTEAMS:END routing_table_rows -->
 
 <!-- AGENTTEAMS:BEGIN update_compatibility_source_pack v=1 -->
@@ -334,7 +333,7 @@ The plan slug is a lowercase-hyphenated name derived from the workflow trigger (
 5. If plan is complete → mark all rows `done` and append completion date to `.plan.md`
 6. If plan needs revision → update the relevant `.steps.csv` rows; append a revision note to `.plan.md`
 
-<!-- AGENTTEAMS:BEGIN available_workflows v=1 -->
+<!-- AGENTTEAMS:BEGIN available_workflows v=2 -->
 ## Available Workflows
 
 > ⚠️ Destructive operations require `@security` clearance before use.
@@ -389,6 +388,23 @@ Prefer generating or editing `.steps.csv`/`.github/agents/references/conflict-lo
    c. **Revise & re-analyze.** Update each member's `status` (and `depends_on`, if learning changed the dependency structure) and re-run this analysis on the remaining `pending` steps before the next wave.
 4. **Singleton carve-outs (never batched).** A step that is destructive (file deletion, bulk edit ≥3 files), cross-repository, or an `agentteams … --bridge-refresh` is forced to its own singleton wave and routed through its full per-step clearance first (`@security` per Rule 1; `@repo-liaison` + `@security` per Rule 11; the `references/bridge-refresh-safety.md` Pre-Flight per Rule 14) — regardless of footprint analysis. The analyzer likewise isolates any step touching shared mutable state (git, databases, locks, network, servers, migrations) or lacking a parseable footprint.
 5. **Fail-safe.** Independence here is a heuristic, not a proof. When in doubt, run sequentially. Full contract: `references/parallelization.reference.md`.
+
+---
+
+### Workflow 0B: Coordinated Concurrency for Overlapping Work (Optional; runs after Workflow 0A)
+
+**Trigger:** A `*.steps.csv` carries steps tagged with a shared `coordinate` group label, and the operator wants that overlapping work advanced together rather than serialized; also whenever `python -m agentteams.parallel_plan <steps.csv> --json` reports `coordination_candidates`.
+
+**Premise:** Workflow 0A parallelizes only *disjoint* work and, as a deliberate fail-safe, serializes every footprint overlap — because an *undeclared* overlap can be a forgotten data dependency, and serializing the ambiguous case is the safe default. Coordinated Concurrency does not weaken that default: it activates *only* for work the operator has **explicitly opted in** by tagging steps with a shared `coordinate` label, and it makes those concurrent conversations claim **disjoint sub-regions** of the shared files so they coordinate instead of stepping on each other. It **reduces** collision risk; it is not a lock.
+
+1. **Identify candidates.** Run `python -m agentteams.parallel_plan tmp/by-week/YYYY-Www/<plan-slug>.steps.csv --json` and read the `coordination_candidates` groups — steps sharing a `coordinate` label, overlapping by footprint, touching no shared mutable state, with no real dependency among them. The analyzer excludes destructive, cross-repository, `--bridge-refresh`, and shared-mutable-state steps (they stay singleton per Workflow 0A), and it flags any group whose members also declare a mutual `depends_on` (a real dependency → serialize, do not coordinate).
+2. **Prefer disjointing.** For each candidate group, first try to refactor the plan so members become fully footprint-disjoint — then they are a plain Workflow 0A wave needing no coordination. Only when the overlap is intrinsic (they must share files), form a coordinated concurrent group.
+3. **Open the coordination ledger.** Create `tmp/by-week/YYYY-Www/<plan-slug>.coord.csv` with columns `entry,agent,region,action,status,note` (append-only; never edit a prior row). Prefer `agentteams.atomicio.atomic_rewrite_csv_rows()` or an equivalent verify-then-commit writer. This ledger is the framework-neutral coordination channel — it uses only read/edit and works on every host.
+4. **Partition into disjoint sub-regions.** Before dispatch, split the shared file-set into disjoint sub-regions (distinct files, or distinct named sections/functions within a file) and assign one to each member. Concurrency is safe because members write **different** sub-regions; the ledger records each assignment.
+5. **Dispatch (host-dependent).** Where the host supports concurrent subagents (e.g. the Claude `agent` tool; goose subagent delegation), dispatch the group's members concurrently, each given: the shared goal/design, its assigned sub-region, the ledger path, and the cadence below. Otherwise run members sequentially with the same ledger discipline (any-order). Off-Claude/off-goose hosts get an any-order recommendation, not guaranteed concurrency.
+6. **Coordination cadence (each member).** Read the ledger before touching any region; append a `claim` row for your assigned sub-region before writing; append `release`/`done` after. Re-read at each sub-task boundary. If two members claim the **same** region, the lower `entry` wins it and the other **serializes** behind the winner (re-scopes to a disjoint sub-region or waits); unresolved contention escalates to `@orchestrator`. Where the host provides native inter-agent messaging (Claude first, then goose), members also message peers directly, with the ledger as the durable source of truth.
+7. **Audit cadence.** Because members write disjoint sub-regions, run `@conflict-auditor` on **each member's output as it completes**, then **one combined consistency audit over the shared file-set at group join** (to catch cross-member interactions), then `@adversarial` once on the remaining plan. Update each member's `status`/`coordinate`/`depends_on` and re-run the analysis on the remaining pending steps before the next wave or group.
+8. **Fail-safe.** Coordinated concurrency is a heuristic, not a proof, and the ledger reduces rather than eliminates same-region clobbering. When sub-regions cannot be made disjoint, overlap risk is high, or the ledger shows unresolved contention, fall back to strict serialization (Workflow 0A ordering). Enabling native inter-agent messaging as an orchestrator tool is a capability change gated by `@security` (C-3); the ledger path itself needs no capability change. Full contract: `references/parallelization.reference.md`.
 
 ---
 
