@@ -15,7 +15,7 @@ handoffs:
     send: false
   - label: Return to Orchestrator
     agent: orchestrator
-    prompt: "Chapter 9 — Agent-Based Modeling has been reviewed and accepted."
+    prompt: "Chapter 9 - Agent-Based Modeling has been reviewed and accepted."
     send: false
 
 user-invocable: false

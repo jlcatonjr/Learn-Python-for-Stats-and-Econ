@@ -15,7 +15,7 @@ handoffs:
     send: false
   - label: Return to Orchestrator
     agent: orchestrator
-    prompt: "Chapter 3 — NumPy, Pandas, and Matplotlib has been reviewed and accepted."
+    prompt: "Chapter 3 - NumPy, Pandas, and Matplotlib has been reviewed and accepted."
     send: false
 
 user-invocable: false

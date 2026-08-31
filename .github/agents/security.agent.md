@@ -74,13 +74,13 @@ Use the generated reference `references/security-vulnerability-watch.reference.m
 ### Current Threat Intelligence Snapshot
 
 <!-- AGENTTEAMS:BEGIN threat_intelligence v=1 -->
-Generated at: `2026-08-24T13:31:52Z`
+Generated at: `2026-08-27T14:07:16Z`
 
 **Sources:**
 
-- CISA KEV: ok (catalog 2026.08.21, items 1674) — https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
+- CISA KEV: ok (catalog 2026.08.26, items 1682) — https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
 - MITRE CVE: metadata_only — https://cveawg.mitre.org/api/cve/
-- FIRST EPSS: ok (items 15) — https://api.first.org/data/v1/epss
+- FIRST EPSS: ok (items 14) — https://api.first.org/data/v1/epss
 - NVD (NIST): ok (items 5) — https://services.nvd.nist.gov/rest/json/cves/2.0
 - OSV.dev: skipped — https://api.osv.dev/v1/querybatch
 - OWASP LLM Top 10: static — https://owasp.org/www-project-top-10-for-large-language-model-applications/
@@ -91,21 +91,21 @@ Generated at: `2026-08-24T13:31:52Z`
 
 **Current major vulnerabilities:**
 
-- `CVE-2026-73570` | Synacor Zimbra Collaboration Suite (ZCS) | Zimbra Collaboration Suite (ZCS) OS Command Injection Vulnerability | added 2026-08-21 | EPSS 0.010420000, percentile 0.609710000 | CVSS 8.9 HIGH
-- `CVE-2026-72530` | TrueConf Server | TrueConf Server Code Injection Vulnerability | added 2026-08-20 | EPSS 0.009740000, percentile 0.589120000 | CVSS 9.0 CRITICAL
-- `CVE-2026-72529` | TrueConf Server | TrueConf Server Missing Authentication for Critical Function Vulnerability | added 2026-08-20 | EPSS 0.007850000, percentile 0.529550000 | CVSS 9.8 CRITICAL
-- `CVE-2026-64849` | MLflow MLflow | MLflow Server-Side Request Forgery Vulnerability | added 2026-08-19 | EPSS 0.081540000, percentile 0.945010000 | CVSS 9.3 CRITICAL
-- `CVE-2026-33824` | Microsoft Internet Key Exchange (IKE) Service Extensions | Microsoft Internet Key Exchange (IKE) Service Extensions Double Free Vulnerability | added 2026-08-18 | EPSS 0.778980000, percentile 0.995510000 | CVSS 9.8 CRITICAL
-- `CVE-2026-59310` | Broadcom VMware vCenter | Broadcom VMware vCenter Path Traversal Vulnerability | added 2026-08-18 | EPSS 0.024050000, percentile 0.826700000
-- `CVE-2026-55040` | Microsoft SharePoint | Microsoft SharePoint Weak Authentication Vulnerability | added 2026-08-18 | EPSS 0.054890000, percentile 0.922300000
-- `CVE-2026-65400` | Apple macOS | Apple macOS Improper Authentication Vulnerability | added 2026-08-18 | EPSS 0.007510000, percentile 0.518420000
-- `CVE-2025-62593` | Ray-Project Ray | Ray-Project Ray Code Injection Vulnerability | added 2026-08-17 | EPSS 0.010000000, percentile 0.597030000
-- `CVE-2026-20349` | Cisco Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD) | Cisco Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD) Heap Inspection Vulnerability | added 2026-08-11 | EPSS 0.010200000, percentile 0.602870000
-- `CVE-2026-68820` | Microsoft Windows Ancillary Function Driver for WinSock | Microsoft Windows Ancillary Function Driver for WinSock Use-After-Free Vulnerability | added 2026-08-11 | EPSS 0.003320000, percentile 0.262340000
-- `CVE-2026-72898` | Metabase Metabase | Metabase SQL Injection Vulnerability | added 2026-08-11 | EPSS 0.104000000, percentile 0.954480000
-- `CVE-2026-8037` | Progress LoadMaster | Progress LoadMaster Command Injection Vulnerability | added 2026-08-07 | EPSS 0.993110000, percentile 0.999370000
-- `CVE-2026-63077` | JetBrains TeamCity | JetBrains TeamCity Deserialization of Untrusted Data Vulnerability | added 2026-08-05 | EPSS 0.120380000, percentile 0.958850000
-- `CVE-2026-18556` | N-able N-central | N-able N-central Authentication Bypass Using an Alternate Path or Channel Vulnerability | added 2026-08-04 | EPSS 0.004920000, percentile 0.403070000
+- `CVE-2021-23758` | Ajax.NET Professional Ajax.NET Professional | Ajax.NET Professional Deserialization of Untrusted Data Vulnerability | added 2026-08-26 | EPSS 0.890960000, percentile 0.997680000 | CVSS 8.1 HIGH
+- `CVE-2015-3246` | Red Hat Libuser | Red Hat Libuser Race Condition Vulnerability | added 2026-08-26 | EPSS 0.070920000, percentile 0.937420000 | CVSS 5.1 MEDIUM
+- `CVE-2015-5287` | Red Hat Automatic Bug Reporting Tool | Red Hat Automatic Bug Reporting Tool Privilege Escalation Vulnerability | added 2026-08-26 | EPSS 0.034120000, percentile 0.879920000 | CVSS 7.8 HIGH
+- `CVE-2022-0995` | Linux Kernel | Linux Kernel Out-of-Bounds Write Vulnerability | added 2026-08-26 | EPSS 0.063440000, percentile 0.931110000 | CVSS 7.8 HIGH
+- `CVE-2026-8452` | Citrix NetScaler ADC and NetScaler Gateway | Citrix NetScaler ADC and NetScaler Gateway Improper Restriction of Operations within the Bounds of a Memory Buffer Vulnerability | added 2026-08-26 | EPSS 0.010410000, percentile 0.615100000 | CVSS 9.8 CRITICAL
+- `CVE-2019-1068` | Microsoft SQL Server | Microsoft SQL Server Remote Code Execution Vulnerability | added 2026-08-26 | EPSS 0.446650000, percentile 0.986730000
+- `CVE-2026-60004` | Gitea Gitea | Gitea Code Injection Vulnerability | added 2026-08-25
+- `CVE-2026-21962` | Oracle HTTP Server and Oracle Weblogic Server Proxy Plug-in | Oracle HTTP Server and Oracle Weblogic Server Proxy Plug-in Improper Access Control Vulnerability | added 2026-08-24 | EPSS 0.420200000, percentile 0.985880000
+- `CVE-2026-73570` | Synacor Zimbra Collaboration Suite (ZCS) | Zimbra Collaboration Suite (ZCS) OS Command Injection Vulnerability | added 2026-08-21 | EPSS 0.015060000, percentile 0.724680000
+- `CVE-2026-72530` | TrueConf Server | TrueConf Server Code Injection Vulnerability | added 2026-08-20 | EPSS 0.018270000, percentile 0.772230000
+- `CVE-2026-72529` | TrueConf Server | TrueConf Server Missing Authentication for Critical Function Vulnerability | added 2026-08-20 | EPSS 0.015540000, percentile 0.733030000
+- `CVE-2026-64849` | MLflow MLflow | MLflow Server-Side Request Forgery Vulnerability | added 2026-08-19 | EPSS 0.164100000, percentile 0.967400000
+- `CVE-2026-33824` | Microsoft Internet Key Exchange (IKE) Service Extensions | Microsoft Internet Key Exchange (IKE) Service Extensions Double Free Vulnerability | added 2026-08-18 | EPSS 0.726950000, percentile 0.994010000
+- `CVE-2026-59310` | Broadcom VMware vCenter | Broadcom VMware vCenter Path Traversal Vulnerability | added 2026-08-18 | EPSS 0.458780000, percentile 0.987100000
+- `CVE-2026-55040` | Microsoft SharePoint | Microsoft SharePoint Weak Authentication Vulnerability | added 2026-08-18 | EPSS 0.055780000, percentile 0.922930000
 
 **Prevention and mitigation playbook:**
 

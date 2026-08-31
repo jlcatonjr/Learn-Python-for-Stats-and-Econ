@@ -15,7 +15,7 @@ handoffs:
     send: false
   - label: Return to Orchestrator
     agent: orchestrator
-    prompt: "Chapter 7 — Building an OLS Regression Model has been reviewed and accepted."
+    prompt: "Chapter 7 - Building an OLS Regression Model has been reviewed and accepted."
     send: false
 
 user-invocable: false
@@ -59,7 +59,7 @@ You are the domain expert for **Chapter 7 — Building an OLS Regression Model**
 
 ## Sources
 
-- Textbook/Chapter 7 - Building an OLS Regression Model.ipynb
+{MANUAL:COMPONENT_SOURCES}
 
 ## Quality Criteria
 
