@@ -74,11 +74,11 @@ Use the generated reference `references/security-vulnerability-watch.reference.m
 ### Current Threat Intelligence Snapshot
 
 <!-- AGENTTEAMS:BEGIN threat_intelligence v=1 -->
-Generated at: `2026-08-31T13:33:22Z`
+Generated at: `2026-09-02T14:43:27Z`
 
 **Sources:**
 
-- CISA KEV: ok (catalog 2026.08.27, items 1685) — https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
+- CISA KEV: ok (catalog 2026.09.01, items 1687) — https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
 - MITRE CVE: metadata_only — https://cveawg.mitre.org/api/cve/
 - FIRST EPSS: ok (items 15) — https://api.first.org/data/v1/epss
 - NVD (NIST): ok (items 5) — https://services.nvd.nist.gov/rest/json/cves/2.0
@@ -91,21 +91,21 @@ Generated at: `2026-08-31T13:33:22Z`
 
 **Current major vulnerabilities:**
 
-- `CVE-2023-49105` | ownCloud ownCloud | ownCloud Improper Authentication Vulnerability | added 2026-08-27 | EPSS 0.432050000, percentile 0.986270000 | CVSS 9.8 CRITICAL
-- `CVE-2026-53362` | Linux Kernel | Linux Kernel Unspecified Vulnerability | added 2026-08-27 | EPSS 0.005100000, percentile 0.414650000 | CVSS 7.8 HIGH
-- `CVE-2026-66384` | JFrog Artifactory | JFrog Artifactory Improper Limitation of a Pathname to a Restricted Directory Vulnerability | added 2026-08-27 | EPSS 0.005790000, percentile 0.453200000 | CVSS 5.3 MEDIUM
-- `CVE-2021-23758` | Ajax.NET Professional Ajax.NET Professional | Ajax.NET Professional Deserialization of Untrusted Data Vulnerability | added 2026-08-26 | EPSS 0.836330000, percentile 0.996660000 | CVSS 8.1 HIGH
-- `CVE-2015-3246` | Red Hat Libuser | Red Hat Libuser Race Condition Vulnerability | added 2026-08-26 | EPSS 0.087990000, percentile 0.948000000 | CVSS 5.1 MEDIUM
-- `CVE-2015-5287` | Red Hat Automatic Bug Reporting Tool | Red Hat Automatic Bug Reporting Tool Privilege Escalation Vulnerability | added 2026-08-26 | EPSS 0.049620000, percentile 0.915660000
-- `CVE-2022-0995` | Linux Kernel | Linux Kernel Out-of-Bounds Write Vulnerability | added 2026-08-26 | EPSS 0.095180000, percentile 0.950890000
-- `CVE-2026-8452` | Citrix NetScaler ADC and NetScaler Gateway | Citrix NetScaler ADC and NetScaler Gateway Improper Restriction of Operations within the Bounds of a Memory Buffer Vulnerability | added 2026-08-26 | EPSS 0.016060000, percentile 0.741390000
-- `CVE-2019-1068` | Microsoft SQL Server | Microsoft SQL Server Remote Code Execution Vulnerability | added 2026-08-26 | EPSS 0.528450000, percentile 0.988920000
-- `CVE-2026-60004` | Gitea Gitea | Gitea Code Injection Vulnerability | added 2026-08-25 | EPSS 0.845540000, percentile 0.996850000
-- `CVE-2026-21962` | Oracle HTTP Server and Oracle Weblogic Server Proxy Plug-in | Oracle HTTP Server and Oracle Weblogic Server Proxy Plug-in Improper Access Control Vulnerability | added 2026-08-24 | EPSS 0.420200000, percentile 0.985910000
-- `CVE-2026-73570` | Synacor Zimbra Collaboration Suite (ZCS) | Zimbra Collaboration Suite (ZCS) OS Command Injection Vulnerability | added 2026-08-21 | EPSS 0.205280000, percentile 0.973300000
-- `CVE-2026-72530` | TrueConf Server | TrueConf Server Code Injection Vulnerability | added 2026-08-20 | EPSS 0.018270000, percentile 0.772910000
-- `CVE-2026-72529` | TrueConf Server | TrueConf Server Missing Authentication for Critical Function Vulnerability | added 2026-08-20 | EPSS 0.015540000, percentile 0.733840000
-- `CVE-2026-64849` | MLflow MLflow | MLflow Server-Side Request Forgery Vulnerability | added 2026-08-19 | EPSS 0.164100000, percentile 0.967470000
+- `CVE-2026-82078` | PaperCut NG/MF | PaperCut NG/MF Unsafe Reflection Vulnerability | added 2026-08-31 | EPSS 0.009260000, percentile 0.580680000 | CVSS 9.1 CRITICAL
+- `CVE-2026-81578` | PaperCut NG/MF | PaperCut NG/MF Missing Authentication for Critical Function Vulnerability | added 2026-08-31 | EPSS 0.007710000, percentile 0.531760000 | CVSS 9.8 CRITICAL
+- `CVE-2023-49105` | ownCloud ownCloud | ownCloud Improper Authentication Vulnerability | added 2026-08-27 | EPSS 0.432050000, percentile 0.986300000 | CVSS 9.8 CRITICAL
+- `CVE-2026-53362` | Linux Kernel | Linux Kernel Unspecified Vulnerability | added 2026-08-27 | EPSS 0.005100000, percentile 0.415510000 | CVSS 7.8 HIGH
+- `CVE-2026-66384` | JFrog Artifactory | JFrog Artifactory Improper Limitation of a Pathname to a Restricted Directory Vulnerability | added 2026-08-27 | EPSS 0.005790000, percentile 0.454080000 | CVSS 5.3 MEDIUM
+- `CVE-2021-23758` | Ajax.NET Professional Ajax.NET Professional | Ajax.NET Professional Deserialization of Untrusted Data Vulnerability | added 2026-08-26 | EPSS 0.836330000, percentile 0.996670000
+- `CVE-2015-3246` | Red Hat Libuser | Red Hat Libuser Race Condition Vulnerability | added 2026-08-26 | EPSS 0.087990000, percentile 0.948110000
+- `CVE-2015-5287` | Red Hat Automatic Bug Reporting Tool | Red Hat Automatic Bug Reporting Tool Privilege Escalation Vulnerability | added 2026-08-26 | EPSS 0.049620000, percentile 0.915860000
+- `CVE-2022-0995` | Linux Kernel | Linux Kernel Out-of-Bounds Write Vulnerability | added 2026-08-26 | EPSS 0.095180000, percentile 0.951010000
+- `CVE-2026-8452` | Citrix NetScaler ADC and NetScaler Gateway | Citrix NetScaler ADC and NetScaler Gateway Improper Restriction of Operations within the Bounds of a Memory Buffer Vulnerability | added 2026-08-26 | EPSS 0.016060000, percentile 0.741950000
+- `CVE-2019-1068` | Microsoft SQL Server | Microsoft SQL Server Remote Code Execution Vulnerability | added 2026-08-26 | EPSS 0.528450000, percentile 0.988950000
+- `CVE-2026-60004` | Gitea Gitea | Gitea Code Injection Vulnerability | added 2026-08-25 | EPSS 0.867770000, percentile 0.997290000
+- `CVE-2026-21962` | Oracle HTTP Server and Oracle Weblogic Server Proxy Plug-in | Oracle HTTP Server and Oracle Weblogic Server Proxy Plug-in Improper Access Control Vulnerability | added 2026-08-24 | EPSS 0.420200000, percentile 0.985940000
+- `CVE-2026-73570` | Synacor Zimbra Collaboration Suite (ZCS) | Zimbra Collaboration Suite (ZCS) OS Command Injection Vulnerability | added 2026-08-21 | EPSS 0.205280000, percentile 0.973370000
+- `CVE-2026-72530` | TrueConf Server | TrueConf Server Code Injection Vulnerability | added 2026-08-20 | EPSS 0.018270000, percentile 0.773420000
 
 **Prevention and mitigation playbook:**
 
@@ -225,12 +225,15 @@ Runtime enforcement also consumes machine-readable freshness metadata from the s
 > ⛔ **Do not modify or omit.** All triggers, rules, the HALT directive, and the AI-authored-code screening guidance carried in this file's fenced sections are the immutable contract for this agent. Sections are referenced by name, never by position: the merge engine places a fenced region relative to whichever fences already exist on disk, so a deployed file may carry them in a different order than this template.
 <!-- AGENTTEAMS:END invariant_core -->
 
-<!-- AGENTTEAMS:BEGIN security_rules_invariant v=7 -->
+<!-- AGENTTEAMS:BEGIN security_rules_invariant v=8 -->
 ### Mandatory Review Triggers
 
 | Trigger | Risk Category |
 |---------|--------------|
 | Any file deletion in the project | Irreversible file loss |
+| Any command that deletes a repository or remote resource (`gh repo delete`, `gh api -X DELETE`) | Irreversible remote/repo loss — C-5 authorization required BEFORE execution |
+| Any command that deletes a git ref or worktree (`git push --delete`/`--mirror`/`--prune`, `git push … :ref`, `git branch`/`tag -d`/`-D`, `git update-ref -d`, `git worktree remove`) | Irreversible ref/history loss |
+| Any destructive filesystem or infrastructure delete (`rm -rf`, `rmdir`, `shred`, `truncate`, `find … -delete`, `dd of=`, `kubectl delete`, `terraform destroy`, `docker rm`/`rmi`/`system prune`, cloud `… delete`, SQL `DROP`/`TRUNCATE`) | Irreversible data/resource loss |
 | Any modification to `.github/agents/*.agent.md` | Scope creep, privilege escalation |
 | Any operation that writes to an external repository | Cross-repo contamination |
 | Any deliverable content that includes server IPs, API keys, or credentials | Credential exposure |
@@ -249,6 +252,8 @@ Runtime enforcement also consumes machine-readable freshness metadata from the s
 | Any modification to a vector store, embeddings index, or RAG data source | Vector/embedding attack surface (LLM08) |
 | Any agent loop or external API call without a declared rate limit or termination condition | Unbounded consumption (LLM10) |
 | Any AI-authored change to native or unsafe-memory code (C/C++/Objective-C, Rust `unsafe`, Zig, cgo, ctypes/cffi/PyO3/N-API/JNI, inline assembly, manual allocation, or raw pointer arithmetic) | Memory-safety exploit surface (low-level) |
+
+> **Delete-authorization gate — scope and limits.** The runtime `constitutional-gate.py` PreToolUse hook routes the Bash delete idioms above (repo/ref/worktree/filesystem/infrastructure/database deletion) to the operator for explicit authorization (`ask`) BEFORE they run. This is a **best-effort, cooperative speed-bump, not a boundary.** It does NOT gate: content deletion via `Write`/`Edit` (shrinking a file), deletion via MCP or other non-Bash tools, interpreter-mediated deletion it does not pattern-match, alias/quote/variable obfuscation, or consumers/harnesses that do not honour PreToolUse (or that auto-approve under headless mode). A passing delete-gate test suite means "these spellings are gated", never "deletion is prevented" — the operator stays responsible for reviewing destructive actions on the uncovered surfaces.
 | A capability pathway (command sequence, install/build step, URL/API fetch pattern, or generated script) matching any Rule S-9 risk criterion, about to be used to produce output or recorded into a reference/skill file for future automated reuse | Unverified-pathway execution risk (injection / supply chain / credential exposure) |
 
 ### Security Rules

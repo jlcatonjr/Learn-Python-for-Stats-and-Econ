@@ -28,7 +28,7 @@
   "template_hashes": {
     "universal/orchestrator.template.md": "181ce39e3406f1cd",
     "universal/navigator.template.md": "5a0d707a9f3f5cec",
-    "universal/security.template.md": "85349869800ccdd2",
+    "universal/security.template.md": "e79fe61c5c31297e",
     "universal/code-hygiene.template.md": "72e2a1f9ec316852",
     "universal/adversarial.template.md": "0dbc3c4284139780",
     "universal/conflict-auditor.template.md": "d0e6ed3e98ba1f86",
@@ -510,26 +510,15 @@
     "repo-liaison",
     "git-operations"
   ],
-  "manifest_fingerprint": "bda3fd34efc958df",
+  "manifest_fingerprint": "3c70ea993fbe0c91",
   "fingerprint_algo_version": 1,
   "file_hashes": {
-    "orchestrator.agent.md": "e393ceb4795d17b5",
-    "security.agent.md": "12309b1a191f1403",
-    "references/security-vulnerability-watch.reference.md": "133565e17d7f529d",
-    "references/security-vulnerability-watch.json": "5266c0c3eabf88ac",
-    "references/parallelization.reference.md": "9938e69caf5e686c",
-    "ch1-essentials-expert.agent.md": "b170aa6948837aef",
-    "ch2-lists-expert.agent.md": "874e6e598b2d4083",
-    "ch3-numpy-pandas-expert.agent.md": "00d13e66205b5382",
-    "ch4-functional-expert.agent.md": "0521a9b08b9c1c0d",
-    "ch5-probability-expert.agent.md": "87d8324d024eb4b4",
-    "ch6-hypothesis-expert.agent.md": "82e8ad217335ddb4",
-    "ch7-ols-expert.agent.md": "17fd41912cad68ca",
-    "ch8-advanced-expert.agent.md": "6086acd83b751603",
-    "ch9-abm-expert.agent.md": "cc18b0b6e5dd7b70",
-    "../copilot-instructions.md": "4e6daad8ad1985a7",
+    "security.agent.md": "fc7dfcbf54b6e293",
+    "references/security-vulnerability-watch.reference.md": "a308ddfb1c3403e7",
+    "references/security-vulnerability-watch.json": "9ac63ce0f3e83049",
     "references/pipeline-graph.md": "26acca10df02d7dc",
     "references/pipeline-graph.svg": "1a98d8127f3d32d4",
+    "orchestrator.agent.md": "e393ceb4795d17b5",
     "navigator.agent.md": "f24d932cca8db7c5",
     "code-hygiene.agent.md": "696cc827892ad664",
     "adversarial.agent.md": "9e95accb5505d1d2",
@@ -555,7 +544,18 @@
     "references/ai-bad-habits-watch.reference.md": "030b52121b9fcce6",
     "references/framework-watch.reference.md": "5f8854c6f9e85dce",
     "references/adjacent-repos.md": "77feeed765a1e18a",
+    "references/parallelization.reference.md": "9938e69caf5e686c",
     "references/retrospective-remediation.reference.md": "ad2e6855ecf03605",
+    "ch1-essentials-expert.agent.md": "b170aa6948837aef",
+    "ch2-lists-expert.agent.md": "874e6e598b2d4083",
+    "ch3-numpy-pandas-expert.agent.md": "00d13e66205b5382",
+    "ch4-functional-expert.agent.md": "0521a9b08b9c1c0d",
+    "ch5-probability-expert.agent.md": "87d8324d024eb4b4",
+    "ch6-hypothesis-expert.agent.md": "82e8ad217335ddb4",
+    "ch7-ols-expert.agent.md": "17fd41912cad68ca",
+    "ch8-advanced-expert.agent.md": "6086acd83b751603",
+    "ch9-abm-expert.agent.md": "cc18b0b6e5dd7b70",
+    "../copilot-instructions.md": "4e6daad8ad1985a7",
     "team-builder.agent.md": "9d29aab02681c08c",
     "SETUP-REQUIRED.md": "47182160973143e3",
     "content-enricher.agent.md": "03bfe37b4e43eee7",
@@ -576,15 +576,6 @@
     "references/external-retrieval-quality-gate.reference.md": "3c5d82da1bdb0fe3"
   },
   "front_matter_baseline": {
-    "orchestrator.agent.md": {
-      "name": "Orchestrator \u2014 LearnPythonStatsEcon",
-      "description": "\"Coordinates all agent operations for LearnPythonStatsEcon: routes work to domain agents, enforces constitutional rules, and closes every multi-file session with a consistency check.\"",
-      "tools": "['read', 'edit', 'search', 'execute', 'todo', 'agent']",
-      "agents": "",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Produce / Revise Deliverable\n    agent: primary-producer\n    prompt: \"A workstream is ready to produce or revise its deliverable. Provide the workstream name and any specific instructions.\"\n    send: false\n  - label: Audit Quality\n    agent: quality-auditor\n    prompt: \"A deliverable is ready for quality audit. Provide the file path.\"\n    send: false\n  - label: Repair Cohesion\n    agent: cohesion-repairer\n    prompt: \"A deliverable section has structural cohesion failures. Provide the file and section.\"\n    send: false\n  - label: Enforce Style / Standards\n    agent: style-guardian\n    prompt: \"A deliverable is ready for style audit. Provide the file path.\"\n    send: false\n  - label: Validate Technical Accuracy\n    agent: technical-validator\n    prompt: \"Audit technical accuracy of claims, code, or specifications in a deliverable. Provide the file path.\"\n    send: false\n  - label: Compile Final Output\n    agent: output-compiler\n    prompt: \"Assemble and compile the final deliverable from all sources.\"\n    send: false\n  - label: Generate / Revise Diagram\n    agent: visual-designer\n    prompt: \"Generate or revise a diagram. Describe what is needed.\"\n    send: false\n  - label: Navigate Project\n    agent: navigator\n    prompt: \"Locate files, answer structural questions, or regenerate the project map.\"\n    send: false\n  - label: Security Review\n    agent: security\n    prompt: \"Review the planned action for credentials, destructive operations, or sensitive content.\"\n    send: false\n  - label: Code Hygiene Audit\n    agent: code-hygiene\n    prompt: \"Run a code hygiene audit. Provide scope or 'full' for all rules.\"\n    send: false\n  - label: Adversarial Review\n    agent: adversarial\n    prompt: \"Challenge the presuppositions underlying this plan before execution.\"\n    send: false\n  - label: Conflict Audit\n    agent: conflict-auditor\n    prompt: \"Detect contradictions across project files. Provide scope if targeted.\"\n    send: false\n  - label: Resolve Conflicts\n    agent: conflict-resolution\n    prompt: \"Make ACCEPT/REJECT/REVISE decisions on flagged conflicts.\"\n    send: false\n  - label: Clean Up Artifacts\n    agent: cleanup\n    prompt: \"Remove stale build artifacts, orphaned files, or abandoned drafts.\"\n    send: false\n  - label: Update Agent Docs\n    agent: agent-updater\n    prompt: \"Project structure or conventions have changed. Sync all affected agent files.\"\n    send: false\n  - label: Refactor Agent Docs\n    agent: agent-refactor\n    prompt: \"Check agent docs for reference extraction opportunities and spec compliance.\"\n    send: false\n  - label: Cross-Repository Liaison\n    agent: repo-liaison\n    prompt: \"Assess or communicate impact of this project's activity on adjacent repositories. Describe the change and list any known adjacent repos.\"\n    send: false\n  - label: Summarize Work Period\n    agent: work-summarizer\n    prompt: \"Create daily, weekly, or monthly work summaries from planning artifacts and git diffs for the requested period.\"\n    send: false\n  - label: Git Operations\n    agent: git-operations\n    prompt: \"Run a git operation: commit and push, pull/merge/rebase, resolve conflicts, or recover a file. Describe the operation needed.\"\n    send: false\n",
-      "user-invocable": "true"
-    },
     "security.agent.md": {
       "name": "Security \u2014 LearnPythonStatsEcon",
       "description": "\"Top-priority security sentinel: reviews actions for credential exposure, destructive operations, sensitive content leakage, and reference integrity before any sensitive action proceeds\"",
@@ -593,86 +584,14 @@
       "handoffs": "\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Security review is complete. Return to the orchestrator with findings.\"\n    send: false",
       "user-invocable": "false"
     },
-    "ch1-essentials-expert.agent.md": {
-      "name": "\"Chapter 1 \u2014 The Essentials Expert \u2014 LearnPythonStatsEcon\"",
-      "description": "\"Component expert for Chapter 1 \u2014 The Essentials in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
-      "tools": "['read', 'search', 'agent']",
-      "agents": "['primary-producer', 'adversarial']",
+    "orchestrator.agent.md": {
+      "name": "Orchestrator \u2014 LearnPythonStatsEcon",
+      "description": "\"Coordinates all agent operations for LearnPythonStatsEcon: routes work to domain agents, enforces constitutional rules, and closes every multi-file session with a consistency check.\"",
+      "tools": "['read', 'edit', 'search', 'execute', 'todo', 'agent']",
+      "agents": "",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 1 \u2014 The Essentials has been reviewed and accepted.\"\n    send: false\n",
-      "user-invocable": "false"
-    },
-    "ch2-lists-expert.agent.md": {
-      "name": "\"Chapter 2 \u2014 Working With Lists Expert \u2014 LearnPythonStatsEcon\"",
-      "description": "\"Component expert for Chapter 2 \u2014 Working With Lists in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
-      "tools": "['read', 'search', 'agent']",
-      "agents": "['primary-producer', 'adversarial']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 2 \u2014 Working With Lists has been reviewed and accepted.\"\n    send: false\n",
-      "user-invocable": "false"
-    },
-    "ch3-numpy-pandas-expert.agent.md": {
-      "name": "\"Chapter 3 \u2014 NumPy, Pandas, and Matplotlib Expert \u2014 LearnPythonStatsEcon\"",
-      "description": "\"Component expert for Chapter 3 \u2014 NumPy, Pandas, and Matplotlib in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
-      "tools": "['read', 'search', 'agent']",
-      "agents": "['primary-producer', 'adversarial']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 3 \u2014 NumPy, Pandas, and Matplotlib has been reviewed and accepted.\"\n    send: false\n",
-      "user-invocable": "false"
-    },
-    "ch4-functional-expert.agent.md": {
-      "name": "\"Chapter 4 \u2014 Functional Programming and Rudimentary Statistics Expert \u2014 LearnPythonStatsEcon\"",
-      "description": "\"Component expert for Chapter 4 \u2014 Functional Programming and Rudimentary Statistics in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
-      "tools": "['read', 'search', 'agent']",
-      "agents": "['primary-producer', 'adversarial']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 4 \u2014 Functional Programming and Rudimentary Statistics has been reviewed and accepted.\"\n    send: false\n",
-      "user-invocable": "false"
-    },
-    "ch5-probability-expert.agent.md": {
-      "name": "\"Chapter 5 \u2014 Probability Distributions Expert \u2014 LearnPythonStatsEcon\"",
-      "description": "\"Component expert for Chapter 5 \u2014 Probability Distributions in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
-      "tools": "['read', 'search', 'agent']",
-      "agents": "['primary-producer', 'adversarial']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 5 \u2014 Probability Distributions has been reviewed and accepted.\"\n    send: false\n",
-      "user-invocable": "false"
-    },
-    "ch6-hypothesis-expert.agent.md": {
-      "name": "\"Chapter 6 \u2014 Hypothesis Testing Expert \u2014 LearnPythonStatsEcon\"",
-      "description": "\"Component expert for Chapter 6 \u2014 Hypothesis Testing in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
-      "tools": "['read', 'search', 'agent']",
-      "agents": "['primary-producer', 'adversarial']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 6 \u2014 Hypothesis Testing has been reviewed and accepted.\"\n    send: false\n",
-      "user-invocable": "false"
-    },
-    "ch7-ols-expert.agent.md": {
-      "name": "\"Chapter 7 \u2014 Building an OLS Regression Model Expert \u2014 LearnPythonStatsEcon\"",
-      "description": "\"Component expert for Chapter 7 \u2014 Building an OLS Regression Model in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
-      "tools": "['read', 'search', 'agent']",
-      "agents": "['primary-producer', 'adversarial']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 7 \u2014 Building an OLS Regression Model has been reviewed and accepted.\"\n    send: false\n",
-      "user-invocable": "false"
-    },
-    "ch8-advanced-expert.agent.md": {
-      "name": "\"Chapter 8 \u2014 Advanced Data Analysis Expert \u2014 LearnPythonStatsEcon\"",
-      "description": "\"Component expert for Chapter 8 \u2014 Advanced Data Analysis in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
-      "tools": "['read', 'search', 'agent']",
-      "agents": "['primary-producer', 'adversarial']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 8 \u2014 Advanced Data Analysis has been reviewed and accepted.\"\n    send: false\n",
-      "user-invocable": "false"
-    },
-    "ch9-abm-expert.agent.md": {
-      "name": "\"Chapter 9 \u2014 Agent-Based Modeling Expert \u2014 LearnPythonStatsEcon\"",
-      "description": "\"Component expert for Chapter 9 \u2014 Agent-Based Modeling in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
-      "tools": "['read', 'search', 'agent']",
-      "agents": "['primary-producer', 'adversarial']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 9 \u2014 Agent-Based Modeling has been reviewed and accepted.\"\n    send: false\n",
-      "user-invocable": "false"
+      "handoffs": "\n  - label: Produce / Revise Deliverable\n    agent: primary-producer\n    prompt: \"A workstream is ready to produce or revise its deliverable. Provide the workstream name and any specific instructions.\"\n    send: false\n  - label: Audit Quality\n    agent: quality-auditor\n    prompt: \"A deliverable is ready for quality audit. Provide the file path.\"\n    send: false\n  - label: Repair Cohesion\n    agent: cohesion-repairer\n    prompt: \"A deliverable section has structural cohesion failures. Provide the file and section.\"\n    send: false\n  - label: Enforce Style / Standards\n    agent: style-guardian\n    prompt: \"A deliverable is ready for style audit. Provide the file path.\"\n    send: false\n  - label: Validate Technical Accuracy\n    agent: technical-validator\n    prompt: \"Audit technical accuracy of claims, code, or specifications in a deliverable. Provide the file path.\"\n    send: false\n  - label: Compile Final Output\n    agent: output-compiler\n    prompt: \"Assemble and compile the final deliverable from all sources.\"\n    send: false\n  - label: Generate / Revise Diagram\n    agent: visual-designer\n    prompt: \"Generate or revise a diagram. Describe what is needed.\"\n    send: false\n  - label: Navigate Project\n    agent: navigator\n    prompt: \"Locate files, answer structural questions, or regenerate the project map.\"\n    send: false\n  - label: Security Review\n    agent: security\n    prompt: \"Review the planned action for credentials, destructive operations, or sensitive content.\"\n    send: false\n  - label: Code Hygiene Audit\n    agent: code-hygiene\n    prompt: \"Run a code hygiene audit. Provide scope or 'full' for all rules.\"\n    send: false\n  - label: Adversarial Review\n    agent: adversarial\n    prompt: \"Challenge the presuppositions underlying this plan before execution.\"\n    send: false\n  - label: Conflict Audit\n    agent: conflict-auditor\n    prompt: \"Detect contradictions across project files. Provide scope if targeted.\"\n    send: false\n  - label: Resolve Conflicts\n    agent: conflict-resolution\n    prompt: \"Make ACCEPT/REJECT/REVISE decisions on flagged conflicts.\"\n    send: false\n  - label: Clean Up Artifacts\n    agent: cleanup\n    prompt: \"Remove stale build artifacts, orphaned files, or abandoned drafts.\"\n    send: false\n  - label: Update Agent Docs\n    agent: agent-updater\n    prompt: \"Project structure or conventions have changed. Sync all affected agent files.\"\n    send: false\n  - label: Refactor Agent Docs\n    agent: agent-refactor\n    prompt: \"Check agent docs for reference extraction opportunities and spec compliance.\"\n    send: false\n  - label: Cross-Repository Liaison\n    agent: repo-liaison\n    prompt: \"Assess or communicate impact of this project's activity on adjacent repositories. Describe the change and list any known adjacent repos.\"\n    send: false\n  - label: Summarize Work Period\n    agent: work-summarizer\n    prompt: \"Create daily, weekly, or monthly work summaries from planning artifacts and git diffs for the requested period.\"\n    send: false\n  - label: Git Operations\n    agent: git-operations\n    prompt: \"Run a git operation: commit and push, pull/merge/rebase, resolve conflicts, or recover a file. Describe the operation needed.\"\n    send: false\n",
+      "user-invocable": "true"
     },
     "navigator.agent.md": {
       "name": "Navigator \u2014 LearnPythonStatsEcon",
@@ -827,6 +746,87 @@
       "agents": "['quality-auditor']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
       "handoffs": "\n  - label: Quality Check Figure\n    agent: quality-auditor\n    prompt: \"New or revised figure ready for quality check.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Visual design work complete.\"\n    send: false\n",
+      "user-invocable": "false"
+    },
+    "ch1-essentials-expert.agent.md": {
+      "name": "\"Chapter 1 \u2014 The Essentials Expert \u2014 LearnPythonStatsEcon\"",
+      "description": "\"Component expert for Chapter 1 \u2014 The Essentials in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
+      "tools": "['read', 'search', 'agent']",
+      "agents": "['primary-producer', 'adversarial']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 1 \u2014 The Essentials has been reviewed and accepted.\"\n    send: false\n",
+      "user-invocable": "false"
+    },
+    "ch2-lists-expert.agent.md": {
+      "name": "\"Chapter 2 \u2014 Working With Lists Expert \u2014 LearnPythonStatsEcon\"",
+      "description": "\"Component expert for Chapter 2 \u2014 Working With Lists in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
+      "tools": "['read', 'search', 'agent']",
+      "agents": "['primary-producer', 'adversarial']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 2 \u2014 Working With Lists has been reviewed and accepted.\"\n    send: false\n",
+      "user-invocable": "false"
+    },
+    "ch3-numpy-pandas-expert.agent.md": {
+      "name": "\"Chapter 3 \u2014 NumPy, Pandas, and Matplotlib Expert \u2014 LearnPythonStatsEcon\"",
+      "description": "\"Component expert for Chapter 3 \u2014 NumPy, Pandas, and Matplotlib in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
+      "tools": "['read', 'search', 'agent']",
+      "agents": "['primary-producer', 'adversarial']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 3 \u2014 NumPy, Pandas, and Matplotlib has been reviewed and accepted.\"\n    send: false\n",
+      "user-invocable": "false"
+    },
+    "ch4-functional-expert.agent.md": {
+      "name": "\"Chapter 4 \u2014 Functional Programming and Rudimentary Statistics Expert \u2014 LearnPythonStatsEcon\"",
+      "description": "\"Component expert for Chapter 4 \u2014 Functional Programming and Rudimentary Statistics in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
+      "tools": "['read', 'search', 'agent']",
+      "agents": "['primary-producer', 'adversarial']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 4 \u2014 Functional Programming and Rudimentary Statistics has been reviewed and accepted.\"\n    send: false\n",
+      "user-invocable": "false"
+    },
+    "ch5-probability-expert.agent.md": {
+      "name": "\"Chapter 5 \u2014 Probability Distributions Expert \u2014 LearnPythonStatsEcon\"",
+      "description": "\"Component expert for Chapter 5 \u2014 Probability Distributions in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
+      "tools": "['read', 'search', 'agent']",
+      "agents": "['primary-producer', 'adversarial']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 5 \u2014 Probability Distributions has been reviewed and accepted.\"\n    send: false\n",
+      "user-invocable": "false"
+    },
+    "ch6-hypothesis-expert.agent.md": {
+      "name": "\"Chapter 6 \u2014 Hypothesis Testing Expert \u2014 LearnPythonStatsEcon\"",
+      "description": "\"Component expert for Chapter 6 \u2014 Hypothesis Testing in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
+      "tools": "['read', 'search', 'agent']",
+      "agents": "['primary-producer', 'adversarial']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 6 \u2014 Hypothesis Testing has been reviewed and accepted.\"\n    send: false\n",
+      "user-invocable": "false"
+    },
+    "ch7-ols-expert.agent.md": {
+      "name": "\"Chapter 7 \u2014 Building an OLS Regression Model Expert \u2014 LearnPythonStatsEcon\"",
+      "description": "\"Component expert for Chapter 7 \u2014 Building an OLS Regression Model in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
+      "tools": "['read', 'search', 'agent']",
+      "agents": "['primary-producer', 'adversarial']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 7 \u2014 Building an OLS Regression Model has been reviewed and accepted.\"\n    send: false\n",
+      "user-invocable": "false"
+    },
+    "ch8-advanced-expert.agent.md": {
+      "name": "\"Chapter 8 \u2014 Advanced Data Analysis Expert \u2014 LearnPythonStatsEcon\"",
+      "description": "\"Component expert for Chapter 8 \u2014 Advanced Data Analysis in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
+      "tools": "['read', 'search', 'agent']",
+      "agents": "['primary-producer', 'adversarial']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 8 \u2014 Advanced Data Analysis has been reviewed and accepted.\"\n    send: false\n",
+      "user-invocable": "false"
+    },
+    "ch9-abm-expert.agent.md": {
+      "name": "\"Chapter 9 \u2014 Agent-Based Modeling Expert \u2014 LearnPythonStatsEcon\"",
+      "description": "\"Component expert for Chapter 9 \u2014 Agent-Based Modeling in LearnPythonStatsEcon \u2014 prepares Component Briefs, reviews drafts against brief checklist, approves deliverables\"",
+      "tools": "['read', 'search', 'agent']",
+      "agents": "['primary-producer', 'adversarial']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 9 \u2014 Agent-Based Modeling has been reviewed and accepted.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "team-builder.agent.md": {
