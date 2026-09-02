@@ -15,7 +15,7 @@ handoffs:
     send: false
   - label: Return to Orchestrator
     agent: orchestrator
-    prompt: "Chapter 8 - Advanced Data Analysis has been reviewed and accepted."
+    prompt: "Chapter 8 — Advanced Data Analysis has been reviewed and accepted."
     send: false
 
 user-invocable: false

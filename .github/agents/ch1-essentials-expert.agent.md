@@ -15,7 +15,7 @@ handoffs:
     send: false
   - label: Return to Orchestrator
     agent: orchestrator
-    prompt: "Chapter 1 - The Essentials has been reviewed and accepted."
+    prompt: "Chapter 1 — The Essentials has been reviewed and accepted."
     send: false
 
 user-invocable: false
@@ -59,7 +59,7 @@ You are the domain expert for **Chapter 1 — The Essentials** (component 1) in 
 
 ## Sources
 
-{MANUAL:COMPONENT_SOURCES}
+- Textbook/Chapter 1 - The Essentials.ipynb
 
 ## Quality Criteria
 

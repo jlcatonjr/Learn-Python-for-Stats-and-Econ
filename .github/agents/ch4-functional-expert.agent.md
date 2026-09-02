@@ -15,7 +15,7 @@ handoffs:
     send: false
   - label: Return to Orchestrator
     agent: orchestrator
-    prompt: "Chapter 4 - Functional Programming and Rudimentary Statistics has been reviewed and accepted."
+    prompt: "Chapter 4 — Functional Programming and Rudimentary Statistics has been reviewed and accepted."
     send: false
 
 user-invocable: false

@@ -23,12 +23,10 @@
     "ch8-advanced",
     "ch9-abm"
   ],
-  "files_written": [
-    ".vscode/tasks.json"
-  ],
-  "manual_required": 39,
+  "files_written": [],
+  "manual_required": 37,
   "template_hashes": {
-    "universal/orchestrator.template.md": "7cb6cc382bcde9ca",
+    "universal/orchestrator.template.md": "181ce39e3406f1cd",
     "universal/navigator.template.md": "5a0d707a9f3f5cec",
     "universal/security.template.md": "85349869800ccdd2",
     "universal/code-hygiene.template.md": "72e2a1f9ec316852",
@@ -36,7 +34,7 @@
     "universal/conflict-auditor.template.md": "d0e6ed3e98ba1f86",
     "universal/conflict-resolution.template.md": "fd74ccfd546065c4",
     "universal/cleanup.template.md": "dd3c78f2548c4686",
-    "universal/agent-updater.template.md": "1462c430bf7051c7",
+    "universal/agent-updater.template.md": "c647c19909dff2fa",
     "universal/agent-refactor.template.md": "fb1956da5b1140a2",
     "universal/repo-liaison.template.md": "57b1c8654c320d59",
     "universal/git-operations.template.md": "c000c51feb44ad64",
@@ -64,10 +62,10 @@
     "universal/work-summary-spec.reference.template.md": "d29ca7e680ad715d",
     "universal/work-summary-tooling.reference.template.md": "62e643b1a9711af6",
     "universal/work-summary-backfill.reference.template.md": "5730bac043dc2874",
-    "universal/parallelization.reference.template.md": "2c872341050a7781",
+    "universal/parallelization.reference.template.md": "e31593ccbba4a7ff",
     "universal/instruction-authority.reference.template.md": "72149ab5244f9be3",
     "universal/redteam-methodology.reference.template.md": "a0443337a9796294",
-    "universal/retrospective-remediation.reference.template.md": "f79be49ac31f6266",
+    "universal/retrospective-remediation.reference.template.md": "1965ac5f52cf72f0",
     "universal/cli-tool-discovery.reference.template.md": "203004e771c8b2fd",
     "universal/skill-generation.reference.template.md": "47bcf76ed8f69a80",
     "universal/external-retrieval-quality-gate.reference.template.md": "3922b0a2e99e75a3",
@@ -198,39 +196,11 @@
       "component_slug": null
     },
     {
-      "path": "references/ref-helipad-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-helipad"
-    },
-    {
-      "path": "references/ref-ipywidgets-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-ipywidgets"
-    },
-    {
       "path": "references/ref-jupyter-reference.md",
       "template": "domain/tool-reference.template.md",
       "type": "reference",
       "component_slug": null,
       "tool_slug": "ref-jupyter"
-    },
-    {
-      "path": "references/ref-matplotlib-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-matplotlib"
-    },
-    {
-      "path": "references/ref-networkx-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-networkx"
     },
     {
       "path": "references/ref-numpy-reference.md",
@@ -247,18 +217,11 @@
       "tool_slug": "ref-pandas"
     },
     {
-      "path": "references/ref-pandas-datareader-reference.md",
+      "path": "references/ref-matplotlib-reference.md",
       "template": "domain/tool-reference.template.md",
       "type": "reference",
       "component_slug": null,
-      "tool_slug": "ref-pandas-datareader"
-    },
-    {
-      "path": "references/ref-plotly-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-plotly"
+      "tool_slug": "ref-matplotlib"
     },
     {
       "path": "references/ref-scipy-reference.md",
@@ -266,13 +229,6 @@
       "type": "reference",
       "component_slug": null,
       "tool_slug": "ref-scipy"
-    },
-    {
-      "path": "references/ref-seaborn-reference.md",
-      "template": "domain/tool-reference.template.md",
-      "type": "reference",
-      "component_slug": null,
-      "tool_slug": "ref-seaborn"
     },
     {
       "path": "references/ref-statsmodels-reference.md",
@@ -554,27 +510,26 @@
     "repo-liaison",
     "git-operations"
   ],
-  "manifest_fingerprint": "a413a66a0573a798",
+  "manifest_fingerprint": "bda3fd34efc958df",
   "fingerprint_algo_version": 1,
   "file_hashes": {
-    "../../.vscode/tasks.json": "c2409a7c58cd2346",
-    "orchestrator.agent.md": "7334ceee671a7d0c",
-    "security.agent.md": "f6b1d2fda5722185",
-    "references/security-vulnerability-watch.reference.md": "93919dfca28dcaee",
-    "references/security-vulnerability-watch.json": "bdf983d9c5d0b51f",
-    "ch1-essentials-expert.agent.md": "acc9c2fa8363e3e8",
-    "ch2-lists-expert.agent.md": "bd40aaeb3d584b10",
-    "ch3-numpy-pandas-expert.agent.md": "edeb963e78e4256a",
-    "ch4-functional-expert.agent.md": "a57ac811b2289414",
-    "ch5-probability-expert.agent.md": "8b81401c49283521",
-    "ch6-hypothesis-expert.agent.md": "36ff823d87a03065",
-    "ch7-ols-expert.agent.md": "ff014a86c8461b46",
-    "ch8-advanced-expert.agent.md": "fdd622e20e169e4f",
-    "ch9-abm-expert.agent.md": "52ea65a541646a00",
-    "../copilot-instructions.md": "488b82944f5bb63d",
-    "references/pipeline-graph.md": "6d4d620f8fd21221",
-    "references/pipeline-graph.svg": "227908e35ce4c587",
-    "references/pipeline-handoffs.svg": "fb1213446499498b",
+    "orchestrator.agent.md": "e393ceb4795d17b5",
+    "security.agent.md": "12309b1a191f1403",
+    "references/security-vulnerability-watch.reference.md": "133565e17d7f529d",
+    "references/security-vulnerability-watch.json": "5266c0c3eabf88ac",
+    "references/parallelization.reference.md": "9938e69caf5e686c",
+    "ch1-essentials-expert.agent.md": "b170aa6948837aef",
+    "ch2-lists-expert.agent.md": "874e6e598b2d4083",
+    "ch3-numpy-pandas-expert.agent.md": "00d13e66205b5382",
+    "ch4-functional-expert.agent.md": "0521a9b08b9c1c0d",
+    "ch5-probability-expert.agent.md": "87d8324d024eb4b4",
+    "ch6-hypothesis-expert.agent.md": "82e8ad217335ddb4",
+    "ch7-ols-expert.agent.md": "17fd41912cad68ca",
+    "ch8-advanced-expert.agent.md": "6086acd83b751603",
+    "ch9-abm-expert.agent.md": "cc18b0b6e5dd7b70",
+    "../copilot-instructions.md": "4e6daad8ad1985a7",
+    "references/pipeline-graph.md": "26acca10df02d7dc",
+    "references/pipeline-graph.svg": "1a98d8127f3d32d4",
     "navigator.agent.md": "f24d932cca8db7c5",
     "code-hygiene.agent.md": "696cc827892ad664",
     "adversarial.agent.md": "9e95accb5505d1d2",
@@ -593,17 +548,6 @@
     "technical-validator.agent.md": "71fd608c47620cfb",
     "output-compiler.agent.md": "f2e412783a341ed9",
     "visual-designer.agent.md": "c2a4792e111721ba",
-    "references/ref-helipad-reference.md": "8979f7b58d20aa40",
-    "references/ref-ipywidgets-reference.md": "227a53594178f06b",
-    "references/ref-matplotlib-reference.md": "cc3db5c214dde0a9",
-    "references/ref-networkx-reference.md": "71c92644d3c4abad",
-    "references/ref-numpy-reference.md": "daab373a9a35449d",
-    "references/ref-pandas-reference.md": "5ab936d86fa0bcc5",
-    "references/ref-pandas-datareader-reference.md": "c167125427c464a1",
-    "references/ref-plotly-reference.md": "4c9a7a7bd3b52f4a",
-    "references/ref-scipy-reference.md": "03716690a7487b2e",
-    "references/ref-seaborn-reference.md": "ed5fc9f4e246edac",
-    "references/ref-statsmodels-reference.md": "c705cce29e74b731",
     "references/unix-philosophy-mapping.reference.md": "e2638da04b571290",
     "references/security-linux-hardening.reference.md": "fbc824595f0cca73",
     "references/security-macos-hardening.reference.md": "59d45d4ea942955d",
@@ -611,18 +555,22 @@
     "references/ai-bad-habits-watch.reference.md": "030b52121b9fcce6",
     "references/framework-watch.reference.md": "5f8854c6f9e85dce",
     "references/adjacent-repos.md": "77feeed765a1e18a",
+    "references/retrospective-remediation.reference.md": "ad2e6855ecf03605",
     "team-builder.agent.md": "9d29aab02681c08c",
     "SETUP-REQUIRED.md": "47182160973143e3",
     "content-enricher.agent.md": "03bfe37b4e43eee7",
     "references/ref-jupyter-reference.md": "7fab21b30424739b",
+    "references/ref-numpy-reference.md": "daab373a9a35449d",
+    "references/ref-pandas-reference.md": "5ab936d86fa0bcc5",
+    "references/ref-matplotlib-reference.md": "cc3db5c214dde0a9",
+    "references/ref-scipy-reference.md": "03716690a7487b2e",
+    "references/ref-statsmodels-reference.md": "c705cce29e74b731",
     "references/code-hygiene-rules.reference.md": "9116985da4ff5a06",
     "references/github-workflows-merge.reference.md": "af659d5abdf8a903",
     "references/work-summary-spec.reference.md": "96232231a1f7c6be",
     "references/work-summary-tooling.reference.md": "f3656972717153a9",
     "references/work-summary-backfill.reference.md": "a0543cde8916cedb",
-    "references/parallelization.reference.md": "d2321bf5ac1ed2f8",
     "references/instruction-authority.reference.md": "ef966c1ddd32b770",
-    "references/retrospective-remediation.reference.md": "ad2e6855ecf03605",
     "references/cli-tool-discovery.reference.md": "25542cccc7cb88eb",
     "references/skill-generation.reference.md": "5afe8c28e86bce98",
     "references/external-retrieval-quality-gate.reference.md": "3c5d82da1bdb0fe3"
@@ -651,7 +599,7 @@
       "tools": "['read', 'search', 'agent']",
       "agents": "['primary-producer', 'adversarial']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 1 - The Essentials has been reviewed and accepted.\"\n    send: false\n",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 1 \u2014 The Essentials has been reviewed and accepted.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "ch2-lists-expert.agent.md": {
@@ -660,7 +608,7 @@
       "tools": "['read', 'search', 'agent']",
       "agents": "['primary-producer', 'adversarial']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 2 - Working With Lists has been reviewed and accepted.\"\n    send: false\n",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 2 \u2014 Working With Lists has been reviewed and accepted.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "ch3-numpy-pandas-expert.agent.md": {
@@ -669,7 +617,7 @@
       "tools": "['read', 'search', 'agent']",
       "agents": "['primary-producer', 'adversarial']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 3 - NumPy, Pandas, and Matplotlib has been reviewed and accepted.\"\n    send: false\n",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 3 \u2014 NumPy, Pandas, and Matplotlib has been reviewed and accepted.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "ch4-functional-expert.agent.md": {
@@ -678,7 +626,7 @@
       "tools": "['read', 'search', 'agent']",
       "agents": "['primary-producer', 'adversarial']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 4 - Functional Programming and Rudimentary Statistics has been reviewed and accepted.\"\n    send: false\n",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 4 \u2014 Functional Programming and Rudimentary Statistics has been reviewed and accepted.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "ch5-probability-expert.agent.md": {
@@ -687,7 +635,7 @@
       "tools": "['read', 'search', 'agent']",
       "agents": "['primary-producer', 'adversarial']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 5 - Probability Distributions has been reviewed and accepted.\"\n    send: false\n",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 5 \u2014 Probability Distributions has been reviewed and accepted.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "ch6-hypothesis-expert.agent.md": {
@@ -696,7 +644,7 @@
       "tools": "['read', 'search', 'agent']",
       "agents": "['primary-producer', 'adversarial']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 6 - Hypothesis Testing has been reviewed and accepted.\"\n    send: false\n",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 6 \u2014 Hypothesis Testing has been reviewed and accepted.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "ch7-ols-expert.agent.md": {
@@ -705,7 +653,7 @@
       "tools": "['read', 'search', 'agent']",
       "agents": "['primary-producer', 'adversarial']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 7 - Building an OLS Regression Model has been reviewed and accepted.\"\n    send: false\n",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 7 \u2014 Building an OLS Regression Model has been reviewed and accepted.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "ch8-advanced-expert.agent.md": {
@@ -714,7 +662,7 @@
       "tools": "['read', 'search', 'agent']",
       "agents": "['primary-producer', 'adversarial']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 8 - Advanced Data Analysis has been reviewed and accepted.\"\n    send: false\n",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 8 \u2014 Advanced Data Analysis has been reviewed and accepted.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "ch9-abm-expert.agent.md": {
@@ -723,7 +671,7 @@
       "tools": "['read', 'search', 'agent']",
       "agents": "['primary-producer', 'adversarial']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 9 - Agent-Based Modeling has been reviewed and accepted.\"\n    send: false\n",
+      "handoffs": "\n  - label: Vet Brief Before Drafting\n    agent: adversarial\n    prompt: \"Component Brief prepared. Review for hidden presuppositions before drafting begins.\"\n    send: false\n  - label: Send to Primary Producer\n    agent: primary-producer\n    prompt: \"Component Brief accepted. Ready for drafting.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Chapter 9 \u2014 Agent-Based Modeling has been reviewed and accepted.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "navigator.agent.md": {
