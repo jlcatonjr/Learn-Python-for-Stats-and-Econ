@@ -172,6 +172,35 @@ Trigger examples: "Summarize today's work", "Daily summary for YYYY-MM-DD"
 5. Draft and write `workSummaries/daily/YYYY-MM-DD.md` using `create`, `append`, or `replace` mode.
 6. Run audits in order: `@technical-validator`, `@adversarial`, `@conflict-auditor`.
 
+#### Synthesized daily body — the `## Plans Implemented` marker
+
+A **synthesized** daily summary (one that records completed/committed work, not just raw
+breadcrumbs) uses a single top-level `## Plans Implemented` section as its primary body, with this
+exact header. Use it consistently: it is the **durable, machine-detectable marker that the day is
+synthesized**, and any session-close automation that keys on such a marker (for example this
+project's own work-summary Stop hook, when present) relies on it to decide *skip* — the day is
+already synthesized and current — versus *re-synthesize*. **Where such automation exists, this
+exact header is required** for it to recognise the day; where no such tooling is deployed the
+header is still the recommended body heading but nothing depends on it, so treat the `MUST` as a
+contract with the automation, not a universal mandate.
+
+The failure this prevents (measured 2026-09-07): a commit-bearing daily that has **no**
+`## Plans Implemented` reads as "unsynthesized (breadcrumbs only)", so hash-blind automation
+re-processes it on *every* firing — one daily reached 54 addendum blocks / 858 lines because the
+header was absent and a Stop hook re-invoked ~200× in a day. Emitting the header **bounds**
+re-firing: a hash-aware guard then skips a synthesized day and re-fires only when a genuinely new
+commit lands after the last synthesis — it does not eliminate re-firing on a still-active day, but
+it ends the header-absent runaway.
+
+On a commit-bearing day therefore:
+- Produce (or maintain) exactly one `## Plans Implemented` section synthesizing the day's work.
+- **Fold-and-clear:** the incremental/Tier-1 capture channel writes raw breadcrumbs under a
+  `## Incremental Capture (unsynthesized — Tier-1)` section (an *unsynthesized* holding area, not a
+  synthesized body). When that section is present, merge its breadcrumbs into `## Plans Implemented`
+  (de-duplicated against commits already covered), then REMOVE the Tier-1 section.
+- Per the `append` idempotency rule above, when no new evidence exists since the last synthesis,
+  do **not** add a fresh addendum — update the `## Plans Implemented` body in place (or no-op).
+
 ### Weekly Summary
 
 Trigger examples: "Summarize this week", "Weekly summary for YYYY-Www"
