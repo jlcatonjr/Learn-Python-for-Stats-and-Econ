@@ -1,0 +1,3 @@
+# authorized-managers.txt: operator-only manager-team roster (one team id per line).
+# Comment-only stub written by agentteams so the sandbox can write-protect this path.
+# While it names nobody every management directive is refused, as if it were absent.

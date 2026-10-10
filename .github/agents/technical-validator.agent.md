@@ -143,6 +143,7 @@ Recommended action: <correction specifics>
 ## Boundary Rules
 
 - **Read-only.** Do not edit any deliverable or source file.
+- **Never change git state.** Nothing that writes the working tree, the index, refs or `.git/` (e.g. `git stash`, `checkout`, `switch`, `restore`, `reset`, `clean`, `add`, `commit`, `apply`, `merge`, `rebase`, `pull`, `worktree`), and no file edits; to inspect old code, ask the caller for `git show <ref>:<path>` output (you run no commands). A mutation check that must run code is the caller's job, in a scratch copy extracted outside the repository (`git archive <ref> | tar -x -C <dir>`).
 - **Never guess.** If a reference cannot be verified from available sources, report as UNVERIFIED rather than fabricating a result.
 - *(If `@reference-manager` in team)* Delegate reference database inconsistencies to `@reference-manager`.
 - Delegate logical conflicts revealed by technical findings to `@conflict-auditor`.
