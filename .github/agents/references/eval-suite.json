@@ -170,6 +170,17 @@
         ],
         "body_contains": "Return to Orchestrator"
       }
+    },
+    {
+      "id": "escalation-delegate-query-funnels-to-prime",
+      "category": "escalation",
+      "claim": "A delegated (spawned) orchestrator routes user-facing questions up to its prime via the Spawn-Authority Query Funnel; it does not prompt the user directly.",
+      "predicate": {
+        "kind": "frontmatter-and-body",
+        "file": "orchestrator.agent.md",
+        "agents_contains_all": [],
+        "body_contains": "Spawn-Authority Query Funnel"
+      }
     }
   ]
 }

@@ -1,5 +1,13 @@
 {
-  "schema_version": "1.2",
+  "schema_version": "1.5",
+  "agentteams_version": "1.0.0rc8",
+  "agentteams_source": {
+    "kind": "checkout",
+    "commit": "b96e7e3ba3a55ae0bba35d0cc84ae4acead29913",
+    "branch": "main",
+    "dirty": true
+  },
+  "generated_at": "2026-10-10T01:15:40.718190+00:00",
   "project_name": "LearnPythonStatsEcon",
   "framework": "copilot-vscode",
   "project_type": "software",
@@ -23,31 +31,40 @@
     "ch8-advanced",
     "ch9-abm"
   ],
-  "files_written": [],
+  "files_written": [
+    ".github/agents/references/branch-lifecycle.reference.md",
+    ".github/agents/references/orchestrator-spawn-authority.reference.md",
+    "sandbox/confine-run.sh",
+    "sandbox/mac-escape-tests.sh",
+    "sandbox/dedicated-uid-provisioning.example.sh",
+    "sandbox/pf-per-tenant-anchor.example.conf",
+    ".github/agents/references/authorized-verify-keys/README.md",
+    ".vscode/tasks.json"
+  ],
   "manual_required": 37,
   "template_hashes": {
-    "universal/orchestrator.template.md": "181ce39e3406f1cd",
-    "universal/navigator.template.md": "5a0d707a9f3f5cec",
-    "universal/security.template.md": "e79fe61c5c31297e",
-    "universal/code-hygiene.template.md": "72e2a1f9ec316852",
-    "universal/adversarial.template.md": "0dbc3c4284139780",
-    "universal/conflict-auditor.template.md": "d0e6ed3e98ba1f86",
-    "universal/conflict-resolution.template.md": "fd74ccfd546065c4",
-    "universal/cleanup.template.md": "dd3c78f2548c4686",
-    "universal/agent-updater.template.md": "c647c19909dff2fa",
-    "universal/agent-refactor.template.md": "fb1956da5b1140a2",
-    "universal/repo-liaison.template.md": "57b1c8654c320d59",
-    "universal/git-operations.template.md": "c000c51feb44ad64",
-    "domain/work-summarizer.template.md": "90b19b91ff48a953",
-    "domain/primary-producer.template.md": "e02c72f74753e2a3",
-    "domain/quality-auditor.template.md": "6ce15b22e2a72237",
-    "domain/cohesion-repairer.template.md": "58bee448f014dfde",
-    "domain/style-guardian.template.md": "31631c26f16811ea",
-    "domain/technical-validator.template.md": "a8ebdc034168749f",
-    "domain/output-compiler.template.md": "c08d60a4578e90a4",
-    "domain/visual-designer.template.md": "afb9a69f6972c7ec",
-    "domain/tool-reference.template.md": "5ce5638b7094cc86",
-    "domain/code-hygiene-rules-reference.template.md": "cf49b61dc45e4ca4",
+    "universal/orchestrator.template.md": "8eede8f076d2a7f1",
+    "universal/navigator.template.md": "3d28148430bddfdf",
+    "universal/security.template.md": "59429a1480354b77",
+    "universal/code-hygiene.template.md": "8c53882027a0aa40",
+    "universal/adversarial.template.md": "0c7b7cb909b089a0",
+    "universal/conflict-auditor.template.md": "a6199323e4d1add3",
+    "universal/conflict-resolution.template.md": "4542fdba8f977079",
+    "universal/cleanup.template.md": "6a404be5ad0bfbe9",
+    "universal/agent-updater.template.md": "9c141092104f6e5b",
+    "universal/agent-refactor.template.md": "b1417e2f09b84022",
+    "universal/repo-liaison.template.md": "70331bea47521df8",
+    "universal/git-operations.template.md": "ceba0af4e139c43c",
+    "domain/work-summarizer.template.md": "4124536ef03c333d",
+    "domain/primary-producer.template.md": "278ed220891ba707",
+    "domain/quality-auditor.template.md": "3dd911ae905e8b28",
+    "domain/cohesion-repairer.template.md": "30f6320e49652bcf",
+    "domain/style-guardian.template.md": "29bc5caff016e764",
+    "domain/technical-validator.template.md": "0c8c489fb67c5891",
+    "domain/output-compiler.template.md": "7ec6b1533cae4aaf",
+    "domain/visual-designer.template.md": "c639dcf21cfabf63",
+    "domain/tool-reference.template.md": "82ac08315bbb33b2",
+    "domain/code-hygiene-rules-reference.template.md": "891dd19f0d09cea0",
     "domain/unix-philosophy-mapping-reference.template.md": "702af6b4e9e2b952",
     "universal/security-vulnerability-watch.reference.template.md": "269cdacb3d94fdfa",
     "universal/security-vulnerability-watch.json.template": "ebcec1b04ad46caa",
@@ -56,23 +73,25 @@
     "universal/security-windows-hardening.reference.template.md": "5885668f48e4c295",
     "universal/security-infrastructure-layers.reference.template.md": "5c4c67f28d67149b",
     "universal/ai-bad-habits-watch.reference.template.md": "3265a4ef0b7e5f7a",
-    "universal/framework-watch.reference.template.md": "5232925f7a649199",
+    "universal/framework-watch.reference.template.md": "ca23bcc73afc2e2a",
     "universal/adjacent-repos.reference.template.md": "e66157a91f72492a",
-    "universal/github-workflows-merge.reference.template.md": "4b5d6066a338ae74",
+    "universal/github-workflows-merge.reference.template.md": "47a88addb7b11da8",
+    "universal/branch-lifecycle.reference.template.md": "8f199043003804b3",
     "universal/work-summary-spec.reference.template.md": "d29ca7e680ad715d",
     "universal/work-summary-tooling.reference.template.md": "62e643b1a9711af6",
     "universal/work-summary-backfill.reference.template.md": "5730bac043dc2874",
     "universal/parallelization.reference.template.md": "e31593ccbba4a7ff",
-    "universal/instruction-authority.reference.template.md": "72149ab5244f9be3",
+    "universal/instruction-authority.reference.template.md": "855e46066d9c2258",
+    "universal/orchestrator-spawn-authority.reference.template.md": "f7b044748645b289",
     "universal/redteam-methodology.reference.template.md": "a0443337a9796294",
     "universal/retrospective-remediation.reference.template.md": "1965ac5f52cf72f0",
     "universal/cli-tool-discovery.reference.template.md": "203004e771c8b2fd",
-    "universal/skill-generation.reference.template.md": "47bcf76ed8f69a80",
+    "universal/skill-generation.reference.template.md": "5293714b0f5ada9c",
     "universal/external-retrieval-quality-gate.reference.template.md": "3922b0a2e99e75a3",
-    "workstream-expert.template.md": "145061461736b92b",
-    "copilot-instructions.template.md": "bc94e8e32a6b2cff",
-    "builder/team-builder-copilot-vscode.template.md": "044c1314c4e98a9d",
-    "domain/content-enricher.template.md": "79ddbbf48720bcc7"
+    "workstream-expert.template.md": "19e099ff5eaf447b",
+    "copilot-instructions.template.md": "df942993bbc3bf2c",
+    "builder/team-builder-copilot-vscode.template.md": "49cf6f735fc90e06",
+    "domain/content-enricher.template.md": "25b7c467ae7a8978"
   },
   "output_files_map": [
     {
@@ -310,6 +329,12 @@
       "component_slug": null
     },
     {
+      "path": "references/branch-lifecycle.reference.md",
+      "template": "universal/branch-lifecycle.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
       "path": "references/work-summary-spec.reference.md",
       "template": "universal/work-summary-spec.reference.template.md",
       "type": "reference",
@@ -336,6 +361,12 @@
     {
       "path": "references/instruction-authority.reference.md",
       "template": "universal/instruction-authority.reference.template.md",
+      "type": "reference",
+      "component_slug": null
+    },
+    {
+      "path": "references/orchestrator-spawn-authority.reference.md",
+      "template": "universal/orchestrator-spawn-authority.reference.template.md",
       "type": "reference",
       "component_slug": null
     },
@@ -510,42 +541,61 @@
     "repo-liaison",
     "git-operations"
   ],
-  "manifest_fingerprint": "3c70ea993fbe0c91",
+  "manifest_fingerprint": "ea7535fb6e3cccd5",
   "fingerprint_algo_version": 1,
   "file_hashes": {
-    "security.agent.md": "fc7dfcbf54b6e293",
-    "references/security-vulnerability-watch.reference.md": "a308ddfb1c3403e7",
-    "references/security-vulnerability-watch.json": "9ac63ce0f3e83049",
+    "references/branch-lifecycle.reference.md": "64760f502f80db5d",
+    "references/orchestrator-spawn-authority.reference.md": "7ec49f53964c3db1",
+    "../../sandbox/confine-run.sh": "6779fa05d24b3bef",
+    "../../sandbox/mac-escape-tests.sh": "71d00a1d1d4b83f8",
+    "../../sandbox/dedicated-uid-provisioning.example.sh": "9bf57e5f1a20eda8",
+    "../../sandbox/pf-per-tenant-anchor.example.conf": "3b3a9adf19243916",
+    "references/authorized-verify-keys/README.md": "badf32b421079acf",
+    "../../.vscode/tasks.json": "c2409a7c58cd2346",
+    "orchestrator.agent.md": "6fafeee0d9d0bcc9",
+    "security.agent.md": "76852475427e6c4e",
+    "conflict-auditor.agent.md": "452c3964ad4aebc4",
+    "quality-auditor.agent.md": "cacc030c8da6a8d2",
+    "technical-validator.agent.md": "cab25bfbfd13c9e8",
+    "references/code-hygiene-rules.reference.md": "684b1c29b72647c1",
+    "references/security-vulnerability-watch.reference.md": "303007ed86972804",
+    "references/security-vulnerability-watch.json": "aaa7eabe99fff7bc",
+    "references/framework-watch.reference.md": "34e3b05f067d619e",
+    "references/github-workflows-merge.reference.md": "3a2f5e8a261d2fb8",
+    "references/parallelization.reference.md": "e25040ccfbdae337",
+    "references/instruction-authority.reference.md": "56609eebeb011eb0",
+    "../copilot-instructions.md": "823e03d24842eb65",
     "references/pipeline-graph.md": "26acca10df02d7dc",
     "references/pipeline-graph.svg": "1a98d8127f3d32d4",
-    "orchestrator.agent.md": "e393ceb4795d17b5",
     "navigator.agent.md": "f24d932cca8db7c5",
     "code-hygiene.agent.md": "696cc827892ad664",
     "adversarial.agent.md": "9e95accb5505d1d2",
-    "conflict-auditor.agent.md": "b2c3a7d024b51ed6",
     "conflict-resolution.agent.md": "00a5a19255809537",
     "cleanup.agent.md": "ff9b81f4b04ff2cd",
     "agent-updater.agent.md": "c3fa3563a4119904",
     "agent-refactor.agent.md": "7cd98488694226a1",
     "repo-liaison.agent.md": "03dbcc90f15a0fca",
     "git-operations.agent.md": "85728b461be29861",
-    "work-summarizer.agent.md": "f9bfec69bee32d8c",
+    "work-summarizer.agent.md": "aa8a06d2cb47f15d",
     "primary-producer.agent.md": "7f33c651279738d3",
-    "quality-auditor.agent.md": "262a89f43d91ca73",
     "cohesion-repairer.agent.md": "be716e28c90bdcf4",
     "style-guardian.agent.md": "9956c22d1022df17",
-    "technical-validator.agent.md": "71fd608c47620cfb",
     "output-compiler.agent.md": "f2e412783a341ed9",
     "visual-designer.agent.md": "c2a4792e111721ba",
+    "references/ref-jupyter-reference.md": "7fab21b30424739b",
+    "references/ref-numpy-reference.md": "daab373a9a35449d",
+    "references/ref-pandas-reference.md": "5ab936d86fa0bcc5",
+    "references/ref-matplotlib-reference.md": "cc3db5c214dde0a9",
+    "references/ref-scipy-reference.md": "03716690a7487b2e",
+    "references/ref-statsmodels-reference.md": "c705cce29e74b731",
     "references/unix-philosophy-mapping.reference.md": "e2638da04b571290",
     "references/security-linux-hardening.reference.md": "fbc824595f0cca73",
     "references/security-macos-hardening.reference.md": "59d45d4ea942955d",
     "references/security-windows-hardening.reference.md": "78698ec86ced5ce6",
     "references/ai-bad-habits-watch.reference.md": "030b52121b9fcce6",
-    "references/framework-watch.reference.md": "5f8854c6f9e85dce",
     "references/adjacent-repos.md": "77feeed765a1e18a",
-    "references/parallelization.reference.md": "9938e69caf5e686c",
     "references/retrospective-remediation.reference.md": "ad2e6855ecf03605",
+    "references/skill-generation.reference.md": "5afe8c28e86bce98",
     "ch1-essentials-expert.agent.md": "b170aa6948837aef",
     "ch2-lists-expert.agent.md": "874e6e598b2d4083",
     "ch3-numpy-pandas-expert.agent.md": "00d13e66205b5382",
@@ -555,35 +605,16 @@
     "ch7-ols-expert.agent.md": "17fd41912cad68ca",
     "ch8-advanced-expert.agent.md": "6086acd83b751603",
     "ch9-abm-expert.agent.md": "cc18b0b6e5dd7b70",
-    "../copilot-instructions.md": "4e6daad8ad1985a7",
     "team-builder.agent.md": "9d29aab02681c08c",
     "SETUP-REQUIRED.md": "47182160973143e3",
     "content-enricher.agent.md": "03bfe37b4e43eee7",
-    "references/ref-jupyter-reference.md": "7fab21b30424739b",
-    "references/ref-numpy-reference.md": "daab373a9a35449d",
-    "references/ref-pandas-reference.md": "5ab936d86fa0bcc5",
-    "references/ref-matplotlib-reference.md": "cc3db5c214dde0a9",
-    "references/ref-scipy-reference.md": "03716690a7487b2e",
-    "references/ref-statsmodels-reference.md": "c705cce29e74b731",
-    "references/code-hygiene-rules.reference.md": "9116985da4ff5a06",
-    "references/github-workflows-merge.reference.md": "af659d5abdf8a903",
     "references/work-summary-spec.reference.md": "96232231a1f7c6be",
     "references/work-summary-tooling.reference.md": "f3656972717153a9",
     "references/work-summary-backfill.reference.md": "a0543cde8916cedb",
-    "references/instruction-authority.reference.md": "ef966c1ddd32b770",
     "references/cli-tool-discovery.reference.md": "25542cccc7cb88eb",
-    "references/skill-generation.reference.md": "5afe8c28e86bce98",
     "references/external-retrieval-quality-gate.reference.md": "3c5d82da1bdb0fe3"
   },
   "front_matter_baseline": {
-    "security.agent.md": {
-      "name": "Security \u2014 LearnPythonStatsEcon",
-      "description": "\"Top-priority security sentinel: reviews actions for credential exposure, destructive operations, sensitive content leakage, and reference integrity before any sensitive action proceeds\"",
-      "tools": "['read', 'search']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Security review is complete. Return to the orchestrator with findings.\"\n    send: false",
-      "user-invocable": "false"
-    },
     "orchestrator.agent.md": {
       "name": "Orchestrator \u2014 LearnPythonStatsEcon",
       "description": "\"Coordinates all agent operations for LearnPythonStatsEcon: routes work to domain agents, enforces constitutional rules, and closes every multi-file session with a consistency check.\"",
@@ -592,6 +623,41 @@
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
       "handoffs": "\n  - label: Produce / Revise Deliverable\n    agent: primary-producer\n    prompt: \"A workstream is ready to produce or revise its deliverable. Provide the workstream name and any specific instructions.\"\n    send: false\n  - label: Audit Quality\n    agent: quality-auditor\n    prompt: \"A deliverable is ready for quality audit. Provide the file path.\"\n    send: false\n  - label: Repair Cohesion\n    agent: cohesion-repairer\n    prompt: \"A deliverable section has structural cohesion failures. Provide the file and section.\"\n    send: false\n  - label: Enforce Style / Standards\n    agent: style-guardian\n    prompt: \"A deliverable is ready for style audit. Provide the file path.\"\n    send: false\n  - label: Validate Technical Accuracy\n    agent: technical-validator\n    prompt: \"Audit technical accuracy of claims, code, or specifications in a deliverable. Provide the file path.\"\n    send: false\n  - label: Compile Final Output\n    agent: output-compiler\n    prompt: \"Assemble and compile the final deliverable from all sources.\"\n    send: false\n  - label: Generate / Revise Diagram\n    agent: visual-designer\n    prompt: \"Generate or revise a diagram. Describe what is needed.\"\n    send: false\n  - label: Navigate Project\n    agent: navigator\n    prompt: \"Locate files, answer structural questions, or regenerate the project map.\"\n    send: false\n  - label: Security Review\n    agent: security\n    prompt: \"Review the planned action for credentials, destructive operations, or sensitive content.\"\n    send: false\n  - label: Code Hygiene Audit\n    agent: code-hygiene\n    prompt: \"Run a code hygiene audit. Provide scope or 'full' for all rules.\"\n    send: false\n  - label: Adversarial Review\n    agent: adversarial\n    prompt: \"Challenge the presuppositions underlying this plan before execution.\"\n    send: false\n  - label: Conflict Audit\n    agent: conflict-auditor\n    prompt: \"Detect contradictions across project files. Provide scope if targeted.\"\n    send: false\n  - label: Resolve Conflicts\n    agent: conflict-resolution\n    prompt: \"Make ACCEPT/REJECT/REVISE decisions on flagged conflicts.\"\n    send: false\n  - label: Clean Up Artifacts\n    agent: cleanup\n    prompt: \"Remove stale build artifacts, orphaned files, or abandoned drafts.\"\n    send: false\n  - label: Update Agent Docs\n    agent: agent-updater\n    prompt: \"Project structure or conventions have changed. Sync all affected agent files.\"\n    send: false\n  - label: Refactor Agent Docs\n    agent: agent-refactor\n    prompt: \"Check agent docs for reference extraction opportunities and spec compliance.\"\n    send: false\n  - label: Cross-Repository Liaison\n    agent: repo-liaison\n    prompt: \"Assess or communicate impact of this project's activity on adjacent repositories. Describe the change and list any known adjacent repos.\"\n    send: false\n  - label: Summarize Work Period\n    agent: work-summarizer\n    prompt: \"Create daily, weekly, or monthly work summaries from planning artifacts and git diffs for the requested period.\"\n    send: false\n  - label: Git Operations\n    agent: git-operations\n    prompt: \"Run a git operation: commit and push, pull/merge/rebase, resolve conflicts, or recover a file. Describe the operation needed.\"\n    send: false\n",
       "user-invocable": "true"
+    },
+    "security.agent.md": {
+      "name": "Security \u2014 LearnPythonStatsEcon",
+      "description": "\"Top-priority security sentinel: reviews actions for credential exposure, destructive operations, sensitive content leakage, and reference integrity before any sensitive action proceeds\"",
+      "tools": "['read', 'search']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Security review is complete. Return to the orchestrator with findings.\"\n    send: false",
+      "user-invocable": "false"
+    },
+    "conflict-auditor.agent.md": {
+      "name": "Conflict Auditor \u2014 LearnPythonStatsEcon",
+      "description": "\"Detects logical conflicts across deliverables, agent documentation, reference files, and source material in LearnPythonStatsEcon\"",
+      "tools": "['read', 'search']",
+      "agents": "['conflict-resolution', 'agent-updater', 'technical-validator']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Conflict audit is complete. Review the findings.\"\n    send: false\n  - label: Update Agent Docs\n    agent: agent-updater\n    prompt: \"Conflicts detected that require documentation updates.\"\n    send: false\n  - label: Resolve Conflicts\n    agent: conflict-resolution\n    prompt: \"Conflicts have been identified and logged. Make ACCEPT/REJECT/REVISE decisions.\"\n    send: false\n  - label: Verify Source Drift\n    agent: technical-validator\n    prompt: \"SOURCE_DRIFT conflict detected. Verify deliverable description against current source file on disk.\"\n    send: false",
+      "user-invocable": "false"
+    },
+    "quality-auditor.agent.md": {
+      "name": "Quality Auditor \u2014 LearnPythonStatsEcon",
+      "description": "\"Read-only audit agent that inspects deliverables in LearnPythonStatsEcon for structural defects, logical inconsistencies, and LLM-generated prose patterns; does not rewrite\"",
+      "tools": "['read', 'search']",
+      "agents": "['primary-producer', 'cohesion-repairer', 'style-guardian']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "\n  - label: Route Corrections to Primary Producer\n    agent: primary-producer\n    prompt: \"Audit findings attached. Please correct flagged passages.\"\n    send: false\n  - label: Route Cohesion Failures\n    agent: cohesion-repairer\n    prompt: \"Cohesion failures flagged in audit. Please repair.\"\n    send: false\n  - label: Route Style Issues\n    agent: style-guardian\n    prompt: \"Style deviations flagged in audit.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Quality audit complete. See findings.\"\n    send: false",
+      "user-invocable": "false"
+    },
+    "technical-validator.agent.md": {
+      "name": "Technical Validator \u2014 LearnPythonStatsEcon",
+      "description": "\"Read-only audit agent that verifies technical accuracy in LearnPythonStatsEcon \u2014 code examples, file excerpts, API references, and tool invocations match what exists on disk\"",
+      "tools": "['read', 'search']",
+      "agents": "['primary-producer', 'conflict-auditor']",
+      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
+      "handoffs": "\n  - label: Route Corrections to Primary Producer\n    agent: primary-producer\n    prompt: \"Technical accuracy findings attached. Please correct flagged inaccuracies.\"\n    send: false\n  - label: Log Conflict\n    agent: conflict-auditor\n    prompt: \"Technical conflict detected. Logging and routing.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Technical validation complete. See findings.\"\n    send: false\n",
+      "user-invocable": "false"
     },
     "navigator.agent.md": {
       "name": "Navigator \u2014 LearnPythonStatsEcon",
@@ -616,15 +682,6 @@
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
       "handoffs": "\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Adversarial review is complete. Return findings \u2014 validated presuppositions, challenged presuppositions, and cascade analysis \u2014 to the orchestrator for plan revision.\"\n    send: false\n  - label: Audit for Conflicts\n    agent: conflict-auditor\n    prompt: \"Adversarial review surfaced assumptions that may conflict with documented facts. Run a targeted conflict audit on the identified areas.\"\n    send: false",
       "user-invocable": "true"
-    },
-    "conflict-auditor.agent.md": {
-      "name": "Conflict Auditor \u2014 LearnPythonStatsEcon",
-      "description": "\"Detects logical conflicts across deliverables, agent documentation, reference files, and source material in LearnPythonStatsEcon\"",
-      "tools": "['read', 'search']",
-      "agents": "['conflict-resolution', 'agent-updater', 'technical-validator']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Conflict audit is complete. Review the findings.\"\n    send: false\n  - label: Update Agent Docs\n    agent: agent-updater\n    prompt: \"Conflicts detected that require documentation updates.\"\n    send: false\n  - label: Resolve Conflicts\n    agent: conflict-resolution\n    prompt: \"Conflicts have been identified and logged. Make ACCEPT/REJECT/REVISE decisions.\"\n    send: false\n  - label: Verify Source Drift\n    agent: technical-validator\n    prompt: \"SOURCE_DRIFT conflict detected. Verify deliverable description against current source file on disk.\"\n    send: false",
-      "user-invocable": "false"
     },
     "conflict-resolution.agent.md": {
       "name": "Conflict Resolution \u2014 LearnPythonStatsEcon",
@@ -694,15 +751,6 @@
       "handoffs": "\n  - label: Style Audit\n    agent: style-guardian\n    prompt: \"Draft is ready for style audit.\"\n    send: false\n  - label: Cohesion Audit\n    agent: cohesion-repairer\n    prompt: \"Draft is ready for cohesion audit.\"\n    send: false\n  - label: Quality Audit\n    agent: quality-auditor\n    prompt: \"Revised draft is ready for quality audit.\"\n    send: false\n  - label: Conflict Audit\n    agent: conflict-auditor\n    prompt: \"New deliverable added. Run consistency check.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Deliverable production is complete.\"\n    send: false",
       "user-invocable": "false"
     },
-    "quality-auditor.agent.md": {
-      "name": "Quality Auditor \u2014 LearnPythonStatsEcon",
-      "description": "\"Read-only audit agent that inspects deliverables in LearnPythonStatsEcon for structural defects, logical inconsistencies, and LLM-generated prose patterns; does not rewrite\"",
-      "tools": "['read', 'search']",
-      "agents": "['primary-producer', 'cohesion-repairer', 'style-guardian']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Route Corrections to Primary Producer\n    agent: primary-producer\n    prompt: \"Audit findings attached. Please correct flagged passages.\"\n    send: false\n  - label: Route Cohesion Failures\n    agent: cohesion-repairer\n    prompt: \"Cohesion failures flagged in audit. Please repair.\"\n    send: false\n  - label: Route Style Issues\n    agent: style-guardian\n    prompt: \"Style deviations flagged in audit.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Quality audit complete. See findings.\"\n    send: false",
-      "user-invocable": "false"
-    },
     "cohesion-repairer.agent.md": {
       "name": "Cohesion Repairer \u2014 LearnPythonStatsEcon",
       "description": "\"Repairs within-section cohesion failures in LearnPythonStatsEcon deliverables \u2014 disjointedness, broken transitions, and missing argumentative spine; does not reorganize across sections\"",
@@ -719,15 +767,6 @@
       "agents": "['primary-producer']",
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
       "handoffs": "\n  - label: Route Style Corrections\n    agent: primary-producer\n    prompt: \"Style audit findings attached. Please correct style deviations.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Style audit complete.\"\n    send: false",
-      "user-invocable": "false"
-    },
-    "technical-validator.agent.md": {
-      "name": "Technical Validator \u2014 LearnPythonStatsEcon",
-      "description": "\"Read-only audit agent that verifies technical accuracy in LearnPythonStatsEcon \u2014 code examples, file excerpts, API references, and tool invocations match what exists on disk\"",
-      "tools": "['read', 'search']",
-      "agents": "['primary-producer', 'conflict-auditor']",
-      "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
-      "handoffs": "\n  - label: Route Corrections to Primary Producer\n    agent: primary-producer\n    prompt: \"Technical accuracy findings attached. Please correct flagged inaccuracies.\"\n    send: false\n  - label: Log Conflict\n    agent: conflict-auditor\n    prompt: \"Technical conflict detected. Logging and routing.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Technical validation complete. See findings.\"\n    send: false\n",
       "user-invocable": "false"
     },
     "output-compiler.agent.md": {
@@ -844,6 +883,176 @@
       "model": "[\"Claude Sonnet 4.6 (copilot)\"]",
       "handoffs": "\n  - label: Validate Enriched Content\n    agent: technical-validator\n    prompt: \"Content enrichment complete. Verify that filled-in values are technically accurate against project source files.\"\n    send: false\n  - label: Return to Orchestrator\n    agent: orchestrator\n    prompt: \"Content enrichment complete. All auto-fillable placeholders have been resolved.\"\n    send: false",
       "user-invocable": "true"
+    }
+  },
+  "prompt_root_hashes": {
+    ".github/agents/adversarial.agent.md": {
+      "content": "143a727bd719e1c57f33321c393dcff0d8dc1e6b408f898a376ec4c35ac8456e"
+    },
+    ".github/agents/agent-refactor.agent.md": {
+      "content": "4b5a2edc3bb4704d55422862ad16f17315cbaa1684022f115442c3e245fbae08"
+    },
+    ".github/agents/agent-updater.agent.md": {
+      "content": "a00983d352c21f52dd1bed2c3351e7771a6eab520ee4c130f776df5e00ca7f80"
+    },
+    ".github/agents/ch1-essentials-expert.agent.md": {
+      "invariant_core": "22865343d5410a5b9f6bf746260ff712d050e3ef8c1427a60abd7f94bc5ec18e",
+      "component_spec": "e9c4c11b274ca41234bb1befb7453559010a651d9bad44946a141e7b38251a2d",
+      "review_protocol": "02cf50fba478fcc6202c2ffde432fbb02b7506c9784246ad66dbd71459959caf"
+    },
+    ".github/agents/ch2-lists-expert.agent.md": {
+      "invariant_core": "22865343d5410a5b9f6bf746260ff712d050e3ef8c1427a60abd7f94bc5ec18e",
+      "component_spec": "afb2c665369612f83fe63a3a970a9aaeffef1768337d60c2b7132630a68d6430",
+      "review_protocol": "02cf50fba478fcc6202c2ffde432fbb02b7506c9784246ad66dbd71459959caf"
+    },
+    ".github/agents/ch3-numpy-pandas-expert.agent.md": {
+      "invariant_core": "22865343d5410a5b9f6bf746260ff712d050e3ef8c1427a60abd7f94bc5ec18e",
+      "component_spec": "afb2c665369612f83fe63a3a970a9aaeffef1768337d60c2b7132630a68d6430",
+      "review_protocol": "02cf50fba478fcc6202c2ffde432fbb02b7506c9784246ad66dbd71459959caf"
+    },
+    ".github/agents/ch4-functional-expert.agent.md": {
+      "invariant_core": "22865343d5410a5b9f6bf746260ff712d050e3ef8c1427a60abd7f94bc5ec18e",
+      "component_spec": "afb2c665369612f83fe63a3a970a9aaeffef1768337d60c2b7132630a68d6430",
+      "review_protocol": "02cf50fba478fcc6202c2ffde432fbb02b7506c9784246ad66dbd71459959caf"
+    },
+    ".github/agents/ch5-probability-expert.agent.md": {
+      "invariant_core": "22865343d5410a5b9f6bf746260ff712d050e3ef8c1427a60abd7f94bc5ec18e",
+      "component_spec": "afb2c665369612f83fe63a3a970a9aaeffef1768337d60c2b7132630a68d6430",
+      "review_protocol": "02cf50fba478fcc6202c2ffde432fbb02b7506c9784246ad66dbd71459959caf"
+    },
+    ".github/agents/ch6-hypothesis-expert.agent.md": {
+      "invariant_core": "22865343d5410a5b9f6bf746260ff712d050e3ef8c1427a60abd7f94bc5ec18e",
+      "component_spec": "afb2c665369612f83fe63a3a970a9aaeffef1768337d60c2b7132630a68d6430",
+      "review_protocol": "02cf50fba478fcc6202c2ffde432fbb02b7506c9784246ad66dbd71459959caf"
+    },
+    ".github/agents/ch7-ols-expert.agent.md": {
+      "invariant_core": "22865343d5410a5b9f6bf746260ff712d050e3ef8c1427a60abd7f94bc5ec18e",
+      "component_spec": "ea81e5e2eeee40e78f5a174fcbea5c3c60fdf64095e04f1ef8fc3f78e02b0635",
+      "review_protocol": "02cf50fba478fcc6202c2ffde432fbb02b7506c9784246ad66dbd71459959caf"
+    },
+    ".github/agents/ch8-advanced-expert.agent.md": {
+      "invariant_core": "22865343d5410a5b9f6bf746260ff712d050e3ef8c1427a60abd7f94bc5ec18e",
+      "component_spec": "afb2c665369612f83fe63a3a970a9aaeffef1768337d60c2b7132630a68d6430",
+      "review_protocol": "02cf50fba478fcc6202c2ffde432fbb02b7506c9784246ad66dbd71459959caf"
+    },
+    ".github/agents/ch9-abm-expert.agent.md": {
+      "invariant_core": "22865343d5410a5b9f6bf746260ff712d050e3ef8c1427a60abd7f94bc5ec18e",
+      "component_spec": "afb2c665369612f83fe63a3a970a9aaeffef1768337d60c2b7132630a68d6430",
+      "review_protocol": "02cf50fba478fcc6202c2ffde432fbb02b7506c9784246ad66dbd71459959caf"
+    },
+    ".github/agents/cleanup.agent.md": {
+      "content": "6a2094fd4b5bd5f6579c01d0e1e0f00bc6c3ce6664a1304e2811996a8b838eb0"
+    },
+    ".github/agents/code-hygiene.agent.md": {
+      "content": "41091fdc19a0f3d1ae29a6779fcc1a4e1632ccfa7a09129218cdc7e999c46f7b"
+    },
+    ".github/agents/cohesion-repairer.agent.md": {
+      "content": "05a7539c5503e3c92c48972ead55bb6fdc5823742f13bb4b73139ab3ed1e837e"
+    },
+    ".github/agents/conflict-auditor.agent.md": {
+      "authority_sources_list": "cc41dc37ccfdc7d5028188354c7766e8313052d0b7fd927da648e5d1a7ef9ba8",
+      "rules": "9667b10268dd7a058c0dbeb757bbaf7937550a95bc459e2bdefcb4989b79b9a2",
+      "handoff_payload_conflict_codes": "506c97de1dfef1269beed438b6055154cd3a439047084983f9ac0a80353b7b51",
+      "handoff_payload_codes": "38a1bcd36aa352b02b6d96b38af008454e46d34b558188c323241ef43c3f3e1a",
+      "invariant_core": "9b62e5b358ee6726ec3600c39b2c57fb451c623a4fb6ade7f4776c2570e836dc",
+      "typed_handoff_audit": "fc72a6ded9e4248c0c174d24b21d57fe6ddd2bc09cf71feba6f5ddeac4802f67",
+      "behavioral_spec_cross_check": "d33518a32d59fa60e97f94e60df6934397e5e937e4716aea6a8e28f6fefbe597",
+      "memory_index_consultation": "d73e2eb4b3c7d5d30693d0f8f8d088d74ef4be6f0292e816083e774d29c563c2"
+    },
+    ".github/agents/conflict-resolution.agent.md": {
+      "content": "736e5e9e5084c8fbbfb214cfdef652b5a75e1db636a126595acdc105a7fe1a45",
+      "invariant_core": "22865343d5410a5b9f6bf746260ff712d050e3ef8c1427a60abd7f94bc5ec18e",
+      "memory_index_consultation": "1f9ab4e9c464b9123c74b5416a22acd7c1086b5f4d8311ac68c5c22969411f9b",
+      "rules": "5a133df68a1d37204898e3310a3756bb9bf7dbd1ede35e31e2b5800dcef55e65"
+    },
+    ".github/agents/content-enricher.agent.md": {
+      "content": "78acad314fb136e7cbdc516718fb3b22d233f2e2bed9ac388cabd1a0a5a172ca"
+    },
+    ".github/agents/git-operations.agent.md": {
+      "content": "88f320628f7f62fdfab1e329b2f1205001696a0681ea082bca5919af5d4b1b1a"
+    },
+    ".github/agents/navigator.agent.md": {
+      "invariant_core": "05aac7cabeea587ef7f6a7071f606bed85d271c26453655455db5122fe2fb52a",
+      "workstream_source_map": "c8632c06b437127f1ed936aa446ae95d37ad3a7a3de9911eaced61c9faaeeba5",
+      "invariant_rules": "9f02cd5b924adde05a397c1b80f155200b00f523ebc2e4ddce10fc55dffb80bd",
+      "code_index_consultation": "560588e20a4a7fccd2004323c8aa94422d41e8aa7ebf8ff48ab7dcbc5142ff41"
+    },
+    ".github/agents/orchestrator.agent.md": {
+      "constitutional_core": "e447f730dbfb55d33f01bac40e940edc40d6ddbb58725a99f59e7d30adab7c84",
+      "authority_hierarchy": "dd314acaa39c8d88e164518ba21213070b2cb2dadb80f5383bb1cb07efa11fed",
+      "routing_table_rows": "93b0b2a6265ca555772249885a0454e014f81d0183dd33bdc6cdbd3de751e3fa",
+      "update_compatibility_source_pack": "24662ea1c046bf2831dfa898b937114683aa5e9ca695b243aaf3241ca6ab34ea",
+      "available_workflows": "ff71922b0f63257bc3317616c29049f7b407fac129e22087441cc2bec0d07455"
+    },
+    ".github/agents/output-compiler.agent.md": {
+      "content": "56877fde8586b274c5085890a4f44961e43dda01368c5d649c33c41d30a9f3d0"
+    },
+    ".github/agents/primary-producer.agent.md": {
+      "content": "e91b2469c9dac4b1ac21600f18273dc67855f986dc7437902e6b1a6024e3a9ae"
+    },
+    ".github/agents/quality-auditor.agent.md": {
+      "content": "240bd4d43e1fa1638945f7379faceee1376cf9d9fd02d2b24f892cb1a51b8cbd",
+      "invariant_core": "22865343d5410a5b9f6bf746260ff712d050e3ef8c1427a60abd7f94bc5ec18e",
+      "defect_taxonomy": "e9468640170cbdc1e966b0c589f2d1e4926c1fde9ca792f49923fae80e903b79",
+      "memory_index_consultation": "27cbd064106c208ad8564aa435aaea40afad5719030e064b4f55d5708cb6b9c1",
+      "audit_protocol": "6f7dd04ad5bc4fdc90898a08269ca14eca4e0bd5826af0444d66debf313e1498",
+      "output_format": "4d2983fcb4a1bb09df289219928ea3844d56fed192f91098c702e458b5eb0e6e",
+      "boundary_rules": "91444ed2e3202780cdc752d5e4cefb5aea17e9d58c0d6dd6b009dcbf51e7f64c"
+    },
+    ".github/agents/repo-liaison.agent.md": {
+      "content": "fc024e5d12347ee610a17f84277a809437aa263356b3b99f776c5be44028df38",
+      "purpose": "54ca845c146a28f198d3bb35d04dbbf35bee904961806633defa6627aa30860d",
+      "invariant_core": "f0f34edb6582586d864dbe885bec73bcae2a2775d9da4b16071db654a921014a",
+      "protocols": "f3a7d921027d4d2ebc071fc89de05ec80c6f9dbc0627a6a227d4799e9c025eda",
+      "output_format": "92a7ecbd969c55a1ba9b02c7d56b9e23c4a65d486eeb6a0ae775690d3fbd6a46"
+    },
+    ".github/agents/security.agent.md": {
+      "threat_intelligence": "9fed40b2c5ddedb4bbafffa3813256b605fd39ccbe4b7fb38403e041f870240e",
+      "security_verdict_contract": "e17bc133696fef7e7aaa86af1023b9ad979f3f6cd87d853af62c8e019efff501",
+      "security_authority": "fd397e2cb2c58bdcea504a8da0bd264825b443d07772fcad55d6639e5ccae5ae",
+      "invariant_core": "ff22ac3ecdf1e94935ebec4ef2960946be13a0362b416ada020c97065d6e8f87",
+      "security_rules_invariant": "ba5e07be8fbe57acb3dee535007839326e78652746937c7e043859976111e2a9"
+    },
+    ".github/agents/style-guardian.agent.md": {
+      "content": "40f2aa23715047b294f8ad30b62c6030464d666f67365c040799a4c2701bc5f7"
+    },
+    ".github/agents/team-builder.agent.md": {
+      "content": "e5d320f7c48099bcbda7456950755668b8134f44a5fb0878a27810b2f07fb76e"
+    },
+    ".github/agents/technical-validator.agent.md": {
+      "authority_sources_list": "cc41dc37ccfdc7d5028188354c7766e8313052d0b7fd927da648e5d1a7ef9ba8",
+      "invariant_core": "7adfc511ccfd9b2a91c93a9a441afdc6b9650de80c17bfa4751125e09075621f",
+      "accuracy_rules": "cf7b9555eed3b39638fa1c1016f84caa590691686fdf6b47aeabc8ea8b2b0417",
+      "memory_index_consultation": "a1d83b568b52c6d48aec65e88b098c16ab229201c714d3794bafa82cec021bed",
+      "cross_reference_rules": "a98aee0f1402dd069e280347dd6eb751d7de27c4f05884aa43aebb4b484cd92e",
+      "output_format": "7bf8d1da76afa8db69ae4e2382d560767ef4c7a7831cc4d60f4917edc553272c",
+      "boundary_rules": "633e41e63ba35fde70c573320cc6ddbe6983a5b5644ad52a08dfd6a330768cda"
+    },
+    ".github/agents/tool-doc-researcher.agent.md": {
+      "content": "1a3cb76963c603586c19a32bed69ae0d2620120967251c3f216a1ae2169aaa12",
+      "invariant_core": "57148e053e2c27129b9d1550b06c854d3aed1ba20bdef4ed5d4f88ec07df9e87",
+      "memory_index_consultation": "2869a093a78cf057802c2ecd48f0b55ab5a97b2a9ce99211582ebc5b7c2cc0a1",
+      "documentation_discovery_strategies": "fbf469b5f86a24b9f66c3f8f87eca9aadf8669ad889a3f87caf133c4262f347f",
+      "what_to_research_per_tool": "41740352b84e48194ff41b84964ba9dd823e190864d4664e2c7826fe555bb14e",
+      "quality_constraints": "9fc5e1d33a34845b9af7f7dad60258c421ae7cc0721778e6bfec696a5c5405f6",
+      "output_format": "26feb1e9773fc461668c089a1538711f3be813573798cf809ac13b87eba9c204",
+      "external_retrieval_quality_gate": "86ea12930fbd72607c3f26ded370da4ff1ec1b164c379d948f7d64025adf6cdd"
+    },
+    ".github/agents/visual-designer.agent.md": {
+      "content": "084fb90b996b338aa0d559a5c1cb350ecc453d6c1aee07377901a77ef083787e"
+    },
+    ".github/agents/work-summarizer.agent.md": {
+      "content": "7a971a72fe474e94c1d3c9941de77a243580658ac6dc5d67934249e23c00bc20"
+    },
+    ".github/copilot-instructions.md": {
+      "project_overview": "649d2df0888c8d5e9efe9d5765ac8e7daae004307e1e1cdc91b8f52f0f59e7e4",
+      "directory_structure": "f7fc8650dda20af63a1bea48d894057ad4643968edf7f5b3eee1d54a582a0aaf",
+      "output_conventions": "5df30263dd5cefcc96b25f765ac2976128e8c96932d7d9336bb40c31d2d96f6d",
+      "agent_team": "e65a1d3b7023f4c8c3ea8dee839c6143fd1b996622eaaa6f21b7eb10d56ee48c",
+      "authority_hierarchy": "91651c5813d30323f72277cc898cff1adeade881b4d4a1eb9f890b2218c35529",
+      "constitutional_core": "42c4ffd29ed450ae96e0ef2e4f68d504568c3e1922bc4c10d1a7c0e9c054d7b3",
+      "source_repositories": "96069203d12ffab81e9b885c44f9c4b5392f7b695b0a7a0071c2480f2b97831f",
+      "tone_and_style": "d0b42a0c3d2c045dbbe4e980eb42023b1b31915d93e219545a8f78de1dcece24"
     }
   }
 }

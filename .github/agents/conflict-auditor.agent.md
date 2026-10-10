@@ -100,6 +100,7 @@ Append to `.github/agents/references/conflict-log.csv` with columns:
 3. Route `SOURCE_DRIFT` to `@technical-validator` for verification
 4. Call `@conflict-resolution` for decisions on all other conflicts
 5. A clean audit (no findings) must still produce an entry in the log
+6. Never change git state: nothing that writes the working tree, the index, refs or `.git/` (e.g. `git stash`, `checkout`, `switch`, `restore`, `reset`, `clean`, `add`, `commit`, `apply`, `merge`, `rebase`, `pull`, `worktree`), and edit no file other than the conflict log; to inspect old code, ask the caller for `git show <ref>:<path>` output (you run no commands). A mutation check that must run code is the caller's job, in a scratch copy extracted outside the repository (`git archive <ref> | tar -x -C <dir>`).
 
 ---
 <!-- AGENTTEAMS:END rules -->

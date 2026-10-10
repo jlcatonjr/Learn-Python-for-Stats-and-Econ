@@ -371,6 +371,54 @@ security control, ask: *can the thing being exempted choose to look like this?* 
 exemption is a bypass. Prefer reporting at low/medium severity over skipping entirely — a
 non-blocking finding preserves the signal that a skip destroys.
 
+### CH-31 — When to Convert an `if`/`elif` Chain to a Dispatch Table
+
+**Category:** Readability / Anti-Sprawl
+**Severity:** Advisory
+
+Complements [[CH-24]]'s "encode expected conditions in data". CH-24 states the *preference*
+(map valid cases in a dictionary / lookup table / dispatch map); this rule supplies the
+**decision test and — more importantly — the exclusions**, so that preference is not applied
+where it would *harm* clarity. Most `if`/`elif` chains are legitimately conditionals and must be
+left alone; converting them to tables loses ordering, side effects, or type-narrowing and can
+introduce bugs.
+
+**Flag a chain for conversion to a `dict` / registry / `match` only when ALL hold:**
+
+1. It dispatches on a **single key** (a `str`/`enum`/constant), not a compound or computed
+   predicate.
+2. Every branch is **homogeneous** — it returns/assigns a value or calls one handler — with **no**
+   per-branch early-`return`/`raise`/`continue` and no reliance on branch *ordering* or side
+   effects.
+3. There are **≥4 branches AND** a clear default/exhaustiveness story (do **not** qualify a chain
+   on branch count alone; conditions 1–2 carry the weight).
+
+**Never flag these — they stay `if`/`elif`, and CH-24's preference does NOT override this:**
+
+- Guard clauses and range/boolean tests.
+- `isinstance` / type narrowing.
+- Prefix/substring parsers, tokenizers, and character state machines.
+- First-match-ordered chains and negation/`or`-combined predicates (a plain dict would be
+  *semantically wrong*).
+- Boolean-precedence selectors, where the *ordering* is the logic.
+- Any chain whose branches do genuinely different work.
+
+**When unsure, KEEP the `if`.** A dispatch table is a win only for a single-key, homogeneous,
+open-ended fan-out — not a general replacement for conditionals.
+
+**Worked examples.**
+- *Win:* a `format` → renderer fan-out (`if fmt == "markdown": … elif fmt == "mermaid": …`) whose
+  every arm just assigns `output = graph.to_<fmt>()` → `renderers = {…}; output =
+  renderers.get(fmt, renderers[default])(graph)`.
+- *Non-win (KEEP):* an ordered substring classifier (`if "reference" not in h and "style" in h:
+  …`) — a plain `dict[str, handler]` cannot express the ordering/negation and would be incorrect.
+- *Non-win (KEEP):* a boolean-precedence label selector where the first-true branch among several
+  booleans *is* the intended precedence.
+
+**Enforcement check.** Judgment-based, exclusion-first: read the exclusion list before the
+preference. A chain is a CH-31 finding only if it passes all three flag conditions and matches
+none of the exclusions; otherwise it is CH-24-compliant as an `if`/`elif`.
+
 <!-- Example:
 ### CH-21 — Project-Specific Rule Name
 

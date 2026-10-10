@@ -31,6 +31,7 @@ This reference defines safe GitHub interaction and merge procedures for LearnPyt
 4. Check for merge conflicts and resolve using GitHub or local workflow as appropriate.
 5. Complete merge according to project policy (merge/squash/rebase).
 6. Run post-merge verification — including **CI/CD deployment verification** (see the next section) when the push/merge triggers Actions — and document noteworthy decisions for auditability.
+7. Dispose of the merged branch per `references/branch-lifecycle.reference.md` (post-merge step: `agentteams --branch-post-merge <branch>`), and record `Branch disposition`.
 
 ## Post-Merge / Post-Push CI/CD Deployment Verification
 
