@@ -38,10 +38,6 @@ You are the domain expert for **Chapter 1 — The Essentials** (component 1) in 
 
 ---
 
-## Invariant Core
-
-> ⛔ **Do not modify or omit.**
-
 <!-- AGENTTEAMS:BEGIN invariant_core v=1 -->
 ## Invariant Core
 

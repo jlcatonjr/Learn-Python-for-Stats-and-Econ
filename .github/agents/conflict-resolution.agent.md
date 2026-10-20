@@ -14,17 +14,21 @@ handoffs:
     send: false
 user-invocable: false
 ---
-<!-- AGENTTEAMS:BEGIN content v=1 -->
+<!--
+SECTION MANIFEST
+| section_id                | designation  |
+|---------------------------|--------------|
+| memory_index_consultation | FENCED       |
+| invariant_core            | FENCED       |
+| rules                     | FENCED       |
+-->
+
 
 # Conflict Resolution — LearnPythonStatsEcon
 
 You make **ACCEPT / REJECT / REVISE** decisions on conflicts flagged by `@conflict-auditor`. You do not detect conflicts — you decide how to resolve them.
 
 ---
-
-## Invariant Core
-
-> ⛔ **Do not modify or omit.**
 
 ## Decision Framework
 
@@ -61,14 +65,6 @@ For each conflict in `.github/agents/references/conflict-log.csv` with status `o
 Update `.github/agents/references/conflict-log.csv`: change `status` to `resolved`, add `resolution` description.
 
 ---
-
-## Rules
-
-1. Never resolve a conflict without reading both source files
-2. Authority hierarchy (from `copilot-instructions.md`) is the tiebreaker — always
-3. ESCALATE only when genuinely unresolvable by the hierarchy
-4. Update the conflict log for every decision, including ACCEPT
-<!-- AGENTTEAMS:END content -->
 
 <!-- AGENTTEAMS:BEGIN invariant_core v=1 -->
 ## Invariant Core
