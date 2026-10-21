@@ -38,10 +38,6 @@ You are the domain expert for **Chapter 4 — Functional Programming and Rudimen
 
 ---
 
-## Invariant Core
-
-> ⛔ **Do not modify or omit.**
-
 <!-- AGENTTEAMS:BEGIN invariant_core v=1 -->
 ## Invariant Core
 

@@ -38,10 +38,6 @@ You are the domain expert for **Chapter 9 — Agent-Based Modeling** (component 
 
 ---
 
-## Invariant Core
-
-> ⛔ **Do not modify or omit.**
-
 <!-- AGENTTEAMS:BEGIN invariant_core v=1 -->
 ## Invariant Core
 
