@@ -196,16 +196,24 @@ else
   for f in security-approvers.txt authorized-managers.txt management-authority.json; do echo x > "$CPR/$f"; done
   printf -- '---\nname: o\n---\n' > "$SCR/.claude/agents/orchestrator.md"; echo '#' > "$SCR/.claude/hooks/constitutional-gate.py"
   base="$(runwrap --scratch "$SCR" --egress deny -- /bin/bash -c 'echo x > "'"$SCR"'/cp-baseline" 2>/dev/null && echo WROTE || echo failed')"
+  # -f and </dev/null: BSD rm/mv ask "override?" for a write-protected file when stdin is a terminal, and a
+  # declined prompt exits 0, which read as an escape (a false FAIL). The verdict also checks the files themselves.
   conf="$(runwrap --scratch "$SCR" --egress deny -- /bin/bash -c '
     r=""
     (echo pwn > "'"$CPR"'/agent-privilege.json") 2>/dev/null && r="$r switch"
     (touch "'"$CPR"'/authorized-verify-keys/planted.pub.pem") 2>/dev/null && r="$r verify-key"
-    (rm "'"$CPR"'/build-log.json") 2>/dev/null && r="$r marker"
-    (mv "'"$CPR"'" "'"$SCR"'/.claude/agents/moved") 2>/dev/null && r="$r rename"
-    [ -z "$r" ] && echo denied || echo "ESCAPED:$r"')"
+    (rm -f "'"$CPR"'/build-log.json") 2>/dev/null && r="$r marker"
+    (mv -f "'"$CPR"'" "'"$SCR"'/.claude/agents/moved") 2>/dev/null && r="$r rename"
+    [ -z "$r" ] && echo denied || echo "ESCAPED:$r"' </dev/null)"
+  intact=yes
+  grep -q true "$CPR/agent-privilege.json" 2>/dev/null || intact="no (switch changed)"
+  [ -e "$CPR/authorized-verify-keys/planted.pub.pem" ] && intact="no (verify key planted)"
+  [ -e "$CPR/build-log.json" ] || intact="no (marker deleted)"
+  [ -e "$SCR/.claude/agents/moved" ] && intact="no (control plane renamed)"
   if [ "$base" = OUTERWALL ] || [ "$conf" = OUTERWALL ]; then unt "control plane" "outer sandbox_apply wall"
   elif [ "$base" != WROTE ]; then ind "control plane" "baseline write inside the root did NOT succeed (base=$base)"
-  elif [ "$conf" = denied ] && grep -q true "$CPR/agent-privilege.json"; then ok "baseline write OK; switch, verify-key plant, marker delete and ancestor rename all DENIED"
+  elif [ "$conf" = denied ] && [ "$intact" = yes ]; then ok "baseline write OK; switch, verify-key plant, marker delete and ancestor rename all DENIED"
+  elif [ "$intact" = yes ]; then ind "control plane" "a command reported success but every file is intact (confined=$conf): re-run"
   else no "control plane writable (confined=$conf)"; fi
 fi
 

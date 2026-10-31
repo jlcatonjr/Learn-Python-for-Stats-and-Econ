@@ -79,6 +79,9 @@ Destructive (file deletion, bulk edit ≥3 files), cross-repository, and
 Each runs as its own singleton wave and goes through its full per-step clearance
 first (`@security`; `@repo-liaison` + `@security`; the
 `references/bridge-refresh-safety.md` Pre-Flight) regardless of footprint analysis.
+Sandbox **operator** steps (`agent` = `operator`, `references/sandbox-handoff.reference.md`)
+run outside the agent sandbox and are likewise always singletons; the analyzer
+enforces this.
 
 ## Cross-plan: any-order, not concurrency
 
