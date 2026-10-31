@@ -1,8 +1,8 @@
 {
 "artifact_type":"memory-index",
 "memory_index_schema_version":"1.3",
-"index_format_version":"json-bm25-postings-v2",
-"index_build_id":"b4fe868aa579573fd8d15247bb534fd5fc48c2e5884c9d2eb47cc25021583e06",
+"index_format_version":"json-bm25-postings-v3",
+"index_build_id":"59b2208248d6a1174054171df7f30800244deefff722efc1a0aa971772261db5",
 "index_write_owner":"agentteams.build_team",
 "vector_runtime_mode":"sparse-tfidf-cosine",
 "vector_model_id":null,
@@ -11,10 +11,10 @@
 "source_fingerprint":"552f8670bfab464c55bdb13dcc23ac53cabddfe8abebee23e647337489010650",
 "project_name":"LearnPythonStatsEcon",
 "framework":"copilot-vscode",
-"built_at":"2026-10-20T15:50:42.586089Z",
+"built_at":"2026-10-31T11:16:05.282846Z",
 "source_count":1,
 "documents":[
-{"doc_id":0,"path":"README.md","title":"Learn-Python-for-Stats-and-Econ","length":1,"snippet":"","paragraphs":[],"source_hash":"d1da3ec8a373208b7d447b41072671520a18ad29252cb368cf848dd435ae81f6","source_mtime":1792509267.2476418,"vector_norm_sq":0.08276097481015168}
+{"doc_id":0,"path":"README.md","title":"Learn-Python-for-Stats-and-Econ","length":1,"snippet":"","paragraphs":[],"source_hash":"d1da3ec8a373208b7d447b41072671520a18ad29252cb368cf848dd435ae81f6","source_mtime":1793445051.7379448,"vector_norm_sq":0.08276097481015168}
 ],
 "postings":{
 "learn-python-for-stats-and-econ":[{"doc_id":0,"tf":1}]
