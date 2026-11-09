@@ -1,3 +1,4 @@
-# authorized-managers.txt: operator-only manager-team roster (one team id per line).
-# Comment-only stub written by agentteams so the sandbox can write-protect this path.
-# While it names nobody every management directive is refused, as if it were absent.
+# Authorized manager teams for this managed repository.
+# One manager team-id per line; '#' comments and blank lines are ignored.
+# A signed management directive is honoured only if its manager_team is listed here.
+infrastructure-management

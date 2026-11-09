@@ -1,4 +1,5 @@
 {
+  "authorized_managers": ["infrastructure-management"],
   "project_name": "LearnPythonStatsEcon",
   "project_goal": "Author and maintain a Python programming textbook for economists and social scientists, covering core Python, statistical analysis, econometrics, and data visualization. The textbook is delivered as a series of Jupyter notebooks organized into chapters, with accompanying tutorials, in-class demonstrations, and student projects.",
   "deliverables": [
