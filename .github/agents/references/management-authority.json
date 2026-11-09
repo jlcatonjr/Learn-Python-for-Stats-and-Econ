@@ -1,5 +1,7 @@
 {
   "is_management_repo": false,
-  "authorized_managers": [],
-  "note": "stub: written by agentteams so the sandbox can write-protect this path; declares no management authority (same as absent)."
+  "authorized_managers": [
+    "infrastructure-management"
+  ],
+  "note": "Management-repository endowment: names this repo's management status and the manager teams authorized to issue signed, scoped management directives. See references/instruction-authority.reference.md."
 }
